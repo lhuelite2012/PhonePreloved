@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh-tw">
+<head>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="男丁格爾's 脫殼玩">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/jscript" src="imageScaling.js"></script>
+
+<title>滑出式說明描述</title>
+<style type="text/css">
+	.hover {
+		margin: 0;
+		padding: 0;
+		width: 300px;
+		height: 310px;
+		overflow: hidden;
+		position: relative;
+	}
+	.hover img {
+		position: absolute;
+		border: 0;
+	}
+	.hover .caption {
+	position: absolute;
+	top: 270px;	/* .abgne_tip_gallery_block 的高 - 想顯示 title 的高(這邊是設 55) */
+	width: 300px;	/* .abgne_tip_gallery_block 的寬 - .caption 的左右 padding */
+	cursor: pointer;
+	color: #fff;
+	background: url(1px_black.png) repeat;
+	left: 1px;
+	height: 300px;
+	}
+	.hover .caption h2 {
+		margin: 0;
+		padding: 0px 0px 15px;
+	}
+	.hover .caption h2 a {
+		text-decoration: none;
+		color: #fc6; 
+	}
+	.hover .caption h2 a:hover {
+		text-decoration: underline;
+	}
+	#desc{
+		width:300px;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$('.hover').each(function(){
+			var $this = $(this), 
+				 $caption = $('.caption', $this);
+			// 當滑鼠移動到區塊上時
+			$this.hover(function(){
+				// 讓 $caption 往上移動
+				$caption.stop().animate({
+					top:  45
+				}, 200);
+			}, function(){
+				// 讓 $caption 移回原位
+				$caption.stop().animate({
+					top:  270
+				}, 200);
+			});
+		});
+	});
+</script>
+</head>
+
+<body>
+	<br />
+
+	<div class="hover">
+		<a href="#"><img src="../commodity/003.jpg" align="" width="300px" /> </a> 
+		<div class="caption">
+			<h2><a href="#" title="價格">300</a></h2>
+			<div class="desc">
+				簡單的摘要描述內容，可放入任何 html 資料在此處。
+			</div>
+		</div>
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <?php
 	ob_start();
-	include("server.php");
 	include("main.php");
 	include("addtime.php");  //資料庫時間
 	include("commodityPath.php");

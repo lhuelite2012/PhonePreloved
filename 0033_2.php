@@ -10,7 +10,7 @@
 		position:absolute;
 		overflow: hidden;
 		border: 1px solid #ccc;
-		top:-40px;
+		top:0px;
 	}
 	#abgneBlock ul.list {
 		padding: 0;

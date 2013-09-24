@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	include("server.php");
+	include("commodityPath.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="zh-tw">
@@ -30,7 +32,7 @@
 	margin-left: auto;
 	z-index: 20;
 	left: -100px;
-	top:-37px;
+	top:-2px;
 	}
 	#hmenu li {
 		float:left;
@@ -194,12 +196,24 @@
 	if(isset($_SESSION['m_number']))
 	{
 		$m_number = $_SESSION['m_number'];
+		$push_sql = "select count(*) from push where m_number = $m_number and p_check = false";
+		$push_result = mysql_query($push_sql);
+		$push_total = mysql_fetch_row($push_result);
+		if($push_total[0] == 0)
+			$push_total[0] = "";
+	
+		$push_view = "select * from push join bid join commodity join members on push.m_number = members.m_number and push.bid_number = bid.bid_number and push.c_number = commodity.c_number where push.m_number = $m_number";
+		$push_view_result = mysql_query($push_view);
+
 		include("./push/pushShow.php");
 ?>
 		<div id="apDiv11">
         	<div id="pushbox">
             	<div id="pushTotal">
 					<?php if($push_total[0]<20) echo $push_total[0]; else echo "<font size='-4'>".$push_total[0]."</font>";?>
+                    <script type="text/javascript">
+						var push_total = <?php echo $push_total[0];?>
+                    </script>
                 </div>
             </div>
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
@@ -251,8 +265,6 @@
 			}, 200);
 		});
 		
-		var push_total = <?php echo $push_total[0];?>
-		
 		if(push_total > 0){
 			$("#pushbox").css("background","url(%E7%B4%A0%E6%9D%90/icon.png)");
 			$("#pushbox").css("background-repeat","no-repeat");
@@ -266,5 +278,6 @@
 			 $(this).css("background-repeat","no-repeat");
 			 $("#pushTotal").hide(); //消失
 		});
+		
 	});
 </script>

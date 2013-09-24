@@ -42,17 +42,6 @@
 		position:relative;
 	}
 </style>
-<?php
-	include("server.php");
-	include("commodityPath.php");
-	$push_sql = "select count(*) from push where m_number = $m_number and p_check = false";
-	$push_result = mysql_query($push_sql);
-	$push_total = mysql_fetch_row($push_result);
-	if($push_total[0] == 0)
-		$push_total[0] = "";
-	
-	$push_view = "select * from push join bid join commodity join members on push.m_number = members.m_number and push.bid_number = bid.bid_number and push.c_number = commodity.c_number where push.m_number = $m_number";
-	$push_view_result = mysql_query($push_view);?>
     	<div id="beeper"></div>
     	<div id="pushShow">
         	<font color="#333333" size="3">　最新通知</font>

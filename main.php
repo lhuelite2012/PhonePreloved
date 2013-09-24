@@ -190,22 +190,19 @@
 	</div>
 </a>
 	<div id="green"><img src="素材/綠色分隔線2.png" width="940" height="9" alt="綠線"></div>
-
-
 <?php
 	if(isset($_SESSION['m_number']))
 	{
 		$m_number = $_SESSION['m_number'];
-		$push_sql = "select count(*) from push where m_number = $m_number and p_check = false";
+		$push_sql = "select count(*) from push where push_m_number = $m_number and p_check = false";
 		$push_result = mysql_query($push_sql);
 		$push_total = mysql_fetch_row($push_result);
 		if($push_total[0] == 0)
 			$push_total[0] = "";
-	
-		$push_view = "select * from push join bid join commodity join members on push.m_number = members.m_number and push.bid_number = bid.bid_number and push.c_number = commodity.c_number where push.m_number = $m_number";
+		$push_view = "select  p.p_type,p.p_time,p.c_number,p.bid_number,b.bid_price,b.m_number,c.c_name,c.c_mp,m.name from push p join bid  b join commodity c join members m on b.m_number = m.m_number and p.bid_number = b.bid_number and p.c_number = c.c_number where p.push_m_number = $m_number ";
 		$push_view_result = mysql_query($push_view);
 
-		include("./push/pushShow.php");
+		//include("./push/pushShow.php");
 ?>
 		<div id="apDiv11">
         	<div id="pushbox">

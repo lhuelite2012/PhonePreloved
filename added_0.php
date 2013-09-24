@@ -475,6 +475,7 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 				case 7:
 				?><script> window.alert ("主要圖片上傳檔案無法寫入"); window.history.back(); 
 				</script><?PHP
+				break;
 				case 8:
 				?><script> window.alert ("主要圖片上傳停止"); window.history.back(); </script><?PHP
 				break;

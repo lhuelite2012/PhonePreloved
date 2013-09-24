@@ -13,6 +13,7 @@
 			left:50%;
 			margin-left:-250px;
 			width:500px;
+			top:100px;
 		}
 		#form{
 			position:absolute;

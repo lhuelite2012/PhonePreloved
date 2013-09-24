@@ -16,13 +16,13 @@ include("main.php");
  		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 	#newView{
-	position: absolute;
+	position: relative;
 	z-index: 10;
 	left: 31px;
-	top: 416px;
+	top: 100px;
 	}
 	#newVi{
-	position: absolute;
+	position:absolute;
 	width: 652px;
 	height: 175px;
 	left: 14px;
@@ -167,7 +167,7 @@ include("main.php");
 	height: 150px;
 	z-index: 6;
 	left: 727px;
-	top: 426px;
+	top: 510px;
 	background-color: #F8F8EC;
 	border-radius:5px 5px 5px 5px;
 }

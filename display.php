@@ -192,7 +192,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 	width: 145px;
 	height: 115px;
 	z-index: 6;
-	top: 48px;
+	top: 150px;
 	left: -8px;
 	}/*apdiv1 購物下左邊商品欄圖*/
 	#apDiv4 {

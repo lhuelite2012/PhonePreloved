@@ -22,50 +22,28 @@
 <style type="text/css">
 	
 
-	#hmenu {
+	#hmenu1 {
 	position:relative;
 	padding: 0 45px;
 	list-style: none;
-	width: 500px; /* 630-45*2 */
-	height: 100px;
+	height: 42px;
 	margin-left: auto;
 	z-index: 20;
-	left: -100px;
-	top:-2px;
+	left:400px;
+	overflow: hidden;
+	top:77px;
 	}
-	#hmenu li {
+	#hmenu11,#hmenu22,#hmenu33{
+		position:relative;
+		height: 100px;
 		float:left;
-		margin: 77px 0px 0 0;
-	}
-	#hmenu li a {
-		display:block;
-		width:134px; /* 圖片的寬 */
-		height: 44px; /* 圖片的高/2 */
-		line-height: 31px;	/* ie suck */
-		text-indent: -9999px;
-	
-	}
-	#hmenu a.b1 {
-		background:url(%E7%B4%A0%E6%9D%90/%E8%B3%BC%E7%89%A9%E5%88%972.png);
-		width:105px;	
-
-
-	}
-	#hmenu a.b2 {
-		background:url(%E7%B4%A0%E6%9D%90/%E6%88%91%E8%A6%81%E8%B3%A3%E6%9D%B1%E8%A5%BF%E5%88%972.png);
-		width:152px;
-		
-	}	
-	#hmenu a.b3 {
-		background:url(%E7%B4%A0%E6%9D%90/%E6%9C%83%E5%93%A1%E4%BA%92%E5%8B%95%E5%8D%80%E5%88%972.png);
-		width:152px;
 	}
 	
 
 #green {
 	position:absolute;
 	width:200px;
-	z-index:2;
+	z-index:21;
 	padding-top:112px;
 }
 #cetest{
@@ -228,12 +206,11 @@
 	}
 ?>
  
-<ul id="hmenu">
-		<li><a href="display.php" class="b1">購物</a></li>
-		<li><a href="added_1.php" class="b2">我要賣東西</a></li>
-		<li><a href="#" class="b3">會員互動區</a></li>
-		
-</ul>
+<div id="hmenu1">
+	<a href="display.php"><div id="hmenu11"><img src="素材/購物列2.png" /></div></a>
+    <a href="added_1.php"><div id="hmenu22"><img src="素材/我要賣東西列2.png" /></div></a>
+    <a href="#"><div id="hmenu33"><img src="素材/會員互動區列2.png" /></div></a>
+</div>
 	
 	<br class="clear" />
     
@@ -244,21 +221,16 @@
 </html>
 <script type="text/javascript">
 	$(function(){
-		// 幫 #hmenu li a 加上 hover 事件
-		$("#hmenu li a").hover(function(){
-			// 滑鼠移進選項時..
-			// 把背景圖片的位置往上移動
-			var _this = $(this),
-				_height = _this.height() * -1+3;
-			_this.stop().animate({
-				backgroundPosition: "0px " + _height + "px"
-			}, 200);
-		}, function(){
-			// 滑鼠移出選項時..
-			// 把背景圖片的位置移回原位
-			$(this).stop().animate({
-				backgroundPosition: "0px 0px"
-			}, 200);
+		$('#hmenu1 div').hover(function(){
+				// 讓 $caption 往上移動
+				$(this).stop().animate({
+					top: "-45px"
+				}, 200);
+			}, function(){
+				// 讓 $caption 移回原位
+				$(this).stop().animate({
+					top:  "0px"
+				}, 200);
 		});
 		
 		if(push_total > 0){

@@ -6,10 +6,10 @@
 	#abgneBlock {
 		width: 940px;
 		height: 400px;
-		position:absolute;
+		position:relative;
 		overflow: hidden;
 		border: 1px solid #ccc;
-		top:0px;
+		top:80px;
 	}
 	#abgneBlock ul.list {
 		padding: 0;

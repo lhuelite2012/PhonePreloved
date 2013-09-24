@@ -12,7 +12,7 @@
 	#date{
 	position:relative;
 	left: 63px;
-	top: 129px;
+	top: 180px;
 	width:900px;
 	background:#FFF;
 	border-radius: 5px 5px 5px 5px;

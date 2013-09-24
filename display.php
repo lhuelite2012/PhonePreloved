@@ -10,6 +10,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="all.css" type="text/css" />
+	<script src="jQuery/jquery-1.5.2.min.js"></script>
+    <script src="jQuery/hover.js"></script>
+    <script src="jQuery/move.js"></script>
 <style type="text/css">
 	/*
 	以下為display.php的樣式
@@ -459,8 +462,7 @@ function MM_swapImage() { //v3.0
 <?php
     }
 ?>
-    <script src="jQuery/hover.js"></script>
-    <script src="jQuery/move.js"></script>
+
 
 		<script>
 			

@@ -4,8 +4,7 @@
 	include("commodityPath.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="zh-tw">
-<head>
+<html lang="zh-tw"><head>
 <link rel="icon" href="素材/icon.png" />
 <link rel="stylesheet" href="all.css" type="text/css" />
 

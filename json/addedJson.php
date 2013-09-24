@@ -270,6 +270,43 @@ $json = array();
 		die();
 	}
 	
+if(!empty($_FILES["c_picture"]["name"])){
+	$file = explode (".",$_FILES['c_picture']['name'][$j]);//找出檔案的副檔名
+	$extension = $file[count($file)-1];
+	$name = date("ymdhis").".".$extension;
+	$i = count($_FILES["c_picture"]["name"]);
+	for($j=0;$j<$i;$j++){
+		$file = explode (".",$_FILES['c_picture']['name'][$j]);//找出檔案的副檔名
+		$extension = $file[count($file)-1];
+		$name = date("ymdhis").".".$extension;
+		$tmpfile=$_FILES["c_picture"]["tmp_name"][$j];//server端站存檔名
+		$file2=mb_convert_encoding($_FILES["c_picture"]["name"][$j],"big5","utf8");
+		if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == "")){//限定檔案gif jpg
+	  		if(move_uploaded_file($tmpfile,$picturePathWeb."c_picture_".$j."_".$name)){//上傳檔案
+				$src = $picturePathWeb."c_picture_".$j."_".$name;
+				$dest = $src;
+				$destW = 400;
+				$destH = 400;
+				imagesResize($src,$dest,$destW,$destH);
+				$c_picture = $picturePathPhone."c_picture_".$j."_".$name;
+			   
+				$src = $picturePathWeb."c_picture_".$j."_".$name;
+				$dest = $picturePathPhone."Phone_".$j."_".$name;
+				$destW = 260;
+				$destH = 250;
+				imagesResize($src,$dest,$destW,$destH);
+			
+				$sql_query2 = "INSERT into c_picture(c_number,c_picture) VALUES ('$c_number',''$c_pictur')";
+				mysql_query($sql_query2);				
+			}//上傳檔案if
+		}
+		else{//限定檔案
+			$json['error'] = "主要圖片檔案格式錯誤4";
+			echo json_encode($json);
+			die();
+		}
+	}//for迴圈
+}
 
 if($insert_result = mysql_query($insert_sql)){
 	$sql = "select c_number from commodity where c_name = '$c_name' and c_price = '$c_price' and c_gender = '$c_gender' and uptime = '$uptime'";

@@ -1,7 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="zh-tw">
 <head>
-</script>
 <title>左右水平廣告輪播</title>
 <style type="text/css">
 	#abgneBlock {
@@ -51,6 +50,7 @@
 		background-position: 0 0;
 	}
 </style>
+<script type="text/javascript" src="jQuery/jquery-1.5.2.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		// 先取得必要的元素並用 jQuery 包裝

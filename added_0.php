@@ -450,7 +450,7 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 		mysql_query($sql_query);
 		
 	$_SESSION['score'] = $score;		
-		header("Location: http://localhost/added_4.php");
+		header("Location:added_4.php");
 	
     }//上傳檔案if
   	else//上傳檔案

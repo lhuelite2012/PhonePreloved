@@ -79,7 +79,7 @@ body {
 	position: absolute;
 	width: 256px;
 	height: 98px;
-	z-index: 15;
+	z-index: 100;
 	top: 20px;
 	left: 31px;
 }

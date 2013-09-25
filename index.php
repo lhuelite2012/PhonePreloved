@@ -165,7 +165,7 @@ include("main.php");
 	position: absolute;
 	width: 180px;
 	height: 150px;
-	z-index: 6;
+	z-index: 20;
 	left: 727px;
 	top: 510px;
 	background-color: #F8F8EC;
@@ -176,6 +176,7 @@ include("main.php");
 </head>
 
 <body>
+
 <div id="ce2">
 <?php if(!isset($_SESSION['m_number'])){?>
 <div id="login">

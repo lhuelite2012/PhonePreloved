@@ -25,19 +25,15 @@
 		$sql = "update members set phone = '$phone',fb_id = '$fb_id',line_id = '$line_id' where m_number = $m_number";
 		mysql_query($sql);
 		
-		
-		if(isset($_REQUEST['personally'])){
+	
 			$personally = $_REQUEST['personally'];
+			$per_time = $_REQUEST['per_time'];
 			$sql = "update members set personally = '$personally' where m_number = $m_number";
 			mysql_query($sql);
 			//交易資料庫 有personally
-			$sql = "insert into transaction (t_time,m_number,c_number,personally) value ('$addtime','$bidder','$c_number','$personally')";
+			$sql = "insert into transaction (t_time,m_number,c_number,personally,per_time) value ('$addtime','$bidder','$c_number','$personally','$per_time')";
 			mysql_query($sql);	
-		}else{
-			//交易資料庫 沒有personally
-			$sql = "insert into transaction (t_time,m_number,c_number) value ('$addtime','$bidder','$c_number')";
-			mysql_query($sql);		
-		}
+		
 		$data["yy"] = "存入成功" ;
 	}else 
 		$data["yy"] = "transaction已有得標者" ;

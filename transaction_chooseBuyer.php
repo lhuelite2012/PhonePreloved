@@ -121,6 +121,17 @@ ORDER BY 1 DESC
             	<td> 面交詳細地點：</td>
                 <td><textarea name="personally"><?php echo $m_row['personally']; ?></textarea></td>
             </tr>
+            <tr>
+            	<td>可面交時間：　</td>
+                <td>
+                	<select name="time">
+                    	<option value="全天 ( 08:00 ~ 22:00 )" <?php if($row[5]=='全天 ( 08:00 ~ 22:00 )') echo "selected" ?>>　全天 ( 08:00 ~ 22:00 )</option>
+                    	<option value="早上 ( 08:00 ~ 12:00 )" <?php if($row[5]=='早上 ( 08:00 ~ 12:00 )') echo "selected" ?>>　早上 ( 08:00 ~ 12:00 )</option>
+                        <option value="下午 ( 12:00 ~ 18:00 )" <?php if($row[5]=='下午 ( 12:00 ~ 18:00 )') echo "selected" ?>>　下午 ( 12:00 ~ 18:00 )</option>
+                        <option value="晚上 ( 18:00 ~ 22:00 )" <?php if($row[5]=='晚上 ( 18:00 ~ 22:00 )') echo "selected" ?>>　晚上 ( 18:00 ~ 22:00 )</option>
+                    </select>
+                </td>
+            </tr>
             <?php } ?>
             <?php 
 			$sql ="select c_mode from c_mode where c_number = $c_number and c_mode = '匯款'";

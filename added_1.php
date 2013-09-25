@@ -40,7 +40,8 @@ include("main.php");
 
 <body >
 <?PHP 
-
+$sql = "delete from commodity where uptime = downtime";
+mysql_query($sql);
 include("loginConfirm.php"); 
 ?>
 <div id=ce2>

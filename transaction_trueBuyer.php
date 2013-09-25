@@ -18,6 +18,7 @@
 	$line_id = $_POST['line_id'];
 	$rank_account = $_POST['rank_account']; //銀行帳號		
 	$personally = $_POST['personally'];   //面交詳細資料
+	$per_time = $_POST['time'];
 	if(isset($choosebuyer) and isset($c_number)){
 		$sql = "SELECT MAX( bid.bid_price ) as bid_price
 FROM bid
@@ -33,7 +34,7 @@ ORDER BY 1 DESC";
 		$being = mysql_num_rows($result);
 		if($being == 0){
 			//存入transaction
-			$sql = "insert into transaction (t_time,m_number,c_number) value ('$addtime','$choosebuyer','$c_number')";
+			$sql = "insert into transaction (t_time,m_number,c_number,personally,per_time) value ('$addtime','$choosebuyer','$c_number','$personally','$per_time')";
 			mysql_query($sql);
 			//存入 commodity orbidder
 			$sql = "update commodity set orbidder = '$choosebuyer' ,downtime = '$addtime',bid_price = '".$bid_price[0]."' where c_number = $c_number";
@@ -41,6 +42,8 @@ ORDER BY 1 DESC";
 			
 			$sql = "update members set fb_id = '$fb_id' ,line_id = '$line_id', rank_account = '$rank_account',personally = '$personally' where m_number = $m_number";
 			mysql_query($sql);
+			
+			
 			?>
 				<script type="text/javascript">
 				alert("選擇成功");

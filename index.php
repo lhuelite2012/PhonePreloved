@@ -165,7 +165,7 @@ include("main.php");
 	position: absolute;
 	width: 180px;
 	height: 150px;
-	z-index: 20;
+	z-index: 100;
 	left: 727px;
 	top: 510px;
 	background-color: #F8F8EC;

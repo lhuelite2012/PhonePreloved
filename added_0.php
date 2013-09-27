@@ -337,8 +337,8 @@ if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
       
    $src = $popPathWeb.$name;
    $dest = $popPathPhone.$name;
-   $destW = 260;
-   $destH = 250;
+   $destW = 200;
+   $destH = 200;
    imagesResize($src,$dest,$destW,$destH);
    
 	$score = $score + 5 ;

@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -57,7 +57,7 @@ function MM_swapImage() { //v3.0
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body onload="MM_preloadImages('素材/競標中鈕-藍字.png','素材/沒得標鈕-藍字.png','素材/已得標鈕-藍字.png','素材/販賣中鈕-藍字.png','素材/沒賣出鈕-藍字.png','素材/已賣出鈕-藍字.png')">
-<?		
+<?PHP		
 	//查詢會員帳號
 	$u = $_SESSION["m_number"];
 	$sql = "select * from members where m_number = '$u'";
@@ -76,7 +76,7 @@ function MM_swapImage() { //v3.0
     <hr width="500" size="1" /><p></p>
     <font size="5" color="#0000FF"><strong>　</strong></font><p></p>
     <hr width="500" size="1" /><p></p>
-<?	
+<?PHP	
 	//預設目前0筆資料
 	$items = 0;
 	
@@ -118,28 +118,28 @@ function MM_swapImage() { //v3.0
 		<tr><td></td></tr>
     	<tr>
         	<td rowspan="6">　</td>
-        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
             <td rowspan="6">　</td>
 		</tr>
         <tr>
-        	<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+        	<th><label><font size="4" color="#880015"><strong><?PHP echo $list3_c[1]?></strong></font></label></th>
         </tr>
         <tr>
-			<td><label><font size="3" color="#8080C5"><strong>得標者：<? echo $list3_cm[47]?></strong></font></label></td>
+			<td><label><font size="3" color="#8080C5"><strong>得標者：<?PHP echo $list3_cm[47]?></strong></font></label></td>
 		</tr>
 		<tr>
-			<td><label><font size="3" color="#8080C5"><strong>得標金額：<? echo $list3_c[3]?> 元</strong></font></label></td>
+			<td><label><font size="3" color="#8080C5"><strong>得標金額：<?PHP echo $list3_c[3]?> 元</strong></font></label></td>
 		</tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>得標時間：<? echo $list3_c_[4]?></strong></font></label></td>
+        	<td><label><font size="3" color="#8080C5"><strong>得標時間：<?PHP echo $list3_c_[4]?></strong></font></label></td>
 		</tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>下架時間：<? echo $list3_c[9]?></strong></font></label></td>
+        	<td><label><font size="3" color="#8080C5"><strong>下架時間：<?PHP echo $list3_c[9]?></strong></font></label></td>
 		</tr>
         <tr><td></td></tr>
 	</table>
     <br/>
-<?
+<?PHP
 		}
 	}
 	
@@ -148,7 +148,7 @@ function MM_swapImage() { //v3.0
 		echo "很抱歉，尚未有任何資料。";
 	}
 ?>
-	<div id="items"><strong>沒得標 共 <? echo $items;?> 筆</strong></div>
+	<div id="items"><strong>沒得標 共 <?PHP echo $items;?> 筆</strong></div>
 </form>
 </div>
 	<div id="apDiv80"><a href="buying.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','素材/競標中鈕-藍字.png',1)"><img src="素材/競標中鈕-白字.png" name="Image6" width="131" height="61" border="0" id="Image6" /></a></div>

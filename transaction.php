@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -42,7 +42,7 @@ include("commodityPath.php");
     <font size="5" color="#FF0000"><strong>賣家付款資訊</strong></font>
     <p></p>
   
-<?	
+<?PHP	
 	$m_number = $_SESSION["m_number"];
 	
 	if(isset($_GET['c_number'])) //若已得標
@@ -61,34 +61,34 @@ include("commodityPath.php");
 		if($true > 0) //若transaction內有交易資料
 		{
 ?>
-<? //style="table-layout:fixed" 平均分配欄寬 ?>
+<?PHP //style="table-layout:fixed" 平均分配欄寬 ?>
 <table width="570" height="450" border="1" cellspacing="3" bordercolor="#cococo" style="border-collapse:collapse">
     <tr height="30">
         <th width="170px" bgcolor="#999999"><font color="#FFFFFF">商品名稱：</font></th>
-        <th width="200px"><? echo $row['c_name']; ?></th>  
-        <th width="200px" rowspan="5"><? echo '<img src="'.$displayPathWeb.''.$row['c_mp'].'"onload="javascript:DrawImage(this,120,120);"/>'?></th>  
+        <th width="200px"><?PHP echo $row['c_name']; ?></th>  
+        <th width="200px" rowspan="5"><?PHP echo '<img src="'.$displayPathWeb.''.$row['c_mp'].'"onload="javascript:DrawImage(this,120,120);"/>'?></th>  
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">得標價格：</font></th>
-        <th><? echo $row['bid_price']; ?></th>
+        <th><?PHP echo $row['bid_price']; ?></th>
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">商品性質：</font></th>
-        <th><? echo $row['c_gender']; ?></th>
+        <th><?PHP echo $row['c_gender']; ?></th>
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">商品所在：</font></th>
-        <th><? echo $row['location']; ?></th>
+        <th><?PHP echo $row['location']; ?></th>
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">商品新舊：</font></th>
-        <th><? echo $row['oan']; ?></th>
+        <th><?PHP echo $row['oan']; ?></th>
 	</tr>
     
     <tr height="30">
 		<th colspan="3" bgcolor="#999999">
         <font color="#FFFFFF">賣家付款方式為：</font><font color="#FFFF99">
-		<? 
+		<?PHP 
 			//查詢賣家付款方式
 			$sql_p = "select * from  c_payment where c_number = '$c_number'";
 			$result_p = mysql_query($sql_p);
@@ -105,7 +105,7 @@ include("commodityPath.php");
 	<tr height="30">
 		<th colspan="3" bgcolor="#999999">
         <font color="#FFFFFF">賣家交易方式為：</font><font color="#FFFF99">
-		<? 
+		<?PHP 
 			//查詢賣家交易方式
 			$sql_m = "select * from c_mode where c_number = '$c_number'";
 			$result_m = mysql_query($sql_m);
@@ -121,20 +121,20 @@ include("commodityPath.php");
     
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家帳號：</font></th>
-        <th colspan="2"><? echo $row['account']; ?></th>
+        <th colspan="2"><?PHP echo $row['account']; ?></th>
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家姓名：</font></th>
-        <th colspan="2"><? echo $row['name']; ?></th>
+        <th colspan="2"><?PHP echo $row['name']; ?></th>
 	</tr>
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家電話：</font></th>
-        <th colspan="2"><? echo $row['phone']; ?></th>
+        <th colspan="2"><?PHP echo $row['phone']; ?></th>
 	</tr>
 	<tr height="30">
         <th bgcolor="#999999"><font color="#FFFFFF">賣家FB帳號：</font></th>
         <th colspan="2">
-        <? 
+        <?PHP 
 			if($row['fb_id'] != '')
 			{ 
 				echo $row['fb_id']; 
@@ -149,7 +149,7 @@ include("commodityPath.php");
     <tr height="30">
         <th bgcolor="#999999"><font color="#FFFFFF">賣家Line帳號：</font></th>
         <th colspan="2">
-		<? 
+		<?PHP 
 			if($row['line_id'] != '')
 			{ 
 				echo $row['line_id']; 
@@ -161,7 +161,7 @@ include("commodityPath.php");
 		?>
         </th>
     </tr>
-	<? 
+	<?PHP 
 		 
 		//查詢賣家付款方式
 		$sql_pp = "select * from c_payment where c_number = '$c_number'";
@@ -175,9 +175,9 @@ include("commodityPath.php");
 	?>
     <tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家銀行帳號：</font></th>
-        <th colspan="2"><? echo $row['rank_account']; ?></th>
+        <th colspan="2"><?PHP echo $row['rank_account']; ?></th>
     </tr>
-	<? 
+	<?PHP 
 			}
 	
 			if($row_pp['c_payment'] == '面交')
@@ -185,13 +185,13 @@ include("commodityPath.php");
 	?>							
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家面交時段：</font></th>
-        <th colspan="2"><? echo $row['per_time']; ?></th>
+        <th colspan="2"><?PHP echo $row['per_time']; ?></th>
 	</tr>
     <tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家面交詳細資料：</font></th>
-        <th colspan="2"><? echo $row['personally']; ?></th>
+        <th colspan="2"><?PHP echo $row['personally']; ?></th>
 	</tr>
-    <? 
+    <?PHP 
 			}
 		}
 	?>
@@ -199,10 +199,10 @@ include("commodityPath.php");
 	
     <p></p>    
 	<a align="center" href="won.php" style="color:#0000FF;text-decoration:none;">
-    <strong>上一頁</strong>
+    <strong>回上一頁</strong>
     </a>
     
-<? 
+<?PHP 
 		}
 		else
 		{
@@ -210,7 +210,7 @@ include("commodityPath.php");
 			<script>
 				location.href = './index.php';
 			</script>
-<?
+<?PHP
 		}
 	}
 	else
@@ -219,7 +219,7 @@ include("commodityPath.php");
 		<script>
 			location.href = './index.php';
 		</script>
-<?
+<?PHP
 	}
 ?>
 </div>

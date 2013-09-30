@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,7 +9,7 @@ include("server.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<?	
+<?PHP	
 	$sql = "UPDATE `members` SET `password`='".$_POST["password1"]."'WHERE `m_number`='".$_SESSION["m_number"]."'";
 	
 	mysql_query($sql); //執行$sql更新語法

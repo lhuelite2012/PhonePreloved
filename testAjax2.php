@@ -1,5 +1,5 @@
-
-
+<?php include("server.php"); ?>
+<script src="jQuery/imageScaling.js"></script>
 	<div id="push_all">
     	<div id="beeper"></div>
     	<div id="pushShow">

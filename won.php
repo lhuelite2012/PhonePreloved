@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -26,6 +26,14 @@ table
 	z-index:8;
 	left: 325px;
 	top: 258px;
+}
+#t
+{
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:8;
+	left:380px;
 }
 </style>
 <script type="text/javascript">
@@ -54,7 +62,7 @@ function MM_swapImage() { //v3.0
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body onload="MM_preloadImages('素材/競標中鈕-藍字.png','素材/沒得標鈕-藍字.png','素材/已得標鈕-藍字.png','素材/販賣中鈕-藍字.png','素材/沒賣出鈕-藍字.png','素材/已賣出鈕-藍字.png')">
-<?
+<?PHP
 	//查詢會員帳號
 	$u = $_SESSION["m_number"]; 
 	$sql = "select * from members where m_number = '$u'";
@@ -73,9 +81,9 @@ function MM_swapImage() { //v3.0
 <div align="center" id="apDiv61">
 	<font size="5" color="#FF0000"><strong>拍賣紀錄</strong></font><p></p>
     <hr width="500" size="1" /><p></p>
-    <font size="5" color="#0000FF"><strong>已得標 共 <? echo $row;?> 筆</strong></font><p></p>
+    <font size="5" color="#0000FF"><strong>已得標 共 <?PHP echo $row;?> 筆</strong></font><p></p>
     <hr width="500" size="1" /><p></p>
-<?	
+<?PHP	
 	while($list3_c = mysql_fetch_row($query_c))
 	{
 				
@@ -96,82 +104,101 @@ function MM_swapImage() { //v3.0
 	<tr><td></td></tr>
 	<tr>
 		<td rowspan="7">　</td>
-		<td align="center" rowspan="7"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+		<td align="center" rowspan="7"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
 		<td rowspan="7">　</td>
 	</tr>
+	<?PHP if($list3_c_[1] != "交易完成" && $list3_c_[1] != "交易失敗") { ?><div id="t"><a href="transaction_buyno.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/交易失敗.png" width="19" height="22" title="提出交易失敗"></a></div><?PHP }?>
 	<tr>
-		<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+		<th><label><font size="4" color="#880015"><strong><?PHP if($list3_c_[1] == "交易完成") { ?><img src="素材/打勾.jpg" width="25" height="25" title="交易完成"><?PHP } if($list3_c_[1] == "交易失敗") { ?><img src="素材/打叉.jpg" width="25" height="25" title="交易失敗"><?PHP } echo $list3_c[1]?></strong></font></label></th>
 	</tr>
 	<tr>
-		<td><label><font size="3" color="#8080C5"><strong>得標金額：<? echo $list3_c[3]?> 元</strong></font></label></td>
+		<td><label><font size="3" color="#8080C5"><strong>得標金額：<?PHP echo $list3_c[3]?> 元</strong></font></label></td>
 	</tr>
 	<tr>
-		<td><label><font size="3" color="#8080C5"><strong>得標時間：<? echo $list3_c_[4]?></strong></font></label></td>
+		<td><label><font size="3" color="#8080C5"><strong>得標時間：<?PHP echo $list3_c_[4]?></strong></font></label></td>
 		</tr>
 	<tr>
-		<td><label><font size="3" color="#8080C5"><strong>上架時間：<? echo $list3_c[8]?></strong></font></label></td>
+		<td><label><font size="3" color="#8080C5"><strong>上架時間：<?PHP echo $list3_c[8]?></strong></font></label></td>
 	</tr>
 	<tr>
-		<td><label><font size="3" color="#8080C5"><strong>下架時間：<? echo $list3_c[9]?></strong></font></label></td>
+		<td><label><font size="3" color="#8080C5"><strong>下架時間：<?PHP echo $list3_c[9]?></strong></font></label></td>
 	</tr>
 	<tr>
 		<td>
 		
-		<?
+		<?PHP
 			if($list3_c_[1] == "選擇交易方式")
 			{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-				<a href="transaction_choose.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未付款.png"></a>     
-				<a href="transaction_buysend.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未寄出.png"></a>
-                <a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+				<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未付款.png"></a>     
+				<a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未寄出.png"></a>
+                <a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
+		<?PHP
 			}
 		?>
         
-        <?
+        <?PHP
 			if($list3_c_[1] == "已付款")
 			{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-    			<a href="transaction_choose.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>  
-				<a href="transaction_buysend.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未寄出.png"></a>
-				<a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+    			<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>  
+				<a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未寄出.png"></a>
+				<a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
+		<?PHP
 			}
 			if($list3_c_[1] == "已寄出")
 			{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-				<a href="transaction_choose.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
-				<a href="transaction_buysend.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
-				<a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+				<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
+				<a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
+				<a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
+		<?PHP
 			}
 			if($list3_c_[1] == "選擇評價")
 			{
+				
+				$sql_ = "select * from f_record_ where m_number = '$m_number' and c_number = '$c_number'";
+				$query_ = mysql_query($sql_);
+				$list3_ = mysql_num_rows($query_);
+				$row_ = mysql_fetch_array($query_);
+		
+				if($list3_ > 0)
+				{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-				<a href="transaction_choose.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
-				<a href="transaction_buysend.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
-				<a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+				<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
+				<a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
+				<a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已評價.png"></a>
+		<?PHP
+				}
+				else
+				{
+		?>
+				<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+				<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
+				<a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
+				<a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/未評價.png"></a>
+		<?PHP		
+				}
 			}
 			if($list3_c_[1] == "交易完成")
 			{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-    			<a href="transaction_choose.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
-                <a href="transaction_buysend.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
-                <a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+    			<a href="transaction_choose.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已付款.png"></a>
+                <a href="transaction_buysend.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已寄出.png"></a>
+                <a href="transaction_buyevaluate.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/已評價.png"></a>
+		<?PHP
 			}
 			if($list3_c_[1] == "交易失敗")
 			{
 		?>
-        		<a href="transaction.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
-    			<a href="transaction_buyevaluate.php?c_number=<? echo $list3_c[0]; ?>"><img src="素材/已評價.png"></a>
-		<?
+        		<a href="transaction.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/賣家付款資訊.png"></a>
+    			<a href="transaction_lostcheck.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/查看失敗原因.png"></a>
+		<?PHP
 			}
 		?>
 		</td>
@@ -179,7 +206,7 @@ function MM_swapImage() { //v3.0
 	<tr><td></td></tr>
 </table>
 <br/>
-<?
+<?PHP
 	}
 	
 	if($row==0)

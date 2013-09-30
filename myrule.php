@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -37,7 +37,7 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 <body onload="MM_preloadImages('素材/全部評價鈕-藍字.png','素材/買家評價鈕-藍字.png','素材/賣家評價鈕-藍字.png')">
-<?
+<?PHP
 	//查詢會員帳號
 	$u = $_SESSION["m_number"];  
 	$sql = "select * from members where m_number = '$u'";
@@ -53,19 +53,19 @@ function MM_swapImage() { //v3.0
 <form action="" method="post" name="form">
 	<table width="300">
         <tr>
-			<td><strong><font size="3" color="#0000FF">您好，<? echo $list3[3]?>，歡迎進入到評價紀錄首頁</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">您好，<?PHP echo $list3[3]?>，歡迎進入到評價紀錄首頁</font></strong></td>
 		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">目前您的評價總成績為 <? echo $list3[24]?> 分，其中：</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">目前您的評價總成績為 <?PHP echo $list3[24]/200?> 分，其中：</font></strong></td>
 		</tr>
         <tr>
-			<td><strong><font size="3" color="#0000FF">買東西的點數為 <? echo $list3[25]?> 點，</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">買東西的點數為 <?PHP echo $list3[25]?> 點，</font></strong></td>
 		</tr>         
         <tr>
-			<td><strong><font size="3" color="#0000FF">賣東西的點數為 <? echo $list3[26]?> 點，</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">賣東西的點數為 <?PHP echo $list3[26]?> 點，</font></strong></td>
 		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">其他的點數為 <? echo $list3[27]?> 點。</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">其他的點數為 <?PHP echo $list3[27]?> 點。</font></strong></td>
 		</tr>
         <tr>
 			<td><p></p></td>

@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("main.php");
 ?>
@@ -13,7 +13,7 @@ include("main.php");
 <title>忘記密碼</title>
 </head>
 <body>
-<?
+<?PHP
 	//查詢會員帳號
 	$u = $_POST["account"];
 	$sql = "select * from members where account = '$u'";
@@ -71,7 +71,7 @@ include("main.php");
 		document.form.submit();
 	}
 </script>
-<?php
+<?PHP
 	if($_POST["search"] == "search")
 	{
 		
@@ -81,7 +81,7 @@ include("main.php");
 			echo "您沒有輸入電子信箱，請再輸入一次。";
 ?>
 <p></p>
-<?php
+<?PHP
 		}
 		
 		//如果沒有輸入驗證碼
@@ -90,7 +90,7 @@ include("main.php");
 			echo "您沒有輸入驗證碼，請再輸入一次。";
 ?>
 <p></p>
-<?php
+<?PHP
 		}
 		
 		//如果輸入的驗證碼有錯誤
@@ -99,7 +99,7 @@ include("main.php");
 			echo "不好意思，您輸入的信箱或是驗證碼有錯誤，請重新輸入，謝謝";
 ?>
 <p></p>
-<?php
+<?PHP
 		}
 		
 		//如果輸入的信箱有存在資料庫中
@@ -152,7 +152,7 @@ include("main.php");
 				echo "您輸入了：".$_POST["account"]; //顯示您輸入的資料
 ?>
 <p></p>
-<?php
+<?PHP
 				echo "謝謝您的使用，我們已將您的密碼寄至您的信箱中。";
 			}
 		}

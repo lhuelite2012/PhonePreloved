@@ -1,8 +1,8 @@
-<?
+<?PHP
 ob_start();
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -58,7 +58,7 @@ $(function(){
 <body>
 <div id="background3">
 <div align="center" id="background4">
-<?	
+<?PHP	
 	$m_number = $_SESSION["m_number"];
 	
 	if(isset($_GET['c_number'])) //若已得標
@@ -90,22 +90,22 @@ $(function(){
 			<div id="choose1">
 			<table align="center">
 			<tr>  
-<?
+<?PHP
 			while($row = mysql_fetch_array($result))
 			{
 ?>
 				<form action="" method="post">
-                <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-				<input type="hidden" name="c_payment" value="<? echo $row['c_payment'];?>">
-                <input type="submit" value="<? echo $row['c_payment']; ?>">
+                <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+				<input type="hidden" name="c_payment" value="<?PHP echo $row['c_payment'];?>">
+                <input type="submit" value="<?PHP echo $row['c_payment']; ?>">
 				</form>
-<? 			
+<?PHP 			
 			}	
 ?>
 			</tr>
 			</table>
 			</div>
-<?					
+<?PHP					
 			if($_POST['c_payment'] != '')
 	  		{
 					
@@ -123,23 +123,23 @@ $(function(){
 					<div id="choose2">
                     <table align="center">
                     <tr>                    
-<?
+<?PHP
 					while($row = mysql_fetch_array($result))
 					{
 ?>					
 						<form action="" method="post">
-						<input type="hidden" name="c_number" value="<? echo $c_number;?>">
-						<input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
-						<input type="hidden" name="c_mode" value="<? echo $row['c_mode'];?>">
-						<input type="submit" value="<? echo $row['c_mode'];?>">
+						<input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+						<input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
+						<input type="hidden" name="c_mode" value="<?PHP echo $row['c_mode'];?>">
+						<input type="submit" value="<?PHP echo $row['c_mode'];?>">
 						</form>
-<?
+<?PHP
 					}
 ?>
 					</tr>
                     </table>
                     </div>      
-<?
+<?PHP
 					$c_number = $_POST['c_number'];
 					$c_mode = $_POST['c_mode'];
 					$c_payment = $_POST['c_payment'];
@@ -153,10 +153,10 @@ $(function(){
                         </strong>
                         <p></p>
                         <strong>
-                        <font size="3" color="#0000FF"><? echo $c_mode;?></font>的方式進行交易
+                        <font size="3" color="#0000FF"><?PHP echo $c_mode;?></font>的方式進行交易
                         </strong>
                     	<br/><br/>                   
-<?
+<?PHP
 						if($c_mode == '全家店到店')
 						{
 							
@@ -166,8 +166,8 @@ $(function(){
 ?>
 							<strong>
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
-                            <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-                            <input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
+                            <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+                            <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
                             <input type="hidden" name="c_mode" value="全家店到店">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
 								<tr>
@@ -175,7 +175,7 @@ $(function(){
                                 </tr>
                                 <tr>
                                 	<td height="30" align="center">匯款人姓名：</td>
-                                    <td><label><? echo $row[0];?></label></td>
+                                    <td><label><?PHP echo $row[0];?></label></td>
                                 </tr>
                             	<tr>
                                 	<td height="30" align="center">匯款後五碼：</td>
@@ -208,7 +208,7 @@ $(function(){
 							
                             </form>
                             </strong>
-<?
+<?PHP
 						}
 						
 						if($c_mode == '7-11店到店')
@@ -220,8 +220,8 @@ $(function(){
 ?>
 							<strong>
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
-                            <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-                            <input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
+                            <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+                            <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
                             <input type="hidden" name="c_mode" value="7-11店到店">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                             	<tr>
@@ -229,7 +229,7 @@ $(function(){
                                 </tr>
                                 <tr>
                                 	<td height="30" align="center">匯款人姓名：</td>
-                                    <td><label><? echo $row[0];?></label></td>
+                                    <td><label><?PHP echo $row[0];?></label></td>
                                 </tr>
                             	<tr>
                                 	<td height="30" align="center">匯款後五碼：</td>
@@ -262,7 +262,7 @@ $(function(){
 							
                             </form>
                             </strong>
-<?
+<?PHP
 						}
 						
 						if($c_mode == '面交')
@@ -274,8 +274,8 @@ $(function(){
 ?>
 							<strong>
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
-                            <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-                            <input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
+                            <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+                            <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
                             <input type="hidden" name="c_mode" value="面交">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                             	<tr>
@@ -283,7 +283,7 @@ $(function(){
                                 </tr>
                                 <tr>
                                 	<td height="30" align="center">匯款人姓名：</td>
-                                    <td><label><? echo $row[0];?></label></td>
+                                    <td><label><?PHP echo $row[0];?></label></td>
                                 </tr>
                             	<tr>
                                 	<td height="30" align="center">匯款後五碼：</td>
@@ -316,7 +316,7 @@ $(function(){
         					
                             </form>
                             </strong>
-<?
+<?PHP
 						}
 						
 						if($c_mode == '郵寄')
@@ -328,8 +328,8 @@ $(function(){
 ?>
 							<strong>
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
-                            <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-                            <input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
+                            <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+                            <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
                             <input type="hidden" name="c_mode" value="郵寄">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                             	<tr>
@@ -337,7 +337,7 @@ $(function(){
                                 </tr>
                                 <tr>
                                 	<td height="30" align="center">匯款人姓名：</td>
-                                    <td><label><? echo $row[0];?></label></td>
+                                    <td><label><?PHP echo $row[0];?></label></td>
                                 </tr>
                             	<tr>
                                 	<td height="30" align="center">匯款後五碼：</td>
@@ -370,7 +370,7 @@ $(function(){
                             
                             </form>
                             </strong>
-<?
+<?PHP
 						}
 					}
 				}
@@ -387,15 +387,15 @@ $(function(){
                     您選擇的付款方式為：<font size="3" color="#0000FF">面交</font>
                     </strong>
                     <br/><br/>
-<?
+<?PHP
 					$sql_ = "select name,phone from members where m_number = '$m_number'";
 					$result_ = mysql_query($sql_);
 					$row_ = mysql_fetch_array($result_);
 ?>			                        
                     <strong>
                     <form action="transaction_update.php" method="post" name="commentForm" id="commentForm">
-					<input type="hidden" name="c_number" value="<? echo $c_number;?>">
-					<input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
+					<input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+					<input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
 					<input type="hidden" name="c_mode" value="面交">
 					<table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
 						<tr>
@@ -403,29 +403,29 @@ $(function(){
                         </tr>
                         <tr>
                         	<td height="30" align="center">賣家真實姓名：</td>
-                            <td><? echo $row[2]; ?></td>
+                            <td><?PHP echo $row[2]; ?></td>
                         </tr>	
                         <tr>
                         	<td height="30" align="center">賣家連絡電話：</td>
-                            <td><? echo $row[3]; ?></td>
+                            <td><?PHP echo $row[3]; ?></td>
                         </tr>
                         <tr>
                         	<td height="30" align="center">賣家面交地點：</td>
-                            <td><? echo $row[0]; ?></td>
+                            <td><?PHP echo $row[0]; ?></td>
                         </tr>
                         <tr>
                         	<td height="30" align="center">賣家面交時段：</td>
-                            <td><? echo $row[1]; ?></td>
+                            <td><?PHP echo $row[1]; ?></td>
                         </tr>	
 						<tr>
 							<th colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">買家面交資訊</font></th>
 						</tr>
                             <td height="30" align="center">買家真實姓名：</td>
-                            <td><? echo $row_[0];?></td>
+                            <td><?PHP echo $row_[0];?></td>
                         </tr>
                         <tr>
                             <td height="30" align="center">買家聯絡電話：</td>
-                            <td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<? echo $row_[1];?>"></td>
+                            <td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<?PHP echo $row_[1];?>"></td>
                         </tr>
                         <tr>
                             <td height="30" align="center">買家面交日期：</td>
@@ -434,7 +434,7 @@ $(function(){
                         <tr>
                             <td height="30" align="center">買家面交時段：</td>
                             <td> 
-                            <? 
+                            <?PHP 
 								if($row[1] == "全天 ( 08:00 ~ 22:00 )")
 								{
 									
@@ -446,15 +446,15 @@ $(function(){
                             <option value="下午 ( 12:00 ~ 18:00 )">下午 ( 12:00 ~ 18:00 )</option>
                             <option value="晚上 ( 18:00 ~ 22:00 )">晚上 ( 18:00 ~ 22:00 )</option>
                             </select>
-                            <?
+                            <?PHP
 								}
 								else
 								{
 							?>
 									<select name="buy_paytime" class="required">
-                                    <option value="<? echo $row[1];?>"><? echo $row[1];?></option>
+                                    <option value="<?PHP echo $row[1];?>"><?PHP echo $row[1];?></option>
 									</select>
-							<?
+							<?PHP
 								}
 							?> 
                             </td>
@@ -493,7 +493,7 @@ $(function(){
                     
 					</form>
                     </strong>
-<?	
+<?PHP	
 				}
 			}	
 		}
@@ -503,7 +503,7 @@ $(function(){
 			<script>
 				location.href = './index.php';
 			</script>
-<?
+<?PHP
 		}
 		}
 		else
@@ -517,7 +517,7 @@ $(function(){
 		<script>
 			location.href = './index.php';
 		</script>
-<?
+<?PHP
 	}
 ?>
 </div>

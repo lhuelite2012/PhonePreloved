@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -49,7 +49,7 @@ function MM_swapImage() { //v3.0
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body onload="MM_preloadImages('素材/競標中鈕-藍字.png','素材/沒得標鈕-藍字.png','素材/已得標鈕-藍字.png','素材/販賣中鈕-藍字.png','素材/沒賣出鈕-藍字.png','素材/已賣出鈕-藍字.png')">
-<?	
+<?PHP	
 	//查詢會員帳號
 	$u = $_SESSION["m_number"]; 
 	$sql = "select * from members where m_number = '$u'";
@@ -69,9 +69,9 @@ function MM_swapImage() { //v3.0
 	<font size="5" color="#FF0000"><strong>拍賣紀錄</strong></font>
     <p></p>
     <hr width="500" size="1" /><p></p>
-    <font size="5" color="#0000FF"><strong>沒賣出 共 <? echo $row;?> 筆</strong></font><p></p>
+    <font size="5" color="#0000FF"><strong>沒賣出 共 <?PHP echo $row;?> 筆</strong></font><p></p>
     <hr width="500" size="1" /><p></p>
-<?	
+<?PHP	
 	while($list3_c = mysql_fetch_row($query_c))
 	{
 		
@@ -98,28 +98,28 @@ function MM_swapImage() { //v3.0
 		<tr><td></td></tr>
     	<tr>
         	<td rowspan="6">　</td>
-        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
             <td rowspan="6">　</td>
 		</tr>
         <tr>
-        	<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+        	<th><label><font size="4" color="#880015"><strong><?PHP echo $list3_c[1]?></strong></font></label></th>
         </tr>
         <tr>
-			<td><label><font size="3" color="#8080C5"><strong>商品價格：<? echo $list3_c[4]?> 元</strong></font></label></td>
+			<td><label><font size="3" color="#8080C5"><strong>商品價格：<?PHP echo $list3_c[4]?> 元</strong></font></label></td>
 		</tr>
 		<tr>
-			<td><label><font size="3" color="#8080C5"><strong>出價次數：<? echo $list3_bc[0]?></strong></font></label></td>
+			<td><label><font size="3" color="#8080C5"><strong>出價次數：<?PHP echo $list3_bc[0]?></strong></font></label></td>
 		</tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>上架時間：<? echo $list3_c[8]?></strong></font></label></td>
+        	<td><label><font size="3" color="#8080C5"><strong>上架時間：<?PHP echo $list3_c[8]?></strong></font></label></td>
 		</tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>下架時間：<? echo $list3_c[9]?></strong></font></label></td>
+        	<td><label><font size="3" color="#8080C5"><strong>下架時間：<?PHP echo $list3_c[9]?></strong></font></label></td>
 		</tr>
         <tr><td></td></tr>
 	</table>
     <br/>
-<?
+<?PHP
 	}
 	
 	if($row==0)

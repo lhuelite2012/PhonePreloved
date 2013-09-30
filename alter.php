@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -32,7 +32,7 @@ $(function(){
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body>
-<?		
+<?PHP		
 	$u = $_SESSION["m_number"]; 
 	
 	//查詢會員帳號
@@ -79,36 +79,36 @@ $(function(){
         <tr>
         	<td></td>
 			<td><strong>電子郵件：</strong></td>
-			<td><strong><? echo $list3[1];?></strong></td>
+			<td><strong><?PHP echo $list3[1];?></strong></td>
 		</tr>
 		<tr>
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>姓名：</strong></td>
-			<td><input type="text" size="20" name="name" id="name" class="required" minlength="2" value=<? echo $list3[3]?>></td>
+			<td><input type="text" size="20" name="name" id="name" class="required" minlength="2" value=<?PHP echo $list3[3]?>></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>大頭照：</strong></td>
             <td>
             <input type="file" name="file" id="file">
-            <div id=photo><? echo '<img src="'.$list3[6].'" onload="javascript:DrawImage(this,80,80);"/>'?></label></td>
+            <div id=photo><?PHP echo '<img src="'.$list3[6].'" onload="javascript:DrawImage(this,80,80);"/>'?></div></td>
             </td>
 		</tr>
         <tr>
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>性別：</strong></td>
 			<td><strong>
-			<input type="radio" name="gender" id="gender" value="男" <? if($list3[4] == "男") echo "checked";?>>男
-			<input type="radio" name="gender" id="gender" value="女" <? if($list3[4] == "女") echo "checked";?>>女
+			<input type="radio" name="gender" id="gender" value="男" <?PHP if($list3[4] == "男") echo "checked";?>>男
+			<input type="radio" name="gender" id="gender" value="女" <?PHP if($list3[4] == "女") echo "checked";?>>女
             </strong></td>
 		</tr>
 		<tr>
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>地址：</strong></td>
 			<td>
-            <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<? echo $list3[9] ?>"></select>
-            <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<? echo $list3[10] ?>"></select>
-            <input type="text" name="address" id="address" class="required" maxlength="15" size="25" value=<? echo $list3[8]?>></td>
+            <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<?PHP echo $list3[9] ?>"></select>
+            <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<?PHP echo $list3[10] ?>"></select>
+            <input type="text" name="address" id="address" class="required" maxlength="15" size="25" value=<?PHP echo $list3[8]?>></td>
 		</tr>
         
 <script language="JavaScript" type="text/javascript">
@@ -202,7 +202,7 @@ Zone[15] = new Array("屏東市","三地門鄉","霧臺鄉","瑪家鄉","九如�
 "枋寮鄉", "枋山鄉","春日鄉","獅子鄉","車城鄉","牡丹鄉","恆春鎮","滿州鄉");
 
 // for "台東縣"
-Zone[16] = new Array("台東市","綠島鄉","蘭嶼鄉","延平鄉","卑南鄉","鹿野鄉","關山鎮",
+Zone[16] = new Array("臺東市","綠島鄉","蘭嶼鄉","延平鄉","卑南鄉","鹿野鄉","關山鎮",
 "海端鄉","池上鄉","東河鄉","成功鎮","長濱鄉","太麻里鄉","金峰鄉","大武鄉","達仁鄉");
 
 // for "花蓮縣"
@@ -221,7 +221,7 @@ function initCounty(countyInput)
 		countyInput.options[i].value = County[i];
 		countyInput.options[i].text = County[i];
 	}
-	countyInput.selectedIndex = <? echo $list3_cc[3]-1 ?>;
+	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1 ?>;
 }
 
 function initZone(countyInput, zoneInput, post)
@@ -265,9 +265,9 @@ function changeZone(countyInput, zoneInput, post)
 		zoneInput.options[i].text = Zone[selectedCountyIndex][i];
 	}
 
-	zoneInput.selectedIndex = <? echo $list3_cc[0]-1 ?>;
+	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1 ?>;
 
-	if(countyInput.selectedIndex != <? echo $list3_cc[3]-1 ?>)
+	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1 ?>)
 	{
 		zoneInput.selectedIndex = 0 ;
 	}	
@@ -282,31 +282,31 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<tr>
         	<td></td>
 			<td><strong>生日：</strong></td>
-			<td><input type="date" size="20" name="birthday" id="birthday" value=<? echo $list3[5]?>></td>
+			<td><input type="date" size="20" name="birthday" id="birthday" value=<?PHP echo $list3[5]?>></td>
 		</tr>
 		<tr>
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>電話：</strong></td>
-			<td><input type="text" size="20" name="phone" id="phone" class="required" minlength="8" maxlength="10" value=<? echo $list3[7]?>></td>
+			<td><input type="text" size="20" name="phone" id="phone" class="required" minlength="8" maxlength="10" value=<?PHP echo $list3[7]?>></td>
 		</tr>
 		<tr>
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>偏愛品牌：</strong></td>
 			<td>
 			<select name="b_number" id="b_number" class="required">
-    		<option value="1" <? if($list3_b[1] == "1") echo "selected";?>>Nike</option>
-    		<option value="2" <? if($list3_b[1] == "2") echo "selected";?>>Balenciaga</option>
-   			<option value="3" <? if($list3_b[1] == "3") echo "selected";?>>BURBERRY</option>
-   			<option value="4" <? if($list3_b[1] == "4") echo "selected";?>>CHANEL</option>
-    		<option value="5" <? if($list3_b[1] == "5") echo "selected";?>>COACH</option>
-    		<option value="6" <? if($list3_b[1] == "6") echo "selected";?>>Dior</option>
-    		<option value="7" <? if($list3_b[1] == "7") echo "selected";?>>Fendi</option>
-    		<option value="8" <? if($list3_b[1] == "8") echo "selected";?>>GUCCI</option>
-    		<option value="9" <? if($list3_b[1] == "9") echo "selected";?>>LACOSTE</option>
-    		<option value="10" <? if($list3_b[1] == "10") echo "selected";?>>HERMES</option>
-    		<option value="11" <? if($list3_b[1] == "11") echo "selected";?>>LV</option>
-    		<option value="12" <? if($list3_b[1] == "12") echo "selected";?>>PRADA</option>
-    		<option value="13" <? if($list3_b[1] == "13") echo "selected";?>>YSL </option>
+    		<option value="1" <?PHP if($list3_b[1] == "1") echo "selected";?>>Nike</option>
+    		<option value="2" <?PHP if($list3_b[1] == "2") echo "selected";?>>Balenciaga</option>
+   			<option value="3" <?PHP if($list3_b[1] == "3") echo "selected";?>>BURBERRY</option>
+   			<option value="4" <?PHP if($list3_b[1] == "4") echo "selected";?>>CHANEL</option>
+    		<option value="5" <?PHP if($list3_b[1] == "5") echo "selected";?>>COACH</option>
+    		<option value="6" <?PHP if($list3_b[1] == "6") echo "selected";?>>Dior</option>
+    		<option value="7" <?PHP if($list3_b[1] == "7") echo "selected";?>>Fendi</option>
+    		<option value="8" <?PHP if($list3_b[1] == "8") echo "selected";?>>GUCCI</option>
+    		<option value="9" <?PHP if($list3_b[1] == "9") echo "selected";?>>LACOSTE</option>
+    		<option value="10" <?PHP if($list3_b[1] == "10") echo "selected";?>>HERMES</option>
+    		<option value="11" <?PHP if($list3_b[1] == "11") echo "selected";?>>LV</option>
+    		<option value="12" <?PHP if($list3_b[1] == "12") echo "selected";?>>PRADA</option>
+    		<option value="13" <?PHP if($list3_b[1] == "13") echo "selected";?>>YSL </option>
     		</select>
             </td>
 		</tr>
@@ -314,25 +314,25 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td><strong><font color="#FF0000">*</font></strong></td>
 			<td><strong>偏愛色系：</strong></td>
 			<td><strong>
-			<? while ($list3_c = mysql_fetch_array($query_c)) $c[] = $list3_c[2];?>
-			<input type="checkbox" name="colors_number[]" id="colors_number[]" value="1" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "1") echo "checked";}?>>紅系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="2" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "2") echo "checked";}?>>橘系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="3" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "3") echo "checked";}?>>黃系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="4" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "4") echo "checked";}?>>綠系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="5" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "5") echo "checked";}?>>灰系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="6"  <? for($i=0;$i<count($c);$i++){ if($c[$i] == "6") echo "checked";}?>>金系
+			<?PHP while ($list3_c = mysql_fetch_array($query_c)) $c[] = $list3_c[2];?>
+			<input type="checkbox" name="colors_number[]" id="colors_number[]" value="1" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "1") echo "checked";}?>>紅系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="2" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "2") echo "checked";}?>>橘系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="3" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "3") echo "checked";}?>>黃系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="4" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "4") echo "checked";}?>>綠系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="5" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "5") echo "checked";}?>>灰系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="6"  <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "6") echo "checked";}?>>金系
 		    </strong></td>
 		</tr>
 		<tr>
 			<td></td>
             <td></td>
 			<td><strong>
-			<input type="checkbox" name="colors_number[]" id="colors_number[]" value="7" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "7") echo "checked";}?>>藍系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="8" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "8") echo "checked";}?>>紫系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="9" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "9") echo "checked";}?>>黑系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="10" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "10") echo "checked";}?>>白系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="11" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "11") echo "checked";}?>>棕系
-    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="12" <? for($i=0;$i<count($c);$i++){ if($c[$i] == "12") echo "checked";}?>>銀系
+			<input type="checkbox" name="colors_number[]" id="colors_number[]" value="7" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "7") echo "checked";}?>>藍系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="8" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "8") echo "checked";}?>>紫系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="9" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "9") echo "checked";}?>>黑系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="10" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "10") echo "checked";}?>>白系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="11" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "11") echo "checked";}?>>棕系
+    		<input type="checkbox" name="colors_number[]" id="colors_number[]" value="12" <?PHP for($i=0;$i<count($c);$i++){ if($c[$i] == "12") echo "checked";}?>>銀系
             </strong></td>
 		</tr>
         <tr>
@@ -349,7 +349,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>身高：</strong></td>
 			<td>
-			<input type="text" size="5" name="height" id="height" value=<? echo $list3[11]?>>
+			<input type="text" size="5" name="height" id="height" value=<?PHP echo $list3[11]?>>
     		<strong>cm(公分)</strong>
 			</td>
 		</tr>
@@ -357,7 +357,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>體重：</strong></td>
 			<td>
-			<input type="text" size="5" name="weight" id="weight" value=<? echo $list3[12]?>>
+			<input type="text" size="5" name="weight" id="weight" value=<?PHP echo $list3[12]?>>
     		<strong>kg(公斤)</strong>
 			</td>
 		</tr>
@@ -366,13 +366,13 @@ initZone(document.commentForm.county, document.commentForm.city);
 			<td><strong>衣服尺寸：</strong></td>
 			<td>
          	<select name="clothes_size" id="clothes_size">
-            <option value="" <? if($list3[17] == "") echo "selected";?>>請選擇</option>
-            <option value="XS" <? if($list3[17] == "XS") echo "selected";?>>XS</option>
-            <option value="S" <? if($list3[17] == "S") echo "selected";?>>S</option>
-            <option value="M" <? if($list3[17] == "M") echo "selected";?>>M</option>
-            <option value="L" <? if($list3[17] == "L") echo "selected";?>>L</option>
-            <option value="XL" <? if($list3[17] == "XL") echo "selected";?>>XL</option>
-            <option value="XXL" <? if($list3[17] == "XXL") echo "selected";?>>XXL</option>
+            <option value="" <?PHP if($list3[17] == "") echo "selected";?>>請選擇</option>
+            <option value="XS" <?PHP if($list3[17] == "XS") echo "selected";?>>XS</option>
+            <option value="S" <?PHP if($list3[17] == "S") echo "selected";?>>S</option>
+            <option value="M" <?PHP if($list3[17] == "M") echo "selected";?>>M</option>
+            <option value="L" <?PHP if($list3[17] == "L") echo "selected";?>>L</option>
+            <option value="XL" <?PHP if($list3[17] == "XL") echo "selected";?>>XL</option>
+            <option value="XXL" <?PHP if($list3[17] == "XXL") echo "selected";?>>XXL</option>
             </select>
 			</td>
 		</tr>
@@ -380,17 +380,17 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>三圍：</strong></td>
 			<td>
-			<input type="text" size="5" name="bust" id="bust" value=<? echo $list3[14]?>>
+			<input type="text" size="5" name="bust" id="bust" value=<?PHP echo $list3[14]?>>
 			<strong><font size="2">(胸圍)</font> 吋 </strong>
-			<input type="text" size="5" name="waistline" id="waistline" value=<? echo $list3[15]?>><strong><font size="2">(腰圍)</font> 吋 </strong>
-            <input type="text" size="5" name="hips" id="hips" value=<? echo $list3[16]?>><strong><font size="2">(臀圍)</font> 吋</strong>
+			<input type="text" size="5" name="waistline" id="waistline" value=<?PHP echo $list3[15]?>><strong><font size="2">(腰圍)</font> 吋 </strong>
+            <input type="text" size="5" name="hips" id="hips" value=<?PHP echo $list3[16]?>><strong><font size="2">(臀圍)</font> 吋</strong>
 			</td>
 		</tr>
 		<tr>
         	<td></td>
 			<td><strong>肩寬：</strong></td>
 			<td>
-			<input type="text" size="5" name="shoulder" id="shoulder" value=<? echo $list3[13]?>>
+			<input type="text" size="5" name="shoulder" id="shoulder" value=<?PHP echo $list3[13]?>>
 			<strong>cm(公分)</strong>
 			</td>
 		</tr>
@@ -399,14 +399,14 @@ initZone(document.commentForm.county, document.commentForm.city);
 			<td><strong>鞋子尺寸：</strong></td>
 			<td>
             <select name="shoes_size" id="shoes_size">
-            <option value="" <? if($list3[18] == "") echo "selected";?>>請選擇</option>
-            <option value="台灣" <? if($list3[18] == "台灣") echo "selected";?>>台灣</option>
-            <option value="美國" <? if($list3[18] == "美國") echo "selected";?>>美國</option>
-            <option value="日本" <? if($list3[18] == "日本") echo "selected";?>>日本</option>
-            <option value="歐洲" <? if($list3[18] == "歐洲") echo "selected";?>>歐洲</option>
+            <option value="" <?PHP if($list3[18] == "") echo "selected";?>>請選擇</option>
+            <option value="台灣" <?PHP if($list3[18] == "台灣") echo "selected";?>>台灣</option>
+            <option value="美國" <?PHP if($list3[18] == "美國") echo "selected";?>>美國</option>
+            <option value="日本" <?PHP if($list3[18] == "日本") echo "selected";?>>日本</option>
+            <option value="歐洲" <?PHP if($list3[18] == "歐洲") echo "selected";?>>歐洲</option>
             </select>
             
-			<input type="text" size="5" name="shoes_size2" id="shoes_size2" class="number" value=<? echo $list3[19]?>><strong>cm(公分)</strong>
+			<input type="text" size="5" name="shoes_size2" id="shoes_size2" class="number" value=<?PHP echo $list3[19]?>><strong>cm(公分)</strong>
 			</td>
 		</tr>
         <tr>
@@ -422,26 +422,26 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<tr>
         	<td></td>
 			<td><strong>FB帳號：</strong></td>
-			<td><input type="text" size="25" name="fb_id" id="fb_id" value=<? echo $list3[20]?>></td>
+			<td><input type="text" size="25" name="fb_id" id="fb_id" value=<?PHP echo $list3[20]?>></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>Line帳號：</strong></td>
-			<td><input type="text" size="25" name="line_id" id="line_id" value=<? echo $list3[21]?>></td>
+			<td><input type="text" size="25" name="line_id" id="line_id" value=<?PHP echo $list3[21]?>></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>銀行帳號：</strong></td>
-			<td><input type="text" size="25" name="rank_account" id="rank_account" value=<? echo $list3[22]?>></td>
+			<td><input type="text" size="25" name="rank_account" id="rank_account" value=<?PHP echo $list3[22]?>></td>
 		</tr>
         <tr>
 			<td colspan="3"><hr size="1" /></td>
 		</tr>
 		<tr>
 		  <td align="center" colspan="3">
-            <input type="hidden" name="m_number" id="m_number" value="<? echo $list3[0];?>">
-            <div id="apDiv45"><input type="image" img src="素材/按鈕-編輯.png" id="alter" width="65" height="30" onclick="document.form.submit()">
-            <a href="javascript:document.form.reset();"><img src="素材/忘記密碼-取消鈕.png" width="65" height="30"></a></div>
+            <input type="hidden" name="m_number" id="m_number" value="<?PHP echo $list3[0];?>">
+            <div id="apDiv45"><input type="image" img src="素材/按鈕-送出.png" id="alter" width="65" height="30" onclick="document.commentForm.submit()">
+            <a href="javascript:document.commentForm.reset();"><img src="素材/忘記密碼-取消鈕.png" width="65" height="30"></a></div>
           </td>
 		</tr>
 	</table>

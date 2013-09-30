@@ -1,8 +1,8 @@
-<?
+<?PHP
 ob_start();
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -93,11 +93,11 @@ include("myaccount.php");
 </style>
 </head>
 <body>
-<?
+<?PHP
 	$m_number = $_SESSION["m_number"];		
 	$c_number = $_GET['c_number'];
 	  
-	$sql = "select transaction.*,members.name,members.phone,members.address,commodity.m_number from transaction join members join commodity on transaction.c_number = '$c_number' and commodity.m_number = '$m_number' and commodity.orbidder = transaction.m_number where members.m_number = transaction.m_number";	
+	$sql = "select transaction.*,members.name,members.phone,members.address,commodity.m_number from transaction join members join commodity on transaction.c_number = '$c_number' and commodity.m_number = '$m_number' and commodity.orbidder = transaction.m_number and commodity.c_number = '$c_number' where members.m_number = transaction.m_number";	
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
 	
@@ -112,7 +112,7 @@ include("myaccount.php");
         
         <font size="5" color="#FF0000"><strong>買家寄件資訊</strong></font>
 		<p></p>
-<?
+<?PHP
 		if($row['tr_payment'] == '匯款')
 		{
 			
@@ -121,28 +121,28 @@ include("myaccount.php");
 ?>
 				<strong>
                 <form action="transaction_sellsend_update.php" method="post">
-                <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+                <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                 	<tr>
                 		<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">訂單明細表</font></td>
             		</tr>
             		<tr>
                         <td height="30" align="center">付款方式：</td>
-                        <td><? echo $row['tr_payment'];?></td>
+                        <td><?PHP echo $row['tr_payment'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">交易方式：</td>
-                        <td><? echo $row['tr_mode'];?></td>
+                        <td><?PHP echo $row['tr_mode'];?></td>
                     </tr>
-            <?
+            <?PHP
 				if($row['sendTimeButton'] != '')
 				{	
 			?>
 					<tr>
                         <td height="30" align="center">寄出時間：</td>
-                        <td><? echo $row['sendTimeButton'];?></td>
+                        <td><?PHP echo $row['sendTimeButton'];?></td>
 					</tr>
-            <?
+            <?PHP
 				}
 			?>
                     <tr>
@@ -150,29 +150,29 @@ include("myaccount.php");
                     </tr>
                     <tr>
                     	<td height="30" align="center">收件人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人電話：</td>
-                        <td><? echo $row['phone'];?></td>
+                        <td><?PHP echo $row['phone'];?></td>
                     </tr>
 					<tr>
                         <td height="30" align="center">店門市名稱：</td>
-                        <td><? echo $row['storename'];?></td>
+                        <td><?PHP echo $row['storename'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市店號：</td>
-                        <td><? echo $row['storenumber'];?></td>
+                        <td><?PHP echo $row['storenumber'];?></td>
 					</tr>
-				<?
+				<?PHP
                     if($row['remark'] != "")
                     {
                 ?>
                     <tr>
                         <td height="30" align="center">備註的事項：</td>
-                        <td><? echo $row['remark'];?></td>
+                        <td><?PHP echo $row['remark'];?></td>
                     </tr>
-        		<?
+        		<?PHP
                     }
 					
 					if($row['sendTimeButton'] == '')
@@ -186,7 +186,7 @@ include("myaccount.php");
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
 					else
 					{
@@ -197,15 +197,15 @@ include("myaccount.php");
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
+						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，可以給予買家商品評價</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
                 ?>
                 </table>
                 </form>
                 </strong>
-<?
+<?PHP
 			}
 			
 			if($row['tr_mode'] == '7-11店到店')
@@ -213,28 +213,28 @@ include("myaccount.php");
 ?>
 				<strong>
                 <form action="transaction_sellsend_update.php" method="post">
-                <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+                <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                 	<tr>
                 		<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">訂單明細表</font></td>
             		</tr>
             		<tr>
                         <td height="30" align="center">付款方式：</td>
-                        <td><? echo $row['tr_payment'];?></td>
+                        <td><?PHP echo $row['tr_payment'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">交易方式：</td>
-                        <td><? echo $row['tr_mode'];?></td>
+                        <td><?PHP echo $row['tr_mode'];?></td>
                     </tr>
-            <?
+            <?PHP
 				if($row['sendTimeButton'] != '')
 				{	
 			?>
 					<tr>
                         <td height="30" align="center">寄出時間：</td>
-                        <td><? echo $row['sendTimeButton'];?></td>
+                        <td><?PHP echo $row['sendTimeButton'];?></td>
 					</tr>
-            <?
+            <?PHP
 				}
 			?>
                     <tr>
@@ -242,29 +242,29 @@ include("myaccount.php");
                     </tr>
                     <tr>
                     	<td height="30" align="center">收件人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人電話：</td>
-                        <td><? echo $row['phone'];?></td>
+                        <td><?PHP echo $row['phone'];?></td>
                     </tr>
 					<tr>
                         <td height="30" align="center">店門市名稱：</td>
-                        <td><? echo $row['storename'];?></td>
+                        <td><?PHP echo $row['storename'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市店號：</td>
-                        <td><? echo $row['storenumber'];?></td>
+                        <td><?PHP echo $row['storenumber'];?></td>
 					</tr>
-				<?
+				<?PHP
                     if($row['remark'] != "")
                     {
                 ?>
                     <tr>
                         <td height="30" align="center">備註的事項：</td>
-                        <td><? echo $row['remark'];?></td>
+                        <td><?PHP echo $row['remark'];?></td>
                     </tr>
-        		<?
+        		<?PHP
                     }
 					
 					if($row['sendTimeButton'] == '')
@@ -278,7 +278,7 @@ include("myaccount.php");
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
 					else
 					{
@@ -291,13 +291,13 @@ include("myaccount.php");
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
                 ?>
                 </table>
                 </form>
                 </strong>
-<?
+<?PHP
 			}
 			
 			if($row['tr_mode'] == '郵寄')
@@ -313,28 +313,28 @@ include("myaccount.php");
 ?>
 				<strong>
                 <form action="transaction_sellsend_update.php" method="post" name="commentForm" id="commentForm">
-                <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+                <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                 	<tr>
                 		<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">訂單明細表</font></td>
             		</tr>
             		<tr>
                         <td height="30" align="center">付款方式：</td>
-                        <td><? echo $row['tr_payment'];?></td>
+                        <td><?PHP echo $row['tr_payment'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">交易方式：</td>
-                        <td><? echo $row['tr_mode'];?></td>
+                        <td><?PHP echo $row['tr_mode'];?></td>
                     </tr>
-            <?
+            <?PHP
 				if($row['sendTimeButton'] != '')
 				{	
 			?>
 					<tr>
                         <td height="30" align="center">寄出時間：</td>
-                        <td><? echo $row['sendTimeButton'];?></td>
+                        <td><?PHP echo $row['sendTimeButton'];?></td>
 					</tr>
-            <?
+            <?PHP
 				}
 			?>
                     <tr>
@@ -342,18 +342,18 @@ include("myaccount.php");
                     </tr>
                     <tr>
                     	<td height="30" align="center">收件人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人電話：</td>
-                        <td><? echo $row['phone'];?></td>
+                        <td><?PHP echo $row['phone'];?></td>
                     </tr>
 					<tr>
 						<td height="55" align="center">收件人地址：</td>
 						<td>
-						<select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" disabled="disabled" value="<? echo $row_cca[0];?>"></select>
-						<select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" disabled="disabled" value="<? echo $row_cca[1];?>"></select>
-						<br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" disabled="disabled" value=<? echo $row_cca[2];?>></td>
+						<select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" disabled="disabled" value="<?PHP echo $row_cca[0];?>"></select>
+						<select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" disabled="disabled" value="<?PHP echo $row_cca[1];?>"></select>
+						<br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" disabled="disabled" value=<?PHP echo $row_cca[2];?>></td>
 					</tr>
     
 <script language="JavaScript" type="text/javascript">
@@ -466,7 +466,7 @@ function initCounty(countyInput)
 		countyInput.options[i].value = County[i];
 		countyInput.options[i].text = County[i];
 	}
-	countyInput.selectedIndex = <? echo $list3_cc[3]-1 ?>;
+	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1 ?>;
 }
 
 function initZone(countyInput, zoneInput, post)
@@ -510,9 +510,9 @@ function changeZone(countyInput, zoneInput, post)
 		zoneInput.options[i].text = Zone[selectedCountyIndex][i];
 	}
 
-	zoneInput.selectedIndex = <? echo $list3_cc[0]-1 ?>;
+	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1 ?>;
 
-	if(countyInput.selectedIndex != <? echo $list3_cc[3]-1 ?>)
+	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1 ?>)
 	{
 		zoneInput.selectedIndex = 0 ;
 	}	
@@ -526,17 +526,17 @@ initZone(document.commentForm.county, document.commentForm.city);
 
                     <tr>
                         <td height="30" align="center">收件人取貨：</td>
-                        <td><? echo $row['sendtime'];?></td>
+                        <td><?PHP echo $row['sendtime'];?></td>
                     </tr>
-				<?
+				<?PHP
                     if($row['remark'] != "")
                     {
                 ?>
                     <tr>
                         <td height="30" align="center">備註的事項：</td>
-                        <td><? echo $row['remark'];?></td>
+                        <td><?PHP echo $row['remark'];?></td>
                     </tr>
-        		<?
+        		<?PHP
                     }
 					
 					if($row['sendTimeButton'] == '')
@@ -550,7 +550,7 @@ initZone(document.commentForm.county, document.commentForm.city);
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
 					else
 					{
@@ -563,13 +563,13 @@ initZone(document.commentForm.county, document.commentForm.city);
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
                 ?>
                 </table>
                 </form>
                 </strong>
-<?
+<?PHP
 			}
 			
 			if($row['tr_mode'] == '面交')
@@ -577,28 +577,28 @@ initZone(document.commentForm.county, document.commentForm.city);
 ?>
 				<strong>
                 <form action="transaction_sellsend_update.php" method="post">
-                <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+                <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                 	<tr>
                 		<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">訂單明細表</font></td>
             		</tr>
             		<tr>
                         <td height="30" align="center">付款方式：</td>
-                        <td><? echo $row['tr_payment'];?></td>
+                        <td><?PHP echo $row['tr_payment'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">交易方式：</td>
-                        <td><? echo $row['tr_mode'];?></td>
+                        <td><?PHP echo $row['tr_mode'];?></td>
                     </tr>
-            <?
+            <?PHP
 				if($row['sendTimeButton'] != '')
 				{	
 			?>
 					<tr>
                         <td height="30" align="center">寄出時間：</td>
-                        <td><? echo $row['sendTimeButton'];?></td>
+                        <td><?PHP echo $row['sendTimeButton'];?></td>
 					</tr>
-            <?
+            <?PHP
 				}
 			?>
                     <tr>
@@ -606,33 +606,33 @@ initZone(document.commentForm.county, document.commentForm.city);
                     </tr>
                     <tr>
                     	<td height="30" align="center">買家真實姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家聯絡電話：</td>
-                        <td><? echo $row['phone'];?></td>
+                        <td><?PHP echo $row['phone'];?></td>
                     </tr>
 					<tr>
                         <td height="30" align="center">買家面交日期：</td>
-                        <td><? echo $row['buy_paydate'];?></td>
+                        <td><?PHP echo $row['buy_paydate'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家面交時段：</td>
-                        <td><? echo $row['buy_paytime'];?></td>
+                        <td><?PHP echo $row['buy_paytime'];?></td>
 					</tr>
                     <tr>
                         <td height="30" align="center">詳細面交地點：</td>
-                        <td><? echo $row['buy_pay'];?></td>
+                        <td><?PHP echo $row['buy_pay'];?></td>
                     </tr>
-				<?
+				<?PHP
                     if($row['remark'] != "")
                     {
                 ?>
                     <tr>
                         <td height="30" align="center">備註注意事項：</td>
-                        <td><? echo $row['remark'];?></td>
+                        <td><?PHP echo $row['remark'];?></td>
                     </tr>
-        		<?
+        		<?PHP
                     }
 					
 					if($row['sendTimeButton'] == '')
@@ -646,7 +646,7 @@ initZone(document.commentForm.county, document.commentForm.city);
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
 					else
 					{
@@ -662,13 +662,13 @@ initZone(document.commentForm.county, document.commentForm.city);
                     <tr>
 						<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
 					</tr>
-                <?
+                <?PHP
 					}
                 ?>
                 </table>
                 </form>
                 </strong>
-<?
+<?PHP
 			}
 		}
 
@@ -677,28 +677,28 @@ initZone(document.commentForm.county, document.commentForm.city);
 ?>
 			<strong>
             <form action="transaction_sellsend_update.php" method="post">
-            <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+            <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
 				<tr>
 					<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">訂單明細表</font></td>
             	</tr>
             	<tr>
                     <td height="30" align="center">付款方式：</td>
-                    <td><? echo $row['tr_payment'];?></td>
+                    <td><?PHP echo $row['tr_payment'];?></td>
                 </tr>
                 <tr>
                     <td height="30" align="center">交易方式：</td>
-                    <td><? echo $row['tr_mode'];?></td>
+                    <td><?PHP echo $row['tr_mode'];?></td>
                 </tr>
-        <?
+        <?PHP
 			if($row['sendTimeButton'] != '')
 			{	
 		?>
 				<tr>
                     <td height="30" align="center">寄出時間：</td>
-                    <td><? echo $row['sendTimeButton'];?></td>
+                    <td><?PHP echo $row['sendTimeButton'];?></td>
 				</tr>
-        <?
+        <?PHP
 			}
 		?>
                 <tr>
@@ -706,33 +706,33 @@ initZone(document.commentForm.county, document.commentForm.city);
                 </tr>
                 <tr>
                     <td height="30" align="center">買家真實姓名：</td>
-                    <td><? echo $row['name'];?></td>
+                    <td><?PHP echo $row['name'];?></td>
                 </tr>
                 <tr>
                     <td height="30" align="center">買家聯絡電話：</td>
-                    <td><? echo $row['phone'];?></td>
+                    <td><?PHP echo $row['phone'];?></td>
                 </tr>
 				<tr>
                     <td height="30" align="center">買家面交日期：</td>
-                    <td><? echo $row['buy_paydate'];?></td>
+                    <td><?PHP echo $row['buy_paydate'];?></td>
                 </tr>
                 <tr>
                     <td height="30" align="center">買家面交時段：</td>
-                    <td><? echo $row['buy_paytime'];?></td>
+                    <td><?PHP echo $row['buy_paytime'];?></td>
 				</tr>
                 <tr>
                     <td height="30" align="center">詳細面交地點：</td>
-                    <td><? echo $row['buy_pay'];?></td>
+                    <td><?PHP echo $row['buy_pay'];?></td>
                 </tr>
-		<?
+		<?PHP
             if($row['remark'] != "")
             {
         ?>
                 <tr>
                     <td height="30" align="center">備註注意事項：</td>
-                    <td><? echo $row['remark'];?></td>
+                    <td><?PHP echo $row['remark'];?></td>
                 </tr>
-        <?
+        <?PHP
             }
 					
 			if($row['sendTimeButton'] == '')
@@ -746,7 +746,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 				<tr>
 					<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
 				</tr>
-		<?
+		<?PHP
 			}
 			else
 			{
@@ -762,13 +762,13 @@ initZone(document.commentForm.county, document.commentForm.city);
 				<tr>
 					<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
 				</tr>
-		<?
+		<?PHP
 			}
 		?>
 				</table>
                 </form>
                 </strong>
-<?
+<?PHP
 		}
 ?>   
         <p></p>   
@@ -776,7 +776,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         
         </div>
         </div>
-<?
+<?PHP
 	}
 	else if($row['check_YN'] != '1')
 	{
@@ -807,7 +807,7 @@ initZone(document.commentForm.county, document.commentForm.city);
       
         </div>
         </div>
-<?
+<?PHP
 	}
 	}
 	else
@@ -816,7 +816,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<script>
 			location.href = './index.php';
 		</script>
-<?
+<?PHP
 	}
 ?>
 </body>

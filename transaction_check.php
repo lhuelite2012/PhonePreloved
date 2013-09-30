@@ -1,8 +1,8 @@
-<?
+<?PHP
 ob_start();
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -75,7 +75,7 @@ $(function(){
 </script>
 </head>
 <body>
-<?
+<?PHP
 	$m_number = $_SESSION["m_number"];		
 	$c_number = $_GET['c_number'];
 	  
@@ -89,7 +89,7 @@ $(function(){
 	if($row['tr_mode'] != '' || $row['tr_payment'] != '')
 	{
 	
-	if($row['t_schedule'] == '已付款' or $row['t_schedule'] == '已寄出' or $row['t_schedule'] == "選擇評價" or $row['t_schedule'] == "交易完成")
+	if($row['t_schedule'] == "已付款" or $row['t_schedule'] == "已寄出" or $row['t_schedule'] == "選擇評價" or $row['t_schedule'] == "交易完成")
 	{
 ?>
 		<div id="background9">
@@ -106,17 +106,17 @@ $(function(){
             </tr>
             <tr>
                 <td height="30" align="center">付款方式：</td>
-                <td><? echo $row['tr_payment'];?></td>
+                <td><?PHP echo $row['tr_payment'];?></td>
             </tr>
             <tr>
                 <td height="30" align="center">交易方式：</td>
-                <td><? echo $row['tr_mode'];?></td>
+                <td><?PHP echo $row['tr_mode'];?></td>
             </tr>
             <tr>
                 <td height="30" align="center">填寫日期：</td>
-                <td><? echo $row['payTimeButton'];?></td>
+                <td><?PHP echo $row['payTimeButton'];?></td>
             </tr>
-			<? 
+			<?PHP 
                 if($row['tr_payment'] == '匯款')
                 {
             ?>
@@ -125,21 +125,21 @@ $(function(){
                     </tr>
                     <tr>
                         <td height="30" align="center">匯款人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">匯款後五碼：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['buy_remit'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_remit'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">匯款總金額：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['buy_remitmoney'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_remitmoney'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">匯款的日期：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['buy_remitdate'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_remitdate'];?>"></td>
                     </tr>
-			<?				
+			<?PHP				
 				if($row['tr_mode'] == '全家店到店')
                 {
             ?>
@@ -148,29 +148,29 @@ $(function(){
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人電話：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['phone'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['phone'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市名稱：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['storename'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['storename'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市店號：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['storenumber'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['storenumber'];?>"></td>
 					</tr>
-					<?
+					<?PHP
                         if($row['remark'] != "")
                         {
                     ?>
                     	<tr>
                         	<td height="60" align="center">備註的事項：</td>
-                        	<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['remark'];?></textarea></td>
+                        	<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['remark'];?></textarea></td>
                     	</tr>
-        	<?
+        	<?PHP
                     	}
 				}
                 
@@ -182,29 +182,29 @@ $(function(){
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">收件人電話：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['phone'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['phone'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市名稱：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['storename'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['storename'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">店門市店號：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['storenumber'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['storenumber'];?>"></td>
                     </tr>
-					<?
+					<?PHP
                         if($row['remark'] != "")
                         {
                     ?>
                     	<tr>
                         	<td height="60" align="center">備註的事項：</td>
-                        	<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['remark'];?></textarea></td>
+                        	<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['remark'];?></textarea></td>
                     	</tr>
-        	<?
+        	<?PHP
                     	}
 				}
 		
@@ -224,18 +224,18 @@ $(function(){
 					</tr>
 					<tr>
 						<td height="30" align="center">收件人姓名：</td>
-						<td><? echo $row['name'];?></td>
+						<td><?PHP echo $row['name'];?></td>
 					</tr>
 					<tr>
 						<td height="30" align="center">收件人電話：</td>
-						<td><input type="text" disabled="disabled" value="<? echo $row['phone'];?>"></td>
+						<td><input type="text" disabled="disabled" value="<?PHP echo $row['phone'];?>"></td>
 					</tr>
 					<tr>
 						<td height="55" align="center">收件人地址：</td>
 						<td>
-						<select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" disabled="disabled" value="<? echo $row_cca[0];?>"></select>
-						<select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" disabled="disabled" value="<? echo $row_cca[1];?>"></select>
-						<br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" disabled="disabled" value=<? echo $row_cca[2];?>></td>
+						<select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" disabled="disabled" value="<?PHP echo $row_cca[0];?>"></select>
+						<select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" disabled="disabled" value="<?PHP echo $row_cca[1];?>"></select>
+						<br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" disabled="disabled" value=<?PHP echo $row_cca[2];?>></td>
 					</tr>
     
 <script language="JavaScript" type="text/javascript">
@@ -348,7 +348,7 @@ function initCounty(countyInput)
 		countyInput.options[i].value = County[i];
 		countyInput.options[i].text = County[i];
 	}
-	countyInput.selectedIndex = <? echo $list3_cc[3]-1 ?>;
+	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1 ?>;
 }
 
 function initZone(countyInput, zoneInput, post)
@@ -392,9 +392,9 @@ function changeZone(countyInput, zoneInput, post)
 		zoneInput.options[i].text = Zone[selectedCountyIndex][i];
 	}
 
-	zoneInput.selectedIndex = <? echo $list3_cc[0]-1 ?>;
+	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1 ?>;
 
-	if(countyInput.selectedIndex != <? echo $list3_cc[3]-1 ?>)
+	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1 ?>)
 	{
 		zoneInput.selectedIndex = 0 ;
 	}	
@@ -408,17 +408,17 @@ initZone(document.commentForm.county, document.commentForm.city);
 
                     <tr>
                         <td height="30" align="center">收件人取貨：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['sendtime'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['sendtime'];?>"></td>
                     </tr>
-					<?
+					<?PHP
                         if($row['remark'] != "")
                         {
                     ?>
                     	<tr>
                         	<td height="60" align="center">備註的事項：</td>
-                        	<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['remark'];?></textarea></td>
+                        	<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['remark'];?></textarea></td>
                     	</tr>
-        	<?
+        	<?PHP
                     	}
                 }
                 
@@ -429,33 +429,33 @@ initZone(document.commentForm.county, document.commentForm.city);
                         <th colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">買家面交資訊</font></th>
                     </tr>
                         <td height="30" align="center">買家真實姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家聯絡電話：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['phone'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['phone'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家面交日期：</td>
-                        <td><input type="date" disabled="disabled" value="<? echo $row['buy_paydate'];?>"></td>
+                        <td><input type="date" disabled="disabled" value="<?PHP echo $row['buy_paydate'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家面交時段：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['buy_paytime'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_paytime'];?>"></td>
                     </tr>
                     <tr>
                         <td height="60" align="center">詳細面交地點：</td>
-                        <td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['buy_pay'];?></textarea></td>
+                        <td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['buy_pay'];?></textarea></td>
                     </tr>
-					<?
+					<?PHP
                         if($row['remark'] != "")
                         {
                     ?>
                     	<tr>
                         	<td height="60" align="center">備註注意事項：</td>
-                        	<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['remark'];?></textarea></td>
+                        	<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['remark'];?></textarea></td>
                     	</tr>
-        	<?
+        	<?PHP
                     	}
 					}
 				}
@@ -467,33 +467,33 @@ initZone(document.commentForm.county, document.commentForm.city);
                         <th colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">買家面交資訊</font></th>
                     </tr>
                         <td height="30" align="center">買家真實姓名：</td>
-                        <td><? echo $row['name'];?></td>
+                        <td><?PHP echo $row['name'];?></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家聯絡電話：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['phone'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['phone'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家面交日期：</td>
-                        <td><input type="date" disabled="disabled" value="<? echo $row['buy_paydate'];?>"></td>
+                        <td><input type="date" disabled="disabled" value="<?PHP echo $row['buy_paydate'];?>"></td>
                     </tr>
                     <tr>
                         <td height="30" align="center">買家面交時段：</td>
-                        <td><input type="text" disabled="disabled" value="<? echo $row['buy_paytime'];?>"></td>
+                        <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_paytime'];?>"></td>
                     </tr>
                     <tr>
                         <td height="60" align="center">詳細面交地點：</td>
-                        <td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['buy_pay'];?></textarea></td>
+                        <td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['buy_pay'];?></textarea></td>
                     </tr>
-					<?
+					<?PHP
                         if($row['remark'] != "")
                         {
                     ?>
                     	<tr>
                         	<td height="60" align="center">備註注意事項：</td>
-                        	<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['remark'];?></textarea></td>
+                        	<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['remark'];?></textarea></td>
                     	</tr>
-        	<?
+        	<?PHP
                     	}
                 }
   
@@ -502,7 +502,7 @@ initZone(document.commentForm.county, document.commentForm.city);
             ?>        
                     <tr>
                         <td colspan="2" height="30" align="center">
-                        <input type="hidden" name="c_number" value="<? echo $c_number;?>">
+                        <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                         <input type="radio" name="check" id="check" value="對帳成功" class="required">對帳成功
                         <input type="radio" name="check" id="check" value="對帳失敗" class="required">對帳失敗
                         </td>
@@ -517,7 +517,7 @@ initZone(document.commentForm.county, document.commentForm.city);
                         <input type="submit" name="check_YN" id="check_YN" value="對帳送出">
                         </td>  
                     </tr>
-			<?
+			<?PHP
                 }
                 
                 if($row['check_YN'] == '1')
@@ -532,13 +532,13 @@ initZone(document.commentForm.county, document.commentForm.city);
 					</tr>
 					<tr>
 						<td height="30" align="center">對帳時間：</td>
-						<td><? echo $row['check_time'];?></td>
+						<td><?PHP echo $row['check_time'];?></td>
 					</tr>
 					<tr>
 						<td height="60" align="center">對帳備註：</td>
-						<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['check_ans'];?></textarea></td>
+						<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['check_ans'];?></textarea></td>
 					</tr>
-			<?
+			<?PHP
                 }
                 
                 if($row['check_YN'] == '2')
@@ -550,8 +550,8 @@ initZone(document.commentForm.county, document.commentForm.city);
                     <tr>
                         <td height="30" align="center">對帳狀態：</td>
                         <td>對帳失敗
-                        <input type="hidden" name="c_number" value="<? echo $c_number;?>">
-						<?
+                        <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+						<?PHP
 							if($row['changealter'] == '')
 							{
 						?>
@@ -559,10 +559,10 @@ initZone(document.commentForm.county, document.commentForm.city);
                                 <tr>
                                 	<td colspan="2" height="30" align="center"><font color="#FF0000">▲如買家提出修改訂單，賣家才能按此鈕</font></td>
                                 </tr>
-                        <?
+                        <?PHP
 							}
 						?>
-						<?
+						<?PHP
 							if($row['changealter'] == '1')
 							{
 						?>
@@ -570,19 +570,19 @@ initZone(document.commentForm.county, document.commentForm.city);
                                 <tr>
                                 	<td colspan="2" height="30" align="center"><font color="#FF0000">▲如同意買家修改訂單，對帳資料會清除</font></td>
                                 </tr>
-                        <?
+                        <?PHP
 							}
 						?>
                     </tr>
 					<tr>
 						<td height="30" align="center">對帳時間：</td>
-   						<td><? echo $row['check_time'];?></td>
+   						<td><?PHP echo $row['check_time'];?></td>
 					</tr>
                     <tr>
 						<td height="60" align="center">對帳備註：</td>
-						<td><textarea rows="3" cols="18" disabled="disabled"><? echo $row['check_ans'];?></textarea></td>
+						<td><textarea rows="3" cols="18" disabled="disabled"><?PHP echo $row['check_ans'];?></textarea></td>
 					</tr>
-			<?		
+			<?PHP		
 				}
 			?> 
 		<tr>
@@ -598,7 +598,7 @@ initZone(document.commentForm.county, document.commentForm.city);
     </div>
     </div>
 
-<?
+<?PHP
 	}	
 	else if($row['t_schedule'] == '選擇交易方式')
 	{
@@ -614,7 +614,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         <a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
         
         </div>
-<?
+<?PHP
     }
     }
 	else if($row['tr_mode'] == '' || $row['tr_payment'] == '')
@@ -631,7 +631,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         <a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
         
         </div>
-<?
+<?PHP
     }
 	}
 	else
@@ -640,7 +640,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<script>
 			location.href = './index.php';
 		</script>
-<?
+<?PHP
 	}
 ?>
 </body>

@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -26,7 +26,7 @@ table
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body>
-<?
+<?PHP
 	//查詢會員帳號
 	$u = $_SESSION["m_number"];  
 	$sql = "select * from members where m_number = '$u'";
@@ -47,7 +47,7 @@ table
     <font size="5" color="#FF0000"><strong>追蹤清單</strong></font>
     <p></p>
     
-<? 
+<?PHP 
 	$n = 1;
 	
 	while($list3_t = mysql_fetch_array($query_t))
@@ -76,33 +76,33 @@ table
 		<tr><td></td></tr>
     	<tr>
         	<td rowspan="6">　</td>
-        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
             <td rowspan="6">　</td>
-			<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+			<th><font size="4" color="#880015"><strong><?PHP echo $list3_c[1]?></strong></font></th>
 		</tr>
         <tr>
-			<td><label><font size="3" color="#8080C5"><strong>商品價格：<? echo $list3_c[4]?> 元</strong></font></label></td>
+			<td><font size="3" color="#8080C5"><strong>商品價格：<?PHP echo $list3_c[4]?> 元</strong></font></td>
 		</tr>
         <tr>
-			<td><label><font size="3" color="#8080C5"><strong>最高出價：<? if($list3_c[2] != "0"){echo $list3_c[2];?> 元<? }else{echo 目前並沒有下標出價;}?></strong></font></label></td>
+			<td><font size="3" color="#8080C5"><strong>最高出價：<?PHP if($list3_c[2] != "0"){echo $list3_c[2];?> 元<?PHP }else{echo 目前並沒有下標出價;}?></strong></font></td>
 		</tr>
 		<tr>
-            <td><label><font size="3" color="#8080C5"><strong>出價次數：<? echo $list3_b[0]?></strong></font></label></td>
+            <td><font size="3" color="#8080C5"><strong>出價次數：<?PHP echo $list3_b[0]?></strong></font></td>
 		</tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>上架時間：<? echo $list3_c[8]?></strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>上架時間：<?PHP echo $list3_c[8]?></strong></font></td>
 		</tr>
         
 <script>
-	var b = new Array(<? echo count($a);?>);
+	var b = new Array(<?PHP echo count($a);?>);
 </script>
-<?
+<?PHP
 	for($i=1;$i<= count($a);$i++){
 ?>
 <script>
-	b[<? echo $i;?>]="<? echo $a[$i-1];?>";
+	b[<?PHP echo $i;?>]="<?PHP echo $a[$i-1];?>";
 </script>
-<?
+<?PHP
     }
 ?>
 <script>
@@ -110,7 +110,7 @@ function cal()
 {
 	var i = 1;
 	
-	while(i <= <? echo count($a); ?>)
+	while(i <= <?PHP echo count($a); ?>)
 	{
 		var startDate = new Date();
 		var endDate = new Date(b[i]);
@@ -141,12 +141,12 @@ window.onload = function()
 </script>
 
         <tr>
-            <td><div id="time"><font size="3" color="#8080C5"><strong>剩餘時間：</strong></font></div><strong><div style="font-size:16px;color:#8080C5" id="time_<? echo $n?>"></div></strong></td>
+            <td><div id="time"><font size="3" color="#8080C5"><strong>剩餘時間：</strong></font></div><strong><div style="font-size:16px;color:#8080C5" id="time_<?PHP echo $n?>"></div></strong></td>
 		</tr>       
         <tr><td></td></tr>
 	</table>
     <br/>
-<?
+<?PHP
 			$n++;
 		}
 	}

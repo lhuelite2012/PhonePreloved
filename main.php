@@ -17,7 +17,7 @@
 <script type="text/javascript" src="jQuery/jquery-latest.min.js"></script>
 <script type="text/javascript" src="jquery.backgroundPosition.js">
 </script>
-
+<script src="jQuery/imageScaling.js"></script>
 <title>瘋二手 Phone Preloved</title>
 <style type="text/css">
 	
@@ -72,7 +72,6 @@
 	border-top: 1px solid #e23923;
 	-webkit-border-radius: 2px;
 	-webkit-box-shadow: 0 1px 0 rgba(0, 39, 121, .77);
-	display:none;
 	padding: 0 1px;
 	color:#FFF;
 	left:18px;
@@ -152,7 +151,61 @@
 	left: 100px;
 	top: 10px;
 }
-
+	#pushShow{
+		position:absolute;
+		width:350px;
+		border: solid 2px #ddd;
+		z-index: 100;
+		background: #F6F7E7;
+		border-radius:3px 3px 3px 3px;
+		left:670px;
+		top:51px;
+		padding:5px 0px 5px 0px ;
+	}
+	#beeper{
+		position:absolute;
+		background:url(../%E7%B4%A0%E6%9D%90/beeper.png);
+		width:20px;
+		height:12px;
+		left:815px;
+		top:43px;
+		z-index: 101;
+	}
+	#push_mp{
+		position:relative;
+		float:left;
+		padding:0px 5px 0px 10px ;
+		width:85px;
+		height:85px;
+	}
+	#push_name{
+		position:relative;
+	}
+    #push_type{
+		position:relative;
+	}
+    #push_view{
+		position:relative;
+	}
+    .push_time{
+		position:relative;
+		height:15px;
+		text-align:left;
+		font-size:9px;
+		padding:15px 0px 0px 0px;
+	}
+    #push_whoP{
+		position:absolute;
+		left:290px;
+		width:50px;
+		height:50px;
+	}
+    #push_who{
+		position:relative;
+	}
+	#push_all{
+		display:none;
+	}
 </style>
 
 </head>
@@ -171,23 +224,18 @@
 	if(isset($_SESSION['m_number']))
 	{
 		$m_number = $_SESSION['m_number'];
-		$push_sql = "select count(*) from push where push_m_number = $m_number and p_check = false";
+		$push_sql = "select * from push where push_m_number = $m_number and p_check = false";
 		$push_result = mysql_query($push_sql);
-		$push_total = mysql_fetch_row($push_result);
-		if($push_total[0] == 0)
-			$push_total[0] = "";
-		$push_view = "select  p.p_type,p.p_time,p.c_number,p.bid_number,b.bid_price,b.m_number,c.c_name,c.c_mp,m.name from push p join bid  b join commodity c join members m on b.m_number = m.m_number and p.bid_number = b.bid_number and p.c_number = c.c_number where p.push_m_number = $m_number ";
-		$push_view_result = mysql_query($push_view);
+		$push_total = mysql_num_rows($push_result);
+		if($push_total == 0)
+			$push_total = "";
+		
 
-		//include("./push/pushShow.php");
+		include("./push/pushShow.php");
 ?>
 		<div id="apDiv11">
         	<div id="pushbox">
-            	<div id="pushTotal">
-					<?php if($push_total[0]<20) echo $push_total[0]; else echo "<font size='-4'>".$push_total[0]."</font>";?>
-                    <script type="text/javascript">
-						var push_total = <?php echo $push_total[0];?>
-                    </script>
+            	<div id="pushTotal"><?php echo $push_total; ?>
                 </div>
             </div>
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
@@ -221,6 +269,14 @@
 </html>
 <script type="text/javascript">
 	$(function(){
+		setInterval(test,1000);
+		function test(){
+			
+			$('#pushTotal').load("push/pushView.php",{"m_number":"<?php echo $m_number;?>"},function(response) {
+          		$('#pushTotal').html(response);
+     		});
+		}
+		
 		$('#hmenu1 div').hover(function(){
 				// 讓 $caption 往上移動
 				$(this).stop().animate({
@@ -241,10 +297,12 @@
 		
 		//已讀取
 		$("#pushbox").click(function(){
+			window.location.reload();
 			 $(this).load("push/pushTrue.php",{"m_number":"<?php echo $m_number;?>"});
 			 $(this).css("background","url(%E7%B4%A0%E6%9D%90/icon2.png)");
 			 $(this).css("background-repeat","no-repeat");
 			 $("#pushTotal").hide(); //消失
+			 $("#push_all").show();
 		});
 		
 	});

@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -45,15 +45,11 @@ function MM_swapImage() { //v3.0
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body onload="MM_preloadImages('素材/全部評價鈕-藍字.png','素材/買家評價鈕-藍字.png','素材/賣家評價鈕-藍字.png')">
-<?		
-	//查詢會員帳號
-	$u = $_SESSION["m_number"];
-	$sql = "select * from members where m_number = '$u'";
-	$query = mysql_query($sql);
-	$list3 = mysql_fetch_array($query);
+<?PHP
+	$m_number = $_SESSION["m_number"];
 	
 	//查詢得標者是否為使用者
-	$sql_o = "select * from commodity where orbidder = '$u'";
+	$sql_o = "select * from commodity where orbidder = '$m_number'";
 	$query_o = mysql_query($sql_o);
 	
 	//查詢賣家評價筆數
@@ -63,9 +59,9 @@ function MM_swapImage() { //v3.0
 <div align="center" id="apDiv63">
 	<font size="5" color="#FF0000"><strong>評價紀錄</strong></font>
     <hr width="500" size="1" /><p></p>
-    <font size="5" color="#0000FF"><strong>賣家評價 共 <? echo $row;?> 筆</strong></font><p></p>
+    <font size="5" color="#0000FF"><strong>賣家評價 共 <?PHP echo $row;?> 筆</strong></font><p></p>
     <hr width="500" size="1" /><p></p>
-<?
+<?PHP
 	while($list3_o = mysql_fetch_row($query_o))
 	{
 		
@@ -76,47 +72,70 @@ function MM_swapImage() { //v3.0
 		$sql_c = "select * from commodity where c_number = '$c_number'";
 		$query_c = mysql_query($sql_c);
 		$list3_c = mysql_fetch_array($query_c);
-
+			
 		//查詢交易得標時間
-		$sql_c_ = "select * from transaction where c_number = '$c_number'";
-		$query_c_ = mysql_query($sql_c_);
-		$list3_c_ = mysql_fetch_array($query_c_);
+		$sql_t = "select * from transaction where c_number = '$c_number'";
+		$query_t = mysql_query($sql_t);
+		$list3_t = mysql_fetch_array($query_t);
 		
 		//查詢評價分數及原因
-		$sql_f_ = "select f_record_.*,fraction_.* from fraction_ join f_record_ on f_record_.fr_number = fraction_.fr_number where f_record_.c_number = '$c_number' and f_record_.m_number = '$sell' and fraction_.fraction_type = '1'";
-		$query_f_ = mysql_query($sql_f_);
-		$list3_f_ = mysql_fetch_array($query_f_);
+		$sql_f = "select f_record_.*,fraction_.* from fraction_ join f_record_ on f_record_.fr_number = fraction_.fr_number where (f_record_.m_number = '$sell' and f_record_.c_number = '$c_number' and fraction_.fraction_type = '1') or (f_record_.m_number = '0' and f_record_.c_number = '$c_number')";
+		$query_f = mysql_query($sql_f);
+		$list3_f = mysql_fetch_array($query_f);
 ?>
 <form action="" method="post" name="form">
 	<table align="center" width="500">
 		<tr><td></td></tr>
     	<tr>
-        	<td rowspan="7">　</td>
-        	<td align="center" rowspan="7"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
-            <td rowspan="7">　</td>
+        	<td rowspan="8">　</td>
+        	<td align="center" rowspan="8"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+            <td rowspan="8">　</td>
 		</tr>
         <tr>
-        	<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+        	<th><font size="4" color="#880015"><strong><?PHP echo $list3_c[1]?></strong></font></th>
+        </tr>
+        <tr>
+        	<td><font size="3" color="#8080C5"><strong>
+			<?PHP
+			if($list3_f[0] != '' and $list3_f[0] != '0') echo 評價人：賣家;
+			if($list3_f[0] == '') echo 賣家目前還沒給買家評價分數;
+			if($list3_f[0] == '0' and $list3_f[6] == '1') echo 賣家提出交易失敗;
+			if($list3_f[0] == '0' and $list3_f[6] == '2') echo 買家提出交易失敗;
+			?>
+            </strong></font></td>          
         </tr>
    		<tr>
-        	<td><label><font size="3" color="#8080C5"><strong>評價分數：<? echo $list3_f_[8]/200?> 分</strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>評價分數：
+            <?PHP if($list3_f[8] == '') { echo 尚未評價; } ?>
+			<?PHP if($list3_f[8] != '') { echo $list3_f[8]/200; ?> 分<?PHP } ?>
+            </strong></font></td>
         </tr>
 		<tr>
-        	<td><label><font size="3" color="#8080C5"><strong>得標金額：<? echo $list3_c[3]?> 元</strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>得標金額：
+			<?PHP echo $list3_c[3]?> 元
+            </strong></font></td>
         </tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>得標時間：<? echo $list3_c_[4]?></strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>得標時間：
+			<?PHP echo $list3_t[4]?>
+            </strong></font></td>
         </tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>評價時間：<? echo $list3_f_[3]?></strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>評價時間：
+			<?PHP if($list3_f[3] == '') { echo 尚未評價; } ?>
+            <?PHP if($list3_f[3] != '') { echo $list3_f[3]; } ?>
+            </strong></font></td>
         </tr>
         <tr>
-        	<td><label><font size="3" color="#8080C5"><strong>評價意見：<? echo $list3_f_[4]?></strong></font></label></td>
+        	<td><font size="3" color="#8080C5"><strong>評價意見：
+			<?PHP if($list3_f[4] == '') { echo 尚未評價; } ?>
+            <?PHP if($list3_f[4] != '') { echo $list3_f[4]; } ?>
+            </strong></font></td>
         </tr>
         <tr><td></td></tr>
 	</table>
 	<br/>
-<?
+<?PHP
 	}
 	
 	if($row==0)

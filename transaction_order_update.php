@@ -1,8 +1,8 @@
-<?
+<?PHP
 ob_start();
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -13,7 +13,7 @@ include("myaccount.php");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<?	
+<?PHP	
 	$m_number = $_SESSION['m_number'];
 	$c_number = $_POST['c_number'];
 	

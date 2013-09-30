@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 ?>
@@ -12,7 +12,7 @@ include("loginConfirm.php");
 <title>查詢個人資料</title>
 </head>
 <body>
-<?	
+<?PHP	
 	//查詢會員帳號
 	$u = $_SESSION["m_number"]; 
 	$sql = "select * from members where m_number = '$u'";
@@ -51,73 +51,73 @@ include("loginConfirm.php");
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 電子郵件：</strong></td>
-			<td><label><? echo $list3[1];?></label></td>
+			<td><label><?PHP echo $list3[1];?></label></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong><font color="#0000FF"> 基本資料</font></strong></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 姓名：</strong></td>
-			<td><label><? echo $list3[3]?></label></td>
+			<td><label><?PHP echo $list3[3]?></label></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 大頭照：</strong></td>
-			<td><label><? echo '<img width="50" src="'.$list3[6].'"/>'?></label></td>
+			<td><label><?PHP echo '<img width="50" src="'.$list3[6].'"/>'?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 地址：</strong></td>
-			<td><label><? echo $list3[8]?></label></td>
+			<td><label><?PHP echo $list3[8]?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 性別：</strong></td>
-			<td><label><? echo $list3[4]?></label></td>
+			<td><label><?PHP echo $list3[4]?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 生日：</strong></td>
-			<td><label><? echo $list3[5]?></label></td>
+			<td><label><?PHP echo $list3[5]?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 手機：</strong></td>
-			<td><label><? echo $list3[7]?></label></td>
+			<td><label><?PHP echo $list3[7]?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 偏愛品牌：</strong></td>
-			<td><label><? echo $list3_bn[1]?></label></td>
+			<td><label><?PHP echo $list3_bn[1]?></label></td>
 		</tr>
 		<tr>
 			<td><strong><font color="#FF0000">*</font> 偏愛顏色：</strong></td>
-			<td><label><? echo $list3_cn[1]?></label></td>
+			<td><label><?PHP echo $list3_cn[1]?></label></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong><font color="#0000FF"> 身材</font></strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 身高：</strong></td>
-			<td><label><? echo $list3[9]?></label><strong> cm(公分)</strong></td>
+			<td><label><?PHP echo $list3[9]?></label><strong> cm(公分)</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 鞋子尺寸：</strong></td>
-			<td><label><? echo $list3[15]?></label><strong> cm(公分)</strong></td>
+			<td><label><?PHP echo $list3[15]?></label><strong> cm(公分)</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 臀圍：</strong></td>
-			<td><label><? echo $list3[13]?></label><strong> 吋</strong></td>
+			<td><label><?PHP echo $list3[13]?></label><strong> 吋</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 胸圍：</strong></td>
-			<td><label><? echo $list3[11]?></label><strong> 吋</strong></td>
+			<td><label><?PHP echo $list3[11]?></label><strong> 吋</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 腰圍：</strong></td>
-			<td><label><? echo $list3[12]?></label><strong> 吋</strong></td>
+			<td><label><?PHP echo $list3[12]?></label><strong> 吋</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 肩寬：</strong></td>
-			<td><label><? echo $list3[10]?></label><strong> cm(公分)</strong></td>
+			<td><label><?PHP echo $list3[10]?></label><strong> cm(公分)</strong></td>
 		</tr>
 		<tr>
 			<td><font color="#FFFFFF">*</font><strong> 衣服尺寸：</strong></td>
-			<td><label><? echo $list3[14]?></label><strong> TW/US</strong></td>
+			<td><label><?PHP echo $list3[14]?></label><strong> TW/US</strong></td>
 		</tr>
 		<tr>
 			<td><hr size="1" /></td>

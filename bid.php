@@ -11,6 +11,7 @@
 <body>
 <?php
 	include("server.php");
+	include("addtime.php");
 	if(isset($_SESSION['m_number'])){	//判斷登入
 		$c_number = $_POST['c_number'];
 		$m_number = $_SESSION['m_number'];
@@ -20,11 +21,6 @@
 		if($_SESSION['m_number'] != $rows[1] ){	//判斷非最高出價者
 			$bid = $_POST['bid'];
 			$bid_hi = $_SESSION['bid_hi'];
-			//加入時間
-			$time_sql = "SELECT NOW()";
-			$time_query = mysql_query($time_sql);
-			$time_row = mysql_fetch_row($time_query);
-			$addtime = $time_row[0];
 	
 			//新增出價
 			$bid_sql = "insert into bid (bid_price,bid_time,m_number,c_number) values ('$bid','$addtime','$m_number','$c_number')";

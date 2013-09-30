@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -14,7 +14,7 @@ include("myaccount.php");
 <title>變更密碼</title>
 </head>
 <body>
-<?
+<?PHP
 	$u = $_SESSION["m_number"];
 
 	//查詢會員帳號
@@ -38,7 +38,7 @@ include("myaccount.php");
 		</tr>
 		<tr>
 			<td><strong>目前使用帳號：</strong></td>
-			<td><strong><? echo $list3[1];?></strong></td>
+			<td><strong><?PHP echo $list3[1];?></strong></td>
 		</tr>
      	<tr>
      		<td><strong>請輸入新密碼：</strong></td>
@@ -55,7 +55,7 @@ include("myaccount.php");
 		</tr>
         <tr>
             <td align="center" colspan="3">
-            <input type="hidden" name="m_number" id="m_number" value="<? echo $list3[0];?>">
+            <input type="hidden" name="m_number" id="m_number" value="<?PHP echo $list3[0];?>">
             <div id="apDiv49"><input type="image" img src="素材/變更密碼-變更鈕.png" id="altercode" width="65" height="30" onclick="document.form.submit()">
             <a href="javascript:document.form.reset();"><img src="素材/忘記密碼-取消鈕.png" width="65" height="30"></a></div>
             </td>

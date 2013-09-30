@@ -1,8 +1,8 @@
-<?
+<?PHP
 ob_start();
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -44,7 +44,7 @@ $(function(){
 <body>
 <div id="background5">
 <div align="center" id="background6">      
-<?		
+<?PHP		
 		$m_number = $_SESSION["m_number"];
 		$c_number = $_POST['c_number'];
 		
@@ -62,24 +62,24 @@ $(function(){
 		</strong>
   		<p></p>
 		<strong>
-		<font size="3" color="#0000FF"><? echo $c_mode;?></font>的方式進行交易
+		<font size="3" color="#0000FF"><?PHP echo $c_mode;?></font>的方式進行交易
 		</strong>
         <p></p>
-<?
+<?PHP
 		$sql = "select name,phone,address from members where m_number = '$m_number'";
 		$result = mysql_query($sql);
 		$row = mysql_fetch_row($result);
 ?>
 <strong>
 <form action="transaction_update.php" method="post" name="commentForm" id="commentForm">
-<input type="hidden" name="c_number" value="<? echo $c_number;?>">
-<input type="hidden" name="c_payment" value="<? echo $c_payment;?>">
-<input type="hidden" name="c_mode" value="<? echo $c_mode;?>">
-<input type="hidden" name="buy_remit" value="<? echo $buy_remit;?>">
-<input type="hidden" name="buy_remitmoney" value="<? echo $buy_remitmoney;?>">
-<input type="hidden" name="buy_remitdate" value="<? echo $buy_remitdate;?>">
+<input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
+<input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
+<input type="hidden" name="c_mode" value="<?PHP echo $c_mode;?>">
+<input type="hidden" name="buy_remit" value="<?PHP echo $buy_remit;?>">
+<input type="hidden" name="buy_remitmoney" value="<?PHP echo $buy_remitmoney;?>">
+<input type="hidden" name="buy_remitdate" value="<?PHP echo $buy_remitdate;?>">
 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
-	<? 
+	<?PHP 
 		if($c_mode == '全家店到店')
 		{
 	?>
@@ -88,11 +88,11 @@ $(function(){
 	</tr>
     <tr>
 		<td height="30" align="center">收件人姓名：</td>
-        <td><? echo $row[0];?></td>
+        <td><?PHP echo $row[0];?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">收件人電話：</td>
-		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<? echo $row[1];?>"></td>
+		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<?PHP echo $row[1];?>"></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">店門市名稱：</td>
@@ -115,7 +115,7 @@ $(function(){
 	<tr>
 		<td colspan="2" height="70" align="center"><font color="#00CCCC">▲收件資訊請務必檢查填寫正確<br/>我們會依收件人電話來發送簡訊<br/>若更改到電話將會修改個人資料</font></td>
 	</tr>
-	<? 
+	<?PHP 
 		}
 		
 		if($c_mode == '7-11店到店')
@@ -126,11 +126,11 @@ $(function(){
 	</tr>
     <tr>
 		<td height="30" align="center">收件人姓名：</td>
-        <td><? echo $row[0];?></td>
+        <td><?PHP echo $row[0];?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">收件人電話：</td>
-		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<? echo $row[1];?>"></td>
+		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<?PHP echo $row[1];?>"></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">店門市名稱：</td>
@@ -153,7 +153,7 @@ $(function(){
 	<tr>
 		<td colspan="2" height="70" align="center"><font color="#00CCCC">▲收件資訊請務必檢查填寫正確<br/>我們會依收件人電話來發送簡訊<br/>若更改到電話將會修改個人資料</font></td>
 	</tr>
-	<? 
+	<?PHP 
 		}
 		
 		if($c_mode =='面交')
@@ -172,29 +172,29 @@ $(function(){
 	</tr>
 	<tr>
 		<td height="30" align="center">賣家真實姓名：</td>
-		<td><? echo $row[2]; ?></td>
+		<td><?PHP echo $row[2]; ?></td>
 	</tr>	
 	<tr>
 		<td height="30" align="center">賣家連絡電話：</td>
-		<td><? echo $row[3]; ?></td>
+		<td><?PHP echo $row[3]; ?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">賣家面交地點：</td>
-		<td><? echo $row[0]; ?></td>
+		<td><?PHP echo $row[0]; ?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">賣家面交時段：</td>
-		<td><? echo $row[1]; ?></td>
+		<td><?PHP echo $row[1]; ?></td>
 	</tr>
 	<tr>
 		<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">買家面交資訊</font></th>
 	</tr>
 		<td height="30" align="center">買家真實姓名：</td>
-		<td><? echo $row_[0];?></td>
+		<td><?PHP echo $row_[0];?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">買家聯絡電話：</td>
-		<td><input type="text" name="phone" value="<? echo $row_[1];?>" class="required" size="20"></td>
+		<td><input type="text" name="phone" value="<?PHP echo $row_[1];?>" class="required" size="20"></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">買家面交日期：</td>
@@ -203,7 +203,7 @@ $(function(){
 	<tr>
 		<td height="30" align="center">買家面交時段：</td>
 		<td>                            
-		<? 
+		<?PHP 
 			if($row[1] == "全天 ( 08:00 ~ 22:00 )")
 			{
 		?>                          
@@ -214,15 +214,15 @@ $(function(){
                 <option value="下午 ( 12:00 ~ 18:00 )">下午 ( 12:00 ~ 18:00 )</option>
                 <option value="晚上 ( 18:00 ~ 22:00 )">晚上 ( 18:00 ~ 22:00 )</option>
                 </select>
-		<?
+		<?PHP
 			}
 			else
 			{
 		?>
 				<select name="buy_paytime" class="required">
-				<option value="<? echo $row[1];?>"><? echo $row[1];?></option>
+				<option value="<?PHP echo $row[1];?>"><?PHP echo $row[1];?></option>
 				</select>
-		<?
+		<?PHP
 			}
 		?> 
 		</td>
@@ -242,7 +242,7 @@ $(function(){
     <tr>
 		<td colspan="2" height="70" align="center"><font color="#00CCCC">▲此面交是已經將金額匯給賣家<br/>請到指定的時間地點與賣家見面<br/>若更改到電話將會修改個人資料</font></td>
     </tr>
-	<? 
+	<?PHP 
 		}
 
 		if($c_mode =='郵寄')
@@ -261,18 +261,18 @@ $(function(){
 	</tr>
     <tr>
 		<td height="30" align="center">收件人姓名：</td>
-        <td><? echo $row[0];?></td>
+        <td><?PHP echo $row[0];?></td>
 	</tr>
 	<tr>
 		<td height="30" align="center">收件人電話：</td>
-		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<? echo $row[1];?>"></td>
+		<td><input type="text" name="phone" class="required" minlength="8" maxlength="10" value="<?PHP echo $row[1];?>"></td>
 	</tr>
 	<tr>
 		<td height="55" align="center">收件人地址：</td>
 		<td>
-        <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<? echo $row_cca[0] ?>"></select>
-        <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<? echo $row_cca[1] ?>"></select>
-        <br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" value=<? echo $row_cca[2]?>>
+        <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<?PHP echo $row_cca[0] ?>"></select>
+        <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<?PHP echo $row_cca[1] ?>"></select>
+        <br/><input type="text" name="address" id="address" class="required" maxlength="15" size="20" value=<?PHP echo $row_cca[2]?>>
         </td>
 	</tr>
     
@@ -386,7 +386,7 @@ function initCounty(countyInput)
 		countyInput.options[i].value = County[i];
 		countyInput.options[i].text = County[i];
 	}
-	countyInput.selectedIndex = <? echo $list3_cc[3]-1 ?>;
+	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1 ?>;
 }
 
 function initZone(countyInput, zoneInput, post)
@@ -430,9 +430,9 @@ function changeZone(countyInput, zoneInput, post)
 		zoneInput.options[i].text = Zone[selectedCountyIndex][i];
 	}
 
-	zoneInput.selectedIndex = <? echo $list3_cc[0]-1 ?>;
+	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1 ?>;
 
-	if(countyInput.selectedIndex != <? echo $list3_cc[3]-1 ?>)
+	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1 ?>)
 	{
 		zoneInput.selectedIndex = 0 ;
 	}	
@@ -465,7 +465,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 	<tr>
 		<td colspan="2" height="70" align="center"><font color="#00CCCC">▲收件資訊請務必檢查填寫正確<br/>我們會依收件人取貨時段來寄貨<br/>若更改電話地址會修改個人資料</font></td>  
 	</tr>
-	<? 
+	<?PHP 
 		}
 	?>
 	<tr>

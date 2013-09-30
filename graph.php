@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 	header('Content-Type: image/png');
 	$_SESSION['test']=generatorPassword();
 	$im = ImageCreate(70,35) or ("Cannot Create image");

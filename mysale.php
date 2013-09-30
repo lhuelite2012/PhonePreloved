@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -37,7 +37,7 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 <body onload="MM_preloadImages('素材/競標中鈕-藍字.png','素材/沒得標鈕-藍字.png','素材/已得標鈕-藍字.png','素材/販賣中鈕-藍字.png','素材/沒賣出鈕-藍字.png','素材/已賣出鈕-藍字.png')">
-<?	
+<?PHP	
 	//查詢會員帳號
 	$u = $_SESSION["m_number"];  
 	$sql = "select * from members where m_number = '$u'";
@@ -53,7 +53,7 @@ function MM_swapImage() { //v3.0
 <form action="" method="post" name="form">
 	<table width="300">
         <tr>
-			<td><strong><font size="3" color="#0000FF">您好，<? echo $list3[3]?>，歡迎進入到拍賣紀錄首頁</strong></td>
+			<td><strong><font size="3" color="#0000FF">您好，<?PHP echo $list3[3]?>，歡迎進入到拍賣紀錄首頁</strong></td>
 		</tr>
         <tr>
 			<td><strong><font size="3" color="#0000FF">您可以依據您所點選的連結，分別：</strong></td>

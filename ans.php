@@ -1,7 +1,7 @@
-<?
+<?PHP
 session_start();
 ?>
-<?
+<?PHP
 include("server.php");
 include("loginConfirm.php");
 include("myaccount.php");
@@ -22,7 +22,7 @@ table
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
 <body>
-<?	
+<?PHP	
 	//查詢會員帳號
 	$u = $_SESSION["m_number"];  
 	$sql = "select * from members where m_number = '$u'";
@@ -43,7 +43,7 @@ table
     <font size="5" color="#FF0000"><strong>商品問與答</strong></font>
     <p></p>
     
-<?
+<?PHP
     while($list3_q = mysql_fetch_row($query_q))
 	{
 		
@@ -66,32 +66,32 @@ table
 		<tr><td></td></tr>
     	<tr>
         	<td rowspan="6">　</td>
-        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<? echo $list3_c[0]; ?>"><? echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
+        	<td align="center" rowspan="6"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
             <td rowspan="6">　</td>
-			<th><label><font size="4" color="#880015"><strong><? echo $list3_c[1]?></strong></font></label></th>
+			<th><label><font size="4" color="#880015"><strong><?PHP echo $list3_c[1]?></strong></font></label></th>
 		</tr>
         <tr>
-			<td><label><font size="3" color="#8080C5"><strong>發問時間：<? echo $list3_q[2]?></strong></font></label></td>
+			<td><label><font size="3" color="#8080C5"><strong>發問時間：<?PHP echo $list3_q[2]?></strong></font></label></td>
 		</tr>
 		<tr>
-            <td><label><font size="3" color="#8080C5"><strong>發問內容：<? echo $list3_q[1]?></strong></font></label></td>
+            <td><label><font size="3" color="#8080C5"><strong>發問內容：<?PHP echo $list3_q[1]?></strong></font></label></td>
 		</tr>
         <tr>
-            <td><label><font size="3" color="#8080C5"><strong>回覆狀態：<? if($list3_q[0] == $list3_q_[1]) echo 已經回覆摟;
+            <td><label><font size="3" color="#8080C5"><strong>回覆狀態：<?PHP if($list3_q[0] == $list3_q_[1]) echo 已經回覆摟;
 			if($list3_q[0] != $list3_q_[1]) echo 目前未回覆?></strong></font></label></td>
 		</tr>
         <tr>
-            <td><label><font size="3" color="#8080C5"><strong>回覆時間：<? if($list3_q[0] == $list3_q_[1]) echo $list3_q_[3];
+            <td><label><font size="3" color="#8080C5"><strong>回覆時間：<?PHP if($list3_q[0] == $list3_q_[1]) echo $list3_q_[3];
 			if($list3_q[0] != $list3_q_[1]) echo 未回覆則無回覆時間?></strong></font></label></td>
 		</tr>
         <tr>
-            <td><label><font size="3" color="#8080C5"><strong>回覆內容：<? if($list3_q[0] == $list3_q_[1]) echo $list3_q_[2];
+            <td><label><font size="3" color="#8080C5"><strong>回覆內容：<?PHP if($list3_q[0] == $list3_q_[1]) echo $list3_q_[2];
 			if($list3_q[0] != $list3_q_[1]) echo 未回覆則無回覆內容?></strong></font></label></td>
 		</tr>
         <tr><td></td></tr>
 	</table>
     <br/>
-<?
+<?PHP
 	}
 	
 	if($row==0)

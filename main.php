@@ -235,8 +235,7 @@
 ?>
 		<div id="apDiv11">
         	<div id="pushbox">
-            	<div id="pushTotal"><?php echo $push_total; ?>
-                </div>
+            	<div id="pushTotal"><?php echo $push_total; ?></div>
             </div>
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
     		<div id="apDiv16"><a href="member.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
@@ -271,7 +270,6 @@
 	$(function(){
 		setInterval(test,1000);
 		function test(){
-			
 			$('#pushTotal').load("push/pushView.php",{"m_number":"<?php echo $m_number;?>"},function(response) {
           		$('#pushTotal').html(response);
      		});
@@ -289,20 +287,15 @@
 				}, 200);
 		});
 		
-		if(push_total > 0){
-			$("#pushbox").css("background","url(%E7%B4%A0%E6%9D%90/icon.png)");
-			$("#pushbox").css("background-repeat","no-repeat");
-			$("#pushTotal").css("display","block");
-		}
+		
 		
 		//已讀取
 		$("#pushbox").click(function(){
-			window.location.reload();
 			 $(this).load("push/pushTrue.php",{"m_number":"<?php echo $m_number;?>"});
 			 $(this).css("background","url(%E7%B4%A0%E6%9D%90/icon2.png)");
 			 $(this).css("background-repeat","no-repeat");
 			 $("#pushTotal").hide(); //消失
-			 $("#push_all").show();
+			 //window.location.reload();
 		});
 		
 	});

@@ -154,7 +154,7 @@ if($insert_result = mysql_query($insert_sql)){
 	$c_mode[] = $_REQUEST["c_mode3"];
 	$c_mode[] = $_REQUEST["c_mode4"];
 	for($a=0 ; $a < count($c_mode);$a++){
-		if(isset($c_mode[$a]) and $c_mode[$a] != ""){
+		if($c_mode[$a] != "test"){
 			$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode[$a]')";
 			mysql_query($sql);
 		}
@@ -165,15 +165,15 @@ if($insert_result = mysql_query($insert_sql)){
 	$c_payment[] = $_REQUEST["c_payment1"];
 	$c_payment[] = $_REQUEST["c_payment2"];
 	for($a=0 ; $a < count($c_payment);$a++){
-		if(isset($c_payment[$a]) and $c_payment[$a] != ""){
-			$sql = "insert into c_payment (c_number,c_payment) value ('$c_number','c_payment[$a]')";
+		if($c_payment[$a] = "test"){
+			$sql = "insert into c_payment (c_number,c_payment) value ('$c_number','$c_payment[$a]')";
 			mysql_query($sql);
 		}
 	}
 	include("addedUploadJson.php");
 	
 	for($a=1 ; $a <=7 ; $a++){
-		if($_FILES["c_picture".$a]["name"] !=""){
+		if($_FILES["c_picture".$a]["name"] =""){
 			$sql = "insert into c_picture (c_number,c_picture) value ('$c_number','".$_FILES["c_picture".$a]["name"]."')";
 			mysql_query($sql);
 		}

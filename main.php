@@ -239,7 +239,7 @@
                 </div>
             </div>
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
-    		<div id="apDiv16"><a href="member.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
+    		<div id="apDiv16"><a href="alter.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
     		<div id="apDiv19"><img src="素材/右上大頭貼.jpg" /></div>
             <div id="logout"><a href="logout.php">登出</a></div>
 		</div>

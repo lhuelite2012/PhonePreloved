@@ -1,4 +1,5 @@
-<?
+
+<?PHP
 	//加入時間
 	$time_sql = "SELECT NOW()";
 	$time_query = mysql_query($time_sql);

@@ -20,12 +20,12 @@ $m_number = $_SESSION['m_number'];
  $c_gender = $_GET['gender'];
  $s_number = $_GET['s_number'];
  $_SESSION['c_name'] = $_POST['c_name'];
- 
+ $_SESSION['added'] = "0";
  $sql = "select score from members where account='$account'"; // 找出members裡的score
  $query = mysql_query($sql);
  $rows = mysql_fetch_array($query);
  $score = $rows['score'];
- 
+
 if($_POST['c_name'] == "")
 {
 	?><script>window.alert('商品標題未填');
@@ -288,9 +288,9 @@ if(!empty($_FILES["c_movie"]["name"]))//  如果有值上傳影片 score + 5
 			 $tmpfile=$_FILES["c_movie"]["tmp_name"];//server端站存檔名
 			 $file2=mb_convert_encoding($_FILES["c_movie"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
 			  
-				if (move_uploaded_file($tmpfile,$moviePathWeb.$name))//上傳檔案
+				if (move_uploaded_file($tmpfile,$moviePathWeb.$m_number."_".$name))//上傳檔案
 				{
-					$c_movie = $name;
+					$c_movie = $m_number."_".$name;
 					$score = $score + 5 ;
 				}
 				else
@@ -326,19 +326,19 @@ if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
  $file2=mb_convert_encoding($_FILES["pop"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
  if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg
   {
-  if (move_uploaded_file($tmpfile,$popPathWeb.$name))//上傳檔案
+  if (move_uploaded_file($tmpfile,$popPathWeb.$m_number."_".$name))//上傳檔案
     {	
-   $src = $popPathWeb.$name;
+   $src = $popPathWeb.$m_number."_".$name;
    $dest = $src;
    $destW = 400;
    $destH = 400;
    imagesResize($src,$dest,$destW,$destH);
-   $pop = $name;
+   $pop = $m_number."_".$name;
       
-   $src = $popPathWeb.$name;
-   $dest = $popPathPhone.$name;
-   $destW = 200;
-   $destH = 200;
+   $src = $popPathWeb.$m_number."_".$name;
+   $dest = $popPathPhone.$m_number."_".$name;
+   $destW = 260;
+   $destH = 250;
    imagesResize($src,$dest,$destW,$destH);
    
 	$score = $score + 5 ;
@@ -396,23 +396,23 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	 $file2=mb_convert_encoding($_FILES["c_mp"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
 	 if (($_FILES["c_mp"]["type"] == "image/gif") || ($_FILES["c_mp"]["type"] == "image/jpeg")||($_FILES["c_mp"]["type"] == "image/jpg")||($_FILES["c_mp"]["tmp_name"]==""))//限定檔案gif jpg
 	  {
-	  if (move_uploaded_file($tmpfile,$picturePathWeb.$name))//上傳檔案
+	  if (move_uploaded_file($tmpfile,$picturePathWeb.$m_number."_".$name))//上傳檔案
 		{	
-	   $src = $picturePathWeb.$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
 	   $dest = $src;
 	   $destW = 400;
 	   $destH = 400;
 	   imagesResize($src,$dest,$destW,$destH);
-		$c_mp = $name;
+		$c_mp = $m_number."_".$name;
 	   
-	   $src = $picturePathWeb.$name;
-	   $dest = $displayPathWeb.$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
+	   $dest = $displayPathWeb.$m_number."_".$name;
 	   $destW = 240;
 	   $destH = 155;
 	   imagesResize($src,$dest,$destW,$destH);
 	   
-	   $src = $picturePathWeb.$name;
-	   $dest = $displayPathPhone.$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
+	   $dest = $displayPathPhone.$m_number."_".$name;
 	   $destW = 260;
 	   $destH = 250;
 	   imagesResize($src,$dest,$destW,$destH);
@@ -449,7 +449,8 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	'$hi_bid_price')";
 		mysql_query($sql_query);
 		
-	$_SESSION['score'] = $score;		
+	$_SESSION['score'] = $score;
+	$_SESSION['added'] = "1";		
 		header("Location:added_4.php");
 	
     }//上傳檔案if
@@ -475,7 +476,6 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 				case 7:
 				?><script> window.alert ("主要圖片上傳檔案無法寫入"); window.history.back(); 
 				</script><?PHP
-				break;
 				case 8:
 				?><script> window.alert ("主要圖片上傳停止"); window.history.back(); </script><?PHP
 				break;

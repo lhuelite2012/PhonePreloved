@@ -413,6 +413,14 @@ session_start();
 <?PHP include("main.php");
 include("server.php");
 include("loginConfirm.php");
+if($_SESSION['added'] == "2")
+{
+	?><script>window.alert('商品已存入無法修改');
+	</script>
+    <?PHP
+	die();
+
+}
  ?>
 <div id=ce2>
 <div id="ap"><img src="素材/上架2.png" width="978" height="557" alt="上架2" />

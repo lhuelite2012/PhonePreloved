@@ -47,6 +47,10 @@ if($pw == "")
         $_SESSION['m_number'] = $row[0];
 		$_SESSION['m_name'] = $row[3];
 		$_SESSION['total'] = $row['total'];
+		if($row['file'] !="")
+			$_SESSION['file'] = "upload/".$row['file'];
+		else
+			$_SESSION['file'] = $row['file'];
 		if(isset($_POST['c_number']))  //如果是從商品頁面登入的話﹐就跳回此商品頁面
 		{
 			$c_number = $_POST['c_number'];

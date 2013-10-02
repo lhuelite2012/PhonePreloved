@@ -111,23 +111,23 @@ if(!empty($_FILES["c_picture"]["name"]))
 	 $file2=mb_convert_encoding($_FILES["c_picture"]["name"][$j],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
 	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg
 	  {
-	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$name))//上傳檔案
+	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$m_number."_".$name))//上傳檔案
 		{
 			//echo "上傳成功<br>";
-			$src = $picturePathWeb.$j."_".$name;
+			$src = $picturePathWeb.$j."_".$m_number."_".$name;
 			$dest = $src;
 			$destW = 400;
 			$destH = 400;
 			imagesResize($src,$dest,$destW,$destH);
-			$c_picture = $picturePathPhone.$j."_".$name;
+			$c_picture = $j."_".$m_number."_".$name;
 			   
-			$src = $picturePathWeb.$j."_".$name;
-			$dest = $picturePathPhone.$j."_".$name;
+			$src = $picturePathWeb.$j."_".$m_number."_".$name;
+			$dest = $picturePathPhone.$j."_".$m_number."_".$name;
 			$destW = 260;
 			$destH = 250;
 			imagesResize($src,$dest,$destW,$destH);
 			
-			$sql_query2 = "INSERT into c_picture(c_number,c_picture) VALUES ('".$_SESSION['c_number']."',''$c_pictur')";
+			$sql_query2 = "INSERT into c_picture(c_number,c_picture) VALUES ('".$_SESSION['c_number']."','$c_picture')";
 			mysql_query($sql_query2);
 			
 						
@@ -164,30 +164,30 @@ if(!empty($_FILES["c_picture"]["name"]))
 	mysql_query($sql_query2);
 	
 
-	if($_POST["c_mode"])//交貨方式
-	{								
-		foreach($_POST["c_mode"] as $key => $value)
-		{
-			$c_mode=$c_mode.",".$value;//黃,紅,藍,黑,綠
-		}
-	}
-	$sql_query3 = "INSERT into c_mode(c_number,c_mode) VALUES ('".$_SESSION['c_number']."','$c_mode')";
+	foreach($_POST["c_mode"] as $key => $value)
+	{
+	$sql_query3 = "INSERT into c_mode(c_number,c_mode) VALUES ('".$_SESSION['c_number']."','$value')";
 	mysql_query($sql_query3);
-	
-		if($_POST["c_payment"])//付款方式
+	}
+	foreach($_POST["c_payment"] as $key => $value1)
+	{
+	$sql_query4 = "INSERT into c_payment(c_number,c_payment) VALUES ('".$_SESSION['c_number']."','$value1')";
+	mysql_query($sql_query4);
+	}
+	$sql_query5 = "UPDATE members SET 
+	personally = '".$_POST['personally']."' where $m_number =".$_SESSION['m_number'];
+	mysql_query($sql_query5);
+	$_SESSION['added'] = "2";
+	/*
+			if($_POST["c_payment"])//付款方式
 	{								
 		foreach($_POST["c_payment"] as $key => $value1)
 		{
 			$c_payment=$c_payment.",".$value1;//黃,紅,藍,黑,綠
 		}
 	}
-	$sql_query4 = "INSERT into c_payment(c_number,c_payment) VALUES ('".$_SESSION['c_number']."','$c_payment')";
-	mysql_query($sql_query4);
 
-	$sql_query5 = "UPDATE members SET 
-	personally = '".$_POST['personally']."' where $m_number =".$_SESSION['m_number'];
-	mysql_query($sql_query5);
-
+	*/
 }
 ?>
 <FORM name="form1" action="" method="post">

@@ -596,7 +596,6 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
                     <td width="250px"><?php echo $c_bid_row['bid_price']; ?></td>
                     <td width="250px"><?php echo $c_bid_row['bid_time']; ?></td>
                 </tr>
-               
 <?php 			}
 			}else echo "<tr><td> 沒有任何出價紀錄 </td></tr>";?>
 			</table></div>
@@ -606,7 +605,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			include("qa.php");
 		break;
 	}
-?>
+?><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 	</div>
 <?php
 include("related_commodity.php");

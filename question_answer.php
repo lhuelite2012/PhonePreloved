@@ -21,17 +21,12 @@ saveHistory {
 <body>
 <?PHP
 include("server.php");
-$i_title = $_GET['i_t'];
+$i_number = $_GET['i'];
 $i_m_number = $_GET['m_n'];
 
-$sql = "select i_number,i_content,i_picture,i_time from interactive where i_title = '$i_title' and m_number = '$i_m_number'";
+$sql = "select i_number,i_content,i_picture,i_time,i_title from interactive where i_number = '$i_number' and m_number = '$i_m_number'";
 $result = mysql_query($sql);
-$row = mysql_fetch_row($result);
-
-echo $row[2];
-echo $row[1];
-echo $row[0];
-echo $row[3];
+$list = mysql_fetch_row($result);
 
 $m_sql = "select account from members where m_number = '$i_m_number'";
 $m_result = mysql_query($m_sql);
@@ -41,7 +36,7 @@ $m_row = mysql_fetch_row($m_result);
 <table width="850">
   <tr height="5">
     <td width="86"  align="right"> 標題 : </td>
-    <td align="left" colspan="2"><?PHP echo $i_title;?></td>
+    <td align="left" colspan="2"><?PHP echo $list[4];?></td>
   </tr>
   <tr>
     <td width="89"  align="right"><font size="-1">發問人 : </font></td>
@@ -49,54 +44,73 @@ $m_row = mysql_fetch_row($m_result);
   </tr>
   <tr height="30">
     <td align="right"><font size="-1">發問日期 : </font></td>
-    <td width="482"><font size="-1"><?PHP echo $row[3];?></font></td>
+    <td width="482"><font size="-1"><?PHP echo $list[3];?></font></td>
     <td width="0"></td>
   </tr>
-  <tr height="200">
+  <tr height="5">
     <td>&nbsp;</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td align="left" rowspan="4">
-    <img src="C:/AppServ/www/commodity/file/web/<?PHP echo $row[2];?>" alt="show image" id="rand-img">
-    </td>
-    <td align="left" rowspan="10" colspan="2">
-    <font face="微軟正黑體"><?PHP echo $row4[1];?></font>
+  <td></td>
+     <td align="left" colspan="2">
+    <font face="微軟正黑體"><?PHP echo $list[1];?></font>
     </td>
   </tr>
+  <tr>
+  <td></td>
+    <td align="left" colspan="2">
+    <img src="C:/AppServ/www/commodity/question/web/<?PHP echo $list[2];?>" alt="show question">
+    </td>
+  </tr>
+  <tr height="5">
+  <td>&nbsp;</td>
+  <td></td>
+  <td></td>
+  </tr>
+<?PHP
+$q_sql = "select * from i_answer where i_number = ".$i_number;
+$q_result = mysql_query($q_sql);	
+if($q_row = mysql_fetch_array($q_result)){
+?>					<tr><th width="100px" height="30px">發問者回覆</th><td width="500px"></td>
+					<td></td>
+					</tr>
+					<tr><td colspan="2" rowspan="2" height="20px" style="text-indent:20px;" align="left"><?PHP echo $q_row['answer_content']; ?></td>
+                    </tr>
+                	<tr><td colspan="2" align="right"><?PHP echo $q_row['answer_time']; ?></td>
+                    </tr> 
 </table>
+<?PHP } if($i_m_number == $_SESSION['m_number']){?>
 <table>
   <tr>
-    <td colspan="3"><?PHP if($i_m_number == $_SESSION['m_number'])
-		{?>
-      <form action="question_answer3.php?i=<?PHP echo $row4['i_number'];?>" method="post" name="question_answer" onsubmit="return chktwo();" enctype="multipart/form-data">
+    <td width="86">
+      <form action="question_answer3.php?i=<?PHP echo "$i_number";?>&m_n=<?PHP echo "$i_m_number";?>" method="post" name="question_answer" onsubmit="return chktwo();" enctype="multipart/form-data">
       回覆 :
-      <textarea id="i_content" name="i_content" rows="3" cols="100"></textarea>
+      </td>
+      <td width="180">
+      <textarea id="answer_content" name="answer_content" rows="3" cols="70"></textarea>
     </td>
   </tr>
   <tr>
-  	<td>
-    	<center>
-        <input type="submit" id="Submit" name="Submit" value="送出">
-        </center>
+  	<td colspan="2">
+        <center><input type="submit" id="Submit" name="Submit" value="送出"></center>
     </td>
   </tr>
 </table>
 <?PHP }
 //=========↑發問人回覆==========↓回答===========
-		else if($i_m_number != $_SESSION['m_number'])
-		{?>
-<table>
-    	<?PHP $sql2= "select * from i_answer where i_number = '$i_number' order by answer_time";
-		$result2 = mysql_query($sql2);
-		
-		if($row2 = mysql_fetch_row($result2)){ 
+
 		$sql3 = "select account from members where m_number = ".$_SESSION['m_number'];
 		$m_result2 = mysql_query($sql3);
 		$m_row2 = mysql_fetch_row($m_result2);
+
+		$sql2= "select * from i_answer where i_number = ".$i_number;
+		$result2 = mysql_query($sql2);
+		 if($row2 = mysql_fetch_row($result2)){ 
 ?>
-    <tr>
+<table>
+<tr>
     <td width="100" align="left">	
     <font size="-1"><?PHP echo $m_row2['account'];?></font>
     </td>
@@ -106,15 +120,34 @@ $m_row = mysql_fetch_row($m_result);
     <?PHP echo $row2['answer_time'];?>
     </td>
 </tr>
-
 <tr>
-	<td width="700" align="left">
+	<td width="700" align="right">
     <?PHP echo $row2['answer_content'];?>
     </td>
 </tr>
-<?PHP }?>
+<?PHP }
+	$sql4 = "select * from a_answer where an_number =".$row2['an_number'];
+	$result4 = mysql_query($sql4);
+	 if($row4 = mysql_fetch_row($result4)){ 
+?>
+<tr>
+    <td width="100" align="left">	
+    <font size="-1"><?PHP echo $i_m_number;?></font>
+    </td>
+</tr>
+<tr align="left" style="border-top:#000">
+	<td width="100" align="left">
+    <?PHP echo $row4['a_time'];?>
+    </td>
+</tr>
+<tr>
+	<td width="700" align="right">
+    <?PHP echo $row4['a_content'];?>
+    </td>
+</tr>
+<?PHP  } if($i_m_number != $_SESSION['m_number']){?>
 </table>
-<form action="question_answer2.php?i=<?PHP echo $row4['i_number'];?>" method="post" name="question_answer" onsubmit="return chktwo();" enctype="multipart/form-data">
+<form action="question_answer2.php?i=<?PHP echo $row['i_number'];?>" method="post" name="question_answer" onsubmit="return chktwo();" enctype="multipart/form-data">
 <table>
   <tr>
     <td><FONT color="#000000" SIZE=4 face="微軟正黑體">回答:</FONT></td>

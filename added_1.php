@@ -1,7 +1,5 @@
 <?PHP
 session_start();
-include("main.php");
-include("loginConfirm.php"); 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,10 +38,8 @@ include("loginConfirm.php");
 
 
 <body >
-<?PHP 
-$sql = "delete from commodity where uptime = downtime";
-mysql_query($sql);
-
+<?PHP include("main.php");
+include("loginConfirm.php"); 
 ?>
 <div id=ce2>
 <div id="ap"><img src="素材/上架1.png" width="978" height="557" alt="上架1" />

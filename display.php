@@ -314,7 +314,7 @@ function MM_swapImage() { //v3.0
 
 
 		
-	$total_sql = "select commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number where  orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location";
+	$total_sql = "select commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number where  orend = 0 and orsell = 0  and uptime !=	downtime $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location";
 
 		
 		//進入commodity.php離開後登入 跳至index.php
@@ -357,7 +357,7 @@ function MM_swapImage() { //v3.0
 		$offset = ($page - 1) * $page_size;
 		if(!isset($sort)){$sort = 1;}
 		
-		$sql = "select commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number where  orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location  order by ".$sort." limit ".$offset.", $page_size";
+		$sql = "select commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number where  orend = 0 and orsell = 0  and uptime !=	downtime $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location  order by ".$sort." limit ".$offset.", $page_size";
 		
 		$resul = mysql_query($sql);
    				$s = 1;

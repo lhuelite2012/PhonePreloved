@@ -1,10 +1,6 @@
-<?php
-	session_start();
-	include("main.php"); 
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php
+<?
 session_cache_limiter('private,must_revalidate');
 ?>
 <head>
@@ -17,14 +13,15 @@ saveHistory{behavior:url(#default#savehistory);}
 <title>瘋二手 Phone Preloved</title>
 <style type="text/css">
 #apDiv20 {
-	position: absolute;
-	text-align: center;
-	width: 200px;
-	height: 115px;
-	z-index: 1;
-	left: 78px;
-	top: 147px;
+	position:absolute;
+	text-align:center;
+	width:200px;
+	height:115px;
+	z-index:1;
+	left:128px;
+	top: 140px;
 	width: 80%;
+	
 }/*註冊步驟底圖片*/
 
 .apDiv{
@@ -38,101 +35,17 @@ saveHistory{behavior:url(#default#savehistory);}
 	z-index:15;
 }/*註冊步驟1欄位*/
 
-#accountAjax{
-	font-size:14px;
-	}
-
 </style>
 </head>
 <body >
-<script type="text/javascript" src="jQuery/jquery.validate.js"></script>
-<script>
-	$(document).ready(function() {
-		$('#form1').validate({
-			rules:{
-				account:{
-					required: true,
-					email: true
-				},
-				password:{
-					required: true,
-					minlength: 5
-				},
-				password2:{
-					required: true,
-					minlength: 5,
-					equalTo : '#password'
-				},
-				name:{
-					required: true
-				},
-				gender:{
-					required: true
-				},
-				caddress:{
-					required: true
-				},
-				phone:{
-					required: true,
-					digits : true,
-					minlength: 10,
-				},
-				r_brand:{
-					required: true
-				},
-				colors:{
-					required: true,
-					min:1
-				},
-				height:{
-					number : true
-				},
-				weight:{
-					number : true
-				},
-				bust:{
-					number : true
-				},
-				waistline:{
-					number : true
-				},
-				hips:{
-					number : true
-				},
-				shoulder:{
-					number : true
-				},
-				shoes_size2:{
-					number : true
-				},
-			}
-		});
-		$('input:text[name=account]').bind("blur",function(){
-			$.ajax( {
-      		 url: 'registerAjax.php',
-     		 type: 'GET',
-      		 data: {
-        		user_name: $('#account').val()
-      		 },
-     		 error: function(xhr) {
-        		alert('Ajax request 發生錯誤');
-      		},
-      		success: function(response) {
-          		$('#accountAjax').html(response);
-          		$('#accountAjax').fadeIn();
-     		 }
-    		} );
-		});
-    });
-			
-</script>
 
+<? //include("main.php"); ?>
 
 
 <div id="apDiv20"><img src="素材/註冊會員1.png" width="896" height="1202" alt="註冊會員1" />
    
     <div class="apDiv">
-<form name="form1" id="form1" action="register_0.php" method="post" enctype="multipart/form-data">
+<form name="form1" action="register_0.php" method="post" enctype="multipart/form-data">
 <table height="1000" width="650" style="text-align:left;">
 <tr>
 <td>
@@ -145,9 +58,10 @@ saveHistory{behavior:url(#default#savehistory);}
         <font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">帳號</font>
 </td>
 	<td>
-		<input type="text" id="account" name="account" size="30" placeholder="lhuelite2012@gmail.com" >
-    	<span id="accountAjax"></span>
-    </td>
+		<input type="text" id="account" name="account" size="30" >
+        <FONT color="#FF0000" SIZE=1>請輸入完整電子信箱（123123@gmail.com）</FONT>
+        
+	</td>
 </tr>
 <tr>
 	<td style="text-align:right;">
@@ -156,6 +70,7 @@ saveHistory{behavior:url(#default#savehistory);}
 	</td>
 	<td>
 		<input type="password" id="password" name="password" size="20" >
+        <FONT color="#FF0000" SIZE=1>最少5個字</FONT>
 	</td>
 </tr>
 <tr>
@@ -197,7 +112,7 @@ saveHistory{behavior:url(#default#savehistory);}
 <select id="address" name="Canton" onchange="document.form1.City, document.form1.Canton" size="1">
 </select>
 <label>
-<input type="text" id="caddress" name="caddress" size="30"/>
+<input type="text" id="caddress" name="caddress" size="45"/>
 </label>
 </td>
 </tr>
@@ -384,13 +299,13 @@ initZone(document.form1.City, document.form1.Canton);
         <font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">偏愛品牌</font>
     </td>
     <td>
-<?php
+<?
 include("server.php");
 $query="select * from brand";
 $result = mysql_query($query);
 $num_result = mysql_num_rows($result);
-echo "<select name='b_number' id='r_brand' size='1'>";
-?><option value="0">請選擇</option><?php
+echo "<select name='b_number' size='1'>";
+?><option value="0">請選擇</option><?
 for($i=0;$i<$num_result; $i++)
 {
     	$row=mysql_fetch_array($result);
@@ -441,14 +356,14 @@ echo "</select>";
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">身高</font>    </td>
     <td>
-    	<input type="text" id="height" name="height" size="11" placeholder="cm(公分)">
+    	<input type="text" id="height" name="height" size="11">cm<FONT SIZE=2>(公分)</FONT>
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">體重</font>    </td>
     <td>
-    	<input type="text" id="weight" name="weight" size="11" placeholder="kg(公斤)">
+    	<input type="text" id="weight" name="weight" size="11">kg<FONT SIZE=2>(公斤)</FONT>
     </td>
 </tr>
 
@@ -472,16 +387,16 @@ echo "</select>";
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">三圍</font>    </td>
     <td>
-    	<input type="text" id="bust" name="bust" size="7" placeholder="吋"><FONT SIZE=2>（胸圍）</FONT>
-        <input type="text" id="waistline" name="waistline" size="7" placeholder="吋"><FONT SIZE=2>（腰圍）</FONT>
-        <input type="text" id="hips" name="hips" size="7" placeholder="吋"><FONT SIZE=2>（臀圍）</FONT>
+    	<input type="text" id="bust" name="bust" size="7"><FONT SIZE=2>（胸圍）</FONT><FONT SIZE=3>吋</FONT>
+        <input type="text" id="waistline" name="waistline" size="7"><FONT SIZE=2>（腰圍）</FONT><FONT SIZE=3>吋</FONT>
+        <input type="text" id="hips" name="hips" size="7"><FONT SIZE=2>（臀圍）</FONT><FONT SIZE=3>吋</FONT>
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">肩寬</font>    </td>
     <td>
-    	<input type="text" id="shoulder" name="shoulder" size="11" placeholder="cm(公分)">
+    	<input type="text" id="shoulder" name="shoulder" size="11">cm<FONT SIZE=2>(公分)</FONT>
     </td>
 </tr>
 <tr>
@@ -495,7 +410,7 @@ echo "</select>";
         <option value="日本">日本</option>
         <option value="歐洲">歐洲</option>
         </select>
-    	<input type="text" id="shoes_size2" name="shoes_size2" size="11" placeholder="請輸入尺寸">
+    	<input type="text" id="shoes_size2" name="shoes_size2" size="11">cm<FONT SIZE=2>(公分)</FONT>
     </td>
 </tr>
 <tr>

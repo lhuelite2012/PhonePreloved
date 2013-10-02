@@ -127,7 +127,7 @@ include("main.php");
 <div id="one">
 <table width="850px" height="50px">
 				<tr>
-                <td height="30px" width="444"><a href="question_answer.php?i_t=<?PHP echo $row['i_title'];?>&m_n=<?PHP echo $row['m_number'];?>" STYLE="text-decoration:none" ><div class="one_p"><?PHP echo "&nbsp;"; echo substr($row['i_title'],0,51);?></div></a></td>
+                <td height="30px" width="444"><a href="question_answer.php?i=<?PHP echo $row['i_number'];?>&m_n=<?PHP echo $row['m_number'];?>" STYLE="text-decoration:none" ><div class="one_p"><?PHP echo "&nbsp;"; echo substr($row['i_title'],0,51);?></div></a></td>
                 <td width="156" align="left"><?PHP echo $m_row[0];?></td>
                 <td width="234" align="center"><?PHP echo $row['i_time'];?></td>
                 </tr>

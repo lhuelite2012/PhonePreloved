@@ -19,6 +19,7 @@ $m_number = $_SESSION['m_number']; ?>
  $c_gender = $_GET['gender'];
  $s_number = $_GET['s_number'];
  $_SESSION['c_name'] = $_POST['c_name'];
+ $_SESSION['added'] = "0";
  
  $sql = "select score from members where account='$account'"; // 找出members裡的score
  $query = mysql_query($sql);
@@ -286,10 +287,11 @@ if(!empty($_FILES["c_movie"]["name"]))//  如果有值上傳影片 score + 5
 			// $uploaddir="C:/AppServ/www/mp/";//上傳檔案存放位置
 			 $tmpfile=$_FILES["c_movie"]["tmp_name"];//server端站存檔名
 			 $file2=mb_convert_encoding($_FILES["c_movie"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-			  
-				if (move_uploaded_file($tmpfile,$moviePathWeb."movie_".$name))//上傳檔案
+			  if (($_FILES["c_movie"]["name"] == "movie/mp4"))//限定檔案mp4
+  {
+				if (move_uploaded_file($tmpfile,$moviePathWeb.$m_number."_".$name))//上傳檔案
 				{
-					$c_movie = "movie_".$name;
+					$c_movie = $m_number."_".$name;
 					$score = $score + 5 ;
 				}
 				else
@@ -313,8 +315,13 @@ if(!empty($_FILES["c_movie"]["name"]))//  如果有值上傳影片 score + 5
 					?><script> window.alert ("失敗原因:影片上傳停止"); window.history.back(); </script><?PHP
 					}	
 				}
-			  
+			  }//限定檔案if
+ else//限定檔案
+  {
+	?><script> window.alert ("請上傳.mp4檔案"); window.history.back(); </script><?PHP
+  }
 }
+
 if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
 {
  $file = explode (".",$_FILES['pop']['name']);//找出檔案的副檔名
@@ -325,17 +332,17 @@ if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
  $file2=mb_convert_encoding($_FILES["pop"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
  if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg
   {
-  if (move_uploaded_file($tmpfile,$popPathWeb."pop_".$name))//上傳檔案
+  if (move_uploaded_file($tmpfile,$popPathWeb.$m_number."_".$name))//上傳檔案
     {	
-   $src = $popPathWeb."pop_".$name;
+   $src = $popPathWeb.$m_number."_".$name;
    $dest = $src;
    $destW = 400;
    $destH = 400;
    imagesResize($src,$dest,$destW,$destH);
-   $pop = "pop_".$name;
+   $pop = $m_number."pop_".$name;
       
-   $src = $popPathWeb."pop_".$name;
-   $dest = $popPathPhone."pop_".$name;
+   $src = $popPathWeb.$m_number."_".$name;
+   $dest = $popPathPhone.$m_number."_".$name;
    $destW = 260;
    $destH = 250;
    imagesResize($src,$dest,$destW,$destH);
@@ -395,23 +402,23 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	 $file2=mb_convert_encoding($_FILES["c_mp"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
 	 if (($_FILES["c_mp"]["type"] == "image/gif") || ($_FILES["c_mp"]["type"] == "image/jpeg")||($_FILES["c_mp"]["type"] == "image/jpg")||($_FILES["c_mp"]["tmp_name"]==""))//限定檔案gif jpg
 	  {
-	  if (move_uploaded_file($tmpfile,$picturePathWeb."picture_".$name))//上傳檔案
+	  if (move_uploaded_file($tmpfile,$picturePathWeb.$m_number."_".$name))//上傳檔案
 		{	
-	   $src = $picturePathWeb."picture_".$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
 	   $dest = $src;
 	   $destW = 400;
 	   $destH = 400;
 	   imagesResize($src,$dest,$destW,$destH);
-		$c_mp = "picture_".$name;
+		$c_mp = $m_number."_".$name;
 	   
-	   $src = $picturePathWeb."picture_".$name;
-	   $dest = $displayPathWeb."display_".$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
+	   $dest = $displayPathWeb.$m_number."_".$name;
 	   $destW = 240;
 	   $destH = 155;
 	   imagesResize($src,$dest,$destW,$destH);
 	   
-	   $src = $picturePathWeb."picture_".$name;
-	   $dest = $displayPathPhone."Phone_".$name;
+	   $src = $picturePathWeb.$m_number."_".$name;
+	   $dest = $displayPathPhone.$m_number."_".$name;
 	   $destW = 260;
 	   $destH = 250;
 	   imagesResize($src,$dest,$destW,$destH);
@@ -448,8 +455,9 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	'$hi_bid_price')";
 		mysql_query($sql_query);
 		
-	$_SESSION['score'] = $score;		
-		header("Location: http://localhost/added_44.php");
+	$_SESSION['score'] = $score;
+	$_SESSION['added'] = "1";		
+		header("Location:added_44.php");
 	
     }//上傳檔案if
   	else//上傳檔案

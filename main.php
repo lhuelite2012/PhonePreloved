@@ -211,7 +211,7 @@
 </head>
 
 <body>
-
+<script src="jQuery/imageScaling.js"></script>
 <div id="ce2">
 
 <a href="index.php">
@@ -239,7 +239,7 @@
             </div>
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
     		<div id="apDiv16"><a href="alter.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
-    		<div id="apDiv19"><img src="素材/右上大頭貼.jpg" /></div>
+    		<div id="apDiv19"><img src="<?php if($_SESSION['file'] !="" and !is_null($_SESSION['file'])) echo $_SESSION['file']; else echo "素材/右上大頭貼.jpg";?>" onload='javascript:DrawImage(this,35,35);' /></div>
             <div id="logout"><a href="logout.php">登出</a></div>
 		</div>
 <?php
@@ -256,7 +256,7 @@
 <div id="hmenu1">
 	<a href="display.php"><div id="hmenu11"><img src="素材/購物列2.png" /></div></a>
     <a href="added_1.php"><div id="hmenu22"><img src="素材/我要賣東西列2.png" /></div></a>
-    <a href="#"><div id="hmenu33"><img src="素材/會員互動區列2.png" /></div></a>
+    <a href="question.php"><div id="hmenu33"><img src="素材/會員互動區列2.png" /></div></a>
 </div>
 	
 	<br class="clear" />

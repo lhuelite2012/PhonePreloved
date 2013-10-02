@@ -50,6 +50,24 @@ saveHistory{behavior:url(#default#savehistory);}
 include("loginConfirm.php"); 
 include("server.php");
 $_SESSION['Specification'] = "5";
+if($_SESSION['added'] == "1")
+{
+	?><script>window.alert('商品已存入無法修改');
+	window.location="added_4.php"; 
+	</script>
+    <?PHP
+	die();
+
+}
+if($_SESSION['added'] == "2")
+{
+	?><script>window.alert('商品已存入無法修改');
+	</script>
+    <?PHP
+	die();
+
+}
+
 ?>
 <table height="407">
 <tr>

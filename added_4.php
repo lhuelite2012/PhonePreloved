@@ -56,6 +56,16 @@ $result = mysql_query($max);
 $row = mysql_fetch_array($result);
 $_SESSION['c_number'] = $row['c_number'];
 //echo $_SESSION['score'];
+
+if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上一頁修改資料
+{
+	?><script>window.alert('商品已存入無法修改');
+	</script>
+    <?PHP
+	die();
+
+}
+
 ?>
 <FORM name="form1" action="added_00.php" method="post" enctype="multipart/form-data">
 <table width="867">

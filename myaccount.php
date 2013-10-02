@@ -1,4 +1,4 @@
-﻿<?
+<?PHP
 	session_start();
 ?>
 
@@ -7,37 +7,6 @@
 <head>
 
 <link rel="stylesheet" href="all.css" type="text/css" />
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="jquery.backgroundPosition.js">
-</script>
-
-<link rel="shortcut icon" href="./素材/icon.png"> 
-
-<script type="text/javascript">
-	$(function(){
-		// 幫 #hmenu li a 加上 hover 事件
-		$("#hmenu li a").hover(function(){
-			// 滑鼠移進選項時..
-			// 把背景圖片的位置往上移動
-			var _this = $(this),
-				_height = _this.height() * -1;
-			_this.stop().animate({
-				backgroundPosition: "0px " + _height + "px"
-			}, 200);
-		}, function(){
-			// 滑鼠移出選項時..
-			// 把背景圖片的位置移回原位
-			$(this).stop().animate({
-				backgroundPosition: "0px 0px"
-			}, 200);
-		});
-	});
-</script>
 
 <script language="javascript">
 function checkx()
@@ -92,110 +61,9 @@ function MM_swapImage() { //v3.0
 }
 </script>
 
-<style type="text/css">
-
-#hmenu
-{
-	padding: 0 45px;
-	list-style: none;
-	width: 550px; /* 630-45*2 */
-	height: 130px;
-	margin-left:auto;
-}
-#hmenu li
-{
-	float:left;
-	margin: 77px 0px 0 0;
-}
-#hmenu li a
-{
-	display:block;
-	width:134px; /* 圖片的寬 */
-	height: 44px; /* 圖片的高/2 */
-	line-height: 31px;	/* ie suck */
-	text-indent: -9999px;
-}
-#hmenu a.b1
-{
-	background:url(%E7%B4%A0%E6%9D%90/%E8%B3%BC%E7%89%A9%E5%88%972.png);
-	width:105px;	
-}
-#hmenu a.b2
-{
-	background:url(%E7%B4%A0%E6%9D%90/%E6%88%91%E8%A6%81%E8%B3%A3%E6%9D%B1%E8%A5%BF%E5%88%972.png);
-	width:152px;
-}	
-#hmenu a.b3
-{
-	background:url(%E7%B4%A0%E6%9D%90/%E6%9C%83%E5%93%A1%E4%BA%92%E5%8B%95%E5%8D%80%E5%88%972.png);
-	width:152px;
-}
-#green
-{
-	position:absolute;
-	width:200px;
-	z-index:2;
-	padding-top:112px;
-}
-#apDiv11 {
-	border-width:2px; 
-	border-style:solid;
-	border-color:#DFDFCE;
-	position:absolute;
-	width:180px;
-	height:42px;
-	z-index:1;
-	left: 840px;
-	top: -5px;
-	background:#F6F7E7;
-	border-radius: 10px 10px 10px 10px;
-}/*右上我的帳號列白底圖*/
-</style>
-
 </head>
 
 <body onLoad="checkx()" onLoad="MM_preloadImages('素材/我的帳號-個人資料藍.png','素材/我的帳號-拍賣紀錄藍.png','素材/我的帳號-評價紀錄藍.png','素材/我的帳號-追蹤清單藍.png','素材/我的帳號-商品問與答藍.png')">
-
-<div id=ce2>
-
-<a href="index.php">
-	<div id="logo">
-		<img src="素材/NEW ! LOGO.png" width="265" height="100" alt="logo" />
-	</div>
-</a>
-
-<div id="green"><img src="素材/綠色分隔線2.png" width="970" height="9" alt="綠線"></div>
-
-<?
-	if(isset($_SESSION['m_number']))
-	{
-?>
-		<div id="apDiv11">
-  			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
-    		<div id="apDiv16"><a href="member.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
-    		<div id="apDiv19"><img src="素材/右上大頭貼.jpg" /></div>
-            <div id="logout"><a href="logout.php">登出</a></div>
-		</div>
-<?
-	}
-	else
-	{
-?>
-		<div id="noLogin">
-    		<div id="registrationTop"><a href="register.php">註冊</a></div>
-            <div id="logout"><a href="login.php">登入</a></div>
-		</div>
-<?
-	}
-?>
-	<ul id="hmenu">
-		<li><a href="display.php" class="b1">購物</a></li>
-		<li><a href="added_1.php" class="b2">我要賣東西</a></li>
-		<li><a href="#" class="b3">會員互動區</a></li>
-		
-	</ul>
-	
-	<br class="clear" />
  
 <div id="apDiv38"><img src="素材/我的帳號綠列.png" alt="我的帳號綠色列" width="590" height="42" />
 	<div id="apDiv39"><a href="alter.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','素材/我的帳號-個人資料藍.png',1)"><img src="素材/我的帳號-個人資料白.png" name="Image8" width="87" height="30" border="0"></a></div>

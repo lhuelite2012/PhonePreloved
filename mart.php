@@ -28,8 +28,8 @@ table
 	border-style:solid;
 	border-radius:10px;
 	height:500px;
-	width:831px;
-	left:-70px;
+	width:861px;
+	left:-100px;
 	height: 100px;
 	background-color: #99FF99;
 }
@@ -46,7 +46,7 @@ table
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:1002px;
+	height:1022px;
 	left:120px;
 	top: 170px;
 }
@@ -54,7 +54,7 @@ table
 {
 	position:absolute;
 	width:551px;
-	height:1050px;
+	height:1070px;
 	z-index:8;
 	left: 240px;
 	top: 150px;
@@ -65,10 +65,10 @@ table
 	border-style:solid;
 	border-radius:10px;
 	position:absolute;
-	width:300px;
-	height:920px;
+	width:335px;
+	height:945px;
 	z-index:1;
-	left: -70px;
+	left: -100px;
 	top: 150px;
 }
 </style>
@@ -76,7 +76,7 @@ table
 </head>
 <body>
 <?PHP
-	$c_number = $_GET['c_number'];
+	$c_number = 5;
 	
 	//查詢商品編號
 	$sql = "select * from commodity where c_number = '$c_number'";
@@ -228,32 +228,32 @@ window.onload = function()
     
     <strong>
     <p></p>
-    <font size="4" color="#0000FF">　賣家帳號：</font><p></p>
-	<font size="4" color="#000000">　<?PHP echo $list3_m['account'] ?></font><p></p>
+    <font size="4" color="#0000FF">　<img src="素材/紙膠橘(賣家資訊.png" /></font><p></p>
+    <font size="4" color="#0000FF">　賣家帳號：</font>
+	<font size="4" color="#000000">  <?PHP echo $list3_m['account'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家姓名：</font>
-	<font size="4" color="#000000"><?PHP echo $list3_m['name'] ?></font><p></p>
+	<font size="4" color="#000000">  <?PHP echo $list3_m['name'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家評價：</font>
-	<font size="4" color="#000000"><?PHP echo $list3_m['sell']/200 ?> 分</font><p></p>
-    　------------------------------------------------------<br/><p></p>
-    <font size="4" color="#0000FF">　▼付款方式：</font><p></p>
-    <font size="4" color="#000000">　　●郵寄：匯款再點選交易方式</font><p></p>
-    <font size="4" color="#000000">　　●面交：與賣家當場現金交易</font><p></p>
-    　------------------------------------------------------<br/><p></p>
-    <font size="4" color="#0000FF">　▼交易方式：(付款方式為郵寄)</font><p></p>
-	<font size="4" color="#000000">　　●全家店到店：到指定門市取貨</font><p></p>
-    <font size="4" color="#000000">　　●7-11店到店：到指定門市取貨</font><p></p>
-    <font size="4" color="#000000">　　●郵寄：郵差送達指定的地址</font><p></p>
-    <font size="4" color="#000000">　　●面交：與賣家見面時純取貨</font><p></p>
-    <font size="4" color="#FF0000">　注意：付款及交易方式由賣家決定</font><p></p>
-    　------------------------------------------------------<br/><p></p>
-    <font size="4" color="#0000FF">　▼瘋二手的交易流程，步驟如下：</font><p></p>
-    <font size="4" color="#000000">　　●填匯款單：買家填入收件資訊</font><p></p>
-    <font size="4" color="#000000">　　●對帳查款：等待賣家對帳成功</font><p></p>
-    <font size="4" color="#000000">　　●賣家寄出：對帳成功即時寄出</font><p></p>
-    <font size="4" color="#000000">　　●買家收貨：成功等待買家收貨</font><p></p>
-    <font size="4" color="#000000">　　●互給評價：買賣家相互給評價</font><p></p>
-    <font size="4" color="#FF0000">　注意，若交易成功則出現綠色勾勾</font><p></p>
-    <font size="4" color="#0000FF">　感謝您使用瘋二手購物系統，謝謝</font><p></p>
+	<font size="4" color="#000000">  <?PHP echo $list3_m['sell']/200 ?> 分</font><p></p>
+    　------------------------------------------------------------<br/><p></p>
+    <font size="4" color="#0000FF">　<img src="素材/紙膠橘(付款方式.png" /></font><p></p>
+    <font size="4" color="#000000">　▼ 郵寄：匯款成功再點選交易方式</font><p></p>
+    <font size="4" color="#000000">　▼ 面交：與賣家當場現金交易商品</font><p></p>
+    　------------------------------------------------------------<br/><p></p>
+    <font size="4" color="#0000FF">　<img src="素材/紙膠橘(交易方式.png" /></font><p></p>
+	<font size="4" color="#000000">　▼ 全家店到店：到指定門市收取貨件</font><p></p>
+    <font size="4" color="#000000">　▼ 7-11店到店：到指定門市收取貨件</font><p></p>
+    <font size="4" color="#000000">　▼ 郵寄：等待郵差送達指定的地址</font><p></p>
+    <font size="4" color="#000000">　▼ 面交：與賣家當面時純取貨商品</font><p></p>
+    <font size="4" color="#FF0000">　注意：付款及交易方式是由賣家決定</font><p></p>
+    　------------------------------------------------------------<br/><p></p>
+    <font size="4" color="#0000FF">　<img src="素材/紙膠橘(交易流程.png" /></font><p></p>
+    <font size="4" color="#000000">　▼ 填匯款單：買家填入商品收件資訊</font><p></p>
+    <font size="4" color="#000000">　▼ 對帳查款：等待賣家對帳查帳成功</font><p></p>
+    <font size="4" color="#000000">　▼ 賣家寄出：對帳查帳成功立即寄出</font><p></p>
+    <font size="4" color="#000000">　▼ 買家收貨：成功等待買家收到商品</font><p></p>
+    <font size="4" color="#000000">　▼ 互給評價：買家賣家相互給予評價</font><p></p>
+    <font size="4" color="#FF0000">　注意：若交易成功，則出現綠色勾勾</font><p></p>
     </strong>
     
     </div>

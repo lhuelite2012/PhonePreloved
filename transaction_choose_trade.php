@@ -33,7 +33,7 @@
 	top: 28px;
 	}
 </style>
-<title>選擇交易方式</title>
+<title>選擇付款方式</title>
 </head>
 
 <body>

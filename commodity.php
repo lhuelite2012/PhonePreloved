@@ -446,7 +446,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
             </form>
             </div>
 <?php 		}else{ ?>
-		<div id="maturity"><a href="">前往交易清單</a></div>
+		<div id="maturity"><a href="unsold.php">前往拍賣清單</a></div>
 <?php		}
 	}
 	if(isset($m_number)){

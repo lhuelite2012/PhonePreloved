@@ -336,7 +336,7 @@ WHERE transaction.c_number = $c_number";
         		<td height="27px">賣　　家︰</td><td style="font-size:12px;"><?php echo $acc_rows["account"]; ?></td>
         	</tr>
         	<tr>
-            	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="#" >賣場首頁</a></td><td></td>
+            	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="mart.php?c_number=<?php echo $c_number;?>" >賣場首頁</a></td><td></td>
         	</tr>
         	<tr>
             	<td height="27px">評　　價︰</td><td><?php echo $acc_rows["score"]; ?><a href="#" >查詢評價</a></td>

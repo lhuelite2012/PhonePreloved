@@ -76,7 +76,7 @@ table
 </head>
 <body>
 <?PHP
-	$c_number = 5;
+	$c_number = $_GET['c_number'];
 	
 	//查詢商品編號
 	$sql = "select * from commodity where c_number = '$c_number'";

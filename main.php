@@ -21,7 +21,7 @@
 <title>瘋二手 Phone Preloved</title>
 <style type="text/css">
 	
-
+ <!-- A{text-decoration:none} --> 
 	#hmenu1 {
 	position:relative;
 	padding: 0 45px;
@@ -209,6 +209,10 @@
 	}
 	#push_a{
 		height:110px;
+		color:#000;
+	}
+	#push_a a{
+		text-decoration:none;
 	}
 </style>
 

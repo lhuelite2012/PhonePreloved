@@ -23,7 +23,7 @@
 	
 	if($c_payment == "面交"){
 		if($b_phone != ""){
-			$sql = "UPDATE members SET phone = $b_phone WHERE m_number = $buyers ";
+			$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 			mysql_query($sql);
 		}
 		$sql = "update transaction set buy_paydate = '$date', buy_paytime = '$time',buy_pay = '$per_place',remark = '$remark' where c_number = $c_number";
@@ -34,21 +34,21 @@
 		mysql_query($sql);
 		if($c_mode == "面交"){
 			if($b_phone != ""){
-				$sql = "UPDATE members SET phone = $b_phone WHERE m_number = $buyers ";
+				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
 			$sql = "update transaction set buy_paydate = '$date', buy_paytime = '$time',buy_pay = '$per_place',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "7-11店到店" or $c_mode == "全家店到店"){
 			if($b_phone != ""){
-				$sql = "UPDATE members SET phone = $b_phone WHERE m_number = $buyers ";
+				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
 			$sql = "update transaction set storename = '$storename',storenumber = '$storenumber',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "郵寄"){
 			if($b_phone != ""){
-				$sql = "UPDATE members SET phone = $b_phone WHERE m_number = $buyers ";
+				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
 			$sql = "update transaction set sendtime ='sendtime' where c_number = $c_number";

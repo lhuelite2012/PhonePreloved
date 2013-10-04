@@ -1,6 +1,5 @@
 <?php
 	ob_start();
-	include("server.php");
 	include("main.php");
 	include("addtime.php");  //資料庫時間
 	include("commodityPath.php");
@@ -11,6 +10,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <link rel="stylesheet" href="all.css" type="text/css" />
+	<script src="jQuery/jquery-1.5.2.min.js"></script>
+    <script src="jQuery/hover.js"></script>
+    <script src="jQuery/move.js"></script>
 <style type="text/css">
 	/*
 	以下為display.php的樣式
@@ -170,6 +172,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 	.hover {
 	position: absolute;
 	margin: 0;
+
 	padding: 0;
 	width: 260px;
 	height: 290px;
@@ -190,7 +193,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 	width: 145px;
 	height: 115px;
 	z-index: 6;
-	top: 48px;
+	top: 150px;
 	left: -8px;
 	}/*apdiv1 購物下左邊商品欄圖*/
 	#apDiv4 {
@@ -460,8 +463,7 @@ function MM_swapImage() { //v3.0
 <?php
     }
 ?>
-    <script src="jQuery/hover.js"></script>
-    <script src="jQuery/move.js"></script>
+
 
 		<script>
 			

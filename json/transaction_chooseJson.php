@@ -3,6 +3,12 @@
 	$c_number = $_REQUEST['c_number']; //商品編號
 	$buyers = $_REQUEST['buyers'];	//買家
 	$json = array();
+	
+	$sql="select * from transaction where c_number = $c_number";
+	$result = mysql_query($sql);
+	$row = mysql_fetch_array($result);
+	$json['t_schedule'] = $row['t_schedule'];
+	
 	//交易方式
 	$sql = "select * from c_mode where c_number = $c_number";
 	$result = mysql_query($sql);

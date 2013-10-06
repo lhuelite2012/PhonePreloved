@@ -503,9 +503,10 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           <input type="button" onclick="return downtime()"value="下架商品" />	
           </form>
         </div>
-        <div id="modify">
+        <!-- <div id="modify">
         	<a href=""><img src="" />修改商品</a>
         </div>
+        -->
 		<div id="bid_hier">
         	目前最高者：<?php echo $bid_hier_rows[2]; ?>
         </div>

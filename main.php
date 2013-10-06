@@ -21,15 +21,15 @@
 <title>瘋二手 Phone Preloved</title>
 <style type="text/css">
 	
-
+ <!-- A{text-decoration:none} --> 
 	#hmenu1 {
 	position: relative;
 	height: 42px;
 	z-index: 20;
+	width:500px;
 	left: 400px;
 	overflow: hidden;
 	top: 77px;
-	width: 500px;
 	}
 	#hmenu11,#hmenu22,#hmenu33{
 		position:relative;
@@ -157,8 +157,8 @@
 		z-index: 100;
 		background: #F6F7E7;
 		border-radius:3px 3px 3px 3px;
-		left:670px;
-		top:51px;
+		top:52px;
+		left:-120px;
 		padding:5px 0px 5px 0px ;
 	}
 	#beeper{
@@ -166,8 +166,8 @@
 		background:url(../%E7%B4%A0%E6%9D%90/beeper.png);
 		width:20px;
 		height:12px;
-		left:815px;
-		top:43px;
+		left:15px;
+		top:44px;
 		z-index: 101;
 	}
 	#push_mp{
@@ -203,7 +203,14 @@
 		position:relative;
 	}
 	#push_all{
-		display:none;
+		position:relative;
+	}
+	#push_a{
+		height:110px;
+		color:#000;
+	}
+	#push_a a{
+		text-decoration:none;
 	}
 </style>
 
@@ -228,14 +235,13 @@
 		$push_total = mysql_num_rows($push_result);
 		if($push_total == 0)
 			$push_total = "";
-		
-
-		include("./push/pushShow.php");
 ?>
 		<div id="apDiv11">
-        	<div id="pushbox">
-            	<div id="pushTotal"><?php echo $push_total; ?></div>
+        	<div id="push_all"></div>
+        	<div id="pushbox" <?php if($push_total >0) echo "style='background:url(%E7%B4%A0%E6%9D%90/icon.png); background-repeat:no-repeat;'"?>>
+            	<div id="pushTotal" <?php if($push_total >0) echo "style='display:block';";?>><?php echo $push_total; ?></div>
             </div>
+           
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
     		<div id="apDiv16"><a href="alter.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
     		<div id="apDiv19"><img src="<?php if($_SESSION['file'] !="" and !is_null($_SESSION['file'])) echo $_SESSION['file']; else echo "素材/右上大頭貼.jpg";?>" onload='javascript:DrawImage(this,35,35);' /></div>
@@ -267,12 +273,21 @@
 </html>
 <script type="text/javascript">
 	$(function(){
-		setInterval(test,1000);
 		function test(){
 			$('#pushTotal').load("push/pushView.php",{"m_number":"<?php echo $m_number;?>"},function(response) {
           		$('#pushTotal').html(response);
      		});
+			if(Number($('#pushTotal').html())>0){
+				$('#pushTotal').show();
+				$('#pushbox').css("background","url(%E7%B4%A0%E6%9D%90/icon.png)");
+				$('#pushbox').css("background-repeat","no-repeat");
+			}else{
+				$('#pushTotal').hide();
+				$('#pushbox').css("background","url(%E7%B4%A0%E6%9D%90/icon2.png)");
+				$('#pushbox').css("background-repeat","no-repeat");
+			}
 		}
+		setInterval(test,1000);
 		
 		$('#hmenu1 div').hover(function(){
 				// 讓 $caption 往上移動
@@ -287,15 +302,39 @@
 		});
 		
 		
-		
 		//已讀取
 		$("#pushbox").click(function(){
-			 $(this).load("push/pushTrue.php",{"m_number":"<?php echo $m_number;?>"});
+			 $('#push_all').show();
 			 $(this).css("background","url(%E7%B4%A0%E6%9D%90/icon2.png)");
 			 $(this).css("background-repeat","no-repeat");
 			 $("#pushTotal").hide(); //消失
 			 //window.location.reload();
 		});
+		
+		
+		var push_click = 1;
+		$("#pushbox").click(function(){
+			if(push_click == 1){
+				$("#push_all").show();
+				$(this).load("push/pushTrue.php",{"m_number":"<?php echo $m_number;?>"});
+			 	$('#push_all').load("push/pushShow.php",{"m_number":"<?php echo $m_number;?>"});
+				push_click = 0;
+			}
+			else{
+				$("#push_all").hide();
+				push_click = 1;
+			}
+				
+		});
+		$('body').click(function(evt) {
+            if($(evt.target).parents("#push_all").length==0 &&
+evt.target.id != "pushbox") {
+				push_click = 1;
+                $('#push_all').hide();
+            }
+        });
+		
+		
 		
 	});
 </script>

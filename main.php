@@ -75,6 +75,7 @@
 	left:18px;
 	top:12px;
 	z-index:50;
+	display:none;
 }
 #apDiv11 {
 	border-width: 2px;

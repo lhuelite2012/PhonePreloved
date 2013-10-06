@@ -12,7 +12,7 @@ include("server.php");
 <title>相關商品</title>
 <style type="text/css">
 #apDiv76 {
-	position:fixed ;
+	position:absolute;
 	width:125px;
 	z-index:1;
 	background-color:#fff;
@@ -20,8 +20,8 @@ include("server.php");
 	-moz-border-radius: 10px;
 	border-radius: 5px;
 	border: 2px solid #A4A4A4;
-	top: 400px;
-	left: 1125px;
+	top: 200px;
+	left: 1000px;
 
 }/*推薦 相關商品欄*/
 #apDiv77 {

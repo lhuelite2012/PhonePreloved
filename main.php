@@ -23,15 +23,13 @@
 	
  <!-- A{text-decoration:none} --> 
 	#hmenu1 {
-	position:relative;
-	padding: 0 45px;
-	list-style: none;
+	position: relative;
 	height: 42px;
-	margin-left: auto;
 	z-index: 20;
 	width:500px;
+	left: 400px;
 	overflow: hidden;
-	top:77px;
+	top: 77px;
 	}
 	#hmenu11,#hmenu22,#hmenu33{
 		position:relative;

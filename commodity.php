@@ -279,7 +279,7 @@ if(!isset($_GET['c_number']))
 	$acc1_rows = mysql_fetch_array($acc1_query);
 	
 	//賣家 會員帳號
-	$acc_sql = "select account from members where m_number = ".$acc1_rows['m_number'];
+	$acc_sql = "select * from members where m_number = ".$acc1_rows['m_number'];
 	$acc_query = mysql_query($acc_sql);
 	$acc_rows = mysql_fetch_array($acc_query);
 	
@@ -566,7 +566,17 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	switch($_GET['data'])
 	{ 
 		case 1: 	//若data=1 則顯示 商品圖片
-			?><div align="center"><div id="c_desc" > <?php echo $c_rows['c_description']; ?></div></div><?php
+			?><div align="center">
+            	<div id="c_desc" > 
+					<?php echo $c_rows['c_description']; ?>
+                    <hr />
+                    <?php if($acc_rows['size'] !="" and $acc_rows['s_size']!="") {?>
+                <li style="color:#F00; font-weight:bold;"><span>試穿腳寸：</span><?php echo $acc_rows["size"]." (".$acc_rows['s_size'].")";?></li>
+                <?php }else{ ?><li style="color:#F00; font-weight:bold;"><span>試穿腳寸：</span>沒有試穿資訊</li>  <?php }?>
+                </div>
+              </div>
+			
+			<?php
 			while($c_p_rows = mysql_fetch_array($c_p_query)){
 ?>
 	  <div align="center"><img src="<?php echo $picturePathWeb.$c_p_rows["c_picture"]; ?>" /></div><br/>

@@ -2,6 +2,7 @@
 	ob_start();
 	session_start();
 	include("main.php");
+	include("phpFunction.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -204,12 +205,15 @@
 	#c_desc{
 		position:relative;
 		width:850px;
-		height:100px;
 		text-align:center;
 		border:solid;
 		border-radius:5px 5px 5px 5px;
 		border-color:#9C0;
 		left:23px;
+	}
+	#ul2 li{
+		color:#F00; 
+		font-weight:bold;
 	}
 </style>
 <title>商品展示</title>
@@ -570,9 +574,50 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
             	<div id="c_desc" > 
 					<?php echo $c_rows['c_description']; ?>
                     <hr />
-                    <?php if($acc_rows['size'] !="" and $acc_rows['s_size']!="") {?>
-                <li style="color:#F00; font-weight:bold;"><span>試穿腳寸：</span><?php echo $acc_rows["size"]." (".$acc_rows['s_size'].")";?></li>
-                <?php }else{ ?><li style="color:#F00; font-weight:bold;"><span>試穿腳寸：</span>沒有試穿資訊</li>  <?php }?>
+    <ul id="ul2" style="list-style-position:outside;font-size:15px;">
+      
+      <?php 
+	  
+	  
+	  
+	  if($s_fsort ==1){ //衣服?>
+      			<li style="color:#06C;">試穿者資訊　（單位：公分）</li>
+            	<li><span>試穿者身高：</span><?php echo try_fun($c_rows["c_try_height"]); ?></li>
+                <li><span>試穿者體重：</span><?php echo try_fun($c_rows["c_try_weight"]); ?></li>
+                <li><span>試穿者肩寬：</span><?php echo try_fun($c_rows["c_try_shoulder"]); ?></li>
+                <li><span>試穿者胸圍：</span><?php echo try_fun($c_rows["c_try_bust"]); ?></li>
+                <li><span>試穿者腰圍：</span><?php echo try_fun($c_rows["c_try_waistline"]); ?></li>	
+<?php }?>
+<?php if($s_fsort ==2){ //褲子?>
+				<li style="color:#06C;">試穿者資訊　（單位：公分）</li>
+				<li><span>試穿者身高：</span><?php echo try_fun($c_rows["c_try_height"]); ?></li>
+                <li><span>試穿者體重：</span><?php echo try_fun($c_rows["c_try_weight"]); ?></li>
+            	<li><span>試穿者臀圍：</span><?php echo try_fun($c_rows["c_try_hips"]); ?></li>	
+<?php }?>
+<?php if($s_fsort ==3){ //包包?>
+				<li style="color:#06C;">包包詳細資訊　（單位：公分）</li>
+            	<li><span>上下高度：</span><?php echo try_fun($c_rows["UDHeight"]); ?></li>
+                <li><span>左右寬度：</span><?php echo try_fun($c_rows["LRLength"]); ?></li>
+                <li><span>底部寬度：</span><?php echo try_fun($c_rows["bWidth"]); ?></li>
+                <li><span>提把寬度：</span><?php echo try_fun($c_rows["MWidth"]); ?></li>
+                <li><span>背帶最長：</span><?php echo try_fun($c_rows["SLongest"]); ?></li>	
+<?php }?>
+<?php if($s_fsort ==4){ //鞋子?>
+				<li style="color:#06C;">試穿者資訊</li>
+            	<li><span>試穿者腳長：</span><?php echo try_fun($c_rows["c_try_foot2"]); if($c_rows["c_try_foot"] != "0" and $c_rows["c_try_foot"]!="") echo " (".$c_rows["c_try_foot"].") ";?></li>
+<?php }?>
+<?php if($s_fsort ==5){ //洋裝?>
+				<li style="color:#06C;">試穿者資訊　（單位：公分）</li>
+            	<li><span>試穿者身高：</span><?php echo try_fun($c_rows["c_try_height"]); ?></li>
+                <li><span>試穿者體重：</span><?php echo try_fun($c_rows["c_try_weight"]); ?></li>
+                <li><span>試穿者肩寬：</span><?php echo try_fun($c_rows["c_try_shoulder"]); ?></li>
+                <li><span>試穿者胸圍：</span><?php echo try_fun($c_rows["c_try_bust"]); ?></li>
+                <li><span>試穿者腰圍：</span><?php echo try_fun($c_rows["c_try_waistline"]); ?></li>	
+                <li><span>試穿者臀圍：</span><?php echo try_fun($c_rows["c_try_hips"]); ?></li>	
+<?php }?>
+      
+      
+    </ul>
                 </div>
               </div>
 			

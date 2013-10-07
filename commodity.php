@@ -372,7 +372,7 @@ include("related_commodity.php");
         <div id="function">
        	  <table width="500px" height="80px" align="center" >
         		<tr>
-                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px">$<?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></strong></td>
+                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px"><div id="bid_hi">$<?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></div></strong></td>
                 	<td style="width:85px; color:#F00; font-weight:bold;">倒數時間：</td>
                     <td>  
 					<script>
@@ -435,6 +435,14 @@ include("related_commodity.php");
 			 <ul style="list-style-position:outside;font-size:15px;">
         		<li><span>開始時間：</span><?php echo $c_rows["uptime"];?></li>
             	<li><span>結束時間：</span><?php echo $c_rows["downtime"];?></li>
+                <li><span>商品性質：</span><?php echo $c_rows["c_gender"]."  "; ?><img src="
+	<?php 	if($list1['c_gender'] == "女") 
+				echo "素材/女性.png"; 
+			else if($list1['c_gender'] == "男") 
+				echo "素材/男性.png"; 
+			else 
+				echo "素材/中性.png";?>
+        " onload="javascript:DrawImage(this,15,15);" /></li>
             	<li><span>所在地區：</span><?php echo $c_rows["location"]; ?></li>
                 <li><span style="float:left;">付款方式：</span>
                 	<div id="c_payment">
@@ -708,6 +716,14 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	var bid_hi = <?php echo $c_rows["hi_bid_price"]; ?> ;
 	var c_price = <?php echo $c_rows["c_price"];?>;
 	var total = <?php echo $_SESSION["total"]/200;?> ;
+	
+	function test2(){
+			$('#bid_hi').load("bid_hi.php",{"c_number":"<?php echo $c_number;?>"},function(response) {
+          		$('#bid_hi').html(response);
+     		});
+	}
+	setInterval(test2,1000);
+	
 	function chk(){
     if(document.send.bid.value==''){
       alert('請填入出價金額');

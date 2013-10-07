@@ -262,6 +262,7 @@ function MM_swapImage() { //v3.0
 </head>
 <body onload="MM_preloadImages('素材/偏愛商品欄-綠.png','素材/所有商品欄-綠.png','素材/分類鈕-衣服灰.png','素材/分類鈕-褲子灰.png','素材/分類鈕-包包灰.png','素材/分類鈕-鞋子灰.png')">
 <div id="ce2">
+<?php include("keysearch.php");?>
 <div id="apDiv1">
   <div id="apDiv4"><a href="display.php"><img src="素材/所有商品欄-黃.png" /></a></div>
     <div id="apDiv5"><a href="recommend.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','素材/偏愛商品欄-綠.png',1)"><img src="素材/偏愛商品欄-綠.png" width="146" height="55" id="Image5" /></a></div>
@@ -276,6 +277,7 @@ function MM_swapImage() { //v3.0
 <div id="container">
 
  <?php   
+ 		$sea = $_GET['sea'];
 		$c_gender = $_GET['c_gender'];			//男女
 		$s_fsort = $_GET['s_fsort'];			//父分類
 		$s_number = $_GET['s_number'];			//分類編號
@@ -287,6 +289,7 @@ function MM_swapImage() { //v3.0
 		$location = $_GET['location'];		//地區
 	//判斷是否有值
 	
+		$sea = HaveValue(stripslashes($sea),"c_name"); 	
 		$c_gender = HaveValue(stripslashes($c_gender),"c_gender"); 	//男女
 		$s_fsort = HaveValue($s_fsort,"s_fsort");		//父分類
 		$s_number = HaveValue($s_number,"s_number");	//分類編號
@@ -306,6 +309,9 @@ function MM_swapImage() { //v3.0
 				$vale = "and $str $vale";
 			else if($str == "location")
 				$vale = "and $vale ";
+			else if($str == "c_name"){
+				$vale = "and c_name like '%$vale%' or b_name like '%$vale%' or aliases like '%$vale%' ";
+			}
 			else
 				$vale = "and commodity.$str = '".$vale."' "; 
 		else 
@@ -315,7 +321,7 @@ function MM_swapImage() { //v3.0
 
 
 		
-	$total_sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location group by c_number";
+	$total_sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number";
 
 		
 		//進入commodity.php離開後登入 跳至index.php
@@ -358,7 +364,7 @@ function MM_swapImage() { //v3.0
 		$offset = ($page - 1) * $page_size;
 		if(!isset($sort)){$sort = 1;}
 		
-		$sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location group by c_number order by ".$sort." limit ".$offset.", $page_size";
+		$sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number order by ".$sort." limit ".$offset.", $page_size";
 		
 		$resul = mysql_query($sql);
    				$s = 1;

@@ -42,7 +42,7 @@ include("server.php");
 <body>
 
 
-<div id="apDiv76"><font color="#A4A4A4">
+<div id="apDiv76">
 
   <center>相關商品</center>
 

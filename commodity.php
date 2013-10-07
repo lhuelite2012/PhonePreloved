@@ -210,10 +210,19 @@
 		border-radius:5px 5px 5px 5px;
 		border-color:#9C0;
 		left:23px;
+		background:#FFF;
 	}
 	#ul2 li{
 		color:#F00; 
 		font-weight:bold;
+	}
+	#bid_tale{
+		border:none;
+		border-collapse:collapse;
+	}
+	#top1{
+		position:relative;
+		top:10px;
 	}
 </style>
 <title>商品展示</title>
@@ -332,15 +341,18 @@ WHERE transaction.c_number = $c_number";
 		}
 	}
 ?>
-
+<?php
+include("related_commodity.php");
+?>
 <div id="ce2">
+<div id="top1">
 <div id="date">
 	<div id="c_product">
 		<div id="c_name">
     		<?php echo $c_rows["c_name"]; ?> 
    		</div>
     	<div id="c_mp">
-    		<img src="<?php echo $picturePathWeb.$c_rows["c_mp"]; ?>" onload="javascript:DrawImage(this,390,340);" />
+    		<img src="<?php echo $picturePathWeb.$c_rows["c_mp"]; ?>" onload="javascript:DrawImage(this,340,340);" />
    		</div>
    	  <div id="seller">
     	<table height="81px">
@@ -570,7 +582,8 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	switch($_GET['data'])
 	{ 
 		case 1: 	//若data=1 則顯示 商品圖片
-			?><div align="center">
+			?><br />
+			<div align="center">
             	<div id="c_desc" > 
 					<?php echo $c_rows['c_description']; ?>
                     <hr />
@@ -620,7 +633,8 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
     </ul>
                 </div>
               </div>
-			
+			<br />
+
 			<?php
 			while($c_p_rows = mysql_fetch_array($c_p_query)){
 ?>
@@ -647,22 +661,32 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			$c_bid = "SELECT bid.*,members.account,members.total FROM bid join members on bid.m_number = members.m_number WHERE bid.c_number = $c_number order by  2 desc";	$c_bid_result = mysql_query($c_bid);
 			$c_bid_total = mysql_num_rows($c_bid_result);
 			
-?> 			<div align="center"><table border="1" width="800px" align="center">
+?> 			<div  align="center"><table id="bid_table" border="1" width="800px" align="center">
 			<?php if($c_bid_total>0){ ?>
-				<tr>
+				<tr style="background:#CCC;">
                 	<th width="250px">出價者</th>
                     <th width="50px">評價</th>
                     <th width="250px">出價價格</th>
                     <th width="250px">出價時間</th>
                 </tr>			
-<?php			while($c_bid_row = mysql_fetch_array($c_bid_result)){?>
-            	<tr>
+<?php			$colo = 1;
+				while($c_bid_row = mysql_fetch_array($c_bid_result)){
+				if($colo ==1){	?>
+            	<tr style="background:#FFF;">
                 	<td width="250px"><?php echo $c_bid_row['account']; ?></td>
                 	<td width="50px"><?php echo $c_bid_row['total']; ?></td>
                     <td width="250px"><?php echo $c_bid_row['bid_price']; ?></td>
                     <td width="250px"><?php echo $c_bid_row['bid_time']; ?></td>
                 </tr>
-<?php 			}
+<?php 			$colo=0;}else{?>
+				<tr>
+                	<td width="250px"><?php echo $c_bid_row['account']; ?></td>
+                	<td width="50px"><?php echo $c_bid_row['total']; ?></td>
+                    <td width="250px"><?php echo $c_bid_row['bid_price']; ?></td>
+                    <td width="250px"><?php echo $c_bid_row['bid_time']; ?></td>
+                </tr>
+				<?php $colo=1;}
+				}
 			}else echo "<tr><td> 沒有任何出價紀錄 </td></tr>";?>
 			</table></div>
 <?php
@@ -675,11 +699,9 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	</div>
 
 </div>
-
 </div>
-<?php
-include("related_commodity.php");
-?>
+</div>
+
 </body>
 </html>
 <script type="text/javascript">

@@ -11,9 +11,9 @@
 		#date{
 			position:absolute;
 			left:50%;
-			margin-left:-250px;
+			margin-left:-220px;
 			width:500px;
-			top:100px;
+			top:250px;
 		}
 		#form{
 			position:absolute;

@@ -27,7 +27,8 @@
 	
 }
 body {
-	
+	background-image:url(%E7%B4%A0%E6%9D%90/84770f_27ec0b2e3a30c423c76ad738cca20de3.jpg_srz_132_132_75_22_0.50_1.20_0.jpg);
+	background-repeat:repeat;
 	font-family: Arial, Helvetica, sans-serif, 微軟正黑體;
 	
 }
@@ -77,11 +78,13 @@ body {
 }
 #logo {
 	position: absolute;
-	width: 256px;
-	height: 98px;
-	z-index: 100;
-	top: 20px;
-	left: 31px;
+	width: 279px;
+	height: 112px;
+	z-index: 15;
+	top: 2px;
+	left: 721px;
+	text-align:center;
+
 }
 
 #black {
@@ -108,10 +111,6 @@ body {
 }
 
 
-
-
-
-
 #apDiv3 {
 	position:absolute;
 	width:252px;
@@ -120,12 +119,6 @@ body {
 	left: 8px;
 	top: 4px;
 }/*logo連結首頁*/
-
-
-
-
-
-
 
 #apDiv14 {
 	position:absolute;

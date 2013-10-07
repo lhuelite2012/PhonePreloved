@@ -9,7 +9,7 @@
 		position:relative;
 		overflow: hidden;
 		border: 1px solid #ccc;
-		top:80px;
+		top:100px;
 	}
 	#abgneBlock ul.list {
 		padding: 0;

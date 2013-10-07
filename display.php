@@ -28,7 +28,7 @@
 	margin-left: -500px; /* 760 除以 -2 */
 	width: 920px;
 	font-family: Arial, Helvetica, sans-serif, 微軟正黑體;
-	top: 192px;
+	top:250px;
 	}
 	#containerTop{
 		position:absolute;

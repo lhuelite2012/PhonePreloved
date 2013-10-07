@@ -28,7 +28,7 @@
 	margin-left: -500px; /* 760 除以 -2 */
 	width: 920px;
 	font-family: Arial, Helvetica, sans-serif, 微軟正黑體;
-	top: 192px;
+	top: 250px;
 	}
 	#containerTop{
 		position:absolute;
@@ -264,9 +264,11 @@ function MM_swapImage() { //v3.0
 <div id="ce2">
 <?php include("keysearch.php");?>
 <div id="apDiv1">
-  <div id="apDiv4"><a href="display.php"><img src="素材/所有商品欄-黃.png" /></a></div>
-    <div id="apDiv5"><a href="recommend.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','素材/偏愛商品欄-綠.png',1)"><img src="素材/偏愛商品欄-綠.png" width="146" height="55" id="Image5" /></a></div>
-	</div>
+  <div id="apDiv4"><a href="display.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image4','','素材/所有商品欄-綠.png',1)"><img src="素材/所有商品欄-黃.png" name="Image4" id="Image4"/></a>
+  </div>
+    <div id="apDiv5"><a href="recommend.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image5','','素材/偏愛商品欄-綠.png',1)"><img src="素材/偏愛商品欄-綠.png" name="Image5" width="146" height="55" id="Image5" /></a>
+    </div>
+  </div>
 </div>
 
 

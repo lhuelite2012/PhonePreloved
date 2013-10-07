@@ -6,10 +6,12 @@
 <style type="text/css">
 	#sort{
 	position: absolute;
-	left: 732px;
-	top: 145px;
+	left: 520px;
+	top: 238px;
 	float: left;
 	width: 500px;
+	color:#03C;
+	font-size:14px;
 	}
 	#timeSort{
 		position:relative;

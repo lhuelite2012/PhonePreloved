@@ -61,7 +61,7 @@
 		$json["oan"]=$row["oan"];
 		$json["colors_name"]=$row["colors_name"];
 		$json["material"]=$row["material"];
-		$json["c_mp"]=$picturePathPhone.$row["c_mp"];
+		$json["c_mp"]=$displayPathPhone.$row["c_mp"];
 		$json["c_movie"]=$moviePathPhone.$row["c_movie"];
 		$json["c_shoulder"]=$row["c_shoulder"];
 		$json["c_height"]=$row["c_height"];

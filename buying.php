@@ -5,7 +5,6 @@ session_start();
 include("main.php");
 include("server.php");
 include("loginConfirm.php");
-
 include("myaccount.php");
 include("commodityPath.php");
 ?>

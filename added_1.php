@@ -40,6 +40,7 @@ session_start();
 <body >
 <?PHP include("main.php");
 include("loginConfirm.php"); 
+ $_SESSION['added'] = "0";
 ?>
 <div id=ce2>
 <div id="ap"><img src="素材/上架1.png" width="978" height="557" alt="上架1" />

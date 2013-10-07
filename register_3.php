@@ -14,8 +14,8 @@ saveHistory{behavior:url(#default#savehistory);}
 	width:200px;
 	height:115px;
 	z-index:1;
-	left: 56px;
-	top: 140px;
+	left: 50px;
+	top: 240px;
 	margin: 0 auto; 
 }/*註冊步驟底圖片*/
 #ap {
@@ -25,7 +25,7 @@ saveHistory{behavior:url(#default#savehistory);}
 	height:308px;
 	z-index:2;
 	left: 212px;
-	top: 173px;
+	top: 170px;
 	z-index:15;
 	margin: 0 auto;
 

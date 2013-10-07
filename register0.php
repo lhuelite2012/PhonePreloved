@@ -1,9 +1,7 @@
-<?PHP
-session_start();
-?>
+<?php include("main.php"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?PHP
+<?
 session_cache_limiter('private,must_revalidate');
 ?>
 <head>
@@ -15,14 +13,14 @@ saveHistory{behavior:url(#default#savehistory);}
 <link rel="shortcut icon" href="./css/素材/icon.png" />
 <title>瘋二手 Phone Preloved</title>
 <style type="text/css">
-#apDiv {
+#apDiv20 {
 	position:absolute;
 	text-align:center;
 	width:200px;
 	height:115px;
 	z-index:1;
-	left:50px;
-	top: 240px;
+	left:70px;
+	top: 250px;
 	width: 80%;
 	
 }/*註冊步驟底圖片*/
@@ -33,7 +31,7 @@ saveHistory{behavior:url(#default#savehistory);}
 	width:650px;
 	height:1095px;
 	z-index:1;
-	left: 100px;
+	left: 156px;
 	top: 100px;
 	z-index:15;
 }/*註冊步驟1欄位*/
@@ -42,10 +40,10 @@ saveHistory{behavior:url(#default#savehistory);}
 </head>
 <body >
 
-<?PHP include("main.php"); ?>
+<? //include("main.php"); ?>
 
 
-<div id="apDiv"><img src="素材/註冊會員1.png" width="896" height="1202" alt="註冊會員1" />
+<div id="apDiv20"><img src="素材/註冊會員1.png" width="896" height="1202" alt="註冊會員1" />
    
     <div class="apDiv">
 <form name="form1" action="register_0.php" method="post" enctype="multipart/form-data">
@@ -92,6 +90,7 @@ saveHistory{behavior:url(#default#savehistory);}
     </td>
     <td>
     	<input type="text" id="name" name="name" size="10">
+        <span id="accountAjax"></span>
     </td>
 </tr>
 <tr>
@@ -302,13 +301,13 @@ initZone(document.form1.City, document.form1.Canton);
         <font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">偏愛品牌</font>
     </td>
     <td>
-<?PHP
+<?
 include("server.php");
 $query="select * from brand";
 $result = mysql_query($query);
 $num_result = mysql_num_rows($result);
 echo "<select name='b_number' size='1'>";
-?><option value="0">請選擇</option><?PHP
+?><option value="0">請選擇</option><?
 for($i=0;$i<$num_result; $i++)
 {
     	$row=mysql_fetch_array($result);
@@ -436,3 +435,24 @@ echo "</select>";
 
 </body>
 </html>
+<script type="text/javascript" src="jQuery/jquery-1.5.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $('input:text[name=account]').bind("blur",function(){
+			$.ajax( {
+      		 url: 'registerAjax.php',
+     		 type: 'GET',
+      		 data: {
+        		user_name: $('#account').val()
+      		 },
+     		 error: function(xhr) {
+        		alert('Ajax request 發生錯誤');
+      		},
+      		success: function(response) {
+          		$('#accountAjax').html(response);
+          		$('#accountAjax').fadeIn();
+     		 }
+    		} );
+		});
+});
+</script>

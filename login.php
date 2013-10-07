@@ -11,9 +11,9 @@
 		#date{
 			position:absolute;
 			left:50%;
-			margin-left:-250px;
+			margin-left:-220px;
 			width:500px;
-			top:100px;
+			top:250px;
 		}
 		#form{
 			position:absolute;
@@ -34,11 +34,11 @@
             <table border="0">
             	<tr>
             		<td>登入帳號：</td>
-            		<td><input type="text" name="account" size="25" placeholder="PhonePreloved@gmail.com"></td>
+            		<td colspan="2"><input type="text" name="account" size="25" placeholder="PhonePreloved@gmail.com"></td>
             	</tr>
             	<tr>
             		<td>登入密碼：</td>
-            		<td><input type="password" name="password"> </td>
+            		<td colspan="2"><input type="password" name="password"> </td>
             	</tr>
         		<tr>
                 	<td>

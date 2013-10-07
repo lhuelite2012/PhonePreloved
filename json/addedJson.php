@@ -3,7 +3,7 @@
 	include("../addtime.php");
 	include("../dateadd.inc");
 	include("../commodityPath.php");
-
+/*
 	$c_name=$_REQUEST["c_name"];	//商品名稱varchar(50)
 	$c_price=$_REQUEST["c_price"];	//價格int(11)
 	$c_gender=$_REQUEST["c_gender"];	//商品性質varchar(3)
@@ -145,31 +145,42 @@ if($insert_result = mysql_query($insert_sql)){
 	$sql = "select c_number from commodity where c_name = '$c_name' and c_price = '$c_price' and c_gender = '$c_gender' and uptime = '$uptime'";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_row($result);
-	
-	$c_number = $row[0];
+*/	
+	$c_number =2;
 	//交易方式
-	$c_mode = array();
-	$c_mode[] = $_REQUEST["c_mode1"];
-	$c_mode[] = $_REQUEST["c_mode2"];
-	$c_mode[] = $_REQUEST["c_mode3"];
-	$c_mode[] = $_REQUEST["c_mode4"];
-	for($a=0 ; $a < count($c_mode);$a++){
-		if($c_mode[$a] != "test"){
-			$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode[$a]')";
-			mysql_query($sql);
-		}
+	$c_mode1 = $_REQUEST["c_mode1"];
+	$c_mode2 = $_REQUEST["c_mode2"];
+	$c_mode3 = $_REQUEST["c_mode3"];
+	$c_mode4 = $_REQUEST["c_mode4"];
+	if($c_mode1 != "test" and $c_mode1 !=""){
+		$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode1')";
+		mysql_query($sql);
+	}
+	if($c_mode2 != "test" and $c_mode2 !=""){
+		$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode2')";
+		mysql_query($sql);
+	}
+	if($c_mode3 != "test" and $c_mode3 !=""){
+		$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode3')";
+		mysql_query($sql);
+	}
+	if($c_mode4 != "test" and $c_mode4 !=""){
+		$sql = "insert into c_mode (c_number,c_mode) value ('$c_number','$c_mode4')";
+		mysql_query($sql);
 	}
 	
 	//付款方式	
-	$c_payment = array();
-	$c_payment[] = $_REQUEST["c_payment1"];
-	$c_payment[] = $_REQUEST["c_payment2"];
-	for($a=0 ; $a < count($c_payment);$a++){
-		if($c_payment[$a] = "test"){
-			$sql = "insert into c_payment (c_number,c_payment) value ('$c_number','$c_payment[$a]')";
-			mysql_query($sql);
-		}
+	$c_payment1 = $_REQUEST["c_payment1"];
+	$c_payment2 = $_REQUEST["c_payment2"];
+	if($c_payment1 != "test" and $c_payment1 !="" ){
+		$sql = "insert into c_payment (c_number,c_payment) value ('$c_number','$c_payment1')";
+		mysql_query($sql);
 	}
+	if($c_payment2 != "test" and $c_payment2 !="" ){
+		$sql = "insert into c_payment (c_number,c_payment) value ('$c_number','$c_payment2')";
+		mysql_query($sql);
+	}
+	
 	include("addedUploadJson.php");
 	
 	for($a=1 ; $a <=7 ; $a++){
@@ -178,11 +189,11 @@ if($insert_result = mysql_query($insert_sql)){
 			mysql_query($sql);
 		}
 	}
-	
+/*	
 	$json['yy'] = 1;
 }else{
 	$json['yy'] = 0;
 }
 echo json_encode($json);
-
+*/
 ?>

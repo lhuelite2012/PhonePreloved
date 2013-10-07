@@ -19,7 +19,7 @@ include("main.php");
 	position: relative;
 	z-index: 10;
 	left: 31px;
-	top: 100px;
+	top: 120px;
 	}
 	#newVi{
 	position:absolute;
@@ -165,9 +165,9 @@ include("main.php");
 	position: absolute;
 	width: 180px;
 	height: 150px;
-	z-index: 100;
+	z-index: 6;
 	left: 727px;
-	top: 510px;
+	top: 660px;
 	background-color: #F8F8EC;
 	border-radius:5px 5px 5px 5px;
 }
@@ -176,7 +176,6 @@ include("main.php");
 </head>
 
 <body>
-
 <div id="ce2">
 <?php if(!isset($_SESSION['m_number'])){?>
 <div id="login">

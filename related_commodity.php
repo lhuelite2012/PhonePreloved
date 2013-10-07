@@ -12,7 +12,7 @@ include("server.php");
 <title>相關商品</title>
 <style type="text/css">
 #apDiv76 {
-	position:fixed ;
+	position:absolute;
 	width:125px;
 	z-index:1;
 	background-color:#fff;
@@ -20,8 +20,8 @@ include("server.php");
 	-moz-border-radius: 10px;
 	border-radius: 5px;
 	border: 2px solid #A4A4A4;
-	top: 400px;
-	left: 1125px;
+	top: 200px;
+	left: 1000px;
 
 }/*推薦 相關商品欄*/
 #apDiv77 {
@@ -122,7 +122,7 @@ if(mysql_num_rows($total_score_query)>0){
 		$c_result = mysql_query($c_sql);
 		$list1 = mysql_fetch_array($c_result);
 ?>
-	<a href="commodity.php?c_number=<?php echo $c_number_row[0];?>">
+	<a href="commodity.php?c_number=<?php echo $c_number_row[0];?>&data=1">
   	
     	<div id="apDiv77"><img src='<?php echo $displayPathWeb.$list1['c_mp'];?>' onload="javascript:DrawImage(this,115,100);"/>
         </div>

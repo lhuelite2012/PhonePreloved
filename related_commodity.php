@@ -122,7 +122,7 @@ if(mysql_num_rows($total_score_query)>0){
 		$c_result = mysql_query($c_sql);
 		$list1 = mysql_fetch_array($c_result);
 ?>
-	<a href="commodity.php?c_number=<?php echo $c_number_row[0];?>">
+	<a href="commodity.php?c_number=<?php echo $c_number_row[0];?>&data=1">
   	
     	<div id="apDiv77"><img src='<?php echo $displayPathWeb.$list1['c_mp'];?>' onload="javascript:DrawImage(this,115,100);"/>
         </div>

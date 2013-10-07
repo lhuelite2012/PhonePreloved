@@ -362,7 +362,7 @@ function MM_swapImage() { //v3.0
  		
 		// 根據當前頁數計算名單的起始位置
 		$offset = ($page - 1) * $page_size;
-		if(!isset($sort)){$sort = 1;}
+		if(!isset($sort)){$sort = "1 desc";}
 		
 		$sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number order by ".$sort." limit ".$offset.", $page_size";
 		

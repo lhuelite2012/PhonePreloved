@@ -59,8 +59,8 @@
 	#ttt{
 	position:absolute;
 	text-align:right;
-	left: 160px;
-	top: 0px;
+	left: 155px;
+	top: 4px;
 	text-align:center;
 	color:#FFFFFF;
 	font-size:18px;
@@ -409,7 +409,14 @@ function MM_swapImage() { //v3.0
       <div class='nice_choice' id="<?php echo $list1['c_number'];?>">
 		<div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; 
 		echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,10,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");?></div>
-		<div id="ttt"><img src="素材/地標.png" onload="javascript:DrawImage(this,30,30);" /></div><div id='location'><?php echo $list1['location']; ?></div>
+		<div id="ttt"><img src="
+	<?php 	if($list1['c_gender'] == "女") 
+				echo "素材/女性.png"; 
+			else if($list1['c_gender'] == "男") 
+				echo "素材/男性.png"; 
+			else 
+				echo "素材/中性.png";?>
+        " onload="javascript:DrawImage(this,23,23);" /></div><div id='location'><?php echo $list1['location']; ?>		</div>
         <div class="hr"></div>
 		<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>'/></div>
         <div class="hover">

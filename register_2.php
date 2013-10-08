@@ -15,8 +15,8 @@ saveHistory{behavior:url(#default#savehistory);}
 	width:200px;
 	height:115px;
 	z-index:1;
-	left:191px;
-	top: 140px;
+	left:50px;
+	top: 240px;
 	margin: 0 auto; 
 	
 }/*註冊步驟底圖片*/
@@ -28,7 +28,7 @@ saveHistory{behavior:url(#default#savehistory);}
 	height:308px;
 	z-index:2;
 	left: 210px;
-	top: 203px;
+	top: 190px;
 	z-index:15;
 }/*註冊步驟2欄位*/
 
@@ -59,7 +59,7 @@ c{
   <div id="apDiv">
   <?PHP
 include("server.php");
-include("graph.php");
+include("graph_.php");
 $account = $_SESSION['account'];
 $_SESSION['testmail'] = $_SESSION['test'];
 //echo $_SESSION['account']; 
@@ -108,7 +108,7 @@ $_SESSION['testmail'] = $_SESSION['test'];
 			$Pass="hahahahahaha";
 
 			// 解壓縮後的檔案位置
-			require("C:/AppServ/www/phpMailer/class.phpmailer.php");
+			require("C:/AppServ/www/register_phpMailer/class.phpmailer.php");
 
 			// 產生 Mailer 實體
 			$mail = new PHPMailer();

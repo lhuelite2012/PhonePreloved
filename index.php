@@ -174,28 +174,19 @@ include("main.php");
 </style>
 <title>瘋二手 PhonePreloved</title>
 </head>
-
+ <script src="jQuery/imageScaling.js"></script>
 <body>
 <div id="ce2">
 <?php if(!isset($_SESSION['m_number'])){?>
 <div id="login">
         <form action="login_.php" method="POST">
             <table width="97%" align="center" >
-         
-            <tr>  
-            <td width="40%">帳號：<br></td></tr>
-              
-            
-            <tr><td><input type="text" size="20" name="account" ></td></tr>
-          
-            
-            <td>密碼：</td>
-            </tr>
-            <tr><td><input type="password" size="20" name="password"> </td></tr>
-           
-         <th colspan="2" align="center" bgcolor="#F8F8EC" > 
-            <input type="image" img src="../素材/登入鈕.png"
-             width="55" height="32" onClick="document.formname.submit()" value="下一步"></th>
+            	<tr><td width="40%">帳號：<br></td></tr>
+           		<tr><td><input type="text" size="20" name="account" ></td></tr>
+            	<tr><td>密碼：</td></tr>
+            	<tr><td><input type="password" size="20" name="password"> </td></tr>
+         		<tr><th colspan="2" align="center" bgcolor="#F8F8EC" > 
+            		<input type="image" img src="../素材/登入鈕.png" width="55" height="32" onClick="document.formname.submit()" value="下一步"></th></tr>
            
            </table>
     </form> 

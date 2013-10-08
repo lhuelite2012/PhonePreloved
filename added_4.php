@@ -12,7 +12,7 @@ saveHistory{behavior:url(#default#savehistory);}
 #ap {
 	position:absolute;
 	width:250px;
-	height:561px;
+	height:587px;
 	z-index:6;
 	left: 12px;
 	top: 160px;
@@ -42,7 +42,7 @@ saveHistory{behavior:url(#default#savehistory);}
 <body >
 <?PHP include("main.php"); ?>
 <div id=ce2>
-<div id="ap"><img src="素材/上架3.png" width="978" height="557" alt="上架3-2" />
+<div id="ap"><img src="素材/上架3.png" width="978" height="587" alt="上架3-2" />
   <div id="apDiv">
  <?PHP
  include("loginConfirm.php");

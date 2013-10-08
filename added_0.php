@@ -20,7 +20,6 @@ $m_number = $_SESSION['m_number'];
  $c_gender = $_GET['gender'];
  $s_number = $_GET['s_number'];
  $_SESSION['c_name'] = $_POST['c_name'];
- $_SESSION['added'] = "0";
  $sql = "select score from members where account='$account'"; // 找出members裡的score
  $query = mysql_query($sql);
  $rows = mysql_fetch_array($query);

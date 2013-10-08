@@ -5,11 +5,28 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <style type="text/css">
-c{
+#apdiv{
+	padding:10px 20px 10px 20px;
+	margin:0 auto;
+	position:absolute;
+	top:240;
+	left:115;
+	z-index:1;
+	left:50px;
+	top: 240px;
+	width: 80%;
+	border-radius:20px;
+	background:#FFF;
+	width: 800px;
+	background:rgba(128, 255, 128, 0.5) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+	filter:Alpha(opacity=80);
+	background:#fff;/*实现IE背景透明*/
+}
+.c{
 	font-size:18px;
 	font-family:"微軟正黑體";
 }
-d{
+.d{
 	font-size:24px;
 	font-family:"微軟正黑體";
 	font-weight:800;
@@ -20,9 +37,11 @@ d{
 <title>瘋二手 Phone Preloved</title>
 </head>
 <body>
-<?PHP //include("main.php");
+<?PHP include("main.php");
 include("loginConfirm.php"); 
 ?>
+<div id="apdiv">
+<div class="apdiv">
 <FORM name="form1" action="report0.php" method="post">
 <table>
 <tr>
@@ -149,6 +168,8 @@ $_SESSION['total'] = $total;
 ?>
 </table>
 </FORM>
+</div>
+</div>
 <script type="text/javascript">
 function report(){
 		if( confirm ("確定要檢舉?") ) {

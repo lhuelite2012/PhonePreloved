@@ -35,28 +35,28 @@
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set buy_paydate = '$date', t_schedule='已付款',tr_payment='匯款',tr_mode='面交', , buy_paytime = '$time',buy_pay = '$per_place',remark = '$remark' where c_number = $c_number";
+			$sql = "update transaction set buy_paydate = '$date', t_schedule='已付款',tr_payment='匯款',tr_mode='面交', buy_paytime = '$time',buy_pay = '$per_place' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "7-11店到店"){
 			if($b_phone != ""){
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='7-11店到店' ,storenumber = '$storenumber',remark = '$remark' where c_number = $c_number";
+			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='7-11店到店' ,storenumber = '$storenumber',buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "全家店到店"){
 			if($b_phone != ""){
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='全家店到店' ,storenumber = '$storenumber',remark = '$remark' where c_number = $c_number";
+			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='全家店到店' ,storenumber = '$storenumber' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "郵寄"){
 			if($b_phone != ""){
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set sendtime ='sendtime',t_schedule='已付款',tr_payment='匯款',tr_mode='郵寄'  where c_number = $c_number";
+			$sql = "update transaction set sendtime ='$sendtime',t_schedule='已付款',tr_payment='匯款',tr_mode='郵寄' ,remark='$remark' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate'  where c_number = $c_number";
 			mysql_query($sql);
 		}
 	}

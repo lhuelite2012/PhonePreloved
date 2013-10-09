@@ -37,7 +37,7 @@ ORDER BY 1 DESC";
 			$sql = "insert into transaction (t_time,m_number,c_number,personally,per_time) value ('$addtime','$choosebuyer','$c_number','$personally','$per_time')";
 			mysql_query($sql);
 			//存入 commodity orbidder
-			$sql = "update commodity set orbidder = '$choosebuyer' ,downtime = '$addtime',bid_price = '".$bid_price[0]."' where c_number = $c_number";
+			$sql = "update commodity set orbidder = '$choosebuyer' ,downtime = '$addtime',bid_price = '".$bid_price[0]."',orend = 1,orsell=1 where c_number = $c_number";
 			mysql_query($sql);
 			
 			$sql = "update members set fb_id = '$fb_id' ,line_id = '$line_id', rank_account = '$rank_account',personally = '$personally' where m_number = $m_number";

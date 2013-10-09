@@ -23,16 +23,27 @@
 		while($push_row = mysql_fetch_array($push_view_result)){?>
         	<a href="commodity.php?c_number=<?php echo $push_row['c_number'];?>"><div id="push_a" class="push_a">
             <hr size="1px" color="#999999" />
-           
+<?php if($push_row['p_type']=="出價"){ //追蹤商品被出價?> 
             <div id="push_mp"><img src="<?php echo $displayPathWeb.$push_row['c_mp'];?>"  onload="javascript:DrawImage(this,90,95);" /></div>    
-            <div id="push_name">您追蹤的商品 <strong><?php echo $push_row['c_name'];?></strong></div>
+            <div id="push_name">您<font color="#000099" >追蹤</font>的商品 <strong><?php echo $push_row['c_name'];?></strong></div>
             <div id="push_who">已被 <strong><?php echo $push_row['account'] ." ".$push_row['p_type'];?></strong></div>
             <div id="push_type"> </div>
             <?php if($push_row['file']!=""){?>
-            	<div id="push_whoP"><img src="<?php echo "../upload/".$push_row['file'];?>" onload="javascript:DrawImage(this,50,50);"/></div>
+            	<div id="push_whoP"><img src="<?php echo $push_row['file'];?>" onload="javascript:DrawImage(this,50,50);"/></div>
             <?php }?> 
             <div id="push_view">出價金額為 <strong><?php echo $push_row['bid_price'];?></strong></div>
             <div id="push_time" class="push_time"><?php echo $push_row['p_time'];?></div>
+<?php } else if($push_row['p_type']=="被出價"){?>
+			<div id="push_mp"><img src="<?php echo $displayPathWeb.$push_row['c_mp'];?>"  onload="javascript:DrawImage(this,90,95);" /></div>    
+            <div id="push_name">您<font color="#CC0000" >販賣</font>的商品 <strong><?php echo $push_row['c_name'];?></strong></div>
+            <div id="push_who">已被 <strong><?php echo $push_row['account'] ." "."出價";?></strong></div>
+            <div id="push_type"> </div>
+            <?php if($push_row['file']!=""){?>
+            	<div id="push_whoP"><img src="<?php echo $push_row['file'];?>" onload="javascript:DrawImage(this,50,50);"/></div>
+            <?php }?> 
+            <div id="push_view">出價金額為 <strong><?php echo $push_row['bid_price'];?></strong></div>
+            <div id="push_time" class="push_time"><?php echo $push_row['p_time'];?></div>
+<?php } ?>
             </div>
             </a>
 <?php		

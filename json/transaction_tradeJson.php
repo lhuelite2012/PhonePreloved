@@ -42,14 +42,14 @@
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='7-11店到店' ,storenumber = '$storenumber',buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
+			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='7-11' ,storenumber = '$storenumber',buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "全家店到店"){
 			if($b_phone != ""){
 				$sql = "UPDATE members SET phone = '$b_phone' WHERE m_number = '$buyers' ";
 				mysql_query($sql);
 			}
-			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='全家店到店' ,storenumber = '$storenumber' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
+			$sql = "update transaction set storename = '$storename',t_schedule='已付款',tr_payment='匯款',tr_mode='全家' ,storenumber = '$storenumber' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate',remark = '$remark' where c_number = $c_number";
 			mysql_query($sql);
 		}else if($c_mode == "郵寄"){
 			if($b_phone != ""){

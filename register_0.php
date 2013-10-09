@@ -300,7 +300,7 @@ $_SESSION['account'] = $_POST['account'];
 			line_id = '".$_POST['line_id']."' where m_number = '$m_number'";
 			mysql_query($sql_query3);
 
-			header("Location: http://localhost/register_2.php");
+			header("Location:register_2.php");
 			
 /*
 $max ="select m_number from members where account='" .$_SESSION['account']. "'and  password='" .$_POST['password']."' order by m_number desc";

@@ -23,7 +23,7 @@
 		$bid_query = mysql_query($bid_sql);
 		
 		//推薦-----------------------	
-		include("pushJson.php");
+		include("push.php");
 		
 		//出價最高
 		$bid_hi_sql = "select max(bid_price) from bid where c_number = $c_number limit 1";

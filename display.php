@@ -399,6 +399,7 @@ function MM_swapImage() { //v3.0
 							$down_query = mysql_query($down); 
 							
 						}
+
 //~~~~~下架~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~						
 ?>	
 	
@@ -517,3 +518,4 @@ function MM_swapImage() { //v3.0
 
 </body>
 </html>
+	<?php include("deleteCommodity.php"); ?>

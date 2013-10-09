@@ -1,5 +1,5 @@
 <?php	//搜尋全部收品  商品名稱及品牌名稱
-	include("s../erver.php");
+	include("../server.php");
 	include("../commodityPath.php");
 	$json = array();
 	$repeat = array();

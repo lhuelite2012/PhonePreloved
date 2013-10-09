@@ -92,12 +92,12 @@ $_SESSION['testmail'] = $_SESSION['test'];
 <table width="474">
 <tr>
 	<td>
-		<font size="+1" face="微軟正黑體" style="font-weight:800;"><center><p>獲得點數：<c>
-		<?PHP
+		
+		<?PHP //<font size="+1" face="微軟正黑體" style="font-weight:800;"><center><p>獲得點數：<c>
 		$sql2="select score from members where account='$account'";
 		$query2= mysql_query($sql2);
 		$rows = mysql_fetch_array($query2);
-		echo $rows['score'];
+		 $rows['score'];
 		?></c></p></center></font>
     </td>
 </tr>

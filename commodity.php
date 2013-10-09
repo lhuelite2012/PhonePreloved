@@ -274,7 +274,7 @@ if(!isset($_GET['c_number']))
 	$bid_rows = mysql_fetch_row($bid_query);
 	
 	//出價最高者
-	$bid_hier_sql = "select max(bid_price), bid.m_number,account from bid join members on bid.m_number = members.m_number where bid.c_number =$c_number group by c_number";
+	$bid_hier_sql = "select max(bid_price), bid.m_number,account from bid join members on bid.m_number = members.m_number where bid.c_number =$c_number group by m_number order by 1 desc";
 	$bid_hier_query = mysql_query($bid_hier_sql);
 	$bid_hier_rows = mysql_fetch_row($bid_hier_query);
 	
@@ -364,15 +364,14 @@ include("related_commodity.php");
             	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="mart.php?c_number=<?php echo $c_number;?>" >賣場首頁</a></td><td></td>
         	</tr>
         	<tr>
-            	<td height="27px">評　　價︰</td><td><?php echo $acc_rows["score"]; ?><a href="#" >查詢評價</a></td>
-            	<td><a href="#">更多賣家資訊</a></td>
+            	<td height="27px">評　　價︰</td><td><?php echo $acc_rows["sell"]/200; ?></td>
         	</tr>
     	</table>
 	  </div>
         <div id="function">
        	  <table width="500px" height="80px" align="center" >
         		<tr>
-                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px"><div id="bid_hi">$<?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></div></strong></td>
+                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px"><div id="bid_hi">$ <?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></div></strong></td>
                 	<td style="width:85px; color:#F00; font-weight:bold;">倒數時間：</td>
                     <td>  
 					<script>
@@ -519,7 +518,9 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
    		  </form>   
     	</div>       
 <?php	}
-	if($c_rows['m_number'] == $m_number){ //賣家//////////////////////////////////?>
+	if($c_rows['m_number'] == $m_number){ //賣家//////////////////////////////////
+		if($c_rows['orend']==0){?>
+    	
 		<div id="deductScores">
           <form action="deductScores.php" name="deductS" method="post">
           <input type="hidden" name="deduct" value="<?php if($total == 0) echo 1; else echo 2;?>" />
@@ -527,6 +528,11 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           <input type="button" onclick="return downtime()"value="下架商品" />	
           </form>
         </div>
+  <?php }else{?>
+  		<div id="deductScores">
+          商品已下架
+        </div>
+  <?php }?>
         <!-- <div id="modify">
         	<a href=""><img src="" />修改商品</a>
         </div>
@@ -538,7 +544,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
         $sql = "select * from bid where c_number = $c_number";
 		$result = mysql_query($sql);
 		$true_bid = mysql_num_rows($result);
-		if($true_bid  > 0){
+		if($true_bid  > 0 and $c_rows['orend'] !=1){
 ?>			<div id="maturity">
 			<form action="transaction_chooseBuyer.php" method="post">
                <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
@@ -719,7 +725,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	
 	function test2(){
 			$('#bid_hi').load("bid_hi.php",{"c_number":"<?php echo $c_number;?>"},function(response) {
-          		$('#bid_hi').html(response);
+          		$('#bid_hi').html('$'+response);
      		});
 	}
 	setInterval(test2,1000);
@@ -743,7 +749,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	
   	}
 	function downtime(){
-		if( confirm ("確定要下架商品?") ) {
+		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
 			document.deductS.submit();
 		}
   		else{

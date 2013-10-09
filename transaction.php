@@ -21,8 +21,8 @@ include("commodityPath.php");
 	background: #FFF;
 	width:751px;
 	height:612px;
-	left:161px;
-	top: 217px;
+	left:121px;
+	top: 267px;
 }
 #background2
 {

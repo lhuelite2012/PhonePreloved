@@ -21,8 +21,8 @@ include("myaccount.php");
 	background: #FFF;
 	width:751px;
 	height:742px;
-	left:161px;
-	top: 217px;
+	left:121px;
+	top: 267px;
 }
 #background6
 {

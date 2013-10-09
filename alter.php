@@ -23,6 +23,7 @@ include("myaccount.php");
 	height: 50px;
 	}
 </style>
+<script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/jquery.validate.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
@@ -58,7 +59,7 @@ $(function(){
 	<div id="apDiv50"><a href="altercode.php"><img src="素材/個人資料-變更密碼白.png" width="141" height="49" /></div>
     <div id="apDiv51"><a href="alter.php"><img src="素材/個人資料-帳號資料綠.png" width="141" height="49" /></a></div>
 </div>
-<div id="apDiv13"><img src="素材/我的帳號下-白底.png" width="700" height="500" alt="我的帳號下白底" />
+<div id="apDiv13"><img src="素材/我的帳號下-白底.png" width="751" height="870" alt="我的帳號下白底" />
 <div align="center" id="apDiv46">
 <form action="alter_.php" method="post" name="commentForm" id="commentForm" enctype="multipart/form-data">
 	<table>

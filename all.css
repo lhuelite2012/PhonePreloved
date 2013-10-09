@@ -333,7 +333,7 @@ body {
 	left:137px;
 	top:50%
 	margin-left:-125px;
-	margin-top:-280px;
+	margin-top:-250px;
 	top: 463px;
 }/*忘記密碼圖片*/
 #apDiv37 {
@@ -351,8 +351,8 @@ body {
 	width:200px;
 	height:44px;
 	z-index:6;
-	left: 266px;
-	top: 147px;
+	left: 195px;
+	top: 212px;
 	margin: 0 auto;
 }/*我的帳號下綠列圖片*/
 
@@ -402,7 +402,7 @@ body {
 	width:152px;
 	height:115px;
 	z-index:7;
-	left: 70px;
+	left: -50px;
 	top: 310px;
 }/*我的帳號下左邊白底圖*/
 #apDiv13 {
@@ -410,8 +410,8 @@ body {
 	width:200px;
 	height:115px;
 	z-index:8;
-	left: 212px;
-	top: 217px;
+	left:121px;
+	top: 267px;
 	margin: center;
 }/*我的帳號下-顯示個人資料白底圖*/
 #apDiv45 {
@@ -425,10 +425,10 @@ body {
 }/*我的帳號下-個人資料-編輯鈕*/
 #apDiv46 {
 	position:absolute;
-	width:656px;
+	width:650px;
 	height:880px;
 	z-index:2;
-	left: 22px;
+	left: 50px;
 	top: 40px;
 }/*我的帳號下-顯示個人資料欄位*/
 #apDiv47 {
@@ -436,25 +436,25 @@ body {
 	width:200px;
 	height:402px;
 	z-index:8;
-	left: 212px;
-	top: 217px;
+	left:121px;
+	top: 267px;
 	margin: center;
 }/*變更密碼底圖*/
-#apDiv48 {
+#apDiv46-1 {
 	position:absolute;
-	width:662px;
-	height:350px;
-	z-index:1;
-	left: 18px;
+	width:650px;
+	height:610px;
+	z-index:2;
+	left: 50px;
 	top: 40px;
-}/*變更密碼欄位*/
+}/*變更密碼欄位(原apDiv48)*/
 #apDiv49 {
 	position:absolute;
 	width:135px;
 	height:45px;
 	z-index:1;
 	left: 270px;
-	top: 175px;
+	top: 220px;
 }/*變更密碼按鈕欄位*/
 #apDiv50 {
 	position:absolute;
@@ -487,8 +487,8 @@ body {
 	width:751px;
 	height:1102px;
 	z-index:7;
-	left:161px;
-	top: 217px;
+	left:121px;
+	top: 267px;
 }/*拍賣紀錄,評價紀錄-白底*/
 
 #apDiv80,#apDiv64 {

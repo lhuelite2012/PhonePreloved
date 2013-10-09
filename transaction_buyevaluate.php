@@ -27,9 +27,9 @@ $(function(){
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:402px;
-	left:161px;
-	top: 217px;
+	height:502px;
+	left:121px;
+	top: 267px;
 }
 #background21
 {

@@ -20,7 +20,6 @@ include("server.php");
 	$query = mysql_query($sql);
 	$list3 = mysql_fetch_array($query);
 ?>
-<div id=ce2>
 <div id="apDiv36"><img src="素材/忘記密碼底.png" alt="查詢密碼底" width="739" height="590" />
 <div align="center" id="apDiv37">
 <form action="" method="post" name="form">
@@ -162,7 +161,6 @@ include("server.php");
 		}
 	}
 ?>
-</div>
 </div>
 </div>
 </body>

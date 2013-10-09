@@ -1,5 +1,7 @@
 <?PHP
 session_start();
+?>
+<?PHP
 include("main.php");
 include("server.php");
 include("loginConfirm.php");

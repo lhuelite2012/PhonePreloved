@@ -3,9 +3,9 @@ ob_start();
 session_start();
 ?>
 <?PHP
+include("main.php");
 include("server.php");
 include("loginConfirm.php");
-include("main.php");
 include("myaccount.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,9 +27,9 @@ $(function(){
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:482px;
-	left:161px;
-	top: 217px;
+	height:532px;
+	left:121px;
+	top: 267px;
 }
 #background21
 {

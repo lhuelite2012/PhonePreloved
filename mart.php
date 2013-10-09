@@ -1,8 +1,9 @@
 <?PHP
 session_start();
+?>
+<?PHP
 include("main.php");
 include("server.php");
-
 include("commodityPath.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -38,16 +39,15 @@ table
 	height:78px;
 	width:408px;
 	left:272px;
-	top:22px;
+	top:19px;
 }
 #background20
 {
 	position: absolute;
-	background: #FFF;
 	width:751px;
 	height:1022px;
 	left:120px;
-	top: 170px;
+	top: 240px;
 }
 #background21
 {
@@ -100,7 +100,7 @@ table
     
     <div align="left" id="b">
     <div align="left" id="c">
-    <strong><font size="3" color="#0000FF">
+    <strong><font size="4" color="#0000FF">
     歡迎光臨瘋二手網站，這是賣家的個人賣場，<br/>
     以下的拍賣商品都是經由同一位賣家所販賣，<br/>
     希望能找到您喜愛的商品，並祝您購物愉快！

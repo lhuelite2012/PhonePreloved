@@ -1,9 +1,10 @@
 <?PHP
 session_start();
+?>
+<?PHP
 include("main.php");
 include("server.php");
 include("loginConfirm.php");
-
 include("myaccount.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,8 +27,8 @@ include("myaccount.php");
 	<div id="apDiv50"><a href="altercode.php"><img src="素材/個人資料-變更密碼綠.png" width="141" height="49" /></div>
 	<div id="apDiv51"><a href="alter.php"><img src="素材/個人資料-帳號資料白.png" width="141" height="49" /></a></div>
 </div>
-<div id="apDiv47"><img src="素材/我的帳號下-白底.png" width="700" height="500" alt="我的帳號下白底" />
-<div align="center" id="apDiv48">
+<div id="apDiv13"><img src="素材/我的帳號下-白底.png" width="751" height="490" alt="我的帳號下白底" />
+<div align="center" id="apDiv46-1">
 <form action="altercode_.php" method="post" name="form">
 	<table>
 		<tr>
@@ -35,6 +36,9 @@ include("myaccount.php");
 		</tr>
 		<tr>
 			<td colspan="3"><hr size="1" /></td>
+		</tr>
+        <tr>
+			<td height="20"></td>
 		</tr>
 		<tr>
 			<td><strong>目前使用帳號：</strong></td>
@@ -50,6 +54,9 @@ include("myaccount.php");
      		<td><input type="password" name="password2" id="password2" maxlength="10" onKeyUp="checkx()"></td>
      		<td><strong><div id="not"></div></strong></td>
      	</tr>
+		<tr>
+			<td height="20"></td>
+		</tr>
         <tr>
 			<td colspan="3"><hr size="1" /></td>
 		</tr>

@@ -344,11 +344,11 @@
               <div id="nn5" class="hidden">
                 <span class="spa">種類</span>
                 <hr width="230px" align="left" />
-                <img class="n11"src="素材/分類鈕-籃球鞋白.png" onclick="cc(18)"/>
-                <img class="n12"src="素材/分類鈕-跑步鞋白.png" onclick="cc(17)"/>
-                <img class="n13"src="素材/分類鈕-休閒鞋白.png" onclick="cc(14)"/>
-                <img class="n14"src="素材/分類鈕-高跟鞋白.png" onclick="cc(16)"/>
-                <img class="n15"src="素材/分類鈕-平底鞋白.png" onclick="cc(15)"/>
+                <img class="n11"src="素材/分類鈕-籃球鞋白.png" onclick="cc(14)"/>
+                <img class="n12"src="素材/分類鈕-跑步鞋白.png" onclick="cc(15)"/>
+                <img class="n13"src="素材/分類鈕-休閒鞋白.png" onclick="cc(16)"/>
+                <img class="n14"src="素材/分類鈕-高跟鞋白.png" onclick="cc(17)"/>
+                <img class="n15"src="素材/分類鈕-平底鞋白.png" onclick="cc(18)"/>
               </div>
             </div>
         </div>

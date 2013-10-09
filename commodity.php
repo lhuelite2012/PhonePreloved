@@ -435,9 +435,9 @@ include("related_commodity.php");
         		<li><span>開始時間：</span><?php echo $c_rows["uptime"];?></li>
             	<li><span>結束時間：</span><?php echo $c_rows["downtime"];?></li>
                 <li><span>商品性質：</span><?php echo $c_rows["c_gender"]."  "; ?><img src="
-	<?php 	if($list1['c_gender'] == "女") 
+	<?php 	if($c_rows['c_gender'] == "女") 
 				echo "素材/女性.png"; 
-			else if($list1['c_gender'] == "男") 
+			else if($c_rows['c_gender'] == "男") 
 				echo "素材/男性.png"; 
 			else 
 				echo "素材/中性.png";?>

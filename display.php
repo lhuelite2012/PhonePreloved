@@ -406,7 +406,17 @@ function MM_swapImage() { //v3.0
 	  <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
       <div class='nice_choice' id="<?php echo $list1['c_number'];?>">
 		<div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; 
-		echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,10,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");?></div>
+		if((mb_strlen($str,'utf8')<10))
+			echo $str;
+		else{
+			if(strlen($str)>16 and strlen($str)<21)
+				echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+			else if(strlen($str)>30)
+					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 else
+				 	echo mb_substr($str,0,14,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+		}
+		?></div>
 		<div id="ttt"><img src="
 	<?php 	if($list1['c_gender'] == "女") 
 				echo "素材/女性.png"; 

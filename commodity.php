@@ -528,15 +528,18 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           <input type="button" onclick="return downtime()"value="下架商品" />	
           </form>
         </div>
+        <div id="modify">
+          <form action="" method="post">
+          <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
+          <input type="hidden" name="c_revise" value="1" />
+          <input type="button" onclick="return revise()"value="修改商品" />	
+          </form>
+        </div>
   <?php }else{?>
-  		<div id="deductScores">
-          商品已下架
-        </div>
+            <div id="deductScores">
+              商品已下架
+            </div>
   <?php }?>
-        <!-- <div id="modify">
-        	<a href=""><img src="" />修改商品</a>
-        </div>
-        -->
 		<div id="bid_hier">
         	目前最高者：<?php echo $bid_hier_rows[2]; ?>
         </div>
@@ -750,6 +753,14 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
   	}
 	function downtime(){
 		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
+			document.deductS.submit();
+		}
+  		else{
+			return false;
+		}
+	}
+	function revise(){
+		if( confirm ("確定要修改商品?") ) {
 			document.deductS.submit();
 		}
   		else{

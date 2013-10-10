@@ -176,6 +176,7 @@ include("deleteCommodity.php");
 <title>瘋二手 PhonePreloved</title>
 </head>
  <script src="jQuery/imageScaling.js"></script>
+ <script src="../colorbox-master/jquery.colorbox-min.js"> </SCRIPT>
 <body>
 <div id="ce2">
 <?php if(!isset($_SESSION['m_number'])){?>
@@ -218,7 +219,7 @@ include("0033_2.php");?>
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php $str = $list1['c_name']; 
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>"  ><?php $str = $list1['c_name']; 
 		if((mb_strlen($str,'utf8')<10))
 			echo $str;
 		else{
@@ -265,7 +266,7 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php if((mb_strlen($str,'utf8')<10))
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php if((mb_strlen($str,'utf8')<10))
 			echo $str;
 		else{
 			if(strlen($str)>16 and strlen($str)<21)
@@ -308,7 +309,7 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php $str = $list1['c_name']; 
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; 
 		if((mb_strlen($str,'utf8')<10))
 			echo $str;
 		else{

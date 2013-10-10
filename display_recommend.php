@@ -279,47 +279,7 @@ function MM_swapImage() { //v3.0
 <div id="container">
 
  <?php   
- 		$sea = $_GET['sea'];
-		$c_gender = $_GET['c_gender'];			//男女
-		$s_fsort = $_GET['s_fsort'];			//父分類
-		$s_number = $_GET['s_number'];			//分類編號
-		$clothes_size = $_GET['clothes_size'];	//衣服尺寸
-		$shoes_size2 = $_GET['shoes_size2'];  //鞋子尺寸(公分)
-		$brand_start = $_GET['brand_start']; //品牌字首
-		$price_mode = $_GET['price_mode'];  //價格篩選
-		$price_range = $_GET['price_range']; //價格
-		$location = $_GET['location'];		//地區
-	//判斷是否有值
-	
-		$sea = HaveValue(stripslashes($sea),"c_name"); 	
-		$c_gender = HaveValue(stripslashes($c_gender),"c_gender"); 	//男女
-		$s_fsort = HaveValue($s_fsort,"s_fsort");		//父分類
-		$s_number = HaveValue($s_number,"s_number");	//分類編號
-		$clothes_size = HaveValue($clothes_size,"size");	//衣服尺寸
-		$shoes_size2 = HaveValue($shoes_size2,'size');  //鞋子尺寸(公分)
-		$brand_start = HaveValue($brand_start,'b_name'); //品牌字首
-		$price_range = HaveValue($price_range,$price_mode); //價格
-		$location = HaveValue(stripslashes($location),'location');		//地區
-		
-	function HaveValue($vale,$str){
-		if($vale !="") 
-			if($str == "s_fsort")
-				$vale = "and $str = '".$vale."' "; 
-			else if($str == "b_name")
-				$vale = "and b_name like '$vale%'";
-			else if($str == "c_price" or $str =="hi_bid_price")
-				$vale = "and $str $vale";
-			else if($str == "location")
-				$vale = "and $vale ";
-			else if($str == "c_name"){
-				$vale = "and c_name like '%$vale%' or b_name like '%$vale%' or aliases like '%$vale%' ";
-			}
-			else
-				$vale = "and commodity.$str = '".$vale."' "; 
-		else 
-			$vale = "";
-		return $vale;
-	}
+ include("sizeConverted.php");
 
 
 		

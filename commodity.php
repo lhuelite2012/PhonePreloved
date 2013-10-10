@@ -224,9 +224,19 @@
 		position:relative;
 		top:10px;
 	}
+	#sizechart{
+		position:absolute;
+		width:50px;
+		height:20px;
+		left:-2px;
+		top:200px;
+		color:#060;
+		background:#FFF;
+	}
 </style>
 <title>商品展示</title>
-
+<script src="../colorbox-master/jquery.colorbox-min.js"> </SCRIPT>
+<script type="text/javascript" src="colorbox-master/jquery.colorbox-min.js"></script>
 <script type="text/jscript" src="imageScaling.js"></script>
 </head>
 <body >
@@ -393,7 +403,7 @@ include("related_commodity.php");
              <ul style="font-size:15px;">
         		<li><span>品 　　牌：</span><?php echo $b_rows["b_name"];?></li>
 <?php if($s_fsort ==1){ //衣服?>
-            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?></li>
+            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?>
                 <li><span>長　　度：</span><?php echo $c_rows["c_height"]."　公分"; ?></li>
                 <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
                 <li><span>胸　　寬：</span><?php echo $c_rows["c_bust"]."　公分"; ?></li>
@@ -410,7 +420,7 @@ include("related_commodity.php");
                 <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
 <?php }?>
 <?php if($s_fsort ==4){ //鞋子?>
-            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li>
+            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li><div id="sizechart"> <a class='gallery' href="../素材/sizelist.gif">尺寸表</a></div>
 <?php }?>
 <?php if($s_fsort ==5){ //洋裝?>
             	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?></li>
@@ -782,4 +792,5 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			return false;
 		}
 	}
+	jQuery('a.gallery').colorbox();
 </script>

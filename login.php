@@ -49,7 +49,7 @@
                         <a href="javascript:document.formname.reset()"><img src="素材/忘記密碼-取消鈕.png"   onload='javascript:DrawImage(this,50,50);'/>
                      	</a>
                     </td>
-                    <td><a href="#" title="忘記密碼">忘記密碼</a></td>
+                    <td><a href="search.php" title="忘記密碼">忘記密碼</a></td>
                     <td><a href="register.php">註冊會員</a></td>
                 </tr>
             </table>   

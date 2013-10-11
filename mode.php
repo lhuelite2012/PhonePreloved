@@ -1224,7 +1224,8 @@ $('#price_range5').click(function(){
 		$('#clothesM').css('display','block');
 		$('#clothesF').css('display','none');
 		var sex = 1;
-      	$("#mm").html("類型　男");     
+      	$("#mm").html("類型　男");    
+		$('.n14').hide("normal"); 
 	})
 	$('.m2').click(function(){
 		$('.s3').show("normal");	
@@ -1235,6 +1236,7 @@ $('#price_range5').click(function(){
 		$('#clothesM').css('display','none');
 		var sex = 2;
 		$("#mm").html("類型　女");
+		$('.n14').show("normal");
 	})
 	$('.m3').click(function(){
 		$('.s3').hide("normal");	
@@ -1245,6 +1247,7 @@ $('#price_range5').click(function(){
 		$('#clothesF').css('display','none');
 		var sex = 1;
 		$("#mm").html("類型　中性");
+		$('.n14').hide("normal");
 	})
 	/*商品*/
 	$('.s1').click(function(){
@@ -1433,6 +1436,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+			
 		$("#ss").html("商品　鞋子");
 		$("#nn").html("");
 		$("input[name='clothes_size']").val("");

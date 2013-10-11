@@ -312,7 +312,7 @@ function MM_swapImage() { //v3.0
 	}else{
 ?>
   	<div id="noLogin">
-    		<div id="registrationTop"><a href="register.php">註冊</a></div>
+    		<div id="registrationTop"><a href="register_0">註冊</a></div>
             <div id="toplogin"><a href="login.php">登入</a></div>
 	</div>
 <?php

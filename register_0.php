@@ -158,7 +158,7 @@ mysql_query($sql_query6);
 
 if(empty($_FILES["file"]["name"]))//file是空值的話,預設圖
 {
-	$_FILES["file"]["name"]="register-1.gif";
+	$_FILES["file"]["name"]="upload/右上大頭貼.jpg";
 	$file = $_FILES["file"]["name"];
 	$fraction = "15";
 	$sql_query2 = "INSERT into  f_record (m_number,f_number,f_time) VALUES ('$m_number','$fraction','$m_addtime')";
@@ -167,7 +167,7 @@ if(empty($_FILES["file"]["name"]))//file是空值的話,預設圖
 }
 else if(!empty($_FILES["file"]["name"]))//file有值,重新上傳新圖
 {
-	$uploaddir="C:/AppServ/www/file/";//上傳檔案存放位置
+	$uploaddir="upload/";//上傳檔案存放位置
 	$tmpfile=$_FILES["file"]["tmp_name"];//server端站存檔名
 	$file2=mb_convert_encoding($_FILES["file"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
 	if (($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||($_FILES["file"]["type"] == "image/jpg")||($_FILES["file"]["tmp_name"]==""))//限定檔案gif jpg

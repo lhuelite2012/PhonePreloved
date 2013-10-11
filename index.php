@@ -245,7 +245,7 @@ include("0033_2.php");?>
     <?php 
 		$sql = "SELECT view.c_number,COUNT( * )  'total',commodity.*
 FROM VIEW JOIN commodity ON view.c_number = commodity.c_number
-GROUP BY view.c_number
+where orend = 0 and orsell = 0 GROUP BY view.c_number
 ORDER BY 2 desc , view.v_time desc limit 3"; 
 		$result = mysql_query($sql);
 		while($list1 = mysql_fetch_array($result)){
@@ -266,7 +266,7 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php if((mb_strlen($str,'utf8')<10))
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; if((mb_strlen($str,'utf8')<10))
 			echo $str;
 		else{
 			if(strlen($str)>16 and strlen($str)<21)

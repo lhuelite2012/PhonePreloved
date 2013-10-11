@@ -490,10 +490,10 @@ echo "</select>";
     <td>
     	<select id="shoes_size" name="shoes_size">
         <option value="">請選擇</option>
-        <option value="台灣">台灣</option>
         <option value="美國">美國</option>
+        <option value="英國">英國</option>
+        <option value="法國">法國</option>
         <option value="日本">日本</option>
-        <option value="歐洲">歐洲</option>
         </select>
     	<input type="text" id="shoes_size2" name="shoes_size2" size="11" placeholder="請輸入尺寸">
     </td>

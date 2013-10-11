@@ -252,6 +252,12 @@
 	#push_a a{
 		text-decoration:none;
 	}
+	#emoticons{
+		position:absolute;
+		width:200px;
+		height:200px;
+		z-index:200;
+	}
 </style>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
@@ -279,14 +285,16 @@ function MM_swapImage() { //v3.0
 </head>
 <script src="jQuery/imageScaling.js"></script>
 <body onLoad="MM_preloadImages('素材/購物列2 綠.png','素材/我要賣東西列2  綠.png','素材/會員互動區列2 綠.png','素材/我要賣東西列2  綠.#$#')">
-
+<div id="emoticons">
+	<img src="<?php echo $_SESSION['filepicture'];?>" title="<?php echo $_SESSION['m_name']; ?>"   onload='javascript:DrawImage(this,200,200);' />
+</div>
 <div id="ce2">
 <div id="periphery">
 <div id="logo1">
   <a href="index.php"><div id="logo">
 		<img src="素材/NEW ! LOGO.png" width="265" height="100" alt="logo" />
 </div></a></div>
-	
+
 <?php
 	if(isset($_SESSION['m_number']))
 	{
@@ -305,14 +313,14 @@ function MM_swapImage() { //v3.0
            
   			<div id="apDiv15"><?php echo $_SESSION['m_name']; ?></div>
     		<div id="apDiv16"><a href="alter.php" title="我的帳號"><img src="素材/右上我的帳號.jpg" /></a></div>
-    		<div id="apDiv19"><img src="<?php if($_SESSION['filepr'] !="" and !is_null($_SESSION['filepicture'])) echo $_SESSION['filepicture']; else echo "素材/右上大頭貼.jpg";?>" onload='javascript:DrawImage(this,35,35);' /></div>
+    		<div id="apDiv19"><img src="<?php if($_SESSION['filepicture'] !="" and !is_null($_SESSION['filepicture'])) echo $_SESSION['filepicture']; else echo "素材/右上大頭貼.jpg";?>" onload='javascript:DrawImage(this,35,35);' /></div>
             <div id="logout"><a href="logout.php">登出</a></div>
 		</div>
 <?php
 	}else{
 ?>
   	<div id="noLogin">
-    		<div id="registrationTop"><a href="register_0">註冊</a></div>
+    		<div id="registrationTop"><a href="register.php">註冊</a></div>
             <div id="toplogin"><a href="login.php">登入</a></div>
 	</div>
 <?php

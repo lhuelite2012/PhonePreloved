@@ -105,7 +105,7 @@ if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上
     	付款方式
     </td>
     <td colspan="2">
-        <input type="checkbox" id="c_payment[]" name="c_payment[]" value="郵局">匯款
+        <input type="checkbox" id="c_payment[]" name="c_payment[]" value="匯款">匯款
         <input type="checkbox" id="c_payment[]" name="c_payment[]" value="面交">面交
     </td>
 </tr>

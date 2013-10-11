@@ -1,6 +1,6 @@
 <?php 
 
-$c_number = $_POST['c_number'];
+$c_number = $_REQUEST['c_number'];
 	
 //加入追蹤清單的會員 通知他們 此商品被其他買家出價
 	$bid_select = "select b.bid_number,c.m_number from bid b join commodity c on b.c_number = c.c_number where b.bid_time = '$addtime' and c.c_number = $c_number";

@@ -1096,7 +1096,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat1').css('color','#F63');
 		$('#areat2,#areat3,#areat4').css('color','#FFF');
-		gg(" location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%'");
+		gg("( location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
 		$("#ll").html("地區　北部地區");
 	})
 	$('#locationbox2').click(function(){
@@ -1104,7 +1104,7 @@ $('#price_range5').click(function(){
 		$('#locationbox1,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat2').css('color','#F63');
 		$('#areat1,#areat3,#areat4').css('color','#FFF');
-		gg(" location like '%台中%' or  location like '%彰化%' or  location like '%南投%'");
+		gg("( location like '%台中%' or  location like '%彰化%' or  location like '%南投%' )");
 		$("#ll").html("地區　中部地區");
 	})
 	$('#locationbox3').click(function(){
@@ -1112,7 +1112,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox1,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat3').css('color','#F63');
 		$('#areat2,#areat1,#areat4').css('color','#FFF');
-		gg(" location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%'");
+		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%' )");
 		$("#ll").html("地區　南部地區");
 	})
 	$('#locationbox4').click(function(){
@@ -1120,7 +1120,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox1').css('color','#390').css('background','#FFF');
 		$('#areat4').css('color','#F63');
 		$('#areat2,#areat3,#areat1').css('color','#FFF');
-		gg(" location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%'");
+		gg("( location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
 		$("#ll").html("地區　東部地區");
 	})
 

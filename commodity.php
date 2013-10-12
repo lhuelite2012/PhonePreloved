@@ -517,7 +517,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
             	<input type="text" name="bid" size="10px" />
                 <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
                 <div style="position: absolute; left: 183px; top: 0px;">
-                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="document.formname.submit()" />
+                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return bidpush()" />
                 </div>
         	</form>  
     	</div>
@@ -731,7 +731,9 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 
 </body>
 </html>
+<script type="text/javascript" src="jQuery/jquery-1.5.2.min.js"></script>
 <script type="text/javascript">
+
 	var bid_hi = <?php echo $c_rows["hi_bid_price"]; ?> ;
 	var c_price = <?php echo $c_rows["c_price"];?>;
 	var total = <?php echo $_SESSION["total"]/200;?> ;
@@ -764,6 +766,14 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	function downtime(){
 		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
 			document.deductS.submit();
+		}
+  		else{
+			return false;
+		}
+	}
+	function bidpush(){
+		if( confirm ("出價金額為"+document.send.bid.value+"?") ) {
+			document.send.submit();
 		}
   		else{
 			return false;

@@ -139,7 +139,7 @@ if($_SESSION['added'] == "2")
     </td>
     <td>
     	<input type="file" id="c_mp" name="c_mp" >
-        <input type="hidden" name="mzx_file_size" value="512000"><FONT color="#FF0000" SIZE=1>最大不可超過5M</FONT>
+        <input type="hidden" name="mzx_file_size" value="51200000"><FONT color="#FF0000" SIZE=1>最大不可超過5M</FONT>
     </td>
 </tr>
 <tr>
@@ -148,7 +148,7 @@ if($_SESSION['added'] == "2")
 	</td>
     <td>
         <input type="file" id="c_movie" name="c_movie" size=12>
-		<input type="hidden" name="mzx_file_size" value="10240000"><FONT color="#FF0000" SIZE=1>最大不可超過100M</FONT>
+		<input type="hidden" name="mzx_file_size" value="102400000"><FONT color="#FF0000" SIZE=1>最大不可超過100M</FONT>
 	
     </td>
 </tr>

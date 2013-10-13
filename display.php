@@ -374,7 +374,7 @@ function MM_swapImage() { //v3.0
 			else if(strlen($str)>30)
 					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 				 else
-				 	echo mb_substr($str,0,14,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 		}
 		?></div>
 		<div id="ttt"><img src="
@@ -488,4 +488,3 @@ function MM_swapImage() { //v3.0
 
 </body>
 </html>
-	<?php include("deleteCommodity.php"); ?>

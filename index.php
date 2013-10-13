@@ -1,6 +1,6 @@
 <?php
 include("main.php"); 
-include("deleteCommodity.php");
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -228,7 +228,7 @@ include("0033_2.php");?>
 			else if(strlen($str)>30)
 					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 				 else
-				 	echo mb_substr($str,0,14,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>
@@ -274,7 +274,7 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 			else if(strlen($str)>30)
 					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 				 else
-				 	echo mb_substr($str,0,14,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>
@@ -318,7 +318,7 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 			else if(strlen($str)>30)
 					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 				 else
-				 	echo mb_substr($str,0,14,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>

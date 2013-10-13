@@ -396,7 +396,8 @@ function MM_swapImage() { //v3.0
                 ------------------------------------------------
 				<div id="c_description">
                 	
-                	尺寸：<?php echo $list1['size'] ?>　<br />
+                	<?php if($list1['s_fsort']!=3){ ?>
+                    	尺寸：<?php echo $list1['size']; }?>　<br />
                     付款方式：
 					<?php 
 						while($cp_list1=mysql_fetch_array($cp_result))

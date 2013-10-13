@@ -189,11 +189,9 @@ if($insert_result = mysql_query($insert_sql)){
 			mysql_query($sql);
 		}
 	}
-/*	
 	$json['yy'] = 1;
 }else{
 	$json['yy'] = 0;
 }
 echo json_encode($json);
-*/
 ?>

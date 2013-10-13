@@ -3,7 +3,7 @@
 	include("../addtime.php");
 	include("../dateadd.inc");
 	include("../commodityPath.php");
-/*
+
 	$c_name=$_REQUEST["c_name"];	//商品名稱varchar(50)
 	$c_price=$_REQUEST["c_price"];	//價格int(11)
 	$c_gender=$_REQUEST["c_gender"];	//商品性質varchar(3)
@@ -145,7 +145,7 @@ if($insert_result = mysql_query($insert_sql)){
 	$sql = "select c_number from commodity where c_name = '$c_name' and c_price = '$c_price' and c_gender = '$c_gender' and uptime = '$uptime'";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_row($result);
-*/	
+	
 	$c_number =2;
 	//交易方式
 	$c_mode1 = $_REQUEST["c_mode1"];

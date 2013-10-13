@@ -19,7 +19,7 @@
 		$shoes_size2 = HaveValue($shoes_size2,'size');  //鞋子尺寸(公分)
 		$brand_start = HaveValue($brand_start,'b_name'); //品牌字首
 		$price_range = HaveValue($price_range,$price_mode); //價格
-		$location = HaveValue(stripslashes($location),'location');		//地區
+		echo $location = HaveValue(stripslashes($location),'location');		//地區
 		
 	function HaveValue($vale,$str){
 		if($vale !="") 

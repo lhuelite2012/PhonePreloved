@@ -6,17 +6,17 @@
 <style type="text/css">
 	#sort{
 	position: absolute;
-	left: 520px;
+	left: 500px;
 	top: 238px;
 	float: left;
-	width: 500px;
+	width: 550px;
 	color:#03C;
 	font-size:14px;
 	}
 	#timeSort{
 		position:relative;
 		float:left;
-		width:90px;
+		width:120px;
 	}
 	#priceSort{
 		position:relative;
@@ -105,7 +105,7 @@
 				echo "s_fsort=".$_GET['s_fsort']."&s_number=".$_GET['s_number'];					
 			else
 				echo "s_fsort=".$_GET['s_fsort'];		
-?>&timeSort=<?php echo $timeSort;?>">時間排序<?php if(isset($_GET['timeSort'])) echo $up;?></a>
+?>&timeSort=<?php echo $timeSort;?>">剩餘時間排序<?php if(isset($_GET['timeSort'])) echo $up;?></a>
     </div>
     <div id="priceSort">
     	<a href="?<?php

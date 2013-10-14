@@ -145,8 +145,7 @@ if($insert_result = mysql_query($insert_sql)){
 	$sql = "select c_number from commodity where c_name = '$c_name' and c_price = '$c_price' and c_gender = '$c_gender' and uptime = '$uptime'";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_row($result);
-	
-	$c_number =2;
+	$c_number = $row[0];
 	//交易方式
 	$c_mode1 = $_REQUEST["c_mode1"];
 	$c_mode2 = $_REQUEST["c_mode2"];
@@ -189,11 +188,11 @@ if($insert_result = mysql_query($insert_sql)){
 			mysql_query($sql);
 		}
 	}
-/*	
+
 	$json['yy'] = 1;
 }else{
 	$json['yy'] = 0;
 }
 echo json_encode($json);
-*/
+
 ?>

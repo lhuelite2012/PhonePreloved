@@ -78,7 +78,7 @@ if($_SESSION['added'] == "2")
 	<td>
 		<input type="text" id="c_name" name="c_name" size="50" maxlength="30"><FONT color="#FF0000" SIZE=1>限30個中文字內</FONT>
 	</td>
-    <td rowspan="12" style="text-align:right">
+    <td rowspan="11" style="text-align:right">
     	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
         </td>
 </tr>
@@ -91,7 +91,7 @@ if($_SESSION['added'] == "2")
 	        <option>請選擇</option>
 	        <option value="基隆市" >基隆市</option>
 	        <option value="臺北市" >臺北市</option>
-	        <option value="臺北縣" >新北市</option>
+	        <option value="新北市" >新北市</option>
 	        <option value="桃園縣" >桃園縣</option>
             <option value="新竹市" >新竹市</option>
 	        <option value="新竹縣" >新竹縣</option>
@@ -161,7 +161,7 @@ if($_SESSION['added'] == "2")
     	<FONT SIZE=2> 尺寸 </FONT><input type="text" id="size" name="size" size="3">
     	<FONT SIZE=2>　　　全長 </FONT><input type="text" id="c_height" name="c_height" size="5"><FONT SIZE=2> CM　　　</FONT>
         <FONT SIZE=2> 肩寬 </FONT><input type="text" id="c_shoulder" name="c_shoulder" size="5"><FONT SIZE=2> CM　　　</FONT>
-        <FONT SIZE=2> 胸圍 </FONT><input type="text" id="c_bust" name="c_bust" size="5"><FONT SIZE=2> 吋　　　</FONT>
+        <FONT SIZE=2> 胸圍 </FONT><input type="text" id="c_bust" name="c_bust" size="5"><FONT SIZE=2> CM　　　</FONT>
         
     </td>
 </tr>
@@ -203,14 +203,14 @@ echo "</select>";
     	<input type="text" id="c_price" name="c_price" size="11">
     </td>
 </tr>
-<tr>
+<!--<tr>
 	<td>
     	評價限制
     </td>
     <td>
     	<input type="text" id="lowest_record" name="lowest_record" size="10"><FONT SIZE=2>以上  </FONT><FONT color="#FF0000" SIZE=2>才可對商品出價</FONT>
     </td>
-</tr>
+</tr>-->
 <tr>
 	<td>
     	購買憑證

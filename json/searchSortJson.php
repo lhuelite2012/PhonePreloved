@@ -25,7 +25,7 @@
 			$vale = "";
 		return $vale;
 	}
-    $sql = "select commodity.*,sort.s_fsort from commodity join sort on commodity.s_number = sort.s_number where  orend = 0 and orsell = 0  $c_gender $s_fsort $s_number ";
+    $sql = "select commodity.*,sort.s_fsort from commodity join sort on commodity.s_number = sort.s_number where  orend != 1  $c_gender $s_fsort $s_number ";
     $result = mysql_query($sql);
     while($row = mysql_fetch_array($result)){
 		$json['c_number'] = $row['c_number'];

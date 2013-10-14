@@ -152,10 +152,9 @@
 #logo1 {
 	position:absolute;
 	width:1495px;
-	height:112px;
+	height:100px;
 	z-index:10;
-	background-image:url(%E7%B4%A0%E6%9D%90/%E7%99%BD.png);
-	background-repeat:repeat-x;
+	background:#FFF;
 	top: 45px;
 	left: -356px;
 	
@@ -215,7 +214,7 @@
 		float:left;
 		padding:0px 5px 0px 10px ;
 		width:85px;
-		height:85px;
+		height:100px;
 	}
 	#push_name{
 		position:relative;

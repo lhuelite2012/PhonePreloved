@@ -135,7 +135,7 @@
 	#modify{
 	position: absolute;
 	left: 205px;
-	top: 27px;
+	top: 21px;
 	}
 	#b2{
 	float: left;
@@ -542,7 +542,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           <form action="" method="post">
           <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
           <input type="hidden" name="c_revise" value="1" />
-          <input type="button" onclick="return revise()"value="修改商品" />	
+          <input type="button" onclick="return revise()"value="修改商品說明" />	
           </form>
         </div>
   <?php }else{?>
@@ -772,7 +772,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 		}
 	}
 	function bidpush(){
-		if( confirm ("出價金額為"+document.send.bid.value+"?") ) {
+		if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
 			document.send.submit();
 		}
   		else{

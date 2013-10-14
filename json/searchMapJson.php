@@ -4,7 +4,7 @@
 	$area = $_REQUEST['area'];
 	
 	
-	$sql = "select * from commodity where location like '$area'";
+	$sql = "select * from commodity where orend != 1 and location like '$area'";
 	$result = mysql_query($sql);
 	while($row = mysql_fetch_array($result)){
 		$json['c_number'] = $row['c_number'];

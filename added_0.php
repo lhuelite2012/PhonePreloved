@@ -249,7 +249,7 @@ if($_POST['c_price'] == "")
 	die();
 
 }
-if($_POST['lowest_record'] == "")
+/*if($_POST['lowest_record'] == "")
 {
 	?><script>window.alert('請設定評價限制');
 	window.history.back();
@@ -257,7 +257,7 @@ if($_POST['lowest_record'] == "")
     <?PHP
 	die();
 
-}
+}*/
 if($_POST['c_price'] == "")
 {
 	?><script>window.alert('商品價格未填寫');
@@ -323,7 +323,7 @@ if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
 // $uploaddir="C:/AppServ/www/mp/";//上傳檔案存放位置
  $tmpfile=$_FILES["pop"]["tmp_name"];//server端站存檔名
  $file2=mb_convert_encoding($_FILES["pop"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
- if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg
+ if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]=="image/png")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg png
   {
   if (move_uploaded_file($tmpfile,$popPathWeb.$m_number."_".$name))//上傳檔案
     {	
@@ -393,7 +393,7 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	// $uploaddir="C:/AppServ/www/mp/";//上傳檔案存放位置
 	 $tmpfile=$_FILES["c_mp"]["tmp_name"];//server端站存檔名
 	 $file2=mb_convert_encoding($_FILES["c_mp"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-	 if (($_FILES["c_mp"]["type"] == "image/gif") || ($_FILES["c_mp"]["type"] == "image/jpeg")||($_FILES["c_mp"]["type"] == "image/jpg")||($_FILES["c_mp"]["tmp_name"]==""))//限定檔案gif jpg
+	 if (($_FILES["c_mp"]["type"] == "image/gif") || ($_FILES["c_mp"]["type"] == "image/jpeg")||($_FILES["c_mp"]["type"] == "image/jpg")||($_FILES["c_mp"]["tmp_name"]=="image/png")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg png
 	  {
 	  if (move_uploaded_file($tmpfile,$picturePathWeb.$m_number."_".$name))//上傳檔案
 		{	
@@ -416,7 +416,7 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	   $destH = 250;
 	   imagesResize($src,$dest,$destW,$destH);
 	   $hi_bid_price = $_POST['c_price'];
-		$sql_query ="INSERT into  commodity(b_number,c_gender,s_number,c_name,location,oan,c_price,lowest_record,c_date,c_height,c_shoulder,c_bust,c_waistline,c_hips,size,s_size,UDHeight,LRLength,bWidth,MWidth,SLongest,colors_number,material,c_mp,c_movie,pop,m_number,hi_bid_price)
+		$sql_query ="INSERT into  commodity(b_number,c_gender,s_number,c_name,location,oan,c_price,c_date,c_height,c_shoulder,c_bust,c_waistline,c_hips,size,s_size,UDHeight,LRLength,bWidth,MWidth,SLongest,colors_number,material,c_mp,c_movie,pop,m_number,hi_bid_price)
 		VALUES(
 	'$b_number',
 	'$c_gender',
@@ -425,7 +425,6 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 	'".$_POST['location']."',
 	'".$_POST['oan']."',
 	'".$_POST['c_price']."',
-	'".$_POST['lowest_record']."',
 	'".$_POST['c_date']."',
 	'".$_POST['c_height']."',
 	'".$_POST['c_shoulder']."',

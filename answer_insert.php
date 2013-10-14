@@ -1,5 +1,6 @@
 <?php 	
 	session_start();
+	include("phpFunction.php");
 	include("loginConfirm.php");
 	include("server.php"); 
 	include("addtime.php");
@@ -18,6 +19,12 @@
 		$qa_content = $_POST['qa_content'];
 		$sql = "insert into q_answer (q_number,qa_content,qa_time ) value ('$q_number','$qa_content','$addtime')";
 		$result = mysql_query($sql);
+		$sql = "select c_number,m_number from qa where q_number = $q_number";
+		$result = mysql_query($sql);
+		$row = mysql_fetch_row($result);
+		$qa_c_number =$row[0];
+		$answer = $row[1];
+		push("回答",$addtime,$qa_c_number,$answer);
 		?>
         	<script>
 				location.href = 'commodity.php?c_number=<?php echo $c_number ?>&data=4';

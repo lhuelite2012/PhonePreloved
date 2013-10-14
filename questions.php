@@ -25,7 +25,8 @@
 			$sql = "select m_number from commodity where c_number = $c_number";
 			$result = mysql_query($sql);
 			$row = mysql_fetch_row($result);
-			push("發問",$addtime,$c_number,$row[0],"");
+			$seller = $row[0];
+			push("發問",$addtime,$c_number,$seller);
 ?>
         	<script>
 				location.href = 'commodity.php?c_number=<?php echo $c_number ?>&data=4';

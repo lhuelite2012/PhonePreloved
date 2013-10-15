@@ -26,7 +26,7 @@
 		include("pushJson.php");
 		
 		//出價最高
-		$bid_hi_sql = "select max(bid_price) from bid where c_number = $c_number limit 1";
+		$bid_hi_sql = "select max(bid_price) from bid where c_number = '$c_number' group by c_number limit 1";
 		$bid_hi_query = mysql_query($bid_hi_sql);
 		$bid_hi_rows = mysql_fetch_row($bid_hi_query);
 		$bid_commodity_sql = "update commodity set hi_bid_price = ".$bid_hi_rows[0]." where c_number = $c_number";

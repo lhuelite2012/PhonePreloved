@@ -344,11 +344,11 @@
               <div id="nn5" class="hidden">
                 <span class="spa">種類</span>
                 <hr width="230px" align="left" />
-                <img class="n11"src="素材/分類鈕-籃球鞋白.png" onclick="cc(18)"/>
-                <img class="n12"src="素材/分類鈕-跑步鞋白.png" onclick="cc(17)"/>
-                <img class="n13"src="素材/分類鈕-休閒鞋白.png" onclick="cc(14)"/>
-                <img class="n14"src="素材/分類鈕-高跟鞋白.png" onclick="cc(16)"/>
-                <img class="n15"src="素材/分類鈕-平底鞋白.png" onclick="cc(15)"/>
+                <img class="n11"src="素材/分類鈕-籃球鞋白.png" onclick="cc(14)"/>
+                <img class="n12"src="素材/分類鈕-跑步鞋白.png" onclick="cc(15)"/>
+                <img class="n13"src="素材/分類鈕-休閒鞋白.png" onclick="cc(16)"/>
+                <img class="n14"src="素材/分類鈕-高跟鞋白.png" onclick="cc(17)"/>
+                <img class="n15"src="素材/分類鈕-平底鞋白.png" onclick="cc(18)"/>
               </div>
             </div>
         </div>
@@ -1096,7 +1096,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat1').css('color','#F63');
 		$('#areat2,#areat3,#areat4').css('color','#FFF');
-		gg(" location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%'");
+		gg("( location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
 		$("#ll").html("地區　北部地區");
 	})
 	$('#locationbox2').click(function(){
@@ -1104,7 +1104,7 @@ $('#price_range5').click(function(){
 		$('#locationbox1,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat2').css('color','#F63');
 		$('#areat1,#areat3,#areat4').css('color','#FFF');
-		gg(" location like '%台中%' or  location like '%彰化%' or  location like '%南投%'");
+		gg("( location like '%台中%' or  location like '%彰化%' or  location like '%南投%' )");
 		$("#ll").html("地區　中部地區");
 	})
 	$('#locationbox3').click(function(){
@@ -1112,7 +1112,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox1,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat3').css('color','#F63');
 		$('#areat2,#areat1,#areat4').css('color','#FFF');
-		gg(" location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%'");
+		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%' )");
 		$("#ll").html("地區　南部地區");
 	})
 	$('#locationbox4').click(function(){
@@ -1120,7 +1120,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox1').css('color','#390').css('background','#FFF');
 		$('#areat4').css('color','#F63');
 		$('#areat2,#areat3,#areat1').css('color','#FFF');
-		gg(" location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%'");
+		gg("( location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
 		$("#ll").html("地區　東部地區");
 	})
 
@@ -1224,7 +1224,8 @@ $('#price_range5').click(function(){
 		$('#clothesM').css('display','block');
 		$('#clothesF').css('display','none');
 		var sex = 1;
-      	$("#mm").html("類型　男");     
+      	$("#mm").html("類型　男");    
+		$('.n14').hide("normal"); 
 	})
 	$('.m2').click(function(){
 		$('.s3').show("normal");	
@@ -1235,6 +1236,7 @@ $('#price_range5').click(function(){
 		$('#clothesM').css('display','none');
 		var sex = 2;
 		$("#mm").html("類型　女");
+		$('.n14').show("normal");
 	})
 	$('.m3').click(function(){
 		$('.s3').hide("normal");	
@@ -1245,6 +1247,7 @@ $('#price_range5').click(function(){
 		$('#clothesF').css('display','none');
 		var sex = 1;
 		$("#mm").html("類型　中性");
+		$('.n14').hide("normal");
 	})
 	/*商品*/
 	$('.s1').click(function(){
@@ -1433,6 +1436,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+			
 		$("#ss").html("商品　鞋子");
 		$("#nn").html("");
 		$("input[name='clothes_size']").val("");

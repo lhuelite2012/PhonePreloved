@@ -227,6 +227,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 	font-size:13px;
 	left:-10px;
 }
+#pop{
+	position:absolute;
+	top:35px;
+	left:190px;
+	z-index:250;
+}
 
 </style>
 	
@@ -276,47 +282,7 @@ function MM_swapImage() { //v3.0
 <div id="container">
 
  <?php   
- 		$sea = $_GET['sea'];
-		$c_gender = $_GET['c_gender'];			//男女
-		$s_fsort = $_GET['s_fsort'];			//父分類
-		$s_number = $_GET['s_number'];			//分類編號
-		$clothes_size = $_GET['clothes_size'];	//衣服尺寸
-		$shoes_size2 = $_GET['shoes_size2'];  //鞋子尺寸(公分)
-		$brand_start = $_GET['brand_start']; //品牌字首
-		$price_mode = $_GET['price_mode'];  //價格篩選
-		$price_range = $_GET['price_range']; //價格
-		$location = $_GET['location'];		//地區
-	//判斷是否有值
-		
-		$sea = HaveValue(stripslashes($sea),"c_name"); 	//男女
-		$c_gender = HaveValue(stripslashes($c_gender),"c_gender"); 	//男女
-		$s_fsort = HaveValue($s_fsort,"s_fsort");		//父分類
-		$s_number = HaveValue($s_number,"s_number");	//分類編號
-		$clothes_size = HaveValue($clothes_size,"size");	//衣服尺寸
-		$shoes_size2 = HaveValue($shoes_size2,'size');  //鞋子尺寸(公分)
-		$brand_start = HaveValue($brand_start,'b_name'); //品牌字首
-		$price_range = HaveValue($price_range,$price_mode); //價格
-		$location = HaveValue(stripslashes($location),'location');		//地區
-		
-	function HaveValue($vale,$str){
-		if($vale !="") 
-			if($str == "s_fsort")
-				$vale = "and $str = '".$vale."' "; 
-			else if($str == "b_name")
-				$vale = "and b_name like '$vale%'";
-			else if($str == "c_price" or $str =="hi_bid_price")
-				$vale = "and $str $vale";
-			else if($str == "location")
-				$vale = "and $vale ";
-			else if($str == "c_name"){
-				$vale = "and c_name like '%$vale%' or b_name like '%$vale%' or aliases like '%$vale%' ";
-			}
-			else
-				$vale = "and commodity.$str = '".$vale."' "; 
-		else 
-			$vale = "";
-		return $vale;
-	}
+	include("sizeConverted.php");
 
 
 		
@@ -399,13 +365,24 @@ function MM_swapImage() { //v3.0
 							$down_query = mysql_query($down); 
 							
 						}
+
 //~~~~~下架~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~						
 ?>	
 	
 	  <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
       <div class='nice_choice' id="<?php echo $list1['c_number'];?>">
 		<div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; 
-		echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,10,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");?></div>
+		if((mb_strlen($str,'utf8')<10))
+			echo $str;
+		else{
+			if(strlen($str)>16 and strlen($str)<21)
+				echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+			else if(strlen($str)>30)
+					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 else
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+		}
+		?></div>
 		<div id="ttt"><img src="
 	<?php 	if($list1['c_gender'] == "女") 
 				echo "素材/女性.png"; 
@@ -415,6 +392,7 @@ function MM_swapImage() { //v3.0
 				echo "素材/中性.png";?>
         " onload="javascript:DrawImage(this,23,23);" /></div><div id='location'><?php echo $list1['location']; ?></div>
         <div class="hr"></div>
+        <div id="pop"><?php if($list1['pop']!=""){ echo "<img src='素材/購買憑證.png' onload='javascript:DrawImage(this,60,60);'/>";}  ?></div>
 		<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>'/></div>
         <div class="hover">
 			<div class="caption">
@@ -425,7 +403,8 @@ function MM_swapImage() { //v3.0
                 ------------------------------------------------
 				<div id="c_description">
                 	
-                	尺寸：<?php echo $list1['size'] ?>　<br />
+                	<?php if($list1['s_fsort']!=3){ ?>
+                    	尺寸：<?php echo $list1['size']; }?>　<br />
                     付款方式：
 					<?php 
 						while($cp_list1=mysql_fetch_array($cp_result))

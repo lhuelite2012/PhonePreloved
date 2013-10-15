@@ -109,7 +109,7 @@ if(!empty($_FILES["c_picture"]["name"]))
 	$name = date("ymdhis").".".$extension;
 	 $tmpfile=$_FILES["c_picture"]["tmp_name"][$j];//server端站存檔名
 	 $file2=mb_convert_encoding($_FILES["c_picture"]["name"][$j],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg
+	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == "image/png")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg png
 	  {
 	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$m_number."_".$name))//上傳檔案
 		{
@@ -190,7 +190,7 @@ if(!empty($_FILES["c_picture"]["name"]))
 	*/
 }
 ?>
-<FORM name="form1" action="" method="post">
+<FORM name="form1" action="index.php" method="post">
 <input type="image" width="400" height="360" img src="素材/完成刊登圖.png" />
 </form>
   </div>

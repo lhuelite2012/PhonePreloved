@@ -37,7 +37,7 @@
 		}
 	}
 	
-	$sql = "select * from commodity where c_number = $c_number";
+	$sql = "select commodity.*,colors.colors_name,sort.s_name,sort.s_fsort from commodity join colors join sort on colors.colors_number = commodity.colors_number and sort.s_number = commodity.s_number where c_number = $c_number";
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
 		$json["seller_number"]=$row["m_number"];
@@ -62,7 +62,7 @@
 		$json["colors_name"]=$row["colors_name"];
 		$json["material"]=$row["material"];
 		$json["c_mp"]=$displayPathPhone.$row["c_mp"];
-		$json["c_movie"]=$moviePathPhone.$row["c_movie"];
+		$json["c_movie"]=$moviePathWeb.$row["c_movie"];
 		$json["c_shoulder"]=$row["c_shoulder"];
 		$json["c_height"]=$row["c_height"];
 		$json["c_bust"]=$row["c_bust"];

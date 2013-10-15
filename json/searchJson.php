@@ -1,11 +1,11 @@
 <?php	//搜尋全部收品  商品名稱及品牌名稱
-	include("s../erver.php");
+	include("../server.php");
 	include("../commodityPath.php");
 	$json = array();
 	$repeat = array();
 	$keyword = $_REQUEST['keyword'];
 
-	$sql = "select * from commodity where orend != '1' and c_name like '%".$keyword."%'";
+	$sql = "select * from commodity where orend != 1 and c_name like '%".$keyword."%'";
 	$result = mysql_query($sql);
 
 	while($row = mysql_fetch_array($result)){
@@ -20,7 +20,7 @@
 		$total ++;
 		$data['total'] = $total;
 	}
-	$sql_brand = "SELECT * FROM `brand` join commodity on brand.b_number = commodity.b_number where brand.b_name like '".$keyword."' or aliases like '".$keyword."'";
+	$sql_brand = "SELECT * FROM `brand` join commodity on brand.b_number = commodity.b_number where commodity.orend != 1 and brand.b_name like '".$keyword."' or aliases like '".$keyword."'";
 	$result_brand = mysql_query($sql_brand);
 	while($row2 = mysql_fetch_array($result_brand)){
 		//如果商品已出現過則跳過此商品

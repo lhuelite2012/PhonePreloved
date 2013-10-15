@@ -454,7 +454,8 @@ if($_SESSION['added'] == "2")
 	echo "<a href='";
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
-	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];	
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -483,7 +484,7 @@ if($_SESSION['added'] == "2")
 	//echo "eee".$test2;
 	//echo "rrr".$test3;
 	
-	//A
+	//B
 	$sql_query3 = "SELECT * FROM brand WHERE b_name Like 'B%'";
 	$query3 = mysql_query($sql_query3);
 	while($rows3 = mysql_fetch_row($query3)){
@@ -492,6 +493,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -519,7 +521,7 @@ if($_SESSION['added'] == "2")
 	//echo "eee".$test2;
 	//echo "rrr".$test3;
 	
-	//A
+	//C
 	$sql_query3 = "SELECT * FROM brand WHERE b_name Like 'C%'";
 	$query3 = mysql_query($sql_query3);
 	while($rows3 = mysql_fetch_row($query3)){
@@ -528,6 +530,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -563,6 +566,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -599,6 +603,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -636,6 +641,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -672,6 +678,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -713,6 +720,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -750,6 +758,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -786,6 +795,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -822,6 +832,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -859,6 +870,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -897,6 +909,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -934,6 +947,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -974,6 +988,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1011,6 +1026,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1047,6 +1063,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1083,6 +1100,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1120,6 +1138,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1157,6 +1176,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1194,6 +1214,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1234,6 +1255,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1271,6 +1293,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1307,6 +1330,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1343,6 +1367,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";
@@ -1380,6 +1405,7 @@ if($_SESSION['added'] == "2")
 	if($test2 == "褲子") echo "added32.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "上衣") echo "added3.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "洋裝") echo "added33.php?gender=$test&s_number=".$s_number['s_number'];
+	else if($test3 == "皮夾") echo "added36.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "包包") echo "added34.php?gender=$test&s_number=".$s_number['s_number'];
 	else if($test2 == "鞋子") echo "added35.php?gender=$test&s_number=".$s_number['s_number'];				
 	echo "&id=".$rows3[0]."'><font size=3>".$rows3[1]."　"."<img src=".$rows3['2']." width=38px ></font></a> ";

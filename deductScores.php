@@ -17,6 +17,12 @@
 		mysql_query($sql);
 		$sql = "insert into  f_record (m_number,c_number,f_number,f_time)value('$m_number','$c_number',23,'$addtime')";
 		mysql_query($sql);
+		$sql = "SELECT SUM(fraction) FROM f_record join fraction on f_record.f_number = fraction.f_number where m_number = $m_number ";
+		$relu = mysql_query($sql);
+		$row = mysql_fetch_row($relu);
+		$sql = "update members set sell ='".$row[0]."' where m_number = $m_number";
+		mysql_query($sql);
+		
 		
 ?>
 		<script>

@@ -1,5 +1,6 @@
 <?php 	
 	session_start();
+	include("phpFunction.php");
 	include("loginConfirm.php");
 	include("server.php"); 
 	include("addtime.php");
@@ -20,6 +21,12 @@
 			$m_number = $_SESSION['m_number'];
 			$sql = "insert into qa (q_content,q_time,m_number,c_number) value ('$q_content','$addtime','$m_number','$c_number')";
 			$result = mysql_query($sql);
+			
+			$sql = "select m_number from commodity where c_number = $c_number";
+			$result = mysql_query($sql);
+			$row = mysql_fetch_row($result);
+			$seller = $row[0];
+			push("發問",$addtime,$c_number,$seller);
 ?>
         	<script>
 				location.href = 'commodity.php?c_number=<?php echo $c_number ?>&data=4';

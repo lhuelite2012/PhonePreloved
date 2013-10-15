@@ -1,5 +1,6 @@
 <?php
 include("main.php"); 
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -175,6 +176,7 @@ include("main.php");
 <title>瘋二手 PhonePreloved</title>
 </head>
  <script src="jQuery/imageScaling.js"></script>
+ <script src="../colorbox-master/jquery.colorbox-min.js"> </SCRIPT>
 <body>
 <div id="ce2">
 <?php if(!isset($_SESSION['m_number'])){?>
@@ -217,8 +219,17 @@ include("0033_2.php");?>
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php $str = $list1['c_name']; 
-		echo ((mb_strlen($str,'utf8')>13) ? mb_substr($str,0,13,'utf8') : $str).' '.((mb_strlen($str,'utf8')>13) ? " ..." : "");?></div>
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>"  ><?php $str = $list1['c_name']; 
+		if((mb_strlen($str,'utf8')<10))
+			echo $str;
+		else{
+			if(strlen($str)>16 and strlen($str)<21)
+				echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+			else if(strlen($str)>30)
+					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 else
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>
 					<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>' onload='javascript:DrawImage(this,190,135)'/></div> 
@@ -234,7 +245,7 @@ include("0033_2.php");?>
     <?php 
 		$sql = "SELECT view.c_number,COUNT( * )  'total',commodity.*
 FROM VIEW JOIN commodity ON view.c_number = commodity.c_number
-GROUP BY view.c_number
+where orend = 0 and orsell = 0 GROUP BY view.c_number
 ORDER BY 2 desc , view.v_time desc limit 3"; 
 		$result = mysql_query($sql);
 		while($list1 = mysql_fetch_array($result)){
@@ -255,8 +266,16 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php $str = $list1['c_name']; 
-		echo ((mb_strlen($str,'utf8')>13) ? mb_substr($str,0,13,'utf8') : $str).' '.((mb_strlen($str,'utf8')>13) ? " ..." : "");?></div>
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; if((mb_strlen($str,'utf8')<10))
+			echo $str;
+		else{
+			if(strlen($str)>16 and strlen($str)<21)
+				echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+			else if(strlen($str)>30)
+					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 else
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>
 					<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>' onload='javascript:DrawImage(this,190,135)'/></div> 
@@ -290,8 +309,17 @@ ORDER BY 2 desc , view.v_time desc limit 3";
 	?>
     		 <a href="commodity.php?c_number=<?php echo $list1['c_number'];?>&data=1">
 				<div class='nice_choice' id="<?php echo $list1['c_number'];?>">
-				  <div class='c_name' id='c_name'><?php $str = $list1['c_name']; 
-		echo ((mb_strlen($str,'utf8')>13) ? mb_substr($str,0,13,'utf8') : $str).' '.((mb_strlen($str,'utf8')>13) ? " ..." : "");?></div>
+				  <div class='c_name' id='c_name' title="<?php echo $list1['c_name'];?>" ><?php $str = $list1['c_name']; 
+		if((mb_strlen($str,'utf8')<10))
+			echo $str;
+		else{
+			if(strlen($str)>16 and strlen($str)<21)
+				echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+			else if(strlen($str)>30)
+					echo mb_substr($str,0,7,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+				 else
+				 	echo mb_substr($str,0,10,'utf8').' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+		}?></div>
 				  <div id='location'><?php echo $list1['location']; ?></div>
         			<div class="hr"></div>
 					<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>' onload='javascript:DrawImage(this,190,135)'/></div> 

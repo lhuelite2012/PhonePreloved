@@ -135,7 +135,7 @@
 	#modify{
 	position: absolute;
 	left: 205px;
-	top: 27px;
+	top: 21px;
 	}
 	#b2{
 	float: left;
@@ -224,9 +224,19 @@
 		position:relative;
 		top:10px;
 	}
+	#sizechart{
+		position:absolute;
+		width:50px;
+		height:20px;
+		left:-2px;
+		top:200px;
+		color:#060;
+		background:#FFF;
+	}
 </style>
 <title>商品展示</title>
-
+<script src="../colorbox-master/jquery.colorbox-min.js"> </SCRIPT>
+<script type="text/javascript" src="colorbox-master/jquery.colorbox-min.js"></script>
 <script type="text/jscript" src="imageScaling.js"></script>
 </head>
 <body >
@@ -274,7 +284,7 @@ if(!isset($_GET['c_number']))
 	$bid_rows = mysql_fetch_row($bid_query);
 	
 	//出價最高者
-	$bid_hier_sql = "select max(bid_price), bid.m_number,account from bid join members on bid.m_number = members.m_number where bid.c_number =$c_number group by c_number";
+	$bid_hier_sql = "select max(bid_price), bid.m_number,account from bid join members on bid.m_number = members.m_number where bid.c_number =$c_number group by m_number order by 1 desc";
 	$bid_hier_query = mysql_query($bid_hier_sql);
 	$bid_hier_rows = mysql_fetch_row($bid_hier_query);
 	
@@ -364,15 +374,14 @@ include("related_commodity.php");
             	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="mart.php?c_number=<?php echo $c_number;?>" >賣場首頁</a></td><td></td>
         	</tr>
         	<tr>
-            	<td height="27px">評　　價︰</td><td><?php echo $acc_rows["score"]; ?><a href="#" >查詢評價</a></td>
-            	<td><a href="#">更多賣家資訊</a></td>
+            	<td height="27px">評　　價︰</td><td><?php echo $acc_rows["sell"]/200; ?></td>
         	</tr>
     	</table>
 	  </div>
         <div id="function">
        	  <table width="500px" height="80px" align="center" >
         		<tr>
-                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px"><div id="bid_hi">$<?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></div></strong></td>
+                	<td style="width:100px;" height="40px"><strong style="font-size:22px">最高出價：</strong></td><td style="width:80px;"><strong style="font-size:22px"><div id="bid_hi">$ <?php echo $_SESSION['bid_hi'] = $c_rows["hi_bid_price"];  ?></div></strong></td>
                 	<td style="width:85px; color:#F00; font-weight:bold;">倒數時間：</td>
                     <td>  
 					<script>
@@ -394,7 +403,7 @@ include("related_commodity.php");
              <ul style="font-size:15px;">
         		<li><span>品 　　牌：</span><?php echo $b_rows["b_name"];?></li>
 <?php if($s_fsort ==1){ //衣服?>
-            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?></li>
+            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?>
                 <li><span>長　　度：</span><?php echo $c_rows["c_height"]."　公分"; ?></li>
                 <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
                 <li><span>胸　　寬：</span><?php echo $c_rows["c_bust"]."　公分"; ?></li>
@@ -411,7 +420,7 @@ include("related_commodity.php");
                 <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
 <?php }?>
 <?php if($s_fsort ==4){ //鞋子?>
-            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li>
+            	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li><div id="sizechart"> <a class='gallery' href="../素材/sizelist.gif">尺寸表</a></div>
 <?php }?>
 <?php if($s_fsort ==5){ //洋裝?>
             	<li><span>尺　　寸：</span><?php echo $c_rows["size"]; ?></li>
@@ -436,9 +445,9 @@ include("related_commodity.php");
         		<li><span>開始時間：</span><?php echo $c_rows["uptime"];?></li>
             	<li><span>結束時間：</span><?php echo $c_rows["downtime"];?></li>
                 <li><span>商品性質：</span><?php echo $c_rows["c_gender"]."  "; ?><img src="
-	<?php 	if($list1['c_gender'] == "女") 
+	<?php 	if($c_rows['c_gender'] == "女") 
 				echo "素材/女性.png"; 
-			else if($list1['c_gender'] == "男") 
+			else if($c_rows['c_gender'] == "男") 
 				echo "素材/男性.png"; 
 			else 
 				echo "素材/中性.png";?>
@@ -479,7 +488,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
             </form>
             </div>
 <?php 		}else{ ?>
-		<div id="maturity"><a href="unsold.php">前往拍賣清單</a></div>
+		<div id="maturity"><a href="sold.php">前往拍賣清單</a></div>
 <?php		}
 	}
 	if(isset($m_number)){
@@ -508,7 +517,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
             	<input type="text" name="bid" size="10px" />
                 <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
                 <div style="position: absolute; left: 183px; top: 0px;">
-                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="document.formname.submit()" />
+                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return bidpush()" />
                 </div>
         	</form>  
     	</div>
@@ -519,7 +528,9 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
    		  </form>   
     	</div>       
 <?php	}
-	if($c_rows['m_number'] == $m_number){ //賣家//////////////////////////////////?>
+	if($c_rows['m_number'] == $m_number){ //賣家//////////////////////////////////
+		if($c_rows['orend']==0){?>
+    	
 		<div id="deductScores">
           <form action="deductScores.php" name="deductS" method="post">
           <input type="hidden" name="deduct" value="<?php if($total == 0) echo 1; else echo 2;?>" />
@@ -527,10 +538,18 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           <input type="button" onclick="return downtime()"value="下架商品" />	
           </form>
         </div>
-        <!-- <div id="modify">
-        	<a href=""><img src="" />修改商品</a>
+        <div id="modify">
+          <form action="" method="post">
+          <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
+          <input type="hidden" name="c_revise" value="1" />
+          <input type="button" onclick="return revise()"value="修改商品說明" />	
+          </form>
         </div>
-        -->
+  <?php }else{?>
+            <div id="deductScores">
+              商品已下架
+            </div>
+  <?php }?>
 		<div id="bid_hier">
         	目前最高者：<?php echo $bid_hier_rows[2]; ?>
         </div>
@@ -538,7 +557,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
         $sql = "select * from bid where c_number = $c_number";
 		$result = mysql_query($sql);
 		$true_bid = mysql_num_rows($result);
-		if($true_bid  > 0){
+		if($true_bid  > 0 and $c_rows['orend'] !=1){
 ?>			<div id="maturity">
 			<form action="transaction_chooseBuyer.php" method="post">
                <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
@@ -712,14 +731,16 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 
 </body>
 </html>
+<script type="text/javascript" src="jQuery/jquery-1.5.2.min.js"></script>
 <script type="text/javascript">
+
 	var bid_hi = <?php echo $c_rows["hi_bid_price"]; ?> ;
 	var c_price = <?php echo $c_rows["c_price"];?>;
 	var total = <?php echo $_SESSION["total"]/200;?> ;
 	
 	function test2(){
 			$('#bid_hi').load("bid_hi.php",{"c_number":"<?php echo $c_number;?>"},function(response) {
-          		$('#bid_hi').html(response);
+          		$('#bid_hi').html('$'+response);
      		});
 	}
 	setInterval(test2,1000);
@@ -743,7 +764,23 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	
   	}
 	function downtime(){
-		if( confirm ("確定要下架商品?") ) {
+		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
+			document.deductS.submit();
+		}
+  		else{
+			return false;
+		}
+	}
+	function bidpush(){
+		if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
+			document.send.submit();
+		}
+  		else{
+			return false;
+		}
+	}
+	function revise(){
+		if( confirm ("確定要修改商品?") ) {
 			document.deductS.submit();
 		}
   		else{
@@ -765,4 +802,5 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			return false;
 		}
 	}
+	jQuery('a.gallery').colorbox();
 </script>

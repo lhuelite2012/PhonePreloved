@@ -106,3 +106,14 @@ function floor_count($s_sql,$r_type,$r_score,$m_number,$what)
 	  
 //------------------------------|||||||||----------------------------------
 ?>
+
+<?php
+//-------------------------------------------------------------------------	
+//通知
+	function push($p_type,$addtime,$c_number,$push_who){
+		$push_sql = "insert into push(p_type,p_time,c_number,push_m_number) values ('$p_type','$addtime','$c_number','$push_who')";
+		mysql_query($push_sql);
+	}
+
+//------------------------------|||||||||----------------------------------
+?>

@@ -340,6 +340,7 @@
                 <img class="n8"src="素材/分類鈕-手拿包白.png" onclick="cc(11)"/>
                 <img class="n9"src="素材/分類鈕-斜背包白.png" onclick="cc(12)"/>
                 <img class="n10"src="素材/分類鈕-後背包白.png" onclick="cc(13)"/>
+                <img class="n21"src="素材/分類鈕-皮夾白.png" onclick="cc(21)"/>
               </div>
               <div id="nn5" class="hidden">
                 <span class="spa">種類</span>
@@ -1324,6 +1325,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　褲子");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1363,6 +1365,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　洋裝");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1397,6 +1400,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　包包");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1436,7 +1440,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
-			
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");	
 		$("#ss").html("商品　鞋子");
 		$("#nn").html("");
 		$("input[name='clothes_size']").val("");
@@ -1486,19 +1490,29 @@ $('#price_range5').click(function(){
 		$(this).attr('src',"素材/分類鈕-手拿包灰.png");
 		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
 		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　手拿包");
 	})
 	$('.n9').click(function(){
 		$(this).attr('src',"素材/分類鈕-斜背包灰1.png");
 		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
 		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　斜背包");
 	})
 	$('.n10').click(function(){
 		$(this).attr('src',"素材/分類鈕-後背包灰.png");
 		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
 		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　後背包");
+	})
+	$('.n21').click(function(){
+		$(this).attr('src',"素材/分類鈕-皮夾灰.png");
+		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
+		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
+		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$("#nn").html("樣式　皮夾");
 	})
 	$('.n11').click(function(){
 		$(this).attr('src',"素材/分類鈕-籃球鞋灰.png");

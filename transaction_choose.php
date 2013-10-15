@@ -20,7 +20,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:742px;
+	height:872px;
 	left:121px;
 	top: 267px;
 }
@@ -28,7 +28,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:790px;
+	height:920px;
 	z-index:8;
 	left: 0px;
 	top: 40px;

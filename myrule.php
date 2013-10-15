@@ -60,22 +60,13 @@ function MM_swapImage() { //v3.0
 			<td><strong><font size="3" color="#0000FF">目前您的評價總成績為 <?PHP echo $list3[24]/200?> 分，其中：</font></strong></td>
 		</tr>
         <tr>
-			<td><strong><font size="3" color="#0000FF">買東西的點數為 <?PHP echo $list3[25]?> 點，</font></strong></td>
-		</tr>         
-        <tr>
-			<td><strong><font size="3" color="#0000FF">賣東西的點數為 <?PHP echo $list3[26]?> 點，</font></strong></td>
-		</tr> 
-        <tr>
-			<td><strong><font size="3" color="#0000FF">其他的點數為 <?PHP echo $list3[27]?> 點。</font></strong></td>
-		</tr>
-        <tr>
 			<td><p></p></td>
 		</tr> 
         <tr>
 			<td><strong><font size="3" color="#0000FF">評價說明：</font></strong></td>
 		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">當交易完成時買賣家給予-3到5的評價</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">當交易完成時買賣家給予5到-3的評價</font></strong></td>
         </tr>
         <tr>
 			<td><strong><font size="3" color="#0000FF">非常滿意為5分，滿意為3分，普通為1分</font></strong></td>
@@ -86,48 +77,54 @@ function MM_swapImage() { //v3.0
         <tr>
             <td><strong><font size="3" color="#FF0000">(5分最高，-3分最差)</font></strong></td>
 		</tr>
-        <tr>
+		<tr>
 			<td><p></p></td>
 		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">互動點數說明：</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#0000FF">提出交易失敗說明：</font></strong></td>
+		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">1.填資料：填寫必填項目，獲100點</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#FF0000">若賣家點選交易失敗，則出現以下原因</font></strong></td>
+        </tr>
         <tr>
-			<td><strong><font size="3" color="#0000FF">2.填資料：填寫未必填項目，獲100點</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#0000FF">面交時，賣家未到面交地點 ▶ -5 分</font></strong></td>
+		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">3.上架商品：填特定資料，獲170點</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#0000FF">買家(我)後悔下標此商品 ▶ -5 分</font></strong></td>
+		</tr> 
+        <tr>
+            <td><strong><font size="3" color="#0000FF">賣家未對帳 ▶ -5 分</font></strong></td>
+		</tr> 
 		<tr>
-			<td><strong><font size="3" color="#0000FF">4.下架商品：有出價紀錄，扣600點</font></strong></td>
-		</tr>
+            <td><strong><font size="3" color="#0000FF">賣家未寄出 ▶ -5 分</font></strong></td>
+		</tr> 
 		<tr>
-			<td><strong><font size="3" color="#0000FF">5.下架商品：上架超過1天，扣200點</font></strong></td>
-		</tr>
-        <tr>
-			<td><strong><font size="3" color="#0000FF">6.會員互動區：最佳回答，獲50點</font></strong></td>
-		</tr>
-        <tr>
-			<td><strong><font size="3" color="#0000FF">7.檢舉：商品被檢舉3次，扣200點</font></strong></td>
-		</tr>
-        <tr>
-			<td><strong><font size="3" color="#0000FF">8.每天登入：隨機得到1~10互動點數</font></strong></td>
-		</tr>
+            <td><strong><font size="3" color="#0000FF">賣家未評價 ▶ 不扣分，可重新評價</font></strong></td>
+		</tr> 
         <tr>
 			<td><p></p></td>
-		</tr>  
+		</tr> 
+		<tr>
+			<td><strong><font size="3" color="#0000FF">提出交易失敗說明：</font></strong></td>
+		</tr> 
+		<tr>
+			<td><strong><font size="3" color="#FF0000">若買家點選交易失敗，則出現以下原因</font></strong></td>
+        </tr>
         <tr>
-			<td><strong><font size="3" color="#0000FF">總分說明：</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#0000FF">面交時，買家未到面交地點 ▶ -5 分</font></strong></td>
+		</tr> 
         <tr>
-			<td><strong><font size="3" color="#FF0000">總評價=評價+(互動點數/200點)</font></strong></td>
-		</tr>
+			<td><strong><font size="3" color="#0000FF">賣家(我)後悔上架此商品 ▶ -5 分</font></strong></td>
+		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">若評價有小數點，則無條件捨去</font></strong></td>
-		</tr>     
+            <td><strong><font size="3" color="#0000FF">買方不滿意此商品，想退貨 ▶ -5 分</font></strong></td>
+		</tr> 
+		<tr>
+            <td><strong><font size="3" color="#0000FF">買家未匯款 ▶ -5 分</font></strong></td>
+		</tr> 
+		<tr>
+            <td><strong><font size="3" color="#0000FF">買家未評價 ▶ 不扣分，可重新評價</font></strong></td>
+		</tr> 
 	</table>
 </form>
 </div>

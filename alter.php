@@ -1,4 +1,5 @@
 <?PHP
+ob_start();
 session_start();
 ?>
 <?PHP
@@ -23,12 +24,42 @@ include("myaccount.php");
 	height: 50px;
 	}
 </style>
-<script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/jquery.validate.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function(){
-	$("#commentForm").validate(); //表單名稱
-});
+<script type="text/javascript" src="jQuery/jquery.validate.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#commentForm').validate({
+			rules:{
+				address:{
+					required: true
+				},
+				phone:{
+					required: true,
+					digits : true,
+				},
+				height:{
+					number : true
+				},
+				weight:{
+					number : true
+				},
+				bust:{
+					number : true
+				},
+				waistline:{
+					number : true
+				},
+				hips:{
+					number : true
+				},
+				shoulder:{
+					number : true
+				},
+				shoes_size2:{
+					number : true
+				},
+			}
+		});
+    });		
 </script>
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
@@ -72,7 +103,7 @@ $(function(){
 		<tr>
         	<td></td>
 			<td><strong><font size="4" color="#0000FF">基本資料</font></strong></td>
-            <td><strong><font size="4" color="#FF0000">*</font>為必填，若填其他非必填項目，即可加分</strong></td>
+            <td><strong><font size="4" color="#FF0000">★</font>為必填</strong></td>
 		</tr>
         <tr>
 			<td></td>
@@ -83,33 +114,34 @@ $(function(){
 			<td><strong><?PHP echo $list3[1];?></strong></td>
 		</tr>
 		<tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>姓名：</strong></td>
-			<td><input type="text" size="20" name="name" id="name" class="required" minlength="2" value=<?PHP echo $list3[3]?>></td>
+			<td><input type="text" size="20" value="<?PHP echo $list3[3]?>" disabled="disabled"></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>大頭照：</strong></td>
             <td>
+            <strong><font size="1" color="#0000FF">(若有照片，則顯示網頁右上方)</font></strong>
             <input type="file" name="file" id="file">
-            <div id=photo><?PHP echo '<img src="'.$list3[6].'" onload="javascript:DrawImage(this,80,80);"/>'?></div></td>
+            <div id=photo><?PHP //echo '<img src="'.$list3[6].'" onload="javascript:DrawImage(this,80,80);"/>'?></div>
             </td>
 		</tr>
         <tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>性別：</strong></td>
 			<td><strong>
-			<input type="radio" name="gender" id="gender" value="男" <?PHP if($list3[4] == "男") echo "checked";?>>男
-			<input type="radio" name="gender" id="gender" value="女" <?PHP if($list3[4] == "女") echo "checked";?>>女
+			<?PHP if($list3[4] == "男") { echo "男性 ";?><img src="素材/男性.png" height="15"><?PHP } ?>
+			<?PHP if($list3[4] == "女") { echo "女性 ";?><img src="素材/女性.png" height="15"><?PHP } ?>
             </strong></td>
 		</tr>
 		<tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>地址：</strong></td>
 			<td>
-            <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<?PHP echo $list3[9] ?>"></select>
-            <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<?PHP echo $list3[10] ?>"></select>
-            <input type="text" name="address" id="address" class="required" maxlength="15" size="25" value=<?PHP echo $list3[8]?>></td>
+            <select name="county" id="county" onchange="changeZone(document.commentForm.county, document.commentForm.city)" size="1" value="<?PHP echo $list3[9]?>"></select>
+            <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<?PHP echo $list3[10]?>"></select>
+            <input type="text" name="address" id="address" maxlength="15" size="25" value=<?PHP echo $list3[8]?>></td>
 		</tr>
         
 <script language="JavaScript" type="text/javascript">
@@ -222,7 +254,7 @@ function initCounty(countyInput)
 		countyInput.options[i].value = County[i];
 		countyInput.options[i].text = County[i];
 	}
-	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1 ?>;
+	countyInput.selectedIndex = <?PHP echo $list3_cc[3]-1?>;
 }
 
 function initZone(countyInput, zoneInput, post)
@@ -266,9 +298,9 @@ function changeZone(countyInput, zoneInput, post)
 		zoneInput.options[i].text = Zone[selectedCountyIndex][i];
 	}
 
-	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1 ?>;
+	zoneInput.selectedIndex = <?PHP echo $list3_cc[0]-1?>;
 
-	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1 ?>)
+	if(countyInput.selectedIndex != <?PHP echo $list3_cc[3]-1?>)
 	{
 		zoneInput.selectedIndex = 0 ;
 	}	
@@ -283,37 +315,35 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<tr>
         	<td></td>
 			<td><strong>生日：</strong></td>
-			<td><input type="date" size="20" name="birthday" id="birthday" value=<?PHP echo $list3[5]?>></td>
+			<td><input type="date" size="20" name="birthday" id="birthday" value="<?PHP echo $list3[5]?>"></td>
 		</tr>
 		<tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>電話：</strong></td>
-			<td><input type="text" size="20" name="phone" id="phone" class="required" minlength="8" maxlength="10" value=<?PHP echo $list3[7]?>></td>
+			<td><input type="text" size="20" name="phone" id="phone" class="required" minlength="8" maxlength="10" value="<?PHP echo $list3[7]?>"></td>
 		</tr>
 		<tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>偏愛品牌：</strong></td>
 			<td>
-			<select name="b_number" id="b_number" class="required">
-    		<option value="1" <?PHP if($list3_b[1] == "1") echo "selected";?>>Nike</option>
-    		<option value="2" <?PHP if($list3_b[1] == "2") echo "selected";?>>Balenciaga</option>
-   			<option value="3" <?PHP if($list3_b[1] == "3") echo "selected";?>>BURBERRY</option>
-   			<option value="4" <?PHP if($list3_b[1] == "4") echo "selected";?>>CHANEL</option>
-    		<option value="5" <?PHP if($list3_b[1] == "5") echo "selected";?>>COACH</option>
-    		<option value="6" <?PHP if($list3_b[1] == "6") echo "selected";?>>Dior</option>
-    		<option value="7" <?PHP if($list3_b[1] == "7") echo "selected";?>>Fendi</option>
-    		<option value="8" <?PHP if($list3_b[1] == "8") echo "selected";?>>GUCCI</option>
-    		<option value="9" <?PHP if($list3_b[1] == "9") echo "selected";?>>LACOSTE</option>
-    		<option value="10" <?PHP if($list3_b[1] == "10") echo "selected";?>>HERMES</option>
-    		<option value="11" <?PHP if($list3_b[1] == "11") echo "selected";?>>LV</option>
-    		<option value="12" <?PHP if($list3_b[1] == "12") echo "selected";?>>PRADA</option>
-    		<option value="13" <?PHP if($list3_b[1] == "13") echo "selected";?>>YSL</option>
-            <option value="14" <?PHP if($list3_b[1] == "14") echo "selected";?>>adidas</option>
+           
+			<select name="b_number" id="b_number">
+            <?php 
+				$p_brand = $list3_b[1];
+				$brand_all = "select * from brand";
+				$brand_result = mysql_query($brand_all);
+				while($brand = mysql_fetch_array($brand_result))
+				{
+			?>
+					<option value="<?php echo $brand['b_number'];?>"<?php if($list3_b[1] == $brand['b_number']) echo "selected";?>><?php echo $brand['b_name'];?></option>
+			<?php
+				}
+			?>
     		</select>
             </td>
 		</tr>
 		<tr>
-        	<td><strong><font color="#FF0000">*</font></strong></td>
+        	<td><strong><font color="#FF0000">★</font></strong></td>
 			<td><strong>偏愛色系：</strong></td>
 			<td><strong>
 			<?PHP while ($list3_c = mysql_fetch_array($query_c)) $c[] = $list3_c[2];?>
@@ -351,16 +381,16 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>身高：</strong></td>
 			<td>
-			<input type="text" size="5" name="height" id="height" value=<?PHP echo $list3[11]?>>
-    		<strong>cm(公分)</strong>
+			<input type="text" size="5" name="height" id="height" value="<?PHP echo $list3[11]?>">
+    		<strong>cm (公分)</strong>
 			</td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>體重：</strong></td>
 			<td>
-			<input type="text" size="5" name="weight" id="weight" value=<?PHP echo $list3[12]?>>
-    		<strong>kg(公斤)</strong>
+			<input type="text" size="5" name="weight" id="weight" value="<?PHP echo $list3[12]?>">
+    		<strong>kg (公斤)</strong>
 			</td>
 		</tr>
         <tr>
@@ -382,18 +412,18 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>三圍：</strong></td>
 			<td>
-			<input type="text" size="5" name="bust" id="bust" value=<?PHP echo $list3[14]?>>
-			<strong><font size="2">(胸圍)</font> 吋 </strong>
-			<input type="text" size="5" name="waistline" id="waistline" value=<?PHP echo $list3[15]?>><strong><font size="2">(腰圍)</font> 吋 </strong>
-            <input type="text" size="5" name="hips" id="hips" value=<?PHP echo $list3[16]?>><strong><font size="2">(臀圍)</font> 吋</strong>
+			<input type="text" size="5" name="bust" id="bust" value="<?PHP echo $list3[14]?>">
+			<strong><font size="2">(胸圍)</font> 公分 </strong>
+			<input type="text" size="5" name="waistline" id="waistline" value="<?PHP echo $list3[15]?>"><strong><font size="2">(腰圍)</font> 公分 </strong>
+            <input type="text" size="5" name="hips" id="hips" value="<?PHP echo $list3[16]?>"><strong><font size="2">(臀圍)</font> 公分</strong>
 			</td>
 		</tr>
 		<tr>
         	<td></td>
 			<td><strong>肩寬：</strong></td>
 			<td>
-			<input type="text" size="5" name="shoulder" id="shoulder" value=<?PHP echo $list3[13]?>>
-			<strong>cm(公分)</strong>
+			<input type="text" size="5" name="shoulder" id="shoulder" value="<?PHP echo $list3[13]?>">
+			<strong>cm (公分)</strong>
 			</td>
 		</tr>
 		<tr>
@@ -408,7 +438,7 @@ initZone(document.commentForm.county, document.commentForm.city);
             <option value="歐洲" <?PHP if($list3[18] == "歐洲") echo "selected";?>>歐洲</option>
             </select>
             
-			<input type="text" size="5" name="shoes_size2" id="shoes_size2" class="number" value=<?PHP echo $list3[19]?>><strong>cm(公分)</strong>
+			<input type="text" size="5" name="shoes_size2" id="shoes_size2" class="number" value="<?PHP echo $list3[19]?>"><strong>cm (公分)</strong>
 			</td>
 		</tr>
         <tr>
@@ -424,17 +454,17 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<tr>
         	<td></td>
 			<td><strong>FB帳號：</strong></td>
-			<td><input type="text" size="25" name="fb_id" id="fb_id" value=<?PHP echo $list3[20]?>></td>
+			<td><input type="text" size="25" name="fb_id" id="fb_id" value="<?PHP echo $list3[20]?>"></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>Line帳號：</strong></td>
-			<td><input type="text" size="25" name="line_id" id="line_id" value=<?PHP echo $list3[21]?>></td>
+			<td><input type="text" size="25" name="line_id" id="line_id" value="<?PHP echo $list3[21]?>"></td>
 		</tr>
         <tr>
         	<td></td>
 			<td><strong>銀行帳號：</strong></td>
-			<td><input type="text" size="25" name="rank_account" id="rank_account" value=<?PHP echo $list3[22]?>></td>
+			<td><input type="text" size="25" disabled="disabled" value="<?PHP echo $list3[22]?>"><strong><font size="1" color="#0000FF"> (如有變動，則在選擇得標者時更改)</font></strong></td>
 		</tr>
         <tr>
 			<td colspan="3"><hr size="1" /></td>
@@ -442,8 +472,8 @@ initZone(document.commentForm.county, document.commentForm.city);
 		<tr>
 		  <td align="center" colspan="3">
             <input type="hidden" name="m_number" id="m_number" value="<?PHP echo $list3[0];?>">
-            <div id="apDiv45"><input type="image" img src="素材/按鈕-送出.png" id="alter" width="65" height="30" onclick="document.commentForm.submit()">
-            <a href="javascript:document.commentForm.reset();"><img src="素材/忘記密碼-取消鈕.png" width="65" height="30"></a></div>
+			<div id="apDiv45"><input type="image" img src="素材/按鈕-送出.png" id="altercode" width="65" height="30" onclick="document.form.submit()">
+            <a href="javascript:document.form.reset();"><img src="素材/忘記密碼-取消鈕.png" width="65" height="30"></a></div>
           </td>
 		</tr>
 	</table>

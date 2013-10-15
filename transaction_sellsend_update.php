@@ -26,7 +26,7 @@ include("myaccount.php");
 	$sql = "update transaction set sendTimeButton = '$addtime',t_schedule = '已寄出' where c_number = '$c_number'";
 	mysql_query($sql);
 	
-	header("location:transaction_sellsend.php?c_number=$c_number");
+	header("location:transaction_sellevaluate.php?c_number=$c_number");
 ?>
 </body>
 </html>

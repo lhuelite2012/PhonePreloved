@@ -1,6 +1,5 @@
 <?php 
-include("../phpFunction.php");
-include("server.php");
+
 $c_number = $_REQUEST['c_number'];
 	
 	//查出追蹤清單加入此商品的所有會員

@@ -511,11 +511,11 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 		<div id="track"><a href="track.php"><img src="素材/按鈕-追蹤.png" title="加入追蹤清單" onload='javascript:DrawImage(this,55,55);' /></a></div>
         <div id="bid">
 		  <div id="b2" style="font-weight:bold;">出價金額：</div>
-        	<form action="bid.php" method="post" name="send" onsubmit="<?php if(isset($m_number)) echo " return chk();"; else echo "return report1()"; ?>">
+        	<form action="bid.php" method="post" name="send" onsubmit="<?php if(!isset($m_number)) echo "return report1()"; ?>">
             	<input type="text" name="bid" size="10px" />
                 <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
                 <div style="position: absolute; left: 183px; top: 0px;">
-                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return bidpush()" />
+                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return chk()" />
                 </div>
         	</form>  
     	</div>
@@ -759,7 +759,12 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
       document.send.bid.focus();
       return false;
     }
-	
+	if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
+			document.send.submit();
+		}
+  		else{
+			return false;
+		}
   	}
 	function downtime(){
 		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
@@ -770,12 +775,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 		}
 	}
 	function bidpush(){
-		if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
-			document.send.submit();
-		}
-  		else{
-			return false;
-		}
+		
 	}
 	function revise(){
 		if( confirm ("確定要修改商品?") ) {

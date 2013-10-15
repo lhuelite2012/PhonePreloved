@@ -228,7 +228,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 	font-size:13px;
 	left:-10px;
 }
-
+#pop{
+	position:absolute;
+	top:35px;
+	left:190px;
+	z-index:250;
+}
 </style>
 	
  
@@ -388,6 +393,7 @@ function MM_swapImage() { //v3.0
 				echo "素材/中性.png";?>
         " onload="javascript:DrawImage(this,23,23);" /></div><div id='location'><?php echo $list1['location']; ?>		</div>
         <div class="hr"></div>
+          <div id="pop"><?php if($list1['pop']!=""){ echo "<img src='素材/購買憑證.png' onload='javascript:DrawImage(this,60,60);'/>";}  ?></div>
 		<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>'/></div>
         <div class="hover">
 			<div class="caption">

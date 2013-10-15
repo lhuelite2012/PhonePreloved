@@ -15,7 +15,7 @@
 		$track_m_number = $track_row[0];
 		
 		//存入push(通知) 資料表
-		$push_sql = "insert into push(p_type,p_time,c_number,push_m_number,bid_number) values ('出價','$addtime','$c_number','$track_m_number','$bid_number')";
+		$push_sql = "insert into push(p_type,p_time,c_number,push_m_number) values ('出價','$addtime','$c_number','$track_m_number')";
 		mysql_query($push_sql);
 	}
 ?>

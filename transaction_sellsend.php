@@ -13,7 +13,7 @@ include("myaccount.php");
 <head>
 <link rel="stylesheet" href="all.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>買家寄件資訊</title>
+<title>感謝您的購買</title>
 <style type="text/css">
 #background12
 {
@@ -111,7 +111,7 @@ include("myaccount.php");
 		<div id="background12">
 		<div align="center" id="background13">
         
-        <font size="5" color="#FF0000"><strong>買家寄件資訊</strong></font>
+        <font size="5" color="#FF0000"><strong>感謝您的購買</strong></font>
 		<p></p>
 <?PHP
 		if($row['tr_payment'] == '匯款')

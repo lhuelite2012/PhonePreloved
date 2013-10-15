@@ -17,7 +17,7 @@ include("server.php");
 <Script>
 function goback()
 {
-        alert("修改成功");
+        alert("變更成功");
         history.go(-1);
 }
 </Script>

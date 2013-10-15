@@ -160,7 +160,7 @@ $(function(){
 		if($c_mode =='面交')
 		{
 			
-			$sql = "select transaction.personally, transaction.per_time,members.name,members.phone from members join commodity join  transaction on   transaction.m_number = commodity.orbidder and transaction.c_number = commodity.c_number and commodity.m_number = members.m_number where commodity.c_number = '$c_number'";
+			$sql = "select transaction.personally,transaction.per_time,members.name,members.phone from members join commodity join transaction on transaction.m_number = commodity.orbidder and transaction.c_number = commodity.c_number and commodity.m_number = members.m_number where commodity.c_number = '$c_number'";
 			$result = mysql_query($sql);
 			$row = mysql_fetch_array($result);	
 			

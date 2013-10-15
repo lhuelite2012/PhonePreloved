@@ -183,6 +183,10 @@ include("commodityPath.php");
 	
 			if($row_pp['c_payment'] == '面交')
 			{
+				
+				$sql_ = "select transaction.personally from transaction where c_number = '$c_number'";
+				$result_ = mysql_query($sql_);
+				$row_ = mysql_fetch_array($result_);
 	?>							
 	<tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家面交時段：</font></th>
@@ -190,7 +194,7 @@ include("commodityPath.php");
 	</tr>
     <tr height="30">
 		<th bgcolor="#999999"><font color="#FFFFFF">賣家面交詳細資料：</font></th>
-        <th colspan="2"><?PHP echo $row['personally']; ?></th>
+        <th colspan="2"><?PHP echo $row_['personally']; ?></th>
 	</tr>
     <?PHP 
 			}

@@ -78,12 +78,6 @@ window.history.back();
 		if (($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||($_FILES["file"]["type"] == "image/jpg")||($_FILES["file"]["type"] == "image/png"))
 		{	
 		
-			if($_FILES["file"]["name"] != $list3[6]) //判斷圖片路徑有無修改，如果不等於資料庫上的路徑就更改
-			{
-				$sql_f = "UPDATE `members` SET `file`='"."upload/".$_FILES["file"]["name"]."'WHERE `m_number`='".$_SESSION["m_number"]."'";
-				mysql_query($sql_f); //執行$sql_f更新語法，大頭照
-			}
-		
 			if(($_FILES["file"]["size"]/1024/1024) > 5)
 			{
 		?>		
@@ -108,6 +102,12 @@ window.history.back();
 			else
 			{
 				move_uploaded_file($_FILES["file"]["tmp_name"],"upload/".$_FILES["file"]["name"]);
+				
+				if($_FILES["file"]["name"] != $list3[6]) //判斷圖片路徑有無修改，如果不等於資料庫上的路徑就更改
+				{
+					$sql_f = "UPDATE `members` SET `file`='"."upload/".$_FILES["file"]["name"]."'WHERE `m_number`='".$_SESSION["m_number"]."'";
+					mysql_query($sql_f); //執行$sql_f更新語法，大頭照
+				}
 			}
 		}
 		else

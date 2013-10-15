@@ -679,7 +679,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			if(isset($c_rows["pop"]) and $c_rows["pop"]!="" and $c_rows["pop"] != "0000-00-00 00:00:00"){
 ?>			
 				<div align="center"><?php echo "購買日期:".$c_rows['c_date']; ?></div>
-				<div align="center"><img src="<?php echo $popPathWeb.$c_rows["pop"]; ?>" /></div><br/>
+				<div align="center"><img src="<?php echo $popPathWeb.$c_rows["pop"]; ?>" onload="javascript:DrawImage(this,800,800);" /></div><br/>
 <?php			}else
 				echo "未有紀錄";
 		break;

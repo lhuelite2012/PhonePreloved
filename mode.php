@@ -1096,7 +1096,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat1').css('color','#F63');
 		$('#areat2,#areat3,#areat4').css('color','#FFF');
-		gg("( location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
+		gg("( location like '%基隆%' or location like '%臺北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
 		$("#ll").html("地區　北部地區");
 	})
 	$('#locationbox2').click(function(){

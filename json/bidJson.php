@@ -37,7 +37,7 @@
 		else
 			$json['yy']=3;   //已是目前最高出價者
 	}else
-		$json['yy']=2;
+		$json['yy']=2; //未大於最高
 		
 	echo json_encode($json);
 ?>

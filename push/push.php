@@ -1,5 +1,5 @@
 <?php 
-include("./phpFunction.php");
+include("../phpFunction.php");
 include("server.php");
 $c_number = $_REQUEST['c_number'];
 	

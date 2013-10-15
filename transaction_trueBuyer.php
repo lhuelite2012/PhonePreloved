@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include("phpFunction.php");
 	include("server.php");
 	include("addtime.php");
 ?>
@@ -43,6 +44,14 @@ ORDER BY 1 DESC";
 			$sql = "update members set fb_id = '$fb_id' ,line_id = '$line_id', rank_account = '$rank_account',personally = '$personally' where m_number = $m_number";
 			mysql_query($sql);
 			
+			push('得標',$addtime,$c_number,$choosebuyer);
+			
+			$sql = "SELECT m_number FROM bid WHERE c_number = $c_number and m_number != $choosebuyer group by m_number ";
+			$result = mysql_query($sql);
+			while($row = mysql_fetch_row($result)){
+				$notchoose = $row[0];
+				push('未得標',$addtime,$c_number,$notchoose);
+			}
 			
 			?>
 				<script type="text/javascript">

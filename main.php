@@ -213,7 +213,7 @@
 		position:relative;
 		float:left;
 		padding:0px 5px 0px 10px ;
-		width:85px;
+		width:100px;
 		height:100px;
 	}
 	#push_name{
@@ -245,8 +245,8 @@
 		position:relative;
 	}
 	#push_a{
-		height:110px;
 		color:#000;
+		font-size:14px;
 	}
 	#push_a a{
 		text-decoration:none;

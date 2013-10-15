@@ -416,8 +416,6 @@ include("related_commodity.php");
                 <li><span>臀　　寬：</span><?php echo $c_rows["c_hips"]."　公分"; ?></li>	
 <?php }?>
 <?php if($s_fsort ==3){ //包包?>
-            	<li><span>長　　度：</span><?php echo $c_rows["c_height"]."　公分"; ?></li>
-                <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
 <?php }?>
 <?php if($s_fsort ==4){ //鞋子?>
             	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li><div id="sizechart"> <a class='gallery' href="../素材/sizelist.gif">尺寸表</a></div>

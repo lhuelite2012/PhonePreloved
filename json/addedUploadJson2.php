@@ -1,7 +1,4 @@
 <?php //圖片影片上傳Json
-	include("../server.php");
-	include("../addtime.php");
-	include("../dateadd.inc");
 	include("../commodityPath.php");
 	include("../resize.php");
 	if(!empty($_FILES["pop"]["name"])){//   如果憑證有值上傳 score + 5

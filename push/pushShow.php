@@ -113,7 +113,7 @@
 			
 			?>
         	<a href="commodity.php?c_number=<?php echo $push_row['c_number'];?>&data=<? echo $data; ?>">
-            <div id="push_a" class="push_a">
+            <div id="push_a" class="push_a"  <? if($push_row['p_check']==0) echo "style='background:#E7EAC1;'";?>>
                 <hr size="1px" color="#999999" />
                 您<font color="#000099"><? echo $action;?>
                 <div id="push_mp"><img src="../<? echo $displayPathWeb.$c_mp;?>" onload="javascript:DrawImage(this,90,95);" /></div>    

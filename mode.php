@@ -385,7 +385,7 @@
         <hr width="230px" align="left" />
         	<div class="locationbox" id="locationbox1">北部地區</div><div class="areat" id="areat1">基隆市 台北市 新北市 桃園縣 新竹縣 苗栗縣</div>
             <div class="locationbox" id="locationbox2">中部地區</div><div class="areat" id="areat2">台中市 彰化縣 南投縣</div>
-            <div class="locationbox" id="locationbox3">南部地區</div><div class="areat" id="areat3">雲林縣 嘉義縣 台南市 高雄市 屏東縣</div>
+            <div class="locationbox" id="locationbox3">南部地區</div><div class="areat" id="areat3">雲林縣 嘉義縣 臺南市 高雄市 屏東縣</div>
             <div class="locationbox" id="locationbox4">東部地區</div><div class="areat" id="areat4">宜蘭 花蓮 台東</div>
       </div>
     </div>
@@ -1104,7 +1104,7 @@ $('#price_range5').click(function(){
 		$('#locationbox1,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat2').css('color','#F63');
 		$('#areat1,#areat3,#areat4').css('color','#FFF');
-		gg("( location like '%台中%' or  location like '%彰化%' or  location like '%南投%' )");
+		gg("( location like '%臺中%' or  location like '%彰化%' or  location like '%南投%' )");
 		$("#ll").html("地區　中部地區");
 	})
 	$('#locationbox3').click(function(){
@@ -1112,7 +1112,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox1,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat3').css('color','#F63');
 		$('#areat2,#areat1,#areat4').css('color','#FFF');
-		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%' )");
+		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%臺南%' or  location like '%高雄%' or  location like '%屏東%' )");
 		$("#ll").html("地區　南部地區");
 	})
 	$('#locationbox4').click(function(){
@@ -1120,7 +1120,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox1').css('color','#390').css('background','#FFF');
 		$('#areat4').css('color','#F63');
 		$('#areat2,#areat3,#areat1').css('color','#FFF');
-		gg("( location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
+		gg("( location like '%臺東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
 		$("#ll").html("地區　東部地區");
 	})
 

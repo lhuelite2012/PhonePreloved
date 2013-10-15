@@ -180,7 +180,7 @@ if($insert_result = mysql_query($insert_sql)){
 		mysql_query($sql);
 	}
 	
-	include("addedUploadJson.php");
+	include("addedUpdateJson.php");
 	
 	for($a=1 ; $a <=7 ; $a++){
 		if($_FILES["c_picture".$a]["name"] =""){

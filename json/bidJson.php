@@ -41,4 +41,3 @@
 		
 	echo json_encode($json);
 ?>
-</body></html>

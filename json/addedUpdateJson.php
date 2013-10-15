@@ -14,7 +14,7 @@
 	$extension = $file[count($file)-1];
 	$name = $m_number_.date("ymdhis").".".$extension;
  	if(move_uploaded_file($tmpfile,$front.$displayPathWeb.$name)){
-		if(($_FILES["c_mp"]["type"] != "image/png") and ($_FILES["c_mp"]["type"] != "image/gif") and ($_FILES["c_mp"]["type"] != "image/jpeg")){
+		if(($extension != "png") and ($extension != "gif") and ($extension != "jpeg") and ($extension != "jpg")){
 			$json['yy'] = "c_mp檔案格式錯誤";
 			echo json_encode($json);
 			die();
@@ -50,8 +50,8 @@
 	$extension = $file[count($file)-1];
 	$name = $m_number_.date("ymdhis").".".$extension;
  	if(move_uploaded_file($tmpfile,$front.$popPathWeb.$name)){
-		if(($_FILES["pop"]["type"] != "image/png") and ($_FILES["pop"]["type"] != "image/gif") and ($_FILES["pop"]["type"] != "image/jpeg")){
-   			$json['yy'] = "pop檔案格式錯誤";
+		if(($extension != "png") and ($extension != "gif") and ($extension != "jpeg") and ($extension != "jpg")){
+			$json['yy'] = "pop檔案格式錯誤";
 			echo json_encode($json);
 			die();
  		}
@@ -85,11 +85,11 @@
 		$extension = $file[count($file)-1];
 		$name = $m_number_.$a."_".date("ymdhis").".".$extension;
 		if(move_uploaded_file($tmpfile,$front.$picturePathWeb.$name)){
-			if(($_FILES["c_picture".$a]["type"] != "image/png") and ($_FILES["c_picture".$a]["type"] != "image/gif") and ($_FILES["c_picture".$a]["type"] != "image/jpeg")){
+			if(($extension != "png") and ($extension != "gif") and ($extension != "jpeg") and ($extension != "jpg")){
 				$json['yy'] = "商品圖片檔案格式錯誤";
 				echo json_encode($json);
 				die();
-			}
+ 			}
 			$src = $front.$picturePathWeb.$name;
 			$dest = $src;
 			$destW = 400;
@@ -135,4 +135,22 @@
 		die();
  	} 
 */
+	//影片上傳 new
+	$tmpfile=$_FILES["c_movie"]["tmp_name"];
+	$file = explode (".",$_FILES['c_movie']['name']);//找出檔案的副檔名
+	$extension = $file[count($file)-1];
+	$name = $m_number_.date("ymdhis").".".$extension;
+ 	if(move_uploaded_file($tmpfile,$front.$moviePathWeb.$name)){
+		if(($extension != "mp4") and ($extension != "wmv") and ($extension != "mov") and ($extension != "mkv")){
+			$json['yy'] = "影片檔案格式錯誤";
+			echo json_encode($json);
+			die();
+ 		}
+		$json['yy'][] = "影片上傳成功";
+ 	}
+ 	else{
+    	$json['yy'] = "影片上傳失敗";
+		echo json_encode($json);
+		die();
+ 	} 
 ?>

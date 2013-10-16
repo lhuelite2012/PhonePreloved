@@ -75,6 +75,15 @@ window.history.back();
 		//echo "檔案大小：".($_FILES["file"]["size"]/1024/1024)."MB<br/>";
 		//echo "暫存名稱：".$_FILES["file"]["tmp_name"]."<br/>";
 		
+		$file = explode (".",$_FILES['file']['name']);
+		//找出檔案的副檔名
+		
+		$extension = $file[count($file)-1];
+		//這邊是找出附檔名
+		
+		$name = $m_number."_".date("ymdhis").".".$extension;
+		//這邊是新的檔案名稱
+		
 		if (($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||($_FILES["file"]["type"] == "image/jpg")||($_FILES["file"]["type"] == "image/png"))
 		{	
 		
@@ -88,24 +97,16 @@ window.history.back();
 		<?PHP
             	die();
             }
-			
-			if(file_exists("upload/".$_FILES["file"]["name"]))
-			{
-		?>		
-				<script>
-				window.alert("檔案名稱重覆，請重新命名再上傳");
-				window.history.back();
-				</script>
-		<?PHP
-            	die();
-            }
+
 			else
 			{
-				move_uploaded_file($_FILES["file"]["tmp_name"],"upload/".$_FILES["file"]["name"]);
+				move_uploaded_file($_FILES["file"]["tmp_name"],"upload/".$name);
+				
+				$_SESSION['filepicture'] = "upload/".$name;
 				
 				if($_FILES["file"]["name"] != $list3[6]) //判斷圖片路徑有無修改，如果不等於資料庫上的路徑就更改
 				{
-					$sql_f = "UPDATE `members` SET `file`='"."upload/".$_FILES["file"]["name"]."'WHERE `m_number`='".$_SESSION["m_number"]."'";
+					$sql_f = "UPDATE `members` SET `file`='"."upload/".$name."'WHERE `m_number`='".$_SESSION["m_number"]."'";
 					mysql_query($sql_f); //執行$sql_f更新語法，大頭照
 				}
 			}

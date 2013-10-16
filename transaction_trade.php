@@ -20,7 +20,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:742px;
+	height:912px;
 	left:121px;
 	top: 267px;
 }
@@ -28,7 +28,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:790px;
+	height:960px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -81,7 +81,7 @@ $(function(){
 <input type="hidden" name="buy_remitdate" value="<?PHP echo $buy_remitdate;?>">
 <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
 	<?PHP 
-		if($c_mode == '全家店到店')
+		if($c_mode == '全家')
 		{
 	?>
 	<tr>
@@ -119,7 +119,7 @@ $(function(){
 	<?PHP 
 		}
 		
-		if($c_mode == '7-11店到店')
+		if($c_mode == '7-11')
 		{
 	?>
 	<tr>
@@ -241,8 +241,14 @@ $(function(){
 		</td>
 	</tr>
     <tr>
-		<td colspan="2" height="70" align="center"><font color="#00CCCC">▲此面交是已經將金額匯給賣家<br/>請到指定的時間地點與賣家見面<br/>若更改到電話將會修改個人資料</font></td>
+		<td colspan="2" height="70" align="center"><font color="#FF0000">▲此面交是已經將金額匯給賣家<br/>請到指定的時間地點與賣家見面<br/>若更改到電話將會修改個人資料</font></td>
     </tr>
+	<tr>
+		<td colspan="2" height="30" align="center"><font color="#0000FF">▲若面交地點有問題，詳細面交地點請填電洽</font></td>
+	</tr>
+	<tr>
+		<td colspan="2" height="30" align="center"><font color="#00CCCC">▲請依據您所填寫的時間地點與賣家進行面交</font></td>
+	</tr>
 	<?PHP 
 		}
 

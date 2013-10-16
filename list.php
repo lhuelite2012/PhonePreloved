@@ -23,6 +23,14 @@ table
 {
 	float:left;
 }
+#t
+{
+	position:absolute;
+	width:100px;
+	height:100px;
+	z-index:8;
+	left:555px;
+}
 </style>
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
@@ -76,6 +84,9 @@ table
 	<table align="center" width="500">
 		<tr><td></td></tr>
     	<tr>
+        	<div id="t">
+            <a href="deletelist.php?c_number=<?PHP echo $list3_c[0]; ?>"><img src="素材/按鈕取消追蹤.png" width="40" height="20" title="取消追蹤清單"></a>
+            </div>
         	<td rowspan="6">　</td>
         	<td align="center" rowspan="6"><a href="commodity.php?c_number=<?PHP echo $list3_c[0]; ?>"><?PHP echo '<img src="'.$displayPathWeb.''.$list3_c[10].'" onload="javascript:DrawImage(this,120,120);"/>'?></a></td>
             <td rowspan="6">　</td>
@@ -154,7 +165,7 @@ window.onload = function()
 	
 	if($row==0)
 	{
-		echo "很抱歉，尚未有任何商品被追蹤。";
+		echo "很抱歉，您尚未追蹤過任何商品。";
 	}
 ?>
 </form>

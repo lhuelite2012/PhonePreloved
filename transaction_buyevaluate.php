@@ -40,14 +40,32 @@ $(function(){
 	left: 0px;
 	top: 40px;
 }
-#background11
+#background14
 {
 	position: absolute;
 	background: #FFF;
 	width:494px;
 	height:156px;
-	left:278px;
-	top: 303px;
+	left:117px;
+	top: 46px;
+}
+#background18
+{
+	position: absolute;
+	background: #FFF;
+	width:751px;
+	height:322px;
+	left:121px;
+	top: 267px;
+}
+#background19
+{
+	position:absolute;
+	width:751px;
+	height:370px;
+	z-index:8;
+	left: 0px;
+	top: 40px;
 }
 #s {
 	position:absolute;
@@ -67,11 +85,10 @@ $(function(){
 }
 #up {
 	position:absolute;
-	width:75px;
+	width:751px;
 	height:20px;
 	z-index:1;
-	left: 507px;
-	top: 490px;
+	top: 225px;
 }
 </style>
 </head>
@@ -208,7 +225,10 @@ $(function(){
 	else
 	{
 ?>
-		<div align="center" id="background11" style="border-color:#000000;border-style:solid;border-radius:10px;">
+		<div id="background18">
+		<div align="center" id="background19">
+        
+        <div align="center" id="background14" style="border-color:#000000;border-style:solid;border-radius:10px;">
         <div id="s">
         <img src="素材/驚嘆號.png" width="40" height="40">
         <div id="ss">
@@ -218,6 +238,9 @@ $(function(){
         <div id="up">
         <a align="center" href="won.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
         
+        </div>
+        
+        </div>
         </div>
 <?PHP
 	}

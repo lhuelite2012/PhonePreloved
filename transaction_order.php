@@ -19,7 +19,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:902px;
+	height:982px;
 	left:121px;
 	top: 267px;
 }
@@ -27,7 +27,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:950px;
+	height:1030px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -112,7 +112,7 @@ $(function(){
                 <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_remitdate'];?>"></td>
             </tr>
     <?PHP
-		if($row['tr_mode'] == '全家店到店')
+		if($row['tr_mode'] == '全家')
 		{
 	?>
             <tr>
@@ -146,7 +146,7 @@ $(function(){
 				}
 		}
 		
-		if($row['tr_mode'] == '7-11店到店')
+		if($row['tr_mode'] == '7-11')
 		{
 	?>
             <tr>
@@ -588,7 +588,7 @@ initZone(document.commentForm.county, document.commentForm.city);
                 <td><input type="date" name="buy_remitdate" class="required" value="<?PHP echo $row['buy_remitdate'];?>"></td>
             </tr>
     <?PHP
-		if($row['tr_mode'] == '全家店到店')
+		if($row['tr_mode'] == '全家')
 		{
 	?>
             <tr>
@@ -621,7 +621,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 	<?PHP
 		}
 		
-		if($row['tr_mode'] == '7-11店到店')
+		if($row['tr_mode'] == '7-11')
 		{
 	?>
             <tr>

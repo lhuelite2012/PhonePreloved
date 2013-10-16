@@ -20,7 +20,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:872px;
+	height:982px;
 	left:121px;
 	top: 267px;
 }
@@ -28,19 +28,37 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:920px;
+	height:1030px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
 }
-#background11
+#background14
 {
 	position: absolute;
 	background: #FFF;
 	width:494px;
 	height:156px;
-	left:278px;
-	top: 303px;
+	left:117px;
+	top: 46px;
+}
+#background18
+{
+	position: absolute;
+	background: #FFF;
+	width:751px;
+	height:322px;
+	left:121px;
+	top: 267px;
+}
+#background19
+{
+	position:absolute;
+	width:751px;
+	height:370px;
+	z-index:8;
+	left: 0px;
+	top: 40px;
 }
 #s {
 	position:absolute;
@@ -60,11 +78,10 @@ include("myaccount.php");
 }
 #up {
 	position:absolute;
-	width:75px;
+	width:751px;
 	height:20px;
 	z-index:1;
-	left: 507px;
-	top: 490px;
+	top: 225px;
 }
 </style>
 <script src="js/jquery.js" type="text/javascript"></script>
@@ -141,7 +158,7 @@ $(function(){
                         <td><input type="text" disabled="disabled" value="<?PHP echo $row['buy_remitdate'];?>"></td>
                     </tr>
 			<?PHP				
-				if($row['tr_mode'] == '全家店到店')
+				if($row['tr_mode'] == '全家')
                 {
             ?>
                     <tr>
@@ -175,7 +192,7 @@ $(function(){
                     	}
 				}
                 
-				if($row['tr_mode'] == '7-11店到店')
+				if($row['tr_mode'] == '7-11')
                 {
             ?>
                     <tr>
@@ -604,16 +621,19 @@ initZone(document.commentForm.county, document.commentForm.city);
 	else if($row['t_schedule'] == '選擇交易方式')
 	{
 ?>        
-		<div align="center" id="background11" style="border-color:#000000;border-style:solid;border-radius:10px;">
+		<div id="background18">
+		<div align="cener" id="background19">
+        
+        <div align="center" id="background14" style="border-color:#000000;border-style:solid;border-radius:10px;">
        	<div id="s">
         <img src="素材/驚嘆號.png" width="40" height="40">
         <div id="ss">
         <strong><font color="#0000FF">不好意思，買家還沒更改訂單呦！</font></strong>
         </div></div></div>
         
-		<div id="up">
-        <a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
+		<div id="up"><div align="center"><a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a></div></div>
         
+        </div>
         </div>
 <?PHP
     }
@@ -621,16 +641,19 @@ initZone(document.commentForm.county, document.commentForm.city);
 	else if($row['tr_mode'] == '' || $row['tr_payment'] == '')
 	{
 ?>
-		<div align="center" id="background11" style="border-color:#000000;border-style:solid;border-radius:10px;">
+		<div id="background18">
+		<div align="cener" id="background19">
+
+		<div align="center" id="background14" style="border-color:#000000;border-style:solid;border-radius:10px;">
         <div id="s">
         <img src="素材/驚嘆號.png" width="40" height="40">
         <div id="ss">
         <strong><font color="#0000FF">不好意思，買家還沒填寫訂單呦！</font></strong>
 		</div></div></div>
         
-        <div id="up">
-        <a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
+        <div id="up"><div align="center"><a align="center" href="sold.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a></div></div>
         
+        </div>
         </div>
 <?PHP
     }

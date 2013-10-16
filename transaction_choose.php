@@ -20,7 +20,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:872px;
+	height:912px;
 	left:121px;
 	top: 267px;
 }
@@ -28,7 +28,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:920px;
+	height:960px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -158,7 +158,7 @@ $(function(){
                         </strong>
                     	<br/><br/>                   
 <?PHP
-						if($c_mode == '全家店到店')
+						if($c_mode == '全家')
 						{
 							
 							$sql = "select name,phone from members where m_number = '$m_number'";
@@ -169,7 +169,7 @@ $(function(){
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
                             <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                             <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
-                            <input type="hidden" name="c_mode" value="全家店到店">
+                            <input type="hidden" name="c_mode" value="全家">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
 								<tr>
                                 	<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">匯款人資訊</font></td>
@@ -212,7 +212,7 @@ $(function(){
 <?PHP
 						}
 						
-						if($c_mode == '7-11店到店')
+						if($c_mode == '7-11')
 						{
 							
 							$sql = "select name,phone from members where m_number = '$m_number'";
@@ -223,7 +223,7 @@ $(function(){
                             <form action="transaction_trade.php" method="post" name="commentForm" id="commentForm">
                             <input type="hidden" name="c_number" value="<?PHP echo $c_number;?>">
                             <input type="hidden" name="c_payment" value="<?PHP echo $c_payment;?>">
-                            <input type="hidden" name="c_mode" value="7-11店到店">
+                            <input type="hidden" name="c_mode" value="7-11">
                             <table align="center" border="1" width="360" style="table-layout:fixed;border-collapse:collapse;" cellspacing="3" bordercolor="#cococo">
                             	<tr>
                                 	<td colspan="2" height="30" align="center" bgcolor="#999999"><font color="#FFFFFF">匯款人資訊</font></td>
@@ -474,6 +474,9 @@ $(function(){
                         </tr>
                         <tr>
                             <td colspan="2" height="70" align="center"><font color="#FF0000">注意：此面交是與賣家在指定的<br/>時間地點進行金額與商品的交易<br/>若更改到電話將會修改個人資料</font></td>
+                        </tr>
+						<tr>
+							<td colspan="2" height="30" align="center"><font color="#0000FF">▲若面交地點有問題，詳細面交地點請填電洽</font></td>
                         </tr>
 						<tr>
 							<td colspan="2" height="30" align="center"><font color="#00CCCC">▲請依據您所填寫的時間地點與賣家進行面交</font></td>

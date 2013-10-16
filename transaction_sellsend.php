@@ -13,14 +13,14 @@ include("myaccount.php");
 <head>
 <link rel="stylesheet" href="all.css" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>感謝您的購買</title>
+<title>感謝您的支持</title>
 <style type="text/css">
 #background12
 {
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:552px;
+	height:622px;
 	left:121px;
 	top: 267px;
 }
@@ -28,7 +28,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:550px;
+	height:670px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -47,7 +47,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:302px;
+	height:322px;
 	left:121px;
 	top: 267px;
 }
@@ -55,7 +55,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:350px;
+	height:370px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -111,13 +111,13 @@ include("myaccount.php");
 		<div id="background12">
 		<div align="center" id="background13">
         
-        <font size="5" color="#FF0000"><strong>感謝您的購買</strong></font>
+        <font size="5" color="#FF0000"><strong>感謝您的支持</strong></font>
 		<p></p>
 <?PHP
 		if($row['tr_payment'] == '匯款')
 		{
 			
-			if($row['tr_mode'] == '全家店到店')
+			if($row['tr_mode'] == '全家')
 			{
 ?>
 				<strong>
@@ -180,13 +180,13 @@ include("myaccount.php");
 					{
 				?>
                     <tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" value="確定寄出">
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="send" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予買家評價頁面</font></td>
+                    </tr>
                 <?PHP
 					}
 					else
@@ -194,11 +194,11 @@ include("myaccount.php");
                 ?>
                 	<tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" disabled="disabled" value="已經寄出">
+                        <input type="submit" name="send" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，可以給予買家商品評價</font></td>
+						<td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，請等待買家給予評價</font></td>
 					</tr>
                 <?PHP
 					}
@@ -209,7 +209,7 @@ include("myaccount.php");
 <?PHP
 			}
 			
-			if($row['tr_mode'] == '7-11店到店')
+			if($row['tr_mode'] == '7-11')
 			{
 ?>
 				<strong>
@@ -272,25 +272,25 @@ include("myaccount.php");
 					{
 				?>
                     <tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" value="確定寄出">
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="send" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予買家評價頁面</font></td>
+                    </tr>
                 <?PHP
 					}
 					else
 					{
                 ?>
-                	<tr>
+					<tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" disabled="disabled" value="已經寄出">
+                        <input type="submit" name="send" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
+						<td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，請等待買家給予評價</font></td>
 					</tr>
                 <?PHP
 					}
@@ -544,13 +544,13 @@ initZone(document.commentForm.county, document.commentForm.city);
 					{
 				?>
                     <tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" value="確定寄出">
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="send" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予買家評價頁面</font></td>
+                    </tr>
                 <?PHP
 					}
 					else
@@ -558,11 +558,11 @@ initZone(document.commentForm.county, document.commentForm.city);
                 ?>
                 	<tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" disabled="disabled" value="已經寄出">
+                        <input type="submit" name="send" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
+						<td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，請等待買家給予評價</font></td>
 					</tr>
                 <?PHP
 					}
@@ -640,13 +640,13 @@ initZone(document.commentForm.county, document.commentForm.city);
 					{
 				?>
                     <tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" value="確定寄出">
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="send" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予買家評價頁面</font></td>
+                    </tr>
                 <?PHP
 					}
 					else
@@ -654,14 +654,11 @@ initZone(document.commentForm.county, document.commentForm.city);
                 ?>
                 	<tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="send" disabled="disabled" value="已經寄出">
+                        <input type="submit" name="send" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
-					</tr>
-                    <tr>
-						<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
+						<td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，請等待買家給予評價</font></td>
 					</tr>
                 <?PHP
 					}
@@ -740,28 +737,25 @@ initZone(document.commentForm.county, document.commentForm.city);
 			{
 		?>
                 <tr>
-                 	<td colspan="2" height="30" align="center">
-					<input type="submit" name="send" value="確定寄出">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定寄出鍵</font></td>
-				</tr>
+                    <td colspan="2" height="30" align="center">
+                    <input type="submit" name="send" value="確認">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予買家評價頁面</font></td>
+                </tr>
 		<?PHP
 			}
 			else
 			{
 		?>
 				<tr>
-					<td colspan="2" height="30" align="center">
-					<input type="submit" name="send" disabled="disabled" value="已經寄出">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" height="30" align="center"><font color="#FF0000">▲寄出了之後，請等待買家給予評價</font></td>
-				</tr>
-				<tr>
-					<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
+                  	<td colspan="2" height="30" align="center">
+                    <input type="submit" name="send" disabled="disabled" value="已確認">
+                    </td>
+                </tr>
+                <tr>
+					<td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，請等待買家給予評價</font></td>
 				</tr>
 		<?PHP
 			}

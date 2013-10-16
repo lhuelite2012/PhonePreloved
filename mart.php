@@ -65,7 +65,7 @@ table
 	border-radius:10px;
 	position:absolute;
 	width:335px;
-	height:945px;
+	height:985px;
 	z-index:1;
 	left: -100px;
 	top: 150px;
@@ -216,7 +216,7 @@ window.onload = function()
 	
 	if($row==0)
 	{
-		echo "很抱歉，目前此賣家沒有任何商品。";
+		echo "很抱歉，目前此賣家沒有販賣任何商品。";
 	}
 ?>
 </form>
@@ -228,8 +228,8 @@ window.onload = function()
     <strong>
     <p></p>
     <font size="4" color="#0000FF">　<img src="素材/紙膠橘(賣家資訊.png" /></font><p></p>
-    <font size="4" color="#0000FF">　賣家帳號：</font>
-	<font size="4" color="#000000">  <?PHP echo $list3_m['account'] ?></font><p></p>
+    <font size="4" color="#0000FF">　賣家帳號：</font><p></p>
+	<font size="4" color="#000000">　<?PHP echo $list3_m['account'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家姓名：</font>
 	<font size="4" color="#000000">  <?PHP echo $list3_m['name'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家評價：</font>

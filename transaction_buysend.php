@@ -20,7 +20,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:552px;
+	height:622px;
 	left:121px;
 	top: 267px;
 }
@@ -28,7 +28,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:600px;
+	height:670px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -47,7 +47,7 @@ include("myaccount.php");
 	position: absolute;
 	background: #FFF;
 	width:751px;
-	height:302px;
+	height:322px;
 	left:121px;
 	top: 267px;
 }
@@ -55,7 +55,7 @@ include("myaccount.php");
 {
 	position:absolute;
 	width:751px;
-	height:350px;
+	height:370px;
 	z-index:8;
 	left: 0px;
 	top: 40px;
@@ -121,7 +121,7 @@ include("myaccount.php");
 		if($row['tr_payment'] == '匯款')
 		{
 			
-			if($row['tr_mode'] == '全家店到店')
+			if($row['tr_mode'] == '全家')
 			{
 ?>
 				<strong>
@@ -178,25 +178,25 @@ include("myaccount.php");
 				?>
                     <tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" value="確定收貨">
+                        <input type="submit" name="per" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定收貨鍵</font></td>
+						<td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予賣家評價頁面</font></td>
 					</tr>
                 <?PHP
 					}
 					else
 					{
                 ?>
-                	<tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" disabled="disabled" value="已經收貨">
+                    <tr>
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="per" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲收到貨之後，可以給予賣家商品評價</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，若雙方皆評價，為交易成功</font></td>
+                    </tr>
                 <?PHP
 					}
                 ?>
@@ -206,7 +206,7 @@ include("myaccount.php");
 <?PHP
 			}
 			
-			if($row['tr_mode'] == '7-11店到店')
+			if($row['tr_mode'] == '7-11')
 			{
 ?>
 				<strong>
@@ -263,25 +263,25 @@ include("myaccount.php");
 				?>
                     <tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" value="確定收貨">
+                        <input type="submit" name="per" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定收貨鍵</font></td>
+						<td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予賣家評價頁面</font></td>
 					</tr>
                 <?PHP
 					}
 					else
 					{
                 ?>
-                	<tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" disabled="disabled" value="已經收貨">
+                    <tr>
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="per" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲收貨了之後，請等待賣家給予評價</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，若雙方皆評價，為交易成功</font></td>
+                    </tr>
                 <?PHP
 					}
                 ?>
@@ -528,25 +528,25 @@ initZone(document.commentForm.county, document.commentForm.city);
 				?>
                     <tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" value="確定收貨">
+                        <input type="submit" name="per" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定收貨鍵</font></td>
+						<td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予賣家評價頁面</font></td>
 					</tr>
                 <?PHP
 					}
 					else
 					{
                 ?>
-                	<tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" disabled="disabled" value="已經收貨">
+                    <tr>
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="per" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲收貨了之後，請等待賣家給予評價</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，若雙方皆評價，為交易成功</font></td>
+                    </tr>
                 <?PHP
 					}
                 ?>
@@ -617,28 +617,25 @@ initZone(document.commentForm.county, document.commentForm.city);
 				?>
                     <tr>
                     	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" value="確定收貨">
+                        <input type="submit" name="per" value="確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定收貨鍵</font></td>
+						<td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予賣家評價頁面</font></td>
 					</tr>
                 <?PHP
 					}
 					else
 					{
                 ?>
-                	<tr>
-                    	<td colspan="2" height="30" align="center">
-                        <input type="submit" name="per" disabled="disabled" value="已經收貨">
+                    <tr>
+                        <td colspan="2" height="30" align="center">
+                        <input type="submit" name="per" disabled="disabled" value="已確認">
                         </td>
                     </tr>
                     <tr>
-						<td colspan="2" height="30" align="center"><font color="#FF0000">▲收貨了之後，請等待賣家給予評價</font></td>
-					</tr>
-                    <tr>
-						<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
-					</tr>
+                        <td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，若雙方皆評價，為交易成功</font></td>
+                    </tr>
                 <?PHP
 					}
                 ?>  
@@ -710,11 +707,11 @@ initZone(document.commentForm.county, document.commentForm.city);
 		?>
                 <tr>
                     <td colspan="2" height="30" align="center">
-					<input type="submit" name="per" value="確定收貨">
+					<input type="submit" name="per" value="確認">
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" height="30" align="center"><font color="#0000FF">▲確認過之後，即可按下確定收貨鍵</font></td>
+					<td colspan="2" height="30" align="center"><font color="#0000FF">▲點選確認，即可跳至給予賣家評價頁面</font></td>
 				</tr>
 			<?PHP
 				}
@@ -723,15 +720,12 @@ initZone(document.commentForm.county, document.commentForm.city);
             ?>
 				<tr>
 					<td colspan="2" height="30" align="center">
-					<input type="submit" name="per" disabled="disabled" value="已經收貨">
+					<input type="submit" name="per" disabled="disabled" value="已確認">
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" height="30" align="center"><font color="#FF0000">▲收貨了之後，請等待賣家給予評價</font></td>
-				</tr>
-				<tr>
-					<td colspan="2" height="30" align="center"><font color="#00CCCC">▲面交於指定時間地點交易，謝謝！</font></td>
-				</tr>
+                    <td colspan="2" height="30" align="center"><font color="#FF0000">▲確認後，若雙方皆評價，為交易成功</font></td>
+                </tr>
                 <?PHP
 					}
                 ?>
@@ -752,10 +746,11 @@ initZone(document.commentForm.county, document.commentForm.city);
 	{
 ?>
         <div id="background18">
-		<div align="center" id="background19">
+		<div align="cener" id="background19">
         
-        <font size="5" color="#FF0000"><strong>查看賣家寄件</strong></font>
-		<p></p>
+        <div align="center"><font size="5" color="#FF0000"><strong>查看賣家寄件</strong></font></div>
+        
+        <p></p>
         
         <div align="center" id="background14" style="border-color:#000000;border-style:solid;border-radius:10px;">
         <div id="s1">
@@ -771,9 +766,7 @@ initZone(document.commentForm.county, document.commentForm.city);
         <p></p>
         </div></div></div>
         
-        <div id="up">
-        <a align="center" href="won.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a>
-        </div>
+        <div id="up"><div align="center"><a align="center" href="won.php" style="color:#0000FF;text-decoration:none;"><strong>回上一頁</strong></a></div></div>
       
         </div>
         </div>

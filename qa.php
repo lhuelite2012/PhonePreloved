@@ -98,7 +98,7 @@
 			}?>
 			</table>
 <?php          if(isset($_SESSION['m_number'])){ 
-				if($c_rows['m_number'] != $_SESSION['m_number']){?>
+				if($c_rows['m_number'] != $_SESSION['m_number'] and $c_rows['orend']==0){?>
   				<div id="questions">
                 	<p>發問問題?</p>
     			<form action="questions.php" method="post" name="qa" onsubmit="return chktwo();">

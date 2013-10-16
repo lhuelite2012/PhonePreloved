@@ -1,4 +1,5 @@
 <?php	//存入資料庫
+	include("../phpFunction.php");
 	include("../server.php");
 	$c_mode = $_REQUEST['c_mode'];			//交易方式
 	$c_payment = $_REQUEST['c_payment'];	//付款方式
@@ -58,6 +59,12 @@
 			}
 			$sql = "update transaction set sendtime ='$sendtime',t_schedule='已付款',tr_payment='匯款',tr_mode='郵寄' ,remark='$remark' ,buy_remit ='$buy_remit', buy_remitmoney = '$buy_remitmoney', buy_remitdate = '$buy_remitdate'  where c_number = $c_number";
 			mysql_query($sql);
+			//找出商品賣家
+			$m_sql = "select m_number from commodity where c_number = $c_number";
+			$m_re = mysql_query($m_sql);
+			$m_r = mysql_fetch_row($m_re);
+			$seller = $m_r[0];
+			push("交易確認",$addtime,$c_number,$seller);
 		}
 	}
 ?>

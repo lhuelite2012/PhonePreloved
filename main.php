@@ -332,7 +332,7 @@ function MM_swapImage() { //v3.0
 
 <div id="sell"><a href="added_1.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('我要賣東西','','素材/我要賣東西列2  綠.#$#',1)"><img src="素材/我要賣東西列2  白.png" name="我要賣東西" width="163" height="43" border="0"></a></div>
 
-<div id="interactive"><a href="http://www.facebook.com/phonepreloved" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('會員互動區','','素材/會員互動區列2 綠.png',1)"><img src="素材/會員互動區列2 白.png" name="會員互動區" width="163" height="43" border="0"></a></div></div>
+<div id="interactive"><a href="http://www.facebook.com/phonepreloved" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('會員互動區','','素材/會員互動區列2 綠.png',1)"><img src="素材/會員互動區列2 白.png" name="會員互動區" width="163" height="43" border="0"></a></div></div>
 
 
 </body>

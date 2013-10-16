@@ -74,7 +74,7 @@ if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上
     	拍賣方式
     </td>
     <td colspan="2">
-    	價高者得標
+    	自行選擇得標者
     </td>
      <td width="141" rowspan="15" style="text-align:right">
     	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">

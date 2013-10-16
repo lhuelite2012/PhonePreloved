@@ -1,6 +1,6 @@
 <?PHP
 ob_start();
-session_start();
+include("phpFunction.php");
 ?>
 <?PHP
 include("main.php");
@@ -41,6 +41,12 @@ include("myaccount.php");
 	$sql = "update transaction set tr_mode = '$c_mode',tr_payment = '$c_payment',t_schedule = '已付款',payTimeButton = '$addtime' where c_number = '$c_number'";
 	mysql_query($sql); //更新付款方式及交易方式、已付款、付款時間
 	
+	//找出商品賣家
+	$m_sql = "select m_number from commodity where c_number = $c_number";
+	$m_re = mysql_query($m_sql);
+	$m_r = mysql_fetch_row($m_re);
+	$seller = $m_r[0];
+	push("交易確認",$addtime,$c_number,$seller);
 	if($_POST['buy_remit'] != "" && $_POST['buy_remitmoney'] != "" && $_POST['buy_remitdate'] != "")
 	{
 		$sql = "update transaction set buy_remit = '".$_POST['buy_remit']."',buy_remitmoney = '".$_POST['buy_remitmoney']."',buy_remitdate = '".$_POST['buy_remitdate']."' where c_number = '$c_number'";

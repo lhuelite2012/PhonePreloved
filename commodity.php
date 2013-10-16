@@ -537,7 +537,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
           </form>
         </div>
         <div id="modify">
-          <form action="" method="post">
+          <form action="alter_added.php" method="post">
           <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
           <input type="hidden" name="c_revise" value="1" />
           <input type="button" onclick="return revise()"value="修改商品說明" />	

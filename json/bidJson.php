@@ -1,12 +1,12 @@
-<?php
-	session_start();
+<? include("../phpFunction.php");
+	
 	//沒有判斷 帳號登入
 	//出價等於最高價時 直接結束
 	//出價低於最高價時 直接結束
 	$json = array();
 	include("../server.php");
 	include("../addtime.php");    //系統時間
-	
+
 	$c_number = $_REQUEST['c_number'];
 	$bid = $_REQUEST['bid'];
 	$m_number = $_REQUEST['m_number'];
@@ -23,7 +23,7 @@
 		$bid_query = mysql_query($bid_sql);
 		
 		//推薦-----------------------	
-		include("../push/push.php");
+		include("pushJson.php");
 		
 		//出價最高
 		$bid_hi_sql = "select max(bid_price) from bid where c_number = $c_number limit 1";

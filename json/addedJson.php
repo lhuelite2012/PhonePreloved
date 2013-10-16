@@ -16,9 +16,11 @@
 	$temptime = DateAdd("d" ,$downtime,$temptime);
 	$downtime = strftime( "%Y-%m-%d %H:%M:%S",$temptime); //下架日期datetime
 	
-	$c_mp=$_FILES['c_mp']['name'];	//主要圖片varchar(50)
-	$c_movie=$_FILES['c_movie']['name'];	//商品影片varchar(50)
-	$pop=$_FILES['pop']['name'];	//購買憑證varchar(50)
+	include("addedUpdateJson.php");
+	
+		//主要圖片varchar(50)
+		//商品影片varchar(50)
+		//購買憑證varchar(50)
 	$c_rp=$_FILES['c_rp']['name'];	//旋轉圖片varchar(50)
 	$c_date=$_REQUEST["c_date"];	//購買日期datetime
 	$c_address=$_REQUEST["c_address"];	//購買地址varchar(50)
@@ -180,11 +182,11 @@ if($insert_result = mysql_query($insert_sql)){
 		mysql_query($sql);
 	}
 	
-	include("addedUploadJson.php");
 	
-	for($a=1 ; $a <=7 ; $a++){
-		if($_FILES["c_picture".$a]["name"] =""){
-			$sql = "insert into c_picture (c_number,c_picture) value ('$c_number','".$_FILES["c_picture".$a]["name"]."')";
+	
+	for($a=0 ; $a <7 ; $a++){
+		if($c_picture[$a] !=""){
+			$sql = "insert into c_picture (c_number,c_picture) value ('$c_number','".$c_picture[$a]."')";
 			mysql_query($sql);
 		}
 	}

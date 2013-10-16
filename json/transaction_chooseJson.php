@@ -47,5 +47,11 @@
 	$json['b_phone'] = $row[1];
 	$json['b_address'] =  $address;
 	
+	$sql = "select tr_mode,tr_payment from transaction where c_number = $c_number";
+	$result = mysql_query($sql);
+	$row = mysql_fetch_array($result);
+	$json['tr_mode'] = $row['tr_mode'];
+	$json['tr_payment'] = $row['tr_payment'];
+	
 	echo json_encode($json);
 ?>

@@ -42,7 +42,7 @@
 					$m_file = $row['file'];
 					$view2 = "出價金額為";
 					$data = 1;
-					$no = "";
+					$no = "被";
 				break;
 				case "販賣被出價":
 					$sql = "select b.bid_price,m.account,m.file from bid b join members m on b.m_number = m.m_number where b.bid_time = '$p_time' and b.c_number = $c_number";
@@ -55,7 +55,7 @@
 					$m_file = $row['file'];
 					$view2 = "出價金額為";
 					$data = 1;
-					$no = "";
+					$no = "被";
 				break;
 				case "發問":
 					$sql = "select m.account,m.file from qa q join members m on q.m_number = m.m_number where q.q_time = '$p_time' and q.c_number = $c_number";
@@ -68,7 +68,7 @@
 					$m_file = $row['file'];
 					$view2 = "趕快去看看吧！";
 					$data = 4;
-					$no = "";
+					$no = "被";
 				break;
 				case "回答":
 					$sql = "select account,file from members where m_number = $m_number";
@@ -81,7 +81,7 @@
 					$m_file = $row['file'];
 					$view2 = "趕快去看看吧！";
 					$data = 4;
-					$no = "";
+					$no = "被";
 				break;
 				case "得標":
 					$sql = "select account,file from members where m_number = $m_number";
@@ -94,7 +94,7 @@
 					$m_file = $row['file'];
 					$view2 = "恭喜您　趕快進行交易吧！";
 					$data = 1;
-					$no = "";
+					$no = "被";
 				break;
 				case "未得標":
 					$sql = "select account,file from members where m_number = $m_number";
@@ -107,18 +107,31 @@
 					$m_file = $row['file'];
 					$view2 = "別難過　繼續尋找吧！";
 					$data = 1;
-					$no = "未";
+					$no = "未被";
+				break;
+				case "交易確認":
+					$sql = "select m.account,m.file from members m join transaction t on t.m_number = m.m_number where t.c_number = $c_number";
+					$result = mysql_query($sql);
+					$row = mysql_fetch_array($result);
+					$who = $row['account'];
+					$view = "";
+					$action = "販售的商品";
+					$action2 = "已確認交易付款方式";
+					$m_file = $row['file'];
+					$view2 = "趕快去看看吧！";
+					$data = 1;
+					$no = "";
 				break;
 			}
 			
 			?>
         	<a href="commodity.php?c_number=<?php echo $push_row['c_number'];?>&data=<? echo $data; ?>">
-            <div id="push_a" class="push_a">
+            <div id="push_a" class="push_a"  <? if($push_row['p_check']==0) echo "style='background:#E7EAC1;'";?>>
                 <hr size="1px" color="#999999" />
                 您<font color="#000099"><? echo $action;?>
                 <div id="push_mp"><img src="../<? echo $displayPathWeb.$c_mp;?>" onload="javascript:DrawImage(this,90,95);" /></div>    
                 <div id="push_name"></font><strong>「<? echo $c_name;?>」</strong></div>
-                <div id="push_who"><? echo $no; ?>被<strong><? echo $who;?></strong><? echo $action2;?></div>
+                <div id="push_who"><? echo $no; ?><strong><? echo $who;?></strong><? echo $action2;?></div>
  
                 <div id="push_whoP"><img src="../<? echo $m_file;?>" onload="javascript:DrawImage(this,50,50);"/></div>
                 <div id="push_view"><? echo $view2;?><strong><? echo $view;?></strong></div>

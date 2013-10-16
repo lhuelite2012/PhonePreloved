@@ -329,8 +329,8 @@ if(!empty($_FILES["pop"]["name"]))//   如果憑證有值上傳 score + 5
     {	
    $src = $popPathWeb.$m_number."_".$name;
    $dest = $src;
-   $destW = 400;
-   $destH = 400;
+   $destW = 600;
+   $destH = 600;
    imagesResize($src,$dest,$destW,$destH);
    $pop = $m_number."_".$name;
       
@@ -399,8 +399,8 @@ else if(!empty($_FILES['c_mp']['name'])) //  如果有值上傳主要圖片
 		{	
 	   $src = $picturePathWeb.$m_number."_".$name;
 	   $dest = $src;
-	   $destW = 400;
-	   $destH = 400;
+	   $destW = 700;
+	   $destH = 700;
 	   imagesResize($src,$dest,$destW,$destH);
 		$c_mp = $m_number."_".$name;
 	   

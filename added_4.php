@@ -70,23 +70,16 @@ if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上
 <FORM name="form1" action="added_00.php" method="post" enctype="multipart/form-data">
 <table width="867">
 <tr height="29">
-	<td width="102">
-    	拍賣方式
-    </td>
-    <td colspan="2">
-    	價高者得標
-    </td>
-     <td width="141" rowspan="15" style="text-align:right">
-    	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
-    </td>
-</tr>
-<tr height="29">
 	<td>
     	購買商品地址
     </td>
     <td colspan="2">
     	<input type="text" id="c_address" name="c_address" size="50" maxlength="40">
     </td>
+    <td width="141" rowspan="15" style="text-align:right">
+    	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
+    </td>
+
 </tr>
 <tr height="29">
 	<td>
@@ -105,7 +98,7 @@ if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上
     	付款方式
     </td>
     <td colspan="2">
-        <input type="checkbox" id="c_payment[]" name="c_payment[]" value="匯款">匯款
+        <input type="checkbox" id="c_payment[]" name="c_payment[]" value="郵局">匯款
         <input type="checkbox" id="c_payment[]" name="c_payment[]" value="面交">面交
     </td>
 </tr>

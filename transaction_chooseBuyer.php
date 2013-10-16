@@ -25,14 +25,12 @@
 	border-radius: 10px 10px 10px 10px;
 	}
 	#buyer{
-	position: absolute;
+	position:relative;
 	left: 8px;
-	top: 60px;
 	}
 	#insert{
-	position: absolute;
+	position:relative;
 	left: 171px;
-	top: 226px;
 	width: 500px;
 	}
 </style>
@@ -56,10 +54,11 @@ ORDER BY 1 DESC
 		$c_bid_result = mysql_query($c_bid);
 ?> 	
 
-		<form action="transaction_trueBuyer.php" method="post" name="choosebuyer">
+		<form action="transaction_trueBuyer.php" method="post" name="choosebuyer"><br />
+
         <div id="buyer">
 		<table border="1" id="bid" align="center" width="800px">
-			<tr>
+			<tr style="background:#999999; color:#FFF;"　　>
                 <th>出價者</th>
                 <th>評價</th>
                 <th>買方總評價</th>
@@ -88,13 +87,12 @@ ORDER BY 1 DESC
 			$m_row = mysql_fetch_array($result);	
 ?>			
 		</table>
-</div>
-
+</div><br />
 
 <div id="insert">
         <table border="1" align="center"  width="500px">
-        	<tr>
-            	<td colspan="2" align="center"> <font color="#FF9900" >聯絡資料</font></td>
+        	<tr style="background:#999999; color:#FFF;">
+            	<td colspan="2" align="center"> 聯絡資料</td>
             </tr>
         	<tr>
             	<td>姓名：</td><td><?php echo $m_row['name']; ?></td>

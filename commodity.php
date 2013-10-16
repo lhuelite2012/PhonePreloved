@@ -416,8 +416,6 @@ include("related_commodity.php");
                 <li><span>臀　　寬：</span><?php echo $c_rows["c_hips"]."　公分"; ?></li>	
 <?php }?>
 <?php if($s_fsort ==3){ //包包?>
-            	<li><span>長　　度：</span><?php echo $c_rows["c_height"]."　公分"; ?></li>
-                <li><span>肩　　寬：</span><?php echo $c_rows["c_shoulder"]."　公分"; ?></li>
 <?php }?>
 <?php if($s_fsort ==4){ //鞋子?>
             	<li><span>尺　　寸：</span><?php echo $c_rows["size"]." (".$c_rows['s_size'].")";?></li><div id="sizechart"> <a class='gallery' href="../素材/sizelist.gif">尺寸表</a></div>
@@ -513,11 +511,11 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 		<div id="track"><a href="track.php"><img src="素材/按鈕-追蹤.png" title="加入追蹤清單" onload='javascript:DrawImage(this,55,55);' /></a></div>
         <div id="bid">
 		  <div id="b2" style="font-weight:bold;">出價金額：</div>
-        	<form action="bid.php" method="post" name="send" onsubmit="<?php if(isset($m_number)) echo " return chk();"; else echo "return report1()"; ?>">
+        	<form action="bid.php" method="post" name="send" onsubmit="<?php if(!isset($m_number)) echo "return report1()"; ?>">
             	<input type="text" name="bid" size="10px" />
                 <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
                 <div style="position: absolute; left: 183px; top: 0px;">
-                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return bidpush()" />
+                	<input type="image" src="素材/按鈕-送出.png"   onload='javascript:DrawImage(this,50,50);' onclick="return chk()" />
                 </div>
         	</form>  
     	</div>
@@ -679,7 +677,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			if(isset($c_rows["pop"]) and $c_rows["pop"]!="" and $c_rows["pop"] != "0000-00-00 00:00:00"){
 ?>			
 				<div align="center"><?php echo "購買日期:".$c_rows['c_date']; ?></div>
-				<div align="center"><img src="<?php echo $popPathWeb.$c_rows["pop"]; ?>" /></div><br/>
+				<div align="center"><img src="<?php echo $popPathWeb.$c_rows["pop"]; ?>" onload="javascript:DrawImage(this,800,800);" /></div><br/>
 <?php			}else
 				echo "未有紀錄";
 		break;
@@ -761,7 +759,12 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
       document.send.bid.focus();
       return false;
     }
-	
+	if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
+			document.send.submit();
+		}
+  		else{
+			return false;
+		}
   	}
 	function downtime(){
 		if( confirm ("若有買方出價將會扣除６００分，確定要下架商品?　") ) {
@@ -772,12 +775,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 		}
 	}
 	function bidpush(){
-		if( confirm ("出價金額為"+document.send.bid.value+"?　　　　　　　　　　　　　　　　　　此網站的競標方式為賣家自行選擇得標者，確定出價了嗎?") ) {
-			document.send.submit();
-		}
-  		else{
-			return false;
-		}
+		
 	}
 	function revise(){
 		if( confirm ("確定要修改商品?") ) {

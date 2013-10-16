@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	include("phpFunction.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,7 @@
 			
 			
 			
-			include("./push/push.php");
+			include("push/push.php");
 		
 			//出價最高  存入目前最高價
 			$bid_hi_sql = "select max(bid_price) from bid where c_number = '$c_number' group by c_number limit 1";

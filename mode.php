@@ -340,6 +340,7 @@
                 <img class="n8"src="素材/分類鈕-手拿包白.png" onclick="cc(11)"/>
                 <img class="n9"src="素材/分類鈕-斜背包白.png" onclick="cc(12)"/>
                 <img class="n10"src="素材/分類鈕-後背包白.png" onclick="cc(13)"/>
+                <img class="n21"src="素材/分類鈕-皮夾白.png" onclick="cc(21)"/>
               </div>
               <div id="nn5" class="hidden">
                 <span class="spa">種類</span>
@@ -385,7 +386,7 @@
         <hr width="230px" align="left" />
         	<div class="locationbox" id="locationbox1">北部地區</div><div class="areat" id="areat1">基隆市 台北市 新北市 桃園縣 新竹縣 苗栗縣</div>
             <div class="locationbox" id="locationbox2">中部地區</div><div class="areat" id="areat2">台中市 彰化縣 南投縣</div>
-            <div class="locationbox" id="locationbox3">南部地區</div><div class="areat" id="areat3">雲林縣 嘉義縣 台南市 高雄市 屏東縣</div>
+            <div class="locationbox" id="locationbox3">南部地區</div><div class="areat" id="areat3">雲林縣 嘉義縣 臺南市 高雄市 屏東縣</div>
             <div class="locationbox" id="locationbox4">東部地區</div><div class="areat" id="areat4">宜蘭 花蓮 台東</div>
       </div>
     </div>
@@ -1096,7 +1097,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat1').css('color','#F63');
 		$('#areat2,#areat3,#areat4').css('color','#FFF');
-		gg("( location like '%基隆%' or location like '%台北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
+		gg("( location like '%基隆%' or location like '%臺北%' or location like '%新北%' or location like '%桃園%' or location like '%新竹%' or location like '%苗栗%' )");
 		$("#ll").html("地區　北部地區");
 	})
 	$('#locationbox2').click(function(){
@@ -1104,7 +1105,7 @@ $('#price_range5').click(function(){
 		$('#locationbox1,#locationbox3,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat2').css('color','#F63');
 		$('#areat1,#areat3,#areat4').css('color','#FFF');
-		gg("( location like '%台中%' or  location like '%彰化%' or  location like '%南投%' )");
+		gg("( location like '%臺中%' or  location like '%彰化%' or  location like '%南投%' )");
 		$("#ll").html("地區　中部地區");
 	})
 	$('#locationbox3').click(function(){
@@ -1112,7 +1113,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox1,#locationbox4').css('color','#390').css('background','#FFF');
 		$('#areat3').css('color','#F63');
 		$('#areat2,#areat1,#areat4').css('color','#FFF');
-		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%台南%' or  location like '%高雄%' or  location like '%屏東%' )");
+		gg("( location like '%雲林%' or  location like '%嘉義%' or  location like '%臺南%' or  location like '%高雄%' or  location like '%屏東%' )");
 		$("#ll").html("地區　南部地區");
 	})
 	$('#locationbox4').click(function(){
@@ -1120,7 +1121,7 @@ $('#price_range5').click(function(){
 		$('#locationbox2,#locationbox3,#locationbox1').css('color','#390').css('background','#FFF');
 		$('#areat4').css('color','#F63');
 		$('#areat2,#areat3,#areat1').css('color','#FFF');
-		gg("( location like '%台東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
+		gg("( location like '%臺東%' or  location like '%花蓮%' or  location like '%宜蘭%' )");
 		$("#ll").html("地區　東部地區");
 	})
 
@@ -1324,6 +1325,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　褲子");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1363,6 +1365,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　洋裝");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1397,6 +1400,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#ss").html("商品　包包");
 		$("#nn").html("");
 		$("input[name='shoes_size2']").val("");
@@ -1436,7 +1440,7 @@ $('#price_range5').click(function(){
 		$('.n13').attr('src',"素材/分類鈕-休閒鞋白.png");
 		$('.n14').attr('src',"素材/分類鈕-高跟鞋白.png");
 		$('.n15').attr('src',"素材/分類鈕-平底鞋白.png");
-			
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");	
 		$("#ss").html("商品　鞋子");
 		$("#nn").html("");
 		$("input[name='clothes_size']").val("");
@@ -1486,19 +1490,29 @@ $('#price_range5').click(function(){
 		$(this).attr('src',"素材/分類鈕-手拿包灰.png");
 		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
 		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　手拿包");
 	})
 	$('.n9').click(function(){
 		$(this).attr('src',"素材/分類鈕-斜背包灰1.png");
 		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
 		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　斜背包");
 	})
 	$('.n10').click(function(){
 		$(this).attr('src',"素材/分類鈕-後背包灰.png");
 		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
 		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
+		$('.n21').attr('src',"素材/分類鈕-皮夾白.png");
 		$("#nn").html("樣式　後背包");
+	})
+	$('.n21').click(function(){
+		$(this).attr('src',"素材/分類鈕-皮夾灰.png");
+		$('.n8').attr('src',"素材/分類鈕-手拿包白.png");
+		$('.n9').attr('src',"素材/分類鈕-斜背包白.png");
+		$('.n10').attr('src',"素材/分類鈕-後背包白.png");
+		$("#nn").html("樣式　皮夾");
 	})
 	$('.n11').click(function(){
 		$(this).attr('src',"素材/分類鈕-籃球鞋灰.png");

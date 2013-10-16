@@ -158,7 +158,7 @@ mysql_query($sql_query6);
 
 if(empty($_FILES["file"]["name"]))//file是空值的話,預設圖
 {
-	$_FILES["file"]["name"]="upload/右上大頭貼.jpg";
+	$_FILES["file"]["name"]="register-1.gif";
 	$file = $_FILES["file"]["name"];
 	$fraction = "15";
 	$sql_query2 = "INSERT into  f_record (m_number,f_number,f_time) VALUES ('$m_number','$fraction','$m_addtime')";
@@ -177,7 +177,7 @@ else if(!empty($_FILES["file"]["name"]))//file有值,重新上傳新圖
 			$f_file = explode (".",$_FILES['file']['name']);//找出檔案的副檔名
 			$extension = $f_file[count($f_file)-1];
 			$f_name = date("ymdhis").".".$extension;
-			$file = $f_name;
+			$file = $uploaddir.$fs_name;
 			
 			$score = $score +5;
 			$file_fraction = "6";

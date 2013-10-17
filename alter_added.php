@@ -146,7 +146,7 @@ if($bid_bout > 0){
 		<input type="hidden" name="mzx_file_size" value="10240000"><FONT color="#FF0000" SIZE=1>最大不可超過100M</FONT>
     </td>
     <td>
-		<?PHP if(isset($row["c_movie"]) and $row["c_movie"]!=""){ ?>
+		<?PHP if($row["c_movie"]!=""){ ?>
     	<embed src="<?php echo $moviePathWeb.$row["c_movie"];?>" autostart="false" loop="0"   width="600" height="400"></embed><?PHP }?>
     </td>
 </tr>
@@ -251,7 +251,8 @@ if($bid_bout > 0){
         <input type="hidden" name="mzx_file_size" value="512000"><FONT color="#FF0000" SIZE=1>最大不可超過5M</FONT>
     </td>
     <td>
-    	<?PHP echo '<img src="'.$popPathWeb.$row['pop'].'" onload="javascript:DrawImage(this,80,80);" width="90" height="110"/>'?>
+    <?PHP if($row['pop']!=""){ ?>
+    	<?PHP echo '<img src="'.$popPathWeb.$row['pop'].'" onload="javascript:DrawImage(this,80,80);" width="90" height="110"/>'?><?PHP }?>
 
     </td>
 </tr>

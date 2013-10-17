@@ -64,7 +64,7 @@ if($bid_bout > 0){
 ?>
 <div id="pic">
 <form action="alter_added0.php?c=<?PHP echo $c_number;?>" method="post" name="alter" onsubmit="return chktwo();" enctype="multipart/form-data">
-<table width="700" height="80px" align="center" bordercolor="#000000" bgcolor="#F2F2F2">
+<table width="800" height="80px" align="center" bordercolor="#000000" bgcolor="#F2F2F2">
 <tr height="40px">
 	<td width="100" bgcolor="#BEFFC3" >
     	商品標題
@@ -130,6 +130,9 @@ if($bid_bout > 0){
     	商品主要圖片
     </td>
     <td>
+    	<!---<form action="alter_mp.php" name="al_mp" method="post">
+        <input type="button" onclick="return al_mp()" value="送出" />
+        </form>-->
     	<input type="file" id="c_mp" name="c_mp">
         <input type="hidden" name="mzx_file_size" value="512000"><FONT color="#FF0000" SIZE=1>最大不可超過5M</FONT>
     </td>
@@ -147,7 +150,7 @@ if($bid_bout > 0){
     </td>
     <td>
 		<?PHP if($row["c_movie"]!=""){ ?>
-    	<embed src="<?php echo $moviePathWeb.$row["c_movie"];?>" autostart="false" loop="0"   width="600" height="400"></embed><?PHP }?>
+    	<embed src="<?php echo $moviePathWeb.$row["c_movie"];?>" autostart="false" loop="0"   width="400" height="200"></embed><?PHP }?>
     </td>
 </tr>
 <tr style="width:100px;">
@@ -215,6 +218,7 @@ if($bid_bout > 0){
 <option value="10" <?PHP if($row['colors_number'] == "10") echo "selected";?>>白色系</option>
 <option value="11" <?PHP if($row['colors_number'] == "11") echo "selected";?>>棕色系</option>
 <option value="12" <?PHP if($row['colors_number'] == "12") echo "selected";?>>銀色系</option>
+</select>
     </td>
 </tr>
 <tr height="40px">
@@ -380,6 +384,7 @@ $result3 = mysql_query($query1);
     </td>
 </tr>
 </table>
+</form>
 </div>
 <script>
 	function revise(){
@@ -390,6 +395,15 @@ $result3 = mysql_query($query1);
 			return false;
 		}
 	}
+		function al_mp(){
+		if( confirm ("確定刪除圖片?") ) {
+			document.alter.submit();
+		}
+  		else{
+			return false;
+		}
+	}
+
 </script>
 </body>
 </html>

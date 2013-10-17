@@ -119,17 +119,31 @@ include("errorreport.php");
 include("server.php");
 include("addtime.php");
 $m_addtime = $addtime;
-$address=$_POST['City'].$_POST['Canton'].$_POST['caddress'];
+
+	$_POST["City"];
+	$_POST["Canton"];
+	$_POST['caddress'];
+	
+	$sql_county = "select * FROM `county` WHERE `county_name` = '".$_POST["City"]."'";
+	$query_county = mysql_query($sql_county);
+	$list3_county = mysql_fetch_array($query_county);
+	
+	$sql_city = "select * FROM `city` WHERE `city_name` = '".$_POST["Canton"]."'";
+	$query_city = mysql_query($sql_city);
+	$list3_city = mysql_fetch_array($query_city);
+
 //必填部分嫌存入資料庫↓
 $sql_query = "INSERT into members (account
-,password,name,gender,phone,address,m_addtime,score)
+,password,name,gender,phone,address,county,city,m_addtime,score)
 			VALUES (
 			'".$_POST['account']."',
 			'".$_POST['password']."',
 			'".$_POST['name']."',
 			'".$_POST['gender']."',
 			'".$_POST['phone']."',	
-			'$address',
+			'".$_POST['caddress']."',
+			'".$list3_county["county_number"]."',
+			'".$list3_city["city_number"]."',
 			'$m_addtime',
 			'$score')";
 mysql_query($sql_query);
@@ -137,7 +151,7 @@ mysql_query($sql_query);
 $sql="select m_number from members where account='".$_POST['account']."'";//找出m_number
 $query2= mysql_query($sql);
 $rows = mysql_fetch_array($query2);
-echo $m_number = $rows["m_number"]."<br>";
+$m_number = $rows["m_number"]."<br>";
 
 $sql_query4="INSERT into p_brand (m_number,b_number)
 VALUES ('$m_number','".$_POST['b_number']."')";//存入b_number
@@ -158,7 +172,7 @@ mysql_query($sql_query6);
 
 if(empty($_FILES["file"]["name"]))//file是空值的話,預設圖
 {
-	$_FILES["file"]["name"]="register-1.gif";
+	$_FILES["file"]["name"]="upload/右上大頭貼.jpg";
 	$file = $_FILES["file"]["name"];
 	$fraction = "15";
 	$sql_query2 = "INSERT into  f_record (m_number,f_number,f_time) VALUES ('$m_number','$fraction','$m_addtime')";
@@ -170,14 +184,14 @@ else if(!empty($_FILES["file"]["name"]))//file有值,重新上傳新圖
 	$uploaddir="upload/";//上傳檔案存放位置
 	$tmpfile=$_FILES["file"]["tmp_name"];//server端站存檔名
 	$file2=mb_convert_encoding($_FILES["file"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-	if (($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||($_FILES["file"]["type"] == "image/jpg")||($_FILES["file"]["tmp_name"]==""))//限定檔案gif jpg
+	if (($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||($_FILES["file"]["type"] == "image/jpg")||($_FILES["file"]["type"] == "image/png"))//限定檔案gif jpg jpeg png
  	{
 		if (move_uploaded_file($tmpfile,$uploaddir.$file2))//上傳檔案
 		{	
 			$f_file = explode (".",$_FILES['file']['name']);//找出檔案的副檔名
 			$extension = $f_file[count($f_file)-1];
 			$f_name = date("ymdhis").".".$extension;
-			$file = $uploaddir.$fs_name;
+			$file = "upload/".$f_name;
 			
 			$score = $score +5;
 			$file_fraction = "6";

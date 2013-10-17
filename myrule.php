@@ -57,7 +57,7 @@ function MM_swapImage() { //v3.0
 			<td><strong><font size="3" color="#0000FF">您好，<?PHP echo $list3[3]?>，歡迎進入到評價紀錄首頁</font></strong></td>
 		</tr> 
         <tr>
-			<td><strong><font size="3" color="#0000FF">目前您的評價分數為 <?PHP echo $list3[24]/200?> 分，其中：</font></strong></td>
+			<td><strong><font size="3" color="#0000FF">目前您的評價分數為 <?PHP echo $list3['25']/200?> 分，其中：</font></strong></td>
 		</tr>
         <tr>
 			<td><p></p></td>

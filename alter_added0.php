@@ -48,7 +48,7 @@ if($_POST['oan'] != $row["oan"])
 }
 /*$sql_mp = "DELETE c_mp FROM commodity WHERE c_number = '$c_number'";
 mysql_query($sql_mp);//刪除c_picture裡的圖片*/
-if($_FILES["c_mp"]["name"] != $row["c_mp"]) //判斷圖片路徑有無修改
+if($_FILES['c_mp']['name'] != "") //判斷圖片路徑有無修改
 	{
 	 $file = explode (".",$_FILES['c_mp']['name']);
 	 $extension = $file[count($file)-1];//找出檔案的副檔名
@@ -118,7 +118,7 @@ mysql_query($sql_query4);
   }
 
 
-if($_FILES["c_movie"]["name"] != $row["c_mp"]) //判斷圖片路徑有無修改
+if($_FILES["c_movie"]["name"] != "") //判斷影片路徑有無修改
 {
 			 $file = explode (".",$_FILES['c_movie']['name']);//找出檔案的副檔名
 			 $extension = $file[count($file)-1];
@@ -219,7 +219,7 @@ if($_POST['c_price'] != $row["c_price"])
 	c_price = '".$_POST['c_price']."' where c_number = '$c_number'";
 	mysql_query($sql_query15);
 }
-if($_FILES["pop"]["name"] != $row["c_mp"]) //判斷圖片路徑有無修改
+if($_FILES["pop"]["name"] != "") //判斷圖片路徑有無修改
 {
  $file = explode (".",$_FILES['pop']['name']);//找出檔案的副檔名
  $extension = $file[count($file)-1];
@@ -227,7 +227,7 @@ if($_FILES["pop"]["name"] != $row["c_mp"]) //判斷圖片路徑有無修改
 // $uploaddir="C:/AppServ/www/mp/";//上傳檔案存放位置
  $tmpfile=$_FILES["pop"]["tmp_name"];//server端站存檔名
  $file2=mb_convert_encoding($_FILES["pop"]["name"],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
- if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]=="image/png")||($_FILES["pop"]["tmp_name"]==""))//限定檔案gif jpg png
+ if (($_FILES["pop"]["type"] == "image/gif") || ($_FILES["pop"]["type"] == "image/jpeg")||($_FILES["pop"]["type"] == "image/jpg")||($_FILES["pop"]["tmp_name"]=="image/png"))//限定檔案gif jpg png
   {
   if (move_uploaded_file($tmpfile,$popPathWeb.$m_number."_".$name))//上傳檔案
     {	
@@ -388,7 +388,7 @@ if($_FILES["c_picture"]["name"] != "")
 	$name = date("ymdhis").".".$extension;
 	 $tmpfile=$_FILES["c_picture"]["tmp_name"][$j];//server端站存檔名
 	 $file2=mb_convert_encoding($_FILES["c_picture"]["name"][$j],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == "image/png")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg png
+	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == "image/png"))//限定檔案gif jpg png
 	  {
 	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$m_number."_".$name))//上傳檔案
 		{

@@ -107,4 +107,29 @@ function floor_count($s_sql,$r_type,$r_score,$m_number,$what)
 	}
 
 //------------------------------|||||||||----------------------------------
+//-------------------------------------------------------------------------
+//尺寸換算
+	function changeSize($gender,$format,$value){	//$format 格式  $value 值
+		$JP22 = Array(5,4,3.5,36,22); //JP尺寸
+		switch($format){
+			case "US": //轉換成美國
+				if($gender=="男"){//男性
+					return $JP22[4]+($value-$JP22[1]);
+				}else{			 //女性
+					return $JP22[4]+($value-$JP22[0]);
+				}
+			break;
+			case "UK": //轉換成英國
+				return $JP22[4]+($value-$JP22[2]);
+			break;
+			case "FR": //轉換成法國
+				return round($JP22[4]+($value-$JP22[3])*0.75,2);
+			break;
+			case "JP": //日本
+				return $value;
+			break;
+		}
+		
+	}
+//------------------------------|||||||||----------------------------------
 ?>

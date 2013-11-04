@@ -70,6 +70,12 @@ table
 	left: -100px;
 	top: 150px;
 }
+#people{
+	position:absolute;
+	top:45px;
+	left:220px;
+	z-index:250;
+}
 </style>
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
@@ -229,6 +235,12 @@ window.onload = function()
     <p></p>
     <font size="4" color="#0000FF">　<img src="素材/紙膠橘(賣家資訊.png" /></font><p></p>
     <font size="4" color="#0000FF">　賣家帳號：</font><p></p>
+     <div id="people">
+			<?php 
+				if($list3_m['people']==1) 
+					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,50,50);' />";
+			?>
+        </div>
 	<font size="4" color="#000000">　<?PHP echo $list3_m['account'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家姓名：</font>
 	<font size="4" color="#000000">  <?PHP echo $list3_m['name'] ?></font><p></p>

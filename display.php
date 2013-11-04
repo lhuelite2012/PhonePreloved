@@ -229,11 +229,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 }
 #pop{
 	position:absolute;
-	top:35px;
+	top:45px;
 	left:190px;
 	z-index:250;
 }
-
+#people{
+	position:absolute;
+	top:65px;
+	left:220px;
+	z-index:250;
+}
 </style>
 	
  
@@ -336,6 +341,10 @@ function MM_swapImage() { //v3.0
 				$n = 1; //pad_編號
    				while($list1=mysql_fetch_array($resul))
    				{ 
+						//賣家是否有 自然人憑證
+						$people_sql = "select people from members where m_number = ".$list1['c_number'];
+						$people_query = mysql_query($people_sql);
+						$people_rows = mysql_fetch_array($people_query);
 	
 						//找尋本商品的交易方式
 						$cm_sql = "select * from c_mode where c_number = ".$list1['c_number'];
@@ -393,6 +402,12 @@ function MM_swapImage() { //v3.0
         " onload="javascript:DrawImage(this,23,23);" /></div><div id='location'><?php echo $list1['location']; ?></div>
         <div class="hr"></div>
         <div id="pop"><?php if($list1['pop']!=""){ echo "<img src='素材/購買憑證.png' onload='javascript:DrawImage(this,60,60);'/>";}  ?></div>
+        <div id="people">
+			<?php 
+				if($people_rows[0]==0) 
+					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,30,30);' />";
+			?>
+        </div>
 		<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>'/></div>
         <div class="hover">
 			<div class="caption">

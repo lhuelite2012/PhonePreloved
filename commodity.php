@@ -233,6 +233,12 @@
 		color:#060;
 		background:#FFF;
 	}
+	#people{
+		position:relative;
+		width:50px;
+		height:20px;
+		top:200px;
+	}
 </style>
 <title>商品展示</title>
 <script src="../colorbox-master/jquery.colorbox-min.js"> </SCRIPT>
@@ -306,6 +312,11 @@ if(!isset($_GET['c_number']))
 	$acc_query = mysql_query($acc_sql);
 	$acc_rows = mysql_fetch_array($acc_query);
 	
+	//賣家是否有 自然人憑證
+	$people_sql = "select people from members where m_number = ".$acc1_rows['m_number'];
+	$people_query = mysql_query($people_sql);
+	$people_rows = mysql_fetch_array($people_query);
+	
 	//全部商品
 	$allc_sql = "select count(*) from commodity where m_number =".$acc1_rows["m_number"];
 	$allc_query = mysql_query($allc_sql);
@@ -361,6 +372,7 @@ include("related_commodity.php");
 		<div id="c_name">
     		<?php echo $c_rows["c_name"]; ?> 
    		</div>
+        
     	<div id="c_mp">
     		<img src="<?php echo $picturePathWeb.$c_rows["c_mp"]; ?>" onload="javascript:DrawImage(this,340,340);" />
    		</div>
@@ -368,7 +380,8 @@ include("related_commodity.php");
     	<table height="81px">
         	<tr>
             	<td rowspan="3"><img src="素材/紙膠-賣家資訊.png" onload="javascript:DrawImage(this,100,100);" /> </td>	
-        		<td height="27px">賣　　家︰</td><td style="font-size:12px;"><?php echo $acc_rows["account"]; ?></td>
+        		<td height="27px">賣　　家︰</td><td style="font-size:12px;"><?php echo $acc_rows["account"]; if($people_rows[0]==1) 
+					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,30,30);' />";?></td>
         	</tr>
         	<tr>
             	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="mart.php?c_number=<?php echo $c_number;?>" >賣場首頁</a></td><td></td>

@@ -172,6 +172,17 @@ include("main.php");
 	background-color: #F8F8EC;
 	border-radius:5px 5px 5px 5px;
 }
+	#people{
+		position:absolute;
+		width:180px;
+		height:180px;
+		background-color: #F8F8EC;
+		border-radius:5px 5px 5px 5px;
+		left: 727px;
+		top: 700px;
+		z-index: 20;
+		text-align:center;
+	}
 </style>
 <title>瘋二手 PhonePreloved</title>
 </head>
@@ -193,8 +204,20 @@ include("main.php");
            </table>
     </form> 
 </div>
-<?php } 
+<div id="people" style="top:700px;">
+	<a href="http://moica.nat.gov.tw/html/index.htm" target="_blank"> 自然人憑證</a>
+    
+    <img src="素材/自然人憑證網.png" />
+</div>
+<?php }else{ ?>
+<div id="people" style="top:520px;">
+	<a href="http://moica.nat.gov.tw/html/index.htm" target="_blank"> 自然人憑證</a>
+    
+    <img src="素材/自然人憑證網.png" />
+</div>
+<?php }
 include("0033_2.php");?>
+
 <div id="newView">
 	<img src="素材/商品展示底2.png" />
     <div id = "newVi">

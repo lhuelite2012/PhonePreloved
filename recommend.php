@@ -42,7 +42,21 @@ LIMIT $limit";
 	
 //------------------------------|||||||||----------------------------------
 	
+//-------------------------------------------------------------------------
+//商品有自然人憑證  r_type =10
+
+
+	$r_type = 10;
+	$r_score = 8;
+	$what = "c_number";
+	delete_recommend($r_type,$m_number);
 	
+	//擁有自然人憑證的商品
+	$s_sql = "select c.c_number,m.people from commodity c join members m on c.m_number = m.m_number where m.people=1";
+	insert_recommend($s_sql,$r_type,$r_score,$m_number);
+	
+	
+//------------------------------|||||||||----------------------------------	
 	
 //-------------------------------------------------------------------------
 //瀏覽賣家次數  r_type = 2

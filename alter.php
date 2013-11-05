@@ -54,9 +54,6 @@ include("myaccount.php");
 				shoulder:{
 					number : true
 				},
-				shoes_size2:{
-					number : true
-				},
 			}
 		});
     });		
@@ -143,7 +140,7 @@ include("myaccount.php");
             <select name="city" id="city" onchange="document.commentForm.county, document.commentForm.city" size="1" value="<?PHP echo $list3[10]?>"></select>
             <input type="text" name="address" id="address" maxlength="15" size="25" value=<?PHP echo $list3[8]?>></td>
 		</tr>
-        
+      
 <script language="JavaScript" type="text/javascript">
 <!--
 
@@ -311,8 +308,8 @@ initZone(document.commentForm.county, document.commentForm.city);
 
 // -->
 </script>
-        
-		<tr>
+
+   		<tr>
         	<td></td>
 			<td><strong>生日：</strong></td>
 			<td><input type="date" size="20" name="birthday" id="birthday" value="<?PHP echo $list3[5]?>"></td>
@@ -430,17 +427,152 @@ initZone(document.commentForm.county, document.commentForm.city);
         	<td></td>
 			<td><strong>鞋子尺寸：</strong></td>
 			<td>
-            <select name="shoes_size" id="shoes_size">
-            <option value="" <?PHP if($list3[18] == "") echo "selected";?>>請選擇</option>
-            <option value="台灣" <?PHP if($list3[18] == "台灣") echo "selected";?>>台灣</option>
-            <option value="美國" <?PHP if($list3[18] == "美國") echo "selected";?>>美國</option>
-            <option value="日本" <?PHP if($list3[18] == "日本") echo "selected";?>>日本</option>
-            <option value="歐洲" <?PHP if($list3[18] == "歐洲") echo "selected";?>>歐洲</option>
+            <select name="shoes_size" id="shoes_size" onchange="changeZone1(document.commentForm.shoes_size, document.commentForm.shoes_size2)" size="1" >
+            <option value="" <?PHP if($list3[18] == "" or $list3[18] == "0" or $list3[18] == "請選擇") echo "selected";?>>請選擇</option>
+            <option value="美國(女)" <?PHP if($list3[18] == "美國(女)") echo "selected";?>>美國(女)</option>
+            <option value="美國(男)" <?PHP if($list3[18] == "美國(男)") echo "selected";?>>美國(男)</option>
+            <option value="英國" <?PHP if($list3[18] == "英國") echo "selected";?>>英國</option>
+            <option value="法國" <?PHP if($list3[18] == "法國") echo "selected";?>>法國</option>
+            <option value="日本" <?PHP if($list3[18] == "日本") echo "selected";?>>日本</option>    
             </select>
             
-			<input type="text" size="5" name="shoes_size2" id="shoes_size2" class="number" value="<?PHP echo $list3[19]?>"><strong>cm (公分)</strong>
+            <select name="shoes_size2" id="shoes_size2" onchange="document.commentForm.shoes_size, document.commentForm.shoes_size2" size="1">
+            <?PHP
+				$No = array("請選擇");
+				$US_W = array("請選擇","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13"); 
+				$US_M = array("請選擇","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5","15");
+				$France = array("請選擇","3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5");
+				$Britain = array("請選擇","36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
+				$Japan = array("請選擇","220","225","230","235","240","245","250","255","260","265","270","275","280","285","290","295","300","305","310","315","320","325","330");
+				
+				$shoes_size = $list3[18];
+				
+				if($shoes_size == "請選擇")
+					$test = $No;
+				else if($shoes_size == "美國(女)")
+					$test = $US_W;
+				else if($shoes_size == "美國(男)")
+					$test = $US_M;
+				else if($shoes_size == "英國")
+					$test = $France;
+				else if($shoes_size == "法國")
+					$test = $Britain;
+				else if($shoes_size == "日本")
+					$test = $Japan;
+					
+				$shoes_all = "select shoes_size,shoes_size2 from members";
+				$shoes_result = mysql_query($shoes_all);
+				$shoes = mysql_fetch_array($shoes_result);
+				
+				for($a=0;$a<=count($test);$a++)
+				{
+			?>
+					<option value="<?PHP echo $test[$a];?>"<?PHP if($test[$a] == $shoes[1]) echo "selected";?>><?PHP echo $test[$a];?></option>
+			<?PHP
+				}
+			?>
+    		</select>
+
+            <strong> cm (公分)
+            <font size="1" color="#0000FF"> (若沒有下拉選單，請按F5重新整理)</font>
+            </strong>
 			</td>
 		</tr>
+        
+<script language="JavaScript" type="text/javascript">
+<!--
+
+//==================== for zip code begin =========================
+County1 = new Array("請選擇","美國(女)","美國(男)","英國","法國","日本");
+
+Zone1 = new Array(6);
+
+// for "請選擇"
+Zone1[0] = new Array("請選擇");
+
+// for "美國(女)"
+Zone1[1] = new Array("請選擇","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13");
+
+// for "美國(男)"
+Zone1[2] = new Array("請選擇","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5","15");
+
+// for "英國"
+Zone1[3] = new Array("請選擇","3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5");
+
+// for "法國"
+Zone1[4] = new Array("請選擇","36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
+
+// for "日本"
+Zone1[5] = new Array("請選擇","220","225","230","235","240","245","250","255","260","265","270","275","280","285","290","295","300","305","310","315","320","325","330");
+
+function initCounty1(county1Input)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+	}
+	county1Input.selectedIndex = <?PHP echo $list3[18]?>;
+}
+
+function initZone1(county1Input, zone1Input, post)
+{
+	changeZone1(county1Input, zone1Input, post);
+}
+
+function initCounty1(county1Input, county1Value)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+
+		if (county1Value == County1[j])
+		county1Input.selectedIndex = j;
+	}
+}
+
+function initZone1(county1Input, zone1Input, post, zone1Value)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+	
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+}
+
+function changeZone1(county1Input, zone1Input, post)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+	
+	if(county1Input.selectedIndex == <?PHP echo $list3[18]?>)
+	{
+		zone1Input.selectedIndex = <?PHP echo $list3[19]?>;
+	}
+	if(county1Input.selectedIndex != <?PHP echo $list3[18]?>)
+	{
+		zone1Input.selectedIndex = 0;
+	}	
+}
+
+initCounty1(document.commentForm.shoes_size)
+initZone1(document.commentForm.shoes_size, document.commentForm.shoes_size2);
+
+// -->
+</script>
+        
         <tr>
 			<td colspan="3"><hr size="1" /></td>
 		</tr>

@@ -342,7 +342,7 @@ function MM_swapImage() { //v3.0
    				while($list1=mysql_fetch_array($resul))
    				{ 
 						//賣家是否有 自然人憑證
-						$people_sql = "select people from members where m_number = ".$list1['c_number'];
+						$people_sql = "select people from members where m_number = ".$list1['m_number'];
 						$people_query = mysql_query($people_sql);
 						$people_rows = mysql_fetch_array($people_query);
 	
@@ -404,7 +404,7 @@ function MM_swapImage() { //v3.0
         <div id="pop"><?php if($list1['pop']!=""){ echo "<img src='素材/購買憑證.png' onload='javascript:DrawImage(this,60,60);'/>";}  ?></div>
         <div id="people">
 			<?php 
-				if($people_rows[0]==0) 
+				if($people_rows[0]==1) 
 					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,30,30);' />";
 			?>
         </div>

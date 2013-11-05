@@ -114,15 +114,18 @@ if((empty($_POST['shoes_size']))&(!empty($_POST['shoes_size2'])))//shoes_size2
 	die();
 }
 
-
 include("errorreport.php");
 include("server.php");
 include("addtime.php");
+
 $m_addtime = $addtime;
 
 	$_POST["City"];
 	$_POST["Canton"];
 	$_POST['caddress'];
+	
+	$_POST["shoes_size"];
+	$_POST["shoes_size2"];
 	
 	$sql_county = "select * FROM `county` WHERE `county_name` = '".$_POST["City"]."'";
 	$query_county = mysql_query($sql_county);

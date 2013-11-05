@@ -1,5 +1,6 @@
 <?PHP
 session_start();
+include("main.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,8 +52,6 @@ c{
 
 </head>
 <body >
-
-<?PHP include("main.php"); ?>
 
 
 <div class="ap"><img src="素材/註冊會員2.png" width="896" height="624" alt="註冊會員2" />

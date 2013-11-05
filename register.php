@@ -102,9 +102,6 @@ saveHistory{behavior:url(#default#savehistory);}
 				shoulder:{
 					number : true
 				},
-				shoes_size2:{
-					number : true
-				},
 			}
 		});
 		$('input:text[name=account]').bind("blur",function(){
@@ -389,14 +386,14 @@ initZone(document.form1.City, document.form1.Canton);
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">FB帳號</font>    </td>
     <td>
-    	<input type="text" id="fb_id" name="fb_id" size="50">
+    	<input type="text" id="fb_id" name="fb_id" size="30">
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">LINE帳號</font>    </td>
     <td>
-    	<input type="text" id="line_id" name="line_id" size="50">
+    	<input type="text" id="line_id" name="line_id" size="30">
     </td>
 </tr>
 <tr>
@@ -462,14 +459,14 @@ echo "</select>";
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">身高</font>    </td>
     <td>
-    	<input type="text" id="height" name="height" size="11" placeholder="cm(公分)">
+    	<input type="text" id="height" name="height" size="10" placeholder="cm(公分)">
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">體重</font>    </td>
     <td>
-    	<input type="text" id="weight" name="weight" size="11" placeholder="kg(公斤)">
+    	<input type="text" id="weight" name="weight" size="10" placeholder="kg(公斤)">
     </td>
 </tr>
 
@@ -493,32 +490,115 @@ echo "</select>";
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">三圍</font>    </td>
     <td>
-    	<input type="text" id="bust" name="bust" size="7" placeholder="吋"><FONT SIZE=2>（胸圍）</FONT>
-        <input type="text" id="waistline" name="waistline" size="7" placeholder="吋"><FONT SIZE=2>（腰圍）</FONT>
-        <input type="text" id="hips" name="hips" size="7" placeholder="吋"><FONT SIZE=2>（臀圍）</FONT>
+    	<input type="text" id="bust" name="bust" size="5" placeholder="公分"><FONT SIZE=2>(胸圍)</FONT>
+        <input type="text" id="waistline" name="waistline" size="5" placeholder="公分"><FONT SIZE=2>(腰圍)</FONT>
+        <input type="text" id="hips" name="hips" size="5" placeholder="公分"><FONT SIZE=2>(臀圍)</FONT>
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">肩寬</font>    </td>
     <td>
-    	<input type="text" id="shoulder" name="shoulder" size="11" placeholder="cm(公分)">
+    	<input type="text" id="shoulder" name="shoulder" size="10" placeholder="cm(公分)">
     </td>
 </tr>
 <tr>
 	<td style="text-align:right;">
 		<font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">鞋子尺寸</font>    </td>
     <td>
-    	<select id="shoes_size" name="shoes_size">
-        <option value="">請選擇</option>
-        <option value="美國">美國</option>
-        <option value="英國">英國</option>
-        <option value="法國">法國</option>
-        <option value="日本">日本</option>
+    	<select name="shoes_size" id="shoes_size" onchange="changeZone1(document.form1.shoes_size, document.form1.shoes_size2)" size="1" >
         </select>
-    	<input type="text" id="shoes_size2" name="shoes_size2" size="11" placeholder="請輸入尺寸">
+        <select name="shoes_size2" id="shoes_size2" onchange="document.form1.shoes_size, document.form1.shoes_size2" size="1">
+        </select>
     </td>
 </tr>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+//==================== for zip code begin =========================
+County1 = new Array("請選擇","美國(女)","美國(男)","英國","法國","日本");
+
+Zone1 = new Array(6);
+
+// for "請選擇"
+Zone1[0] = new Array("請選擇");
+
+// for "美國(女)"
+Zone1[1] = new Array("5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13");
+
+// for "美國(男)"
+Zone1[2] = new Array("4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5","15");
+
+// for "英國"
+Zone1[3] = new Array("3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5");
+
+// for "法國"
+Zone1[4] = new Array("36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
+
+// for "日本"
+Zone1[5] = new Array("220","225","230","235","240","245","250","255","260","265","270","275","280","285","290","295","300","305","310","315","320","325","330");
+
+function initCounty1(county1Input)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+	}
+	county1Input.selectedIndex = 0;
+}
+
+function initZone1(county1Input, zone1Input, post)
+{
+	changeZone1(county1Input, zone1Input, post);
+}
+
+function initCounty1(county1Input, county1Value)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+
+		if (county1Value == County1[j])
+		county1Input.selectedIndex = j;
+	}
+}
+
+function initZone1(county1Input, zone1Input, post, zone1Value)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+	
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+}
+
+function changeZone1(county1Input, zone1Input, post)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+		zone1Input.selectedIndex = 0;	
+}
+
+initCounty1(document.form1.shoes_size)
+initZone1(document.form1.shoes_size, document.form1.shoes_size2);
+
+// -->
+</script>
+
 <tr>
 <td>&nbsp;
 

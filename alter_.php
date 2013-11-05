@@ -13,7 +13,7 @@ include("server.php");
 <?PHP
 	$colors_number = $_POST["colors_number"];
 
-	if($colors_number=="")
+	if($colors_number == "")
 	{
 ?>
 <script>
@@ -23,10 +23,46 @@ window.history.back();
 <?PHP
 	die();
 	}
+	
+	if($shoes_size != "請選擇" and $shoes_size2 == "請選擇")
+	{
+?>
+<script>
+window.alert("請選擇完整鞋子尺寸");
+window.history.back();
+</script>
+<?PHP
+	die();
+	}
+	
+	if($shoes_size == "請選擇" and $shoes_size2 == "")
+	{
+?>
+<script>
+window.alert("這是錯誤的鞋子尺寸");
+window.history.back();
+</script>
+<?PHP
+	die();
+	}
+	
+	if($shoes_size != "請選擇" and $shoes_size2 == "")
+	{
+?>
+<script>
+window.alert("這是錯誤的鞋子尺寸");
+window.history.back();
+</script>
+<?PHP
+	die();
+	}
 ?>
 <?PHP
 	$_POST["county"];
 	$_POST["city"];
+	
+	$_POST["shoes_size"];
+	$_POST["shoes_size2"];
 	
 	$sql_county = "select * FROM `county` WHERE `county_name` = '".$_POST["county"]."'";
 	$query_county = mysql_query($sql_county);

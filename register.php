@@ -477,12 +477,10 @@ echo "</select>";
 	<td>	
     <select name="clothes_size" id="clothes_size">
         <option value="">請選擇</option>
-        <option value="XS">XS</option>
         <option value="S">S</option>
         <option value="M">M</option>
         <option value="L">L</option>
         <option value="XL">XL</option>
-        <option value="XXL">XXL</option>
         </select>
     </td>
 </tr>

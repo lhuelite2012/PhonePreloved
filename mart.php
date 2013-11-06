@@ -238,7 +238,7 @@ window.onload = function()
      <div id="people">
 			<?php 
 				if($list3_m['people']==1) 
-					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,50,50);' />";
+					echo "<img src='素材/自然人.png' onload='javascript:DrawImage(this,100,100);' />";
 			?>
         </div>
 	<font size="4" color="#000000">　<?PHP echo $list3_m['account'] ?></font><p></p>

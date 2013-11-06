@@ -1,5 +1,6 @@
 <?PHP
 session_start();
+include("main.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -41,7 +42,6 @@ saveHistory{behavior:url(#default#savehistory);}
 
 
 <body >
-<?PHP include("main.php"); ?>
 <div id=ce2>
  <div id="ap"><img src="素材/上架3.png" width="978" height="557" alt="上架3-1" />
    <div id="apDiv">
@@ -157,16 +157,99 @@ if($_SESSION['added'] == "2")
     	商品規格
     </td>
     <td>
-    	<select id="s_size" id="s_size" name="s_size">
-        <option value="">請選擇</option>
-        <option value="US">美國</option>
-        <option value="UK">英國</option>
-        <option value="FR">法國</option>
-        <option value="JP">日本</option>
+		<select name="s_size" id="s_size" onchange="changeZone1(document.form1.s_size, document.form1.size)" size="1" >
         </select>
-    	<FONT SIZE=2> 尺寸 </FONT><input type="text" id="size" name="size" size="3">
+        <select name="size" id="size" onchange="document.form1.s_size, document.form1.size" size="1">
+        </select>
+        <FONT SIZE=2></FONT>
     </td>
 </tr>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+//==================== for zip code begin =========================
+County1 = new Array("請選擇","美國(女)","美國(男)","英國","法國","日本");
+
+Zone1 = new Array(6);
+
+// for "請選擇"
+Zone1[0] = new Array("請選擇");
+
+// for "美國(女)"
+Zone1[1] = new Array("5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13");
+
+// for "美國(男)"
+Zone1[2] = new Array("4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5","15");
+
+// for "英國"
+Zone1[3] = new Array("3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12","12.5","13","13.5","14","14.5");
+
+// for "法國"
+Zone1[4] = new Array("36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
+
+// for "日本"
+Zone1[5] = new Array("220","225","230","235","240","245","250","255","260","265","270","275","280","285","290","295","300","305","310","315","320","325","330");
+
+function initCounty1(county1Input)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+	}
+	county1Input.selectedIndex = 0;
+}
+
+function initZone1(county1Input, zone1Input, post)
+{
+	changeZone1(county1Input, zone1Input, post);
+}
+
+function initCounty1(county1Input, county1Value)
+{
+	county1Input.length = County1.length;
+	for (j = 0; j < County1.length; j++)
+	{
+		county1Input.options[j].value = County1[j];
+		county1Input.options[j].text = County1[j];
+
+		if (county1Value == County1[j])
+		county1Input.selectedIndex = j;
+	}
+}
+
+function initZone1(county1Input, zone1Input, post, zone1Value)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+	
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+}
+
+function changeZone1(county1Input, zone1Input, post)
+{
+	selectedCounty1Index = county1Input.selectedIndex;
+
+	zone1Input.length = Zone1[selectedCounty1Index].length;
+	for (j = 0; j < Zone1[selectedCounty1Index].length; j++)
+	{
+		zone1Input.options[j].value = Zone1[selectedCounty1Index][j];
+		zone1Input.options[j].text = Zone1[selectedCounty1Index][j];
+	}
+		zone1Input.selectedIndex = 0;	
+}
+
+initCounty1(document.form1.s_size)
+initZone1(document.form1.s_size, document.form1.size);
+
+// -->
+</script>
 
 <tr>
 	<td>

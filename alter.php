@@ -15,15 +15,234 @@ include("myaccount.php");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>修改個人資料</title>
 <style type="text/css">
-	#photo
-	{
+#PKI
+{
 	position:absolute;
-	left: 440px;
-	top: 126px;
-	width: 90px;
+	left: 162px;
+	top: 88px;
+	width: 250px;
 	height: 50px;
-	}
+}
+#people
+{
+	position:absolute;
+	left: 495px;
+	top: 65px;
+	width: 250px;
+	height: 50px;
+}
 </style>
+<embed id="hipkiclient" type="application/x-hipki-client" width=0.1 height=0.1></embed>
+<script>
+	/*    MOICA  */
+	function getHiPKIPlugin(){
+		var agent = navigator.userAgent.toLowerCase();
+		var browser = "Unknown browser";
+		var hipkiclient;
+		alert("getHiPKIPlugin:  "+agent.search ("msie"));
+		if (agent.search ("msie") > -1) {
+			browser = "Internet Explorer";
+			try{
+				hipkiclient = new ActiveXObject("CHT.HiPKIClient.1");
+			}catch(e){
+				alert("Create HiPKIClient ActiveX Object Error!");
+				return null;
+			}
+			if(typeof(hipkiclient)=='object'){
+				return hipkiclient;
+			}
+			return null;
+		} else {//non IE Browsers
+			if(navigator.mimeTypes &&
+				navigator.mimeTypes["application/x-hipki-client"] &&
+				(hipkiclient=navigator.mimeTypes["application/x-hipki-client"].enabledPlugin)!=null)
+			{
+				var container = document.getElementById("HiPKIClient");
+				container.innerHTML="<embed id=\"hipkiclient\" type=\"application/x-hipki-client\" width=1 height=1/>";
+				return document.getElementById("hipkiclient");
+			}else{
+				alert("Create HiPKIClient Plugin Error!");
+				return null;
+			}
+		}
+		return null;
+	}
+	
+	function detectHiPKIPlugin(){
+		var agent = navigator.userAgent.toLowerCase(); 
+		var browser = "Unknown browser";
+		var hipkiclient;
+		//alert("detectHiPKIPlugin:  "+agent.search ("msie"));
+		if (agent.search ("msie") > -1) {
+			browser = "Internet Explorer";
+			try{
+				hipkiclient = new ActiveXObject("CHT.HiPKIClient.1");
+			}catch(e){
+				//alert("Create HiPKIClient ActiveX Object Error!");
+				return false;
+			}
+			if(typeof(hipkiclient)=='object'){
+				return true;
+			}
+			return false;
+		} else {//non IE Browsers
+			if(navigator.mimeTypes &&
+				navigator.mimeTypes["application/x-hipki-client"] &&
+				(hipkiclient=navigator.mimeTypes["application/x-hipki-client"].enabledPlugin)!=null)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	
+		function MajorErrorReason(rcode){
+		switch(rcode){
+			case 0x76000001:
+				return "未輸入金鑰";
+			case 0x76000002:
+				return "未輸入憑證";
+			case 0x76000003:
+				return "未輸入待簽訊息";
+			case 0x76000004:
+				return "未輸入密文";
+			case 0x76000005:
+				return "未輸入函式庫檔案路徑";
+			case 0x76000006:
+				return "未插入IC卡";
+			case 0x76000007:
+				return "未登入";
+			case 0x76000008:
+				return "型態錯誤";
+			case 0x76000999:
+				return "使用者已取消動作";
+			case 0x76100001:
+				return "無法載入IC卡函式庫檔案";
+			case 0x76100002:
+				return "結束IC卡函式庫失敗";
+			case 0x76100003:
+				return "無可用讀卡機";
+			case 0x76100004:
+				return "取得讀卡機資訊失敗";
+			case 0x76100005:
+				return "取得session失敗";
+			case 0x76100006:
+				return "IC卡登入失敗";
+			case 0x76100007:
+				return "IC卡登出失敗";
+			case 0x76100008:
+				return "IC卡取得金鑰失敗";
+			case 0x76100009:
+				return "IC卡取得憑證失敗";
+			case 0x76200001:
+				return "pfx初始失敗";
+			case 0x76200006:
+				return "pfx登入失敗";
+			case 0x76200007:
+				return "pfx登出失敗";
+			case 0x76200008:
+				return "不支援的CA";
+			case 0x76300001:
+				return "簽章初始錯誤";
+			case 0x76300002:
+				return "簽章型別錯誤";
+			case 0x76300003:
+				return "簽章內容錯誤";
+			case 0x76300004:
+				return "簽章執行錯誤";
+			case 0x76300005:
+				return "簽章憑證錯誤";
+			case 0x76300006:
+				return "簽章DER錯誤";
+			case 0x76300007:
+				return "簽章結束錯誤";
+			case 0x76400001:
+				return "解密DER錯誤";
+			case 0x76400002:
+				return "解密型態錯誤";
+			case 0x76400003:
+				return "解密錯誤";
+			case 0x76600001:
+				return "Base64編碼錯誤";
+			case 0x76600002:
+				return "Base64解碼錯誤";
+			case 0x76700001:
+				return "伺服金鑰解密錯誤";
+			case 0x76700002:
+				return "未登錄伺服金鑰";
+			case 0x76700003:
+				return "伺服金鑰加密錯誤";
+			default:
+				return rcode.toString(16);
+		}
+	}
+	function MinorErrorReason(rcode){
+		switch(rcode){
+			case 0x06:
+				return "函式失敗";
+			case 0xA0:
+				return "PIN碼錯誤";
+			case 0xA2:
+				return "PIN碼長度錯誤";
+			case 0xA4:
+				return "已鎖卡";
+			case 0x150:
+				return "記憶體緩衝不足";
+			default:
+				return rcode.toString(16);
+		}
+	}
+	
+	function MakeCredential(){
+		//alert("Make");
+		var plugin= document.getElementById("hipkiclient");
+		var rcode;
+		//rcode = plugin.Register("<%=application.getInitParameter("ClientKey")%>");
+		rcode = plugin.Register("ua72DLOrQhlt0MKrV5uj/CWcCyrTEfA4suWk9smOUQU=");
+		//console.log(plugin);
+		if(rcode!=0){
+			alert(MajorErrorReason(rcode)+", code="+rcode.toString(16));
+			return;
+		}
+		plugin.withCardSN=true;
+		//console.log(plugin);
+		rcode = plugin.MakeCredential("<%=session.getId()%>","",document.getElementById("PIN").value);
+		if(rcode!=0){
+			alert(MajorErrorReason(rcode)+", code="+rcode.toString(16)+", minor error="+MinorErrorReason(plugin.lastError));
+			$("#userPKI").html("認證失敗");
+			$("#userPKI").css('color','#F00');
+			$("#hasPKI").val("0");
+			return;
+		}
+		document.getElementById("signedData").value = plugin.CredentialB64;
+		$("#userPKI").html("認證成功!");
+		$("#userPKI").css('color','#00F');
+		$("#hasPKI").val("1");
+		
+	}
+	
+	function HiPKIOnLoad(){
+		
+		if(detectHiPKIPlugin()==false){
+			//No hipki detected or hipki disabled
+			window.location="installPlugin.php";
+		}
+		
+		var plugin= document.getElementById("hipkiclient");
+		var expectedVersion="1.3.0.0794";
+		//alert(plugin.version+" "+expectedVersion);
+		if(plugin.version<expectedVersion){
+			alert("Please upgrade HiPKI Client to version "+expectedVersion+" or higher");
+			window.location="installPlugin.php";
+		} 
+		//alert(navigator.appVersion.indexOf("Win"));
+	
+	}
+	/*    MOICA  */
+</script>
 <script type="text/javascript" src="jQuery/jquery.validate.js"></script>
 <script>
 	$(document).ready(function() {
@@ -60,7 +279,7 @@ include("myaccount.php");
 </script>
 <script type="text/jscript" src="jQuery/imageScaling.js"></script>
 </head>
-<body>
+<body onload="HiPKIOnLoad()">
 <?PHP		
 	$u = $_SESSION["m_number"]; 
 	
@@ -87,12 +306,57 @@ include("myaccount.php");
 	<div id="apDiv50"><a href="altercode.php"><img src="素材/個人資料-變更密碼白.png" width="141" height="49" /></div>
     <div id="apDiv51"><a href="alter.php"><img src="素材/個人資料-帳號資料綠.png" width="141" height="49" /></a></div>
 </div>
-<div id="apDiv13"><img src="素材/我的帳號下-白底.png" width="751" height="870" alt="我的帳號下白底" />
+<div id="apDiv13"><img src="素材/我的帳號下-白底.png" width="751" height="965" alt="我的帳號下白底" />
 <div align="center" id="apDiv46">
 <form action="alter_.php" method="post" name="commentForm" id="commentForm" enctype="multipart/form-data">
 	<table>
 		<tr>
         	<th colspan="3"><font size="5" color="#FF0000">修改個人資料</font></th>
+		</tr>
+        <tr>
+			<td colspan="3"><hr size="1" /></td>
+		</tr>
+        <tr>
+        	<td></td>
+			<td><strong><font size="4" color="#0000FF">認證資料</font></strong></td>
+            <td><strong><font size="4" color="#FF0000"></font>此處為自然人憑證認證，若沒有可跳過此步驟</strong></td>
+            <td></td>
+        </tr>
+		<tr>
+			<td></td>
+		</tr>
+        <tr>
+        	<td></td>
+            <td><strong>自然認證：</strong></td>
+            <td>
+            <?PHP
+				//查詢會員的自然人憑證為0或1
+				$sql_PKI = "select people from members where m_number = '$u'";
+				$query_PKI = mysql_query($sql_PKI);
+				$list3_PKI = mysql_fetch_array($query_PKI);
+				
+				if($list3_PKI[0] == "0")
+				{
+			?>
+                    <input id="PIN" name="PIN" value="" type="hidden">
+                    <input name="signedData" id="signedData" value="" type="hidden">
+                    <input name="hasPKI" id="hasPKI" value="0" type="hidden">
+                    <strong>
+                    <div id="userPKI" style="position:absolute;float:left; left:215px; top:91px; color:#000;">尚未認證</div>
+                    </strong>
+                    <input name="button" value="登入" type="button" onclick="MakeCredential()" class="sent">              
+            <?PHP
+				}
+				
+				if($list3_PKI[0] == "1")
+				{
+			?>
+                    <div id="PKI"><strong><font color="#0000FF">恭喜您，您已經成功認證是自然人</font></strong></div>
+                    <div id="people"><img src="素材/自然人.png" width="80" height="41"></div>
+            <?PHP
+				}
+			?>
+            </td>
 		</tr>
 		<tr>
 			<td colspan="3"><hr size="1" /></td>
@@ -101,6 +365,7 @@ include("myaccount.php");
         	<td></td>
 			<td><strong><font size="4" color="#0000FF">基本資料</font></strong></td>
             <td><strong><font size="4" color="#FF0000">★</font>為必填</strong></td>
+            <td></td>
 		</tr>
         <tr>
 			<td></td>
@@ -369,7 +634,7 @@ initZone(document.commentForm.county, document.commentForm.city);
 		</tr>
 		<tr>
         	<td></td>
-			<td><strong><font size="4" color="#0000FF">身材</font></strong></td>
+			<td><strong><font size="4" color="#0000FF">身材資料</font></strong></td>
 		</tr>
         <tr>
 			<td></td>
@@ -396,12 +661,10 @@ initZone(document.commentForm.county, document.commentForm.city);
 			<td>
          	<select name="clothes_size" id="clothes_size">
             <option value="" <?PHP if($list3[17] == "") echo "selected";?>>請選擇</option>
-            <option value="XS" <?PHP if($list3[17] == "XS") echo "selected";?>>XS</option>
             <option value="S" <?PHP if($list3[17] == "S") echo "selected";?>>S</option>
             <option value="M" <?PHP if($list3[17] == "M") echo "selected";?>>M</option>
             <option value="L" <?PHP if($list3[17] == "L") echo "selected";?>>L</option>
             <option value="XL" <?PHP if($list3[17] == "XL") echo "selected";?>>XL</option>
-            <option value="XXL" <?PHP if($list3[17] == "XXL") echo "selected";?>>XXL</option>
             </select>
 			</td>
 		</tr>

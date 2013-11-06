@@ -73,6 +73,33 @@ function floor_count($s_sql,$r_type,$r_score,$m_number,$what)
 	} 
 //------------------------------|||||||||----------------------------------
 
+//-------------------------------------------------------------------------	
+//試穿推薦  存入 推薦(recommend) 資料表
+
+
+	function try_recommend($try_sql,$r_type,$r_score,$m_number,$what)
+	{
+		$try_mode = array("c_try_height","c_try_weight","c_try_shoulder","c_try_bust","c_try_waistline","c_try_hips");
+		$try_query = mysql_query($try_sql);
+		$try_row = mysql_fetch_array($try_query);
+		for($a=0;$a<6;$a++){
+			if($try_row[$a]!=0){
+				$hi = $try_row[$a]+5;
+				$lo = $try_row[$a]-5;
+				$sql = "select c_number from commodity where $try_mode[$a] between $lo and $hi  ";
+				$query = mysql_query($sql);
+				while($c_row = mysql_fetch_array($query))
+				{
+					$c_number = $c_row['c_number'];
+					$insert_sql="insert into recommend (r_type,m_number,c_number,r_score) value ($r_type,$m_number,$c_number,$r_score)";
+					mysql_query($insert_sql);			
+				}
+			}
+		}
+		
+	} 
+//------------------------------|||||||||----------------------------------
+
 
 //細分類
  	function finesort($s_fsort){

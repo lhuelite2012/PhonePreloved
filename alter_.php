@@ -312,6 +312,12 @@ window.history.back();
 		$sql = "UPDATE `members` SET `shoes_size` = NULL , `shoes_size2` = NULL WHERE `m_number`='".$_SESSION["m_number"]."'";
 		mysql_query($sql); //執行$sql更新語法鞋子尺寸、鞋子尺寸公分	
 	}
+	
+	if($_POST['hasPKI'] == "1")
+	{
+		$sql = "UPDATE `members` SET `people` = 1 WHERE `m_number`='".$_SESSION["m_number"]."'";
+		mysql_query($sql); //執行$sql更新語法鞋子尺寸、鞋子尺寸公分	
+	}
 ?>
 <Script>
 function goback()

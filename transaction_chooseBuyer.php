@@ -44,7 +44,7 @@
 	if(isset($_POST['c_number'])){
 		//echo "請在時間到期後48小時內選擇得標者，若沒點選擇以最高價格得標";
 		$c_number = $_POST['c_number'];
-		$c_bid = "SELECT MAX( bid.bid_price ) as bid_price ,bid.m_number, bid.bid_number, bid_time, members.account, members.total, members.buy, members.sell, members.score
+		$c_bid = "SELECT MAX( bid.bid_price ) as bid_price ,bid.m_number, bid.bid_number, bid_time, members.account,members.people, members.total, members.buy, members.sell, members.score
 FROM bid
 JOIN members ON bid.m_number = members.m_number
 WHERE bid.c_number =$c_number
@@ -57,10 +57,11 @@ ORDER BY 1 DESC
 		<form action="transaction_trueBuyer.php" method="post" name="choosebuyer"><br />
 
         <div id="buyer">
-		<table border="1" id="bid" align="center" width="800px">
-			<tr style="background:#999999; color:#FFF;"　　>
+		<table border="1" id="bid" align="center" width="880px">
+			<tr style="background:#999999; color:#FFF;"　　　　　　　　>
                 <th>出價者</th>
                 <th>評價</th>
+                <th>自然人憑證</th>
                 <th>買方總評價</th>
                 <th>賣方總評價</th>
                 <th>其他總評價</th>
@@ -72,6 +73,8 @@ ORDER BY 1 DESC
             <tr>
                 <td><a href="mart.php?m_number=<?php echo $c_bid_row['m_number']; ?>"><?php echo $c_bid_row['account']; ?></a></td>
                 <td><?php echo $c_bid_row['total']; ?></td>
+                <td><?php if($c_bid_row['people']==1) 
+					echo "<img src='素材/自然人.png' onload='javascript:DrawImage(this,60,60);' />";?></td>
                 <td><?php echo $c_bid_row['buy']; ?></td>
                 <td><?php echo $c_bid_row['sell']; ?></td>
                 <td><?php echo $c_bid_row['score']; ?></td>

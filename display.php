@@ -235,8 +235,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', end
 }
 #people{
 	position:absolute;
-	top:65px;
-	left:220px;
+	top:70px;
+	left:200px;
 	z-index:250;
 }
 </style>
@@ -405,7 +405,7 @@ function MM_swapImage() { //v3.0
         <div id="people">
 			<?php 
 				if($people_rows[0]==1) 
-					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,30,30);' />";
+					echo "<img src='素材/自然人.png' onload='javascript:DrawImage(this,70,70);' />";
 			?>
         </div>
 		<div id='c_mp'><img src='<?php echo $displayPathWeb.$list1['c_mp']; ?>'/></div>

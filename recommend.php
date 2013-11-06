@@ -43,17 +43,48 @@ LIMIT $limit";
 //------------------------------|||||||||----------------------------------
 	
 //-------------------------------------------------------------------------
-//商品有自然人憑證  r_type =10
+//賣家有自然人憑證  r_type =10
 
 
 	$r_type = 10;
 	$r_score = 8;
-	$what = "c_number";
 	delete_recommend($r_type,$m_number);
 	
 	//擁有自然人憑證的商品
 	$s_sql = "select c.c_number,m.people from commodity c join members m on c.m_number = m.m_number where m.people=1";
 	insert_recommend($s_sql,$r_type,$r_score,$m_number);
+	
+	
+//------------------------------|||||||||----------------------------------	
+
+//-------------------------------------------------------------------------
+//試穿尺寸推薦  r_type =11
+	//+-5公分
+
+	$r_type = 11;
+	$r_score = 2;
+	$what = "c_number";
+	delete_recommend($r_type,$m_number);
+	
+	//會員的 身高 體重 三圍
+	$s_sql = "SELECT height,weight,shoulder,bust,waistline,hips from members where m_number = $m_number";
+	try_recommend($s_sql,$r_type,$r_score,$m_number,$what);
+	
+	
+//------------------------------|||||||||----------------------------------	
+
+//-------------------------------------------------------------------------
+//鞋子尺寸推薦  r_type =12
+	//+-5公分
+
+	$r_type = 12;
+	$r_score = 6;
+	$what = "c_number";
+	delete_recommend($r_type,$m_number);
+	
+	//會員的 身高 體重 三圍
+	$s_sql = "SELECT shoes_size,shoes_size2 from members where m_number = $m_number";
+	try_shoes_recommend($s_sql,$r_type,$r_score,$m_number,$what);
 	
 	
 //------------------------------|||||||||----------------------------------	

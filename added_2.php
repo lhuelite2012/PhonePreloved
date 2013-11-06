@@ -1,5 +1,8 @@
 <?PHP
 session_start();
+include("main.php");
+include("server.php");
+include("loginConfirm.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -410,9 +413,7 @@ session_start();
 
 
 <body >
-<?PHP include("main.php");
-include("server.php");
-include("loginConfirm.php");
+<?PHP 
 if($_SESSION['added'] == "2")
 {
 	?><script>window.alert('商品已存入無法修改');

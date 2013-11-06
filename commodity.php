@@ -234,10 +234,26 @@
 		background:#FFF;
 	}
 	#people{
-		position:relative;
+		position:absolute;
+		float:left;
 		width:50px;
 		height:20px;
-		top:200px;
+		top:30px;
+		left:250px;
+	}
+	#endtab{
+		line-height: 27px;
+		bottom: 0px;
+		right: 0px;
+		position:absolute;
+		top:3500px;
+		border-top: 1px solid #e5e5e5;
+		background-color:#83BA35;
+		z-index: 10;
+		left:-130px;
+		height:60px;
+		width:1270px;
+		text-align:center;
 	}
 </style>
 <title>商品展示</title>
@@ -381,7 +397,7 @@ include("related_commodity.php");
         	<tr>
             	<td rowspan="3"><img src="素材/紙膠-賣家資訊.png" onload="javascript:DrawImage(this,100,100);" /> </td>	
         		<td height="27px">賣　　家︰</td><td style="font-size:12px;"><?php echo $acc_rows["account"]; if($people_rows[0]==1) 
-					echo "<img src='素材/驚嘆號.png' onload='javascript:DrawImage(this,30,30);' />";?></td>
+					echo "<div id='people'><img src='素材/自然人.png' onload='javascript:DrawImage(this,70,70);' /></div>";?></td>
         	</tr>
         	<tr>
             	<td height="27px">全部商品︰</td><td><?php echo $allc_rows[0]; ?><a href="mart.php?c_number=<?php echo $c_number;?>" >賣場首頁</a></td><td></td>
@@ -733,7 +749,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 			include("qa.php");
 		break;
 	}
-?><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+?>
 	</div>
 
 </div>

@@ -1,6 +1,5 @@
 <?PHP
 session_start();
-include("main.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,7 +42,7 @@ saveHistory{behavior:url(#default#savehistory);}
 
 
 <body >
-
+<?PHP include("main.php"); ?>
 <div id=ce2>
  <div id="ap"><img src="素材/上架3.png" width="978" height="557" alt="上架3-1" />
    <div id="apDiv">
@@ -52,24 +51,6 @@ saveHistory{behavior:url(#default#savehistory);}
 include("loginConfirm.php"); 
 include("server.php");
 $_SESSION['Specification'] = "3";
-if($_SESSION['added'] == "1")
-{
-	?><script>window.alert('商品已存入無法修改');
-	window.location="added_4.php"; 
-	</script>
-    <?PHP
-	die();
-
-}
-if($_SESSION['added'] == "2")
-{
-	?><script>window.alert('商品已存入無法修改');
-	</script>
-    <?PHP
-	die();
-
-}
-
 ?>
 <table width="865" height="407">
 <tr>
@@ -79,7 +60,7 @@ if($_SESSION['added'] == "2")
 	<td>
 		<input type="text" id="c_name" name="c_name" size="50" maxlength="30"><FONT color="#FF0000" SIZE=1>限30個中文字內</FONT>
 	</td>
-    <td rowspan="9" style="text-align:right">
+    <td rowspan="10" style="text-align:right">
     	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
         </td>
 </tr>
@@ -92,7 +73,7 @@ if($_SESSION['added'] == "2")
 	        <option>請選擇</option>
 	        <option value="基隆市" >基隆市</option>
 	        <option value="臺北市" >臺北市</option>
-	        <option value="新北市" >新北市</option>
+	        <option value="臺北縣" >新北市</option>
 	        <option value="桃園縣" >桃園縣</option>
             <option value="新竹市" >新竹市</option>
 	        <option value="新竹縣" >新竹縣</option>
@@ -202,14 +183,14 @@ echo "</select>";
     	<input type="text" id="c_price" name="c_price" size="11">
     </td>
 </tr>
-<!--<tr>
+<tr>
 	<td>
     	評價限制
     </td>
     <td>
     	<input type="text" id="lowest_record" name="lowest_record" size="10"><FONT SIZE=2>以上  </FONT><FONT color="#FF0000" SIZE=2>才可對商品出價</FONT>
     </td>
-</tr>-->
+</tr>
 <tr>
 	<td>
     	購買憑證

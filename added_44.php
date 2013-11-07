@@ -1,6 +1,5 @@
 <?PHP
 session_start();
-include("main.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,7 +12,7 @@ saveHistory{behavior:url(#default#savehistory);}
 #ap {
 	position:absolute;
 	width:250px;
-	height:587px;
+	height:561px;
 	z-index:6;
 	left: 12px;
 	top: 165px;
@@ -41,8 +40,9 @@ saveHistory{behavior:url(#default#savehistory);}
 
 
 <body >
+<?PHP include("main.php"); ?>
 <div id=ce2>
-<div id="ap"><img src="素材/上架3.png" width="978" height="587" alt="上架3-2" />
+<div id="ap"><img src="素材/上架3.png" width="978" height="557" alt="上架3-2" />
   <div id="apDiv">
  <?PHP
  include("loginConfirm.php");
@@ -56,19 +56,20 @@ $result = mysql_query($max);
 $row = mysql_fetch_array($result);
 $_SESSION['c_number'] = $row['c_number'];
 //echo $_SESSION['score'];
-
-if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上一頁修改資料
-{
-	?><script>window.alert('商品已存入無法修改');
-	</script>
-    <?PHP
-	die();
-
-}
-
 ?>
 <FORM name="form1" action="added_00.php" method="post" enctype="multipart/form-data">
 <table width="867">
+<tr height="33">
+	<td width="102">
+    	拍賣方式
+    </td>
+    <td colspan="2">
+    	價高者得標
+    </td>
+     <td width="141" rowspan="13" style="text-align:right">
+    	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
+    </td>
+</tr>
 <tr height="33">
 	<td>
     	購買商品地址
@@ -76,10 +77,6 @@ if($_SESSION['added'] == "2") //如果資料已存資料庫(added=2)無法回上
     <td colspan="2">
     	<input type="text" id="c_address" name="c_address" size="50">
     </td>
-    <td width="141" rowspan="13" style="text-align:right">
-    	<input type="image" img src="素材/按鈕-下一步.png" width="80" height="180" onClick="document.formname.submit()" value="下一步">
-    </td>
-
 </tr>
 <tr height="33">
 	<td>

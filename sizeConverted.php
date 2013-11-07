@@ -35,7 +35,7 @@
 				$vale = "and c_name like '%$vale%' or b_name like '%$vale%' or aliases like '%$vale%' ";
 			}
 			else if($str == "size" and is_numeric($vale)){
-				$JP22 = Array(5,4,3.5,36,22);
+				$JP22 = array(5,4,3.5,36,22);
 				//預設為日本
 				$nu1 = $vale+0.5;
 				$nu2 = $vale-0.5;

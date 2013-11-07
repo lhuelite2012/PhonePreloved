@@ -100,6 +100,63 @@ function floor_count($s_sql,$r_type,$r_score,$m_number,$what)
 	} 
 //------------------------------|||||||||----------------------------------
 
+//-------------------------------------------------------------------------	
+//鞋子尺寸推薦  存入 推薦(recommend) 資料表
+
+
+	function try_shoes_recommend($try_sql,$r_type,$r_score,$m_number,$what)
+	{
+		$try_query = mysql_query($try_sql);
+		$try_row = mysql_fetch_array($try_query);
+		$JP22 = array(5,4,3.5,36,22);
+		$fh = array("36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
+		switch ($try_row[0]){
+			case "美國(女)":
+				$shoes_size = $try_row[1];
+				$fh_number = ($shoes_size-$JP22[0])*2;
+				$size_mode = array($shoes_size,$shoes_size-1,$shoes_size-1.5,$fh[$fh_number],$shoes_size+17);
+				//return $size_mode[0]." ".$size_mode[1]." ".$size_mode[2]." ".$size_mode[3]." ".$size_mode[4];
+				break;
+			case "美國(男)":
+				$shoes_size = $try_row[1];
+				$fh_number = ($shoes_size-$JP22[1])*2;
+				$size_mode = array($shoes_size+1,$shoes_size,$shoes_size-0.5,$fh[$fh_number],$shoes_size+18);
+				
+				break;
+			case "英國":
+				$shoes_size = $try_row[1];
+				$fh_number = ($shoes_size-$JP22[2])*2;
+				$size_mode = array($shoes_size+1.5,$shoes_size+0.5,$shoes_size,$fh[$fh_number],$shoes_size+18.5);
+				
+				break;
+			case "法國":
+				$shoes_size = $try_row[1];
+				$a=0;
+				while($shoes_size!=$fh[$a]){
+					$a++;
+				}
+				$size_mode = array($JP22[0]+$a/2,$JP22[1]+$a/2,$JP22[2]+$a/2,$shoes_size,$JP22[4]+$a/2);
+				
+				break;
+			case "日本":
+				$shoes_size = $try_row[1];
+				$fh_number = ($shoes_size-$JP22[4])*2;
+				$size_mode = array($shoes_size-17,$shoes_size-18,$shoes_size-18.5,$fh[$fh_number],$shoes_size);
+				
+				break;
+		}
+		$size_range = array($size_mode[0]-0.5,$size_mode[0]+0.5,$size_mode[1]-0.5,$size_mode[1]+0.5,$size_mode[2]-0.5,$size_mode[2]+0.5,$size_mode[3]-0.67,$size_mode[3]+0.67,$size_mode[4]-0.5,$size_mode[4]+0.5);
+		$sql = "select c_number from commodity where  (s_size='美國(女)' and size between ".$size_range[0]." and ".$size_range[1].")  or  (s_size='美國(男)' and size between ".$size_range[2]." and ".$size_range[3].")  or  (s_size='英國' and size between ".$size_range[4]." and ".$size_range[5].") or  (s_size='法國' and size between  ".$size_range[6]." and ".$size_range[7].") or  (s_size='日本' and size between  ".$size_range[8]." and ".$size_range[9].")";
+		$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result)){
+			$c_number = $row['c_number'];
+			$insert_sql="insert into recommend (r_type,m_number,c_number,r_score) value ($r_type,$m_number,$c_number,$r_score)";	
+			mysql_query($insert_sql);
+		}
+	} 
+//------------------------------|||||||||----------------------------------
+
+
 
 //細分類
  	function finesort($s_fsort){

@@ -43,10 +43,218 @@ saveHistory{behavior:url(#default#savehistory);}
 	}
 
 </style>
-</head>
-<body >
 <script type="text/javascript" src="jQuery/jquery.validate.js"></script>
+<embed id="hipkiclient" type="application/x-hipki-client" width=0.1 height=0.1></embed>
 <script>
+	/*    MOICA  */
+	function getHiPKIPlugin(){
+		var agent = navigator.userAgent.toLowerCase();
+		var browser = "Unknown browser";
+		var hipkiclient;
+		alert("getHiPKIPlugin:  "+agent.search ("msie"));
+		if (agent.search ("msie") > -1) {
+			browser = "Internet Explorer";
+			try{
+				hipkiclient = new ActiveXObject("CHT.HiPKIClient.1");
+			}catch(e){
+				alert("Create HiPKIClient ActiveX Object Error!");
+				return null;
+			}
+			if(typeof(hipkiclient)=='object'){
+				return hipkiclient;
+			}
+			return null;
+		} else {//non IE Browsers
+			if(navigator.mimeTypes &&
+				navigator.mimeTypes["application/x-hipki-client"] &&
+				(hipkiclient=navigator.mimeTypes["application/x-hipki-client"].enabledPlugin)!=null)
+			{
+				var container = document.getElementById("HiPKIClient");
+				container.innerHTML="<embed id=\"hipkiclient\" type=\"application/x-hipki-client\" width=1 height=1/>";
+				return document.getElementById("hipkiclient");
+			}else{
+				alert("Create HiPKIClient Plugin Error!");
+				return null;
+			}
+		}
+		return null;
+	}
+	
+	function detectHiPKIPlugin(){
+		var agent = navigator.userAgent.toLowerCase(); 
+		var browser = "Unknown browser";
+		var hipkiclient;
+		//alert("detectHiPKIPlugin:  "+agent.search ("msie"));
+		if (agent.search ("msie") > -1) {
+			browser = "Internet Explorer";
+			try{
+				hipkiclient = new ActiveXObject("CHT.HiPKIClient.1");
+			}catch(e){
+				//alert("Create HiPKIClient ActiveX Object Error!");
+				return false;
+			}
+			if(typeof(hipkiclient)=='object'){
+				return true;
+			}
+			return false;
+		} else {//non IE Browsers
+			if(navigator.mimeTypes &&
+				navigator.mimeTypes["application/x-hipki-client"] &&
+				(hipkiclient=navigator.mimeTypes["application/x-hipki-client"].enabledPlugin)!=null)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	
+		function MajorErrorReason(rcode){
+		switch(rcode){
+			case 0x76000001:
+				return "未輸入金鑰";
+			case 0x76000002:
+				return "未輸入憑證";
+			case 0x76000003:
+				return "未輸入待簽訊息";
+			case 0x76000004:
+				return "未輸入密文";
+			case 0x76000005:
+				return "未輸入函式庫檔案路徑";
+			case 0x76000006:
+				return "未插入IC卡";
+			case 0x76000007:
+				return "未登入";
+			case 0x76000008:
+				return "型態錯誤";
+			case 0x76000999:
+				return "使用者已取消動作";
+			case 0x76100001:
+				return "無法載入IC卡函式庫檔案";
+			case 0x76100002:
+				return "結束IC卡函式庫失敗";
+			case 0x76100003:
+				return "無可用讀卡機";
+			case 0x76100004:
+				return "取得讀卡機資訊失敗";
+			case 0x76100005:
+				return "取得session失敗";
+			case 0x76100006:
+				return "IC卡登入失敗";
+			case 0x76100007:
+				return "IC卡登出失敗";
+			case 0x76100008:
+				return "IC卡取得金鑰失敗";
+			case 0x76100009:
+				return "IC卡取得憑證失敗";
+			case 0x76200001:
+				return "pfx初始失敗";
+			case 0x76200006:
+				return "pfx登入失敗";
+			case 0x76200007:
+				return "pfx登出失敗";
+			case 0x76200008:
+				return "不支援的CA";
+			case 0x76300001:
+				return "簽章初始錯誤";
+			case 0x76300002:
+				return "簽章型別錯誤";
+			case 0x76300003:
+				return "簽章內容錯誤";
+			case 0x76300004:
+				return "簽章執行錯誤";
+			case 0x76300005:
+				return "簽章憑證錯誤";
+			case 0x76300006:
+				return "簽章DER錯誤";
+			case 0x76300007:
+				return "簽章結束錯誤";
+			case 0x76400001:
+				return "解密DER錯誤";
+			case 0x76400002:
+				return "解密型態錯誤";
+			case 0x76400003:
+				return "解密錯誤";
+			case 0x76600001:
+				return "Base64編碼錯誤";
+			case 0x76600002:
+				return "Base64解碼錯誤";
+			case 0x76700001:
+				return "伺服金鑰解密錯誤";
+			case 0x76700002:
+				return "未登錄伺服金鑰";
+			case 0x76700003:
+				return "伺服金鑰加密錯誤";
+			default:
+				return rcode.toString(16);
+		}
+	}
+	function MinorErrorReason(rcode){
+		switch(rcode){
+			case 0x06:
+				return "函式失敗";
+			case 0xA0:
+				return "PIN碼錯誤";
+			case 0xA2:
+				return "PIN碼長度錯誤";
+			case 0xA4:
+				return "已鎖卡";
+			case 0x150:
+				return "記憶體緩衝不足";
+			default:
+				return rcode.toString(16);
+		}
+	}
+	
+	function MakeCredential(){
+		//alert("Make");
+		var plugin= document.getElementById("hipkiclient");
+		var rcode;
+		//rcode = plugin.Register("<%=application.getInitParameter("ClientKey")%>");
+		rcode = plugin.Register("ua72DLOrQhlt0MKrV5uj/CWcCyrTEfA4suWk9smOUQU=");
+		//console.log(plugin);
+		if(rcode!=0){
+			alert(MajorErrorReason(rcode)+", code="+rcode.toString(16));
+			return;
+		}
+		plugin.withCardSN=true;
+		//console.log(plugin);
+		rcode = plugin.MakeCredential("<%=session.getId()%>","",document.getElementById("PIN").value);
+		if(rcode!=0){
+			alert(MajorErrorReason(rcode)+", code="+rcode.toString(16)+", minor error="+MinorErrorReason(plugin.lastError));
+			$("#userPKI").html("認證失敗");
+			$("#userPKI").css('color','#F00');
+			$("#hasPKI").val("0");
+			return;
+		}
+		document.getElementById("signedData").value = plugin.CredentialB64;
+		$("#userPKI").html("認證成功");
+		$("#userPKI").css('color','#00F');
+		$("#hasPKI").val("1");
+		
+	}
+	
+	function HiPKIOnLoad(){
+		
+		if(detectHiPKIPlugin()==false){
+			//No hipki detected or hipki disabled
+			window.location="installPlugin.php";
+		}
+		
+		var plugin= document.getElementById("hipkiclient");
+		var expectedVersion="1.3.0.0794";
+		//alert(plugin.version+" "+expectedVersion);
+		if(plugin.version<expectedVersion){
+			alert("Please upgrade HiPKI Client to version "+expectedVersion+" or higher");
+			window.location="installPlugin.php";
+		} 
+		//alert(navigator.appVersion.indexOf("Win"));
+	
+	}
+	/*    MOICA  */
+	
 	$(document).ready(function() {
 		$('#form1').validate({
 			rules:{
@@ -123,7 +331,8 @@ saveHistory{behavior:url(#default#savehistory);}
     });
 			
 </script>
-
+</head>
+<body onload="HiPKIOnLoad()">
 <?PHP
 	//地區
 	$sql_cc = "select city.*,county.* from `city` join `county` on county.county_number and county.county_number = city.county_number";
@@ -136,6 +345,27 @@ saveHistory{behavior:url(#default#savehistory);}
     <div class="apDiv">
 <form name="form1" id="form1" action="register_0.php" method="post" enctype="multipart/form-data">
 <table height="1000" width="650" style="text-align:left;">
+<tr>
+	<td>
+<u><FONT COLOR="#0000FF" SIZE="4" style="font-family:'微軟正黑體'; font-weight:bolder; font-size:24px;">自然人憑證</FONT></u>
+	</td>
+    <td>
+    	若無自然人憑證，則可跳過此步驟
+    </td>
+</tr>
+<tr>
+	<td style="text-align:right;">
+		<font color="#FF0000" size="+1"></font>
+        <font style="font-family:'微軟正黑體'; font-weight:bolder; font-size:20px;">自然人憑證</font>
+</td>
+	<td>
+    <input id="PIN" name="PIN" value="" type="hidden">
+	<input name="signedData" id="signedData" value="" type="hidden">
+    <input name="hasPKI" id="hasPKI" value="0" type="hidden">
+	<input name="button" value="認證" type="button" onclick="MakeCredential()" class="sent">
+    <div id="userPKI" style="position:absolute; top:56px; left:250px;">尚未認證</div>
+    </td>
+</tr>
 <tr>
 <td>
 <u><FONT COLOR="#0000FF" SIZE="4" style="font-family:'微軟正黑體'; font-weight:bolder; font-size:24px;">基本資料</FONT></u>
@@ -535,7 +765,7 @@ Zone1[3] = new Array("3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9"
 Zone1[4] = new Array("36.00","36.67","37.33","38.00","38.67","39.33","40.00","40.67","41.33","42.00","42.67","43.33","44.00","44.67","45.33","46.00","46.67","47.33","48.00","48.67","49.33","50.00","50.67");
 
 // for "日本"
-Zone1[5] = new Array("220","225","230","235","240","245","250","255","260","265","270","275","280","285","290","295","300","305","310","315","320","325","330");
+Zone1[5] = new Array("22","22.5","23","23.5","24","24.5","25","25.5","26","26.5","27","27.5","28","28.5","29","29.5","30","30.5","31","31.5","32","32.5","33");
 
 function initCounty1(county1Input)
 {

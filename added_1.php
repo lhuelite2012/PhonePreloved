@@ -1,7 +1,5 @@
 <?PHP
 session_start();
-include("main.php");
-include("loginConfirm.php"); 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,8 +38,8 @@ include("loginConfirm.php");
 
 
 <body >
-<?PHP 
- $_SESSION['added'] = "0";
+<?PHP include("main.php");
+include("loginConfirm.php"); 
 ?>
 <div id=ce2>
 <div id="ap"><img src="素材/上架1.png" width="978" height="557" alt="上架1" />
@@ -125,7 +123,6 @@ secondGroup[0][1][1]=new Option("短褲");
 secondGroup[0][2][0]=new Option("手拿包");
 secondGroup[0][2][1]=new Option("斜背包");
 secondGroup[0][2][2]=new Option("後背包");
-secondGroup[0][2][3]=new Option("皮夾");
 secondGroup[0][3][0]=new Option("籃球鞋");
 secondGroup[0][3][1]=new Option("跑步鞋");
 secondGroup[0][3][2]=new Option("休閒鞋");
@@ -138,7 +135,6 @@ secondGroup[1][1][1]=new Option("短褲");
 secondGroup[1][2][0]=new Option("手拿包");
 secondGroup[1][2][1]=new Option("斜背包");
 secondGroup[1][2][2]=new Option("後背包");
-secondGroup[1][2][3]=new Option("皮夾");
 secondGroup[1][3][0]=new Option("籃球鞋");
 secondGroup[1][3][1]=new Option("跑步鞋");
 secondGroup[1][3][2]=new Option("休閒鞋");
@@ -153,7 +149,6 @@ secondGroup[2][2][1]=new Option("短洋裝");
 secondGroup[2][3][0]=new Option("手拿包");
 secondGroup[2][3][1]=new Option("斜背包");
 secondGroup[2][3][2]=new Option("後背包");
-secondGroup[2][3][3]=new Option("皮夾");
 secondGroup[2][4][0]=new Option("籃球鞋");
 secondGroup[2][4][1]=new Option("跑步鞋");
 secondGroup[2][4][2]=new Option("休閒鞋");
@@ -187,4 +182,3 @@ temp1.options[0].selected=true
 </div>
 </body>
 </html>
-<?php include("deleteCommodity.php");?>

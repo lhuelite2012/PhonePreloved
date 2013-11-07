@@ -1,6 +1,5 @@
 <?PHP ob_start();?>
 <?PHP session_start(); ?>
-<?PHP include("main.php"); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?PHP  
@@ -39,7 +38,7 @@ $m_number = $_SESSION['m_number'];
 
 
 <body >
-
+<?PHP include("main.php"); ?>
 <div id=ce2>
 <div id="ap"><img src="素材/上架4.png" width="978" height="557" alt="上架4" />
   <div id="apDiv">
@@ -110,20 +109,20 @@ if(!empty($_FILES["c_picture"]["name"]))
 	$name = date("ymdhis").".".$extension;
 	 $tmpfile=$_FILES["c_picture"]["tmp_name"][$j];//server端站存檔名
 	 $file2=mb_convert_encoding($_FILES["c_picture"]["name"][$j],"big5","utf8");//儲存檔案名稱,name真實的檔名,big5 utf8 修改中文檔案亂碼問題
-	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == "image/png")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg png
+	 if (($_FILES["c_picture"]["type"][$j] == "image/gif") || ($_FILES["c_picture"]["type"][$j] == "image/jpeg")||($_FILES["c_picture"]["type"][$j] == "image/jpg")||($_FILES["c_picture"]["tmp_name"][$j] == ""))//限定檔案gif jpg
 	  {
-	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$m_number."_".$name))//上傳檔案
+	  if (move_uploaded_file($tmpfile,$picturePathWeb.$j."_".$name))//上傳檔案
 		{
 			//echo "上傳成功<br>";
-			$src = $picturePathWeb.$j."_".$m_number."_".$name;
+			$src = $picturePathWeb.$j."_".$name;
 			$dest = $src;
 			$destW = 400;
 			$destH = 400;
 			imagesResize($src,$dest,$destW,$destH);
-			$c_picture = $j."_".$m_number."_".$name;
+			$c_picture = $j."_".$name;
 			   
-			$src = $picturePathWeb.$j."_".$m_number."_".$name;
-			$dest = $picturePathPhone.$j."_".$m_number."_".$name;
+			$src = $picturePathWeb.$j."_".$name;
+			$dest = $picturePathPhone.$j."_".$name;
 			$destW = 260;
 			$destH = 250;
 			imagesResize($src,$dest,$destW,$destH);
@@ -178,7 +177,7 @@ if(!empty($_FILES["c_picture"]["name"]))
 	$sql_query5 = "UPDATE members SET 
 	personally = '".$_POST['personally']."' where $m_number =".$_SESSION['m_number'];
 	mysql_query($sql_query5);
-	$_SESSION['added'] = "2";
+	
 	/*
 			if($_POST["c_payment"])//付款方式
 	{								
@@ -191,7 +190,7 @@ if(!empty($_FILES["c_picture"]["name"]))
 	*/
 }
 ?>
-<FORM name="form1" action="index.php" method="post">
+<FORM name="form1" action="" method="post">
 <input type="image" width="400" height="360" img src="素材/完成刊登圖.png" />
 </form>
   </div>

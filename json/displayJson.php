@@ -25,6 +25,10 @@
 		$json['downtime'] = $row['downtime'];
 		$json['c_mp'] = $displayPathPhone.$row['c_mp'];
 		$json['seller_number']= $row['m_number'];  //賣家
+		$sql_people = "select people from members where m_number = ".$row['m_number'];
+		$query_people = mysql_query($sql_people);
+		$row_people = mysql_fetch_array($query_people);
+		$json['people'] = $row_people[0];
 		$data["commodity"][] = $json;
 	}
 	echo json_encode($data);

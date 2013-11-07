@@ -84,6 +84,11 @@
 		$json["uptime"]=$row["uptime"];
 		$json["downtime"]=$row["downtime"];
 		$json["c_description"]=$row["c_description"];
+		$sql_people = "select people from members where m_number = ".$row['m_number'];
+		$query_people = mysql_query($sql_people);
+		$row_people = mysql_fetch_array($query_people);
+		$json['people'] = $row_people[0];
+		
 		if($row["orend"]==1)
 			$json["yy"] = 1;   //已下架
 		else

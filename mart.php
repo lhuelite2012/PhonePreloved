@@ -72,8 +72,8 @@ table
 }
 #people{
 	position:absolute;
-	top:45px;
-	left:220px;
+	top:65px;
+	left:115px;
 	z-index:250;
 }
 </style>
@@ -90,7 +90,7 @@ table
 	
 	$mart = $list3['m_number'];
 	
-	//查詢會員編號
+	//查詢會員的自然人憑證為0或1
 	$sql_m = "select * from members where m_number = '$mart'";
 	$query_m = mysql_query($sql_m);
 	$list3_m = mysql_fetch_array($query_m);
@@ -225,7 +225,10 @@ window.onload = function()
 		echo "很抱歉，目前此賣家沒有販賣任何商品。";
 	}
 ?>
+	<p></p>
 </form>
+
+	<a align="center" href="commodity.php?c_number=<?PHP echo $c_number ?>" style="color:#0000FF;text-decoration:none;"><strong>回到該賣家商品展示</strong></a>
 
 	</div>
     
@@ -235,17 +238,19 @@ window.onload = function()
     <p></p>
     <font size="4" color="#0000FF">　<img src="素材/紙膠橘(賣家資訊.png" /></font><p></p>
     <font size="4" color="#0000FF">　賣家帳號：</font><p></p>
-     <div id="people">
-			<?php 
-				if($list3_m['people']==1) 
-					echo "<img src='素材/自然人.png' onload='javascript:DrawImage(this,100,100);' />";
-			?>
-        </div>
+    <div id="people">
+	<?PHP 
+		if($list3_m['people']==1) 
+		echo "<img src='素材/自然人.png' onload='javascript:DrawImage(this,100,100);' />";
+	?>
+    </div>
 	<font size="4" color="#000000">　<?PHP echo $list3_m['account'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家姓名：</font>
 	<font size="4" color="#000000">  <?PHP echo $list3_m['name'] ?></font><p></p>
     <font size="4" color="#0000FF">　賣家評價：</font>
-	<font size="4" color="#000000">  <?PHP echo $list3_m['sell']/200 ?> 分</font><p></p>
+	<font size="4" color="#000000">  <?PHP echo $list3_m['sell']/200 ?> 分 </font>
+    <a align="center" href="marted.php?c_number=<?PHP echo $c_number ?>" style="color:#FF0000;text-decoration:none;"><strong>(查看歷史評價)</strong></a>
+    <p></p>
     　------------------------------------------------------------<br/><p></p>
     <font size="4" color="#0000FF">　<img src="素材/紙膠橘(付款方式.png" /></font><p></p>
     <font size="4" color="#000000">　▼ 郵寄：匯款成功再點選交易方式</font><p></p>
@@ -268,6 +273,7 @@ window.onload = function()
     </strong>
     
     </div>
+    
 	</div>
     
 </body>

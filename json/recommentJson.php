@@ -30,7 +30,50 @@ LIMIT 20";
 	
 	
 //------------------------------|||||||||----------------------------------
+//-------------------------------------------------------------------------
+//賣家有自然人憑證  r_type =10
+
+
+	$r_type = 10;
+	$r_score = 8;
+	delete_recommend($r_type,$m_number);
 	
+	//擁有自然人憑證的商品
+	$s_sql = "select c.c_number,m.people from commodity c join members m on c.m_number = m.m_number where m.people=1";
+	insert_recommend($s_sql,$r_type,$r_score,$m_number);
+	
+	
+//------------------------------|||||||||----------------------------------	
+//-------------------------------------------------------------------------
+//試穿尺寸推薦  r_type =11
+	//+-5公分
+
+	$r_type = 11;
+	$r_score = 2;
+	$what = "c_number";
+	delete_recommend($r_type,$m_number);
+	
+	//會員的 身高 體重 三圍
+	$s_sql = "SELECT height,weight,shoulder,bust,waistline,hips from members where m_number = $m_number";
+	try_recommend($s_sql,$r_type,$r_score,$m_number,$what);
+	
+	
+//------------------------------|||||||||----------------------------------	
+//-------------------------------------------------------------------------
+//鞋子尺寸推薦  r_type =12
+	//+-5公分
+
+	$r_type = 12;
+	$r_score = 6;
+	$what = "c_number";
+	delete_recommend($r_type,$m_number);
+	
+	//會員的 身高 體重 三圍
+	$s_sql = "SELECT shoes_size,shoes_size2 from members where m_number = $m_number";
+	try_shoes_recommend($s_sql,$r_type,$r_score,$m_number,$what);
+	
+	
+//------------------------------|||||||||----------------------------------	
 	
 	
 //-------------------------------------------------------------------------
@@ -203,14 +246,21 @@ LIMIT 20";
 	$c_sql = "select c_number from commodity where location = '$location'";
 	insert_recommend($c_sql,$r_type,$r_score,$m_number);
 	
+	//會員性別判斷
+	$g_sql="select gender from members where m_number = $m_number";
+	$g_guery = mysql_query($g_sql);
+	$g_row = mysql_fetch_array($g_guery);
+	$m_gender = $g_row[0];
+	
+	
 //------------------------------|||||||||----------------------------------
 $json = array();
-$sql = "SELECT COUNT( * ) ,commodity. c_number,commodity. c_name, commodity. c_price, commodity.c_gender,  commodity.location,  commodity.oan,  commodity.uptime, commodity.downtime,  commodity. c_mp,commodity.m_number
+$sql = "SELECT SUM( recommend.r_score )  ,commodity. c_number,commodity. c_name, commodity. c_price, commodity.c_gender,  commodity.location,  commodity.oan,  commodity.uptime, commodity.downtime,  commodity. c_mp,commodity.m_number
 FROM recommend
 JOIN commodity ON recommend.c_number = commodity.c_number
 WHERE recommend.m_number =$m_number
 AND commodity.orend =0
-AND commodity.orsell =0
+AND commodity.orsell =0 and (commodity.c_gender='$m_gender' or commodity.c_gender='中性')
 GROUP BY recommend.c_number
 ORDER BY 1 DESC";
 $reslut = mysql_query($sql);

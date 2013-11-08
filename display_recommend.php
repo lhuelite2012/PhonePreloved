@@ -293,9 +293,13 @@ function MM_swapImage() { //v3.0
  <?php   
  include("sizeConverted.php");
 
-
+	//會員性別判斷
+	$g_sql="select gender from members where m_number = $m_number";
+	$g_guery = mysql_query($g_sql);
+	$g_row = mysql_fetch_array($g_guery);
+	$m_gender = $g_row[0];
 		
-	$total_sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number";
+	$total_sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0 and (commodity.c_gender='$m_gender' or commodity.c_gender='中性')  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number";
 
 		
 		//進入commodity.php離開後登入 跳至index.php
@@ -338,7 +342,7 @@ function MM_swapImage() { //v3.0
 		$offset = ($page - 1) * $page_size;
 		if(!isset($sort)){$sort = "1 desc";}
 		
-		$sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number order by ".$sort." limit ".$offset.", $page_size";
+		$sql = "select sum(recommend.r_score),commodity.*,sort.s_fsort,brand.b_name from commodity join sort join brand join recommend on commodity.s_number = sort.s_number and commodity.b_number = brand.b_number and commodity.c_number = recommend.c_number where  recommend.m_number =$m_number and commodity.m_number != $m_number and orend = 0 and orsell = 0  and (commodity.c_gender='$m_gender' or commodity.c_gender='中性')  $c_gender $s_fsort $s_number $clothes_size $shoes_size2 $brand_start $price_range $location $sea group by c_number order by ".$sort." limit ".$offset.", $page_size";
 		
 		$resul = mysql_query($sql);
    				$s = 1;

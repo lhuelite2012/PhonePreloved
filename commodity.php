@@ -529,7 +529,7 @@ if($c_rows['downtime'] < $addtime){ //判斷商品到期 (現在時間小於下�
 	}
 	if($c_rows['orbidder'] == $m_number and isset($m_number)){ //得標者//////////////////////////////////?>
     	<div id="maturity">
-    	<form action="transaction_choose.php" method="git">
+    	<form action="transaction_choose.php" method="get">
            <input type="hidden" name="c_number" value="<?php echo $c_number; ?>" />
            <input type="submit" value="選擇交易方式" />
         </form>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- 主機: localhost
--- 建立日期: Nov 07, 2013, 11:50 AM
+-- 建立日期: Nov 08, 2013, 09:57 AM
 -- 伺服器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -102,17 +102,15 @@ CREATE TABLE `bid` (
   `m_number` int(11) NOT NULL COMMENT '會員編號',
   `c_number` int(11) NOT NULL COMMENT '商品編號',
   PRIMARY KEY  (`bid_number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='出價' AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='出價' AUTO_INCREMENT=4 ;
 
 -- 
 -- 列出以下資料庫的數據： `bid`
 -- 
 
-INSERT INTO `bid` VALUES (1, 2100, '2013-11-06 17:30:06', 1, 109);
-INSERT INTO `bid` VALUES (2, 2200, '2013-11-06 17:30:31', 8, 109);
-INSERT INTO `bid` VALUES (3, 2300, '2013-11-06 17:31:27', 3, 109);
-INSERT INTO `bid` VALUES (4, 2350, '2013-11-06 17:32:12', 5, 109);
-INSERT INTO `bid` VALUES (5, 2450, '2013-11-07 16:41:26', 2, 109);
+INSERT INTO `bid` VALUES (1, 2350, '2013-11-08 17:55:10', 3, 109);
+INSERT INTO `bid` VALUES (2, 2400, '2013-11-08 17:56:06', 5, 109);
+INSERT INTO `bid` VALUES (3, 2410, '2013-11-08 17:56:37', 7, 109);
 
 -- --------------------------------------------------------
 
@@ -1126,8 +1124,8 @@ INSERT INTO `commodity` VALUES (21, 'Gucci 黑色牛皮時尚休閒單肩包3103
 INSERT INTO `commodity` VALUES (25, 'COACH 灰黑男用證件皮夾', 4500, 0, 4500, '男', '新北市', '全新', '2013-10-13 16:43:28', '2013-11-19 16:43:28', '1_131013084246.jpg', '', NULL, '2013-08-15 00:00:00', '新北板橋大遠百', '1pop_131013084245.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'PVC', NULL, 0, 0, 1, 5, 21, 5, '', '', 10, 12, 2, 0, 0, '', 0, 0);
 INSERT INTO `commodity` VALUES (26, 'BURBERRY棉質圓領短袖套頭T(BB2Y090050)', 7000, 0, 7000, '女', '新北市', '全新', '2013-10-13 21:51:15', '2013-11-20 21:51:15', '6_131013085220.jpg', '', NULL, '2013-09-17 00:00:00', '日本,東京', '', 71, 35, 88, 0, 0, 165, 47, 15, 88, 64, 84, '日本', 24, '90%棉10%萊卡', NULL, 0, 0, 6, 3, 6, 9, '', 'M', 0, 0, 0, 0, 0, '皮革\r\n舒適\r\n迷彩 柔軟\r\n慢跑鞋\r\n戶外休閒鞋', 3, 0);
 INSERT INTO `commodity` VALUES (29, 'FENDI芬迪提包灰色8BH250 D7E F0NJ3 ', 45000, 0, 45000, '女', '臺北市', '全新', '2013-10-13 17:12:34', '2013-11-25 17:12:34', '6_131013091210.jpg', '', NULL, '2013-10-01 00:00:00', '台北市信義區台北101', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '100%小牛皮', NULL, 0, 0, 6, 7, 11, 5, '', '', 27, 34, 13, 14, 31, '內部拉鍊中央分隔欄、內貼口袋、條紋襯里和真皮標誌牌匾', 5, 0);
-INSERT INTO `commodity` VALUES (30, 'ADIDAS ORIGINALS CAMPUS II', 899, 0, 899, '男', '新北市', '全新', '2013-10-13 17:37:01', '2013-11-27 17:37:01', '1_131013093507.jpg', '', NULL, '0000-00-00 00:00:00', '板橋大遠百', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '皮革', NULL, 0, 0, 1, 14, 16, 10, '美國(男)', '4', 0, 0, 0, 0, 0, '', 0, 0);
-INSERT INTO `commodity` VALUES (31, 'Adidas Originals 後背包-天空藍', 1300, 0, 1300, '男', '新北市', '全新', '2013-10-13 18:08:32', '2013-11-28 18:08:32', '1_131013100811.jpg', '', NULL, '0000-00-00 00:00:00', '西門町', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'Polyester', NULL, 0, 0, 1, 14, 13, 7, '', '', 41, 33, 12, 0, 0, '', 0, 0);
+INSERT INTO `commodity` VALUES (30, 'ADIDAS ORIGINALS CAMPUS II', 899, 0, 899, '男', '新北市', '全新', '2013-10-13 17:37:01', '2013-11-27 17:37:01', '1_131013093507.jpg', '', NULL, '2012-11-30 00:00:00', '板橋大遠百', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '皮革', NULL, 0, 0, 1, 14, 16, 10, '美國(男)', '4', 0, 0, 0, 0, 0, '', 0, 0);
+INSERT INTO `commodity` VALUES (31, 'Adidas Originals 後背包-天空藍', 1300, 0, 1300, '男', '新北市', '全新', '2013-10-13 18:08:32', '2013-11-28 18:08:32', '1_131013100811.jpg', '', NULL, '2013-08-06 00:00:00', '西門町', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'Polyester', NULL, 0, 0, 1, 14, 13, 7, '', '', 41, 33, 12, 0, 0, '', 0, 0);
 INSERT INTO `commodity` VALUES (32, 'PRADA CITY CALF系列立體浮雕LOGO手提包', 75000, 0, 75000, '女', '新北市', '全新', '2013-10-13 20:18:07', '2013-11-25 20:18:07', '7_131013120810.jpg', '', NULL, '2013-09-10 00:00:00', '日本,東京', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '小牛皮', NULL, 0, 0, 7, 12, 11, 9, '', '', 45.5, 34.5, 15, 2, 13.5, '內層格式：\r\n暗釦開口；拉鍊外貼袋 X2｜暗釦內貼袋X1｜內貼袋X2｜拉鍊內貼袋X2', 0, 0);
 INSERT INTO `commodity` VALUES (35, '【adidas】迷彩柔軟慢跑鞋(紅/白女款no447)', 2000, 0, 2000, '女', '新北市', '九成新', '2013-10-13 21:55:03', '2013-11-14 21:55:03', '7_131013015332.jpg', '', NULL, '2013-01-15 00:00:00', '日本,東京', '', 0, 0, 0, 0, 0, 165, 47, 15, 88, 64, 84, '日本', 24, '皮革', NULL, 0, 0, 7, 14, 15, 1, '日本', '24', 0, 0, 0, 0, 0, '皮革\r\n舒適\r\n迷彩 柔軟\r\n慢跑鞋\r\n戶外休閒鞋', 0, 0);
 INSERT INTO `commodity` VALUES (36, 'COACH PVC雙色直紋漆皮長夾(卡其藍)', 4000, 0, 4000, '女', '臺北市', '九成新', '2013-10-13 22:10:15', '2013-11-15 22:10:15', '7_131013020814.jpg', '', NULL, '2013-09-02 00:00:00', '日本,東京', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'pvc', NULL, 0, 0, 7, 5, 21, 7, '', '', 10, 19.5, 2, 0, 0, '◆輕巧便利 收納方便\r\n◆兼具耐用百搭與典雅氣質', 0, 0);
@@ -1141,8 +1139,8 @@ INSERT INTO `commodity` VALUES (97, 'New balance 豹紋鞋', 1800, 0, 1800, '男
 INSERT INTO `commodity` VALUES (99, 'GUCCI斜背包', 20000, 0, 20000, '女', '臺中市', '九成新', '2013-10-14 19:59:20', '2013-11-16 19:59:20', '6_131014115800.jpg', '', NULL, '2013-06-18 00:00:00', '台北市台北01', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '牛皮', NULL, 0, 0, 6, 8, 12, 9, '', '', 20, 35, 15, 0, 50, '可手拿或肩背,非常實用', 0, 0);
 INSERT INTO `commodity` VALUES (102, 'GUCCI皮夾', 30000, 0, 30000, '中性', '臺中縣', '九成新', '2013-10-14 20:11:17', '2013-11-17 20:11:17', '6_131014120809.jpg', '', NULL, '2013-05-30 00:00:00', '台中新光三越中港店', '', 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, '', 0, '牛皮', NULL, 0, 0, 6, 8, 21, 4, '', '', 10, 19, 0, 0, 0, '卡層X3 鈔票層X2', 0, 0);
 INSERT INTO `commodity` VALUES (106, '迷你配飾手拿包', 9600, 0, 9600, '女', '臺北市', '九成新', '2013-10-15 20:58:49', '2013-11-15 20:58:49', '9_131015125819.jpg', '', NULL, '2013-10-01 00:00:00', '台北市信義區', '9pop_131015125818.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '滑面皮革', NULL, 0, 0, 9, 11, 11, 11, '', '', 14, 9, 2, 0, 0, '巧克力色滑面皮革包邊，紅色布襯裡', 0, 0);
-INSERT INTO `commodity` VALUES (108, '手機test已得標', 500, 0, 500, '男', '南投縣', '全新', '2013-10-16 13:11:29', '2013-11-26 17:48:14', '9_131016051037.jpg', '', NULL, '0000-00-00 00:00:00', '板橋大遠百', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'PVC', NULL, 0, 0, 9, 14, 13, 5, '', '', 100, 70, 50, 0, 0, '帥氣', 0, 0);
-INSERT INTO `commodity` VALUES (109, 'NB ML674RUN 丈青色', 2450, 2200, 2000, '男', '新北市', '八成新', '2013-10-16 17:48:14', '2013-11-07 16:53:46', '3_131016094456.jpg', '3_131016094454.mp4', NULL, '2013-09-20 00:00:00', '台東縣中華路千田', '3_131016094455.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '美國(男)', 9.5, '布', 8, 1, 1, 9, 15, 15, 7, '美國(男)', '10.5', 0, 0, 0, 0, 0, '剛買不到1個月 鞋盒和發票都還留著喔\r\nNB的鞋款必須要大1號\r\n', 0, 0);
+INSERT INTO `commodity` VALUES (108, '手機test已得標', 500, 0, 500, '男', '南投縣', '全新', '2013-10-16 13:11:29', '2013-11-26 17:48:14', '9_131016051037.jpg', '', NULL, '2013-09-01 00:00:00', '板橋大遠百', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 'PVC', NULL, 0, 0, 9, 14, 13, 5, '', '', 100, 70, 50, 0, 0, '帥氣', 0, 0);
+INSERT INTO `commodity` VALUES (109, 'NB ML674RUN 丈青色', 2410, 0, 2000, '男', '新北市', '八成新', '2013-10-16 17:48:14', '2013-11-30 16:53:46', '3_131016094456.jpg', '3_131016094454.mp4', NULL, '2013-09-20 00:00:00', '台東縣中華路千田', '3_131016094455.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '美國(男)', 9.5, '布', NULL, 0, 0, 9, 15, 15, 7, '美國(男)', '10.5', 0, 0, 0, 0, 0, '剛買不到1個月 鞋盒和發票都還留著喔\r\nNB的鞋款必須要大1號\r\n', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1334,7 +1332,6 @@ CREATE TABLE `f_record_` (
 -- 列出以下資料庫的數據： `f_record_`
 -- 
 
-INSERT INTO `f_record_` VALUES (9, 109, 26, '2013-10-17 11:36:37', '好買家');
 
 -- --------------------------------------------------------
 
@@ -1510,9 +1507,9 @@ INSERT INTO `members` VALUES (2, '55', '55', '劉冠甫', '男', '1991-11-27', '
 INSERT INTO `members` VALUES (3, 'd994241009@gmail.com', '12345', '高于婷', '女', '1991-12-19', 'upload/201204222313186878_3536.jpg', '0981515806', '新北市新莊區中華路85巷11號', 0, 0, 160, 50, 35, 0, 0, 0, 'S', '日本', 23.5, '', '', NULL, NULL, '2013-10-09 20:49:27', 0, 0, 0, 140, 0);
 INSERT INTO `members` VALUES (5, 'd994241010@gmail.com', 'd994241010', '翁翊庭', '女', '1992-04-30', 'upload/1184979_539120362822165_2131272105_n.jpg', '0917340689', '昌平街31巷8號4樓', 3, 21, 158, 49, 11, 11, 11, 11, 'S', '日本', 23.5, 'leleopq126@yahoo.com.tw', 'leleopq126@yahoo.com.tw', '0123456789', NULL, '2013-10-09 20:57:56', 0, 0, 0, 195, 0);
 INSERT INTO `members` VALUES (6, 'd994241016@gm.lhu.edu.tw', 'd994241016', '劉曼儀', '女', '1992-05-08', 'upload/548904_565579313508478_1977966618_n.jpg', '0981666666', '長壽路201號', 4, 8, 160, 0, 0, 0, 0, 0, 'M', '台灣', 23.5, NULL, NULL, NULL, NULL, '2013-10-09 21:00:58', 0, 0, 0, 160, 0);
-INSERT INTO `members` VALUES (7, 'd994241022@gmail.com', '994241022', '留琬如', '女', '1992-07-07', 'upload/7_131016012252.jpg', '0980602017', '中正路新旺巷37弄3號3樓', 3, 21, 165, 47, 15, 35, 24, 33, 'S', '日本', 24, 'th49565@yahoo.com.tw', NULL, NULL, NULL, '2013-10-13 19:30:42', 0, 0, 0, 175, 0);
-INSERT INTO `members` VALUES (8, 'buyer1', 'buyer1', '買家1', '女', '1992-04-30', 'upload/買家1.png', '0912345678', '昌隆街', 3, 21, 158, 48, 0, 0, 0, 0, '', '日本', 23.5, NULL, NULL, NULL, NULL, '2013-10-11 12:57:44', 0, 0, 0, 105, 1);
-INSERT INTO `members` VALUES (9, 'seller', 'seller', '賣家', '女', '1991-11-27', 'upload/賣家.png', '0921926498', '萬壽路一段300號', 4, 8, 175, 68, 50, 52, 48, 54, 'L', '日本', 27.5, 'jason12113@yahoo.com.tw', 'chocolateegg55', NULL, NULL, '2013-10-11 13:07:16', 0, 0, 0, 210, 0);
+INSERT INTO `members` VALUES (7, 'd994241022@gmail.com', '994241022', '留琬如', '女', '1992-07-07', 'upload/7_131016012252.jpg', '0980602017', '中正路新旺巷37弄3號3樓', 3, 21, 165, 47, 15, 35, 24, 33, 'S', '日本', 24, 'th49565@yahoo.com.tw', NULL, NULL, NULL, '2013-10-13 19:30:42', 0, 0, 0, 175, 1);
+INSERT INTO `members` VALUES (8, 'buyer1', 'buyer1', '買家1', '男', '1992-04-30', 'upload/買家1.png', '0912345678', '昌隆街', 3, 21, 158, 48, 0, 0, 0, 0, '', '日本', 27.5, NULL, NULL, NULL, NULL, '2013-10-11 12:57:44', 0, 0, 0, 105, 1);
+INSERT INTO `members` VALUES (9, 'seller', 'seller', '賣家', '女', '1991-11-27', 'upload/賣家.png', '0921926498', '萬壽路一段300號', 4, 8, 175, 68, 50, 52, 48, 54, 'L', '日本', 22, 'jason12113@yahoo.com.tw', 'chocolateegg55', NULL, NULL, '2013-10-11 13:07:16', 0, 0, 0, 210, 0);
 INSERT INTO `members` VALUES (10, 'buyer2', 'buyer2', '買家2', '女', '1980-07-27', 'upload/買家2.png', '0955363270', '宜蘭縣宜蘭市泰山路394號', 0, 0, 170, 56, 40, 0, 0, 0, 'M', '日本', 28, NULL, NULL, NULL, NULL, '2013-10-11 15:01:16', 1000, 1000, 0, 130, 0);
 INSERT INTO `members` VALUES (13, 'leleopq126@yahoo.com.tw', '11111', '翁翊庭1', '女', '2013-10-08', 'upload/', '0917340689', '臺北市中正區11111', 0, 0, 111, 0, 0, 0, 0, 0, '', '', 0, 'leleopq126@yahoo.com.tw', 'leleopq126', NULL, NULL, '2013-10-17 08:38:41', 0, 0, 0, 165, 0);
 
@@ -1539,7 +1536,7 @@ INSERT INTO `p_brand` VALUES (4, 13);
 INSERT INTO `p_brand` VALUES (5, 6);
 INSERT INTO `p_brand` VALUES (6, 12);
 INSERT INTO `p_brand` VALUES (8, 15);
-INSERT INTO `p_brand` VALUES (9, 15);
+INSERT INTO `p_brand` VALUES (9, 12);
 INSERT INTO `p_brand` VALUES (10, 6);
 INSERT INTO `p_brand` VALUES (7, 12);
 INSERT INTO `p_brand` VALUES (12, 15);
@@ -1596,6 +1593,7 @@ INSERT INTO `p_color` VALUES (12, 0, 4);
 INSERT INTO `p_color` VALUES (13, 0, 1);
 INSERT INTO `p_color` VALUES (13, 0, 7);
 INSERT INTO `p_color` VALUES (2, 0, 1);
+INSERT INTO `p_color` VALUES (9, 0, 4);
 
 -- --------------------------------------------------------
 
@@ -1611,35 +1609,15 @@ CREATE TABLE `push` (
   `push_m_number` int(11) NOT NULL COMMENT '會員編號',
   `p_check` tinyint(4) NOT NULL default '0' COMMENT '已讀',
   PRIMARY KEY  (`p_number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='推播' AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='推播' AUTO_INCREMENT=4 ;
 
 -- 
 -- 列出以下資料庫的數據： `push`
 -- 
 
-INSERT INTO `push` VALUES (1, '販賣被出價', '2013-10-17 11:18:50', 109, 9, 1);
-INSERT INTO `push` VALUES (2, '追蹤被出價', '2013-10-17 11:26:08', 109, 8, 1);
-INSERT INTO `push` VALUES (3, '販賣被出價', '2013-10-17 11:26:08', 109, 9, 1);
-INSERT INTO `push` VALUES (4, '販賣被出價', '2013-10-17 11:27:05', 0, 0, 0);
-INSERT INTO `push` VALUES (5, '販賣被出價', '2013-10-17 11:27:17', 109, 9, 1);
-INSERT INTO `push` VALUES (6, '發問', '2013-10-17 11:27:36', 109, 9, 1);
-INSERT INTO `push` VALUES (7, '回答', '2013-10-17 11:29:11', 109, 10, 0);
-INSERT INTO `push` VALUES (8, '得標', '2013-10-17 11:30:11', 109, 10, 0);
-INSERT INTO `push` VALUES (9, '未得標', '2013-10-17 11:30:11', 109, 8, 1);
-INSERT INTO `push` VALUES (10, '追蹤被出價', '2013-11-06 17:30:06', 109, 8, 1);
-INSERT INTO `push` VALUES (11, '販賣被出價', '2013-11-06 17:30:06', 109, 9, 1);
-INSERT INTO `push` VALUES (12, '販賣被出價', '2013-11-06 17:30:31', 109, 9, 1);
-INSERT INTO `push` VALUES (13, '追蹤被出價', '2013-11-06 17:31:27', 109, 8, 1);
-INSERT INTO `push` VALUES (14, '販賣被出價', '2013-11-06 17:31:27', 109, 9, 1);
-INSERT INTO `push` VALUES (15, '追蹤被出價', '2013-11-06 17:32:12', 109, 8, 1);
-INSERT INTO `push` VALUES (16, '販賣被出價', '2013-11-06 17:32:12', 109, 9, 1);
-INSERT INTO `push` VALUES (17, '追蹤被出價', '2013-11-07 16:41:26', 109, 8, 1);
-INSERT INTO `push` VALUES (18, '販賣被出價', '2013-11-07 16:41:26', 109, 9, 1);
-INSERT INTO `push` VALUES (19, '得標', '2013-11-07 16:53:46', 109, 8, 1);
-INSERT INTO `push` VALUES (20, '未得標', '2013-11-07 16:53:46', 109, 1, 0);
-INSERT INTO `push` VALUES (21, '未得標', '2013-11-07 16:53:46', 109, 2, 1);
-INSERT INTO `push` VALUES (22, '未得標', '2013-11-07 16:53:46', 109, 3, 0);
-INSERT INTO `push` VALUES (23, '未得標', '2013-11-07 16:53:46', 109, 5, 0);
+INSERT INTO `push` VALUES (1, '販賣被出價', '2013-11-08 17:55:10', 109, 9, 1);
+INSERT INTO `push` VALUES (2, '販賣被出價', '2013-11-08 17:56:06', 109, 9, 1);
+INSERT INTO `push` VALUES (3, '販賣被出價', '2013-11-08 17:56:37', 109, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -1657,7 +1635,6 @@ CREATE TABLE `q_answer` (
 -- 列出以下資料庫的數據： `q_answer`
 -- 
 
-INSERT INTO `q_answer` VALUES (1, '沒有喔 ', '2013-10-17 11:29:11');
 
 -- --------------------------------------------------------
 
@@ -1672,14 +1649,12 @@ CREATE TABLE `qa` (
   `m_number` int(11) NOT NULL COMMENT '會員編號',
   `c_number` int(11) NOT NULL COMMENT '商品編號',
   PRIMARY KEY  (`q_number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='問與答' AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='問與答' AUTO_INCREMENT=1 ;
 
 -- 
 -- 列出以下資料庫的數據： `qa`
 -- 
 
-INSERT INTO `qa` VALUES (1, '請問有請問可付憑證嗎', '2013-10-17 11:25:36', 10, 109);
-INSERT INTO `qa` VALUES (2, '請問有多附鞋帶嗎!?', '2013-10-17 11:27:36', 8, 109);
 
 -- --------------------------------------------------------
 
@@ -1714,51 +1689,6 @@ CREATE TABLE `recommend` (
 -- 列出以下資料庫的數據： `recommend`
 -- 
 
-INSERT INTO `recommend` VALUES (10, 10, 31, 8);
-INSERT INTO `recommend` VALUES (10, 10, 30, 8);
-INSERT INTO `recommend` VALUES (10, 10, 25, 8);
-INSERT INTO `recommend` VALUES (10, 10, 17, 8);
-INSERT INTO `recommend` VALUES (10, 10, 11, 8);
-INSERT INTO `recommend` VALUES (11, 10, 97, 2);
-INSERT INTO `recommend` VALUES (11, 10, 40, 2);
-INSERT INTO `recommend` VALUES (11, 10, 38, 2);
-INSERT INTO `recommend` VALUES (11, 10, 35, 2);
-INSERT INTO `recommend` VALUES (11, 10, 26, 2);
-INSERT INTO `recommend` VALUES (12, 10, 46, 6);
-INSERT INTO `recommend` VALUES (12, 10, 3, 6);
-INSERT INTO `recommend` VALUES (7, 10, 3, 10);
-INSERT INTO `recommend` VALUES (8, 10, 102, 9);
-INSERT INTO `recommend` VALUES (8, 10, 3, 9);
-INSERT INTO `recommend` VALUES (8, 10, 40, 9);
-INSERT INTO `recommend` VALUES (8, 10, 30, 9);
-INSERT INTO `recommend` VALUES (8, 10, 17, 9);
-INSERT INTO `recommend` VALUES (8, 10, 106, 9);
-INSERT INTO `recommend` VALUES (8, 10, 39, 9);
-INSERT INTO `recommend` VALUES (8, 10, 5, 9);
-INSERT INTO `recommend` VALUES (10, 1, 31, 8);
-INSERT INTO `recommend` VALUES (10, 1, 30, 8);
-INSERT INTO `recommend` VALUES (10, 1, 25, 8);
-INSERT INTO `recommend` VALUES (10, 1, 17, 8);
-INSERT INTO `recommend` VALUES (10, 1, 11, 8);
-INSERT INTO `recommend` VALUES (7, 1, 108, 10);
-INSERT INTO `recommend` VALUES (7, 1, 46, 10);
-INSERT INTO `recommend` VALUES (7, 1, 35, 10);
-INSERT INTO `recommend` VALUES (8, 1, 109, 9);
-INSERT INTO `recommend` VALUES (8, 1, 97, 9);
-INSERT INTO `recommend` VALUES (8, 1, 36, 9);
-INSERT INTO `recommend` VALUES (8, 1, 31, 9);
-INSERT INTO `recommend` VALUES (8, 1, 9, 9);
-INSERT INTO `recommend` VALUES (8, 1, 99, 9);
-INSERT INTO `recommend` VALUES (8, 1, 46, 9);
-INSERT INTO `recommend` VALUES (8, 1, 32, 9);
-INSERT INTO `recommend` VALUES (8, 1, 26, 9);
-INSERT INTO `recommend` VALUES (7, 1, 31, 10);
-INSERT INTO `recommend` VALUES (7, 1, 30, 10);
-INSERT INTO `recommend` VALUES (7, 1, 17, 10);
-INSERT INTO `recommend` VALUES (8, 1, 21, 9);
-INSERT INTO `recommend` VALUES (8, 1, 40, 9);
-INSERT INTO `recommend` VALUES (8, 1, 30, 9);
-INSERT INTO `recommend` VALUES (8, 1, 17, 9);
 
 -- --------------------------------------------------------
 
@@ -1777,14 +1707,6 @@ CREATE TABLE `related` (
 -- 列出以下資料庫的數據： `related`
 -- 
 
-INSERT INTO `related` VALUES (4, 108, 17, 2);
-INSERT INTO `related` VALUES (3, 108, 25, 3);
-INSERT INTO `related` VALUES (3, 108, 11, 3);
-INSERT INTO `related` VALUES (2, 108, 31, 5);
-INSERT INTO `related` VALUES (1, 108, 46, 8);
-INSERT INTO `related` VALUES (1, 108, 31, 8);
-INSERT INTO `related` VALUES (1, 108, 30, 8);
-INSERT INTO `related` VALUES (1, 108, 17, 8);
 INSERT INTO `related` VALUES (6, 11, 109, 1);
 INSERT INTO `related` VALUES (6, 11, 31, 1);
 INSERT INTO `related` VALUES (6, 11, 30, 1);
@@ -1799,87 +1721,105 @@ INSERT INTO `related` VALUES (4, 11, 97, 2);
 INSERT INTO `related` VALUES (4, 11, 31, 2);
 INSERT INTO `related` VALUES (4, 11, 30, 2);
 INSERT INTO `related` VALUES (4, 11, 9, 2);
-INSERT INTO `related` VALUES (6, 5, 48, 1);
-INSERT INTO `related` VALUES (6, 5, 40, 1);
-INSERT INTO `related` VALUES (6, 5, 39, 1);
-INSERT INTO `related` VALUES (6, 3, 48, 1);
-INSERT INTO `related` VALUES (6, 3, 40, 1);
-INSERT INTO `related` VALUES (6, 3, 39, 1);
-INSERT INTO `related` VALUES (6, 3, 38, 1);
-INSERT INTO `related` VALUES (6, 3, 35, 1);
-INSERT INTO `related` VALUES (6, 3, 32, 1);
-INSERT INTO `related` VALUES (6, 3, 26, 1);
-INSERT INTO `related` VALUES (6, 3, 5, 1);
-INSERT INTO `related` VALUES (5, 3, 106, 2);
-INSERT INTO `related` VALUES (5, 3, 99, 2);
-INSERT INTO `related` VALUES (5, 3, 40, 2);
-INSERT INTO `related` VALUES (4, 3, 106, 2);
-INSERT INTO `related` VALUES (4, 3, 99, 2);
+INSERT INTO `related` VALUES (3, 11, 108, 3);
+INSERT INTO `related` VALUES (3, 11, 25, 3);
+INSERT INTO `related` VALUES (1, 11, 9, 8);
+INSERT INTO `related` VALUES (2, 3, 38, 5);
 INSERT INTO `related` VALUES (4, 3, 40, 2);
-INSERT INTO `related` VALUES (6, 6, 48, 1);
-INSERT INTO `related` VALUES (6, 6, 40, 1);
-INSERT INTO `related` VALUES (6, 6, 39, 1);
-INSERT INTO `related` VALUES (6, 6, 38, 1);
-INSERT INTO `related` VALUES (6, 6, 37, 1);
-INSERT INTO `related` VALUES (6, 6, 35, 1);
-INSERT INTO `related` VALUES (6, 6, 32, 1);
-INSERT INTO `related` VALUES (6, 6, 26, 1);
-INSERT INTO `related` VALUES (6, 6, 5, 1);
-INSERT INTO `related` VALUES (6, 6, 3, 1);
-INSERT INTO `related` VALUES (5, 6, 99, 2);
-INSERT INTO `related` VALUES (5, 6, 38, 2);
-INSERT INTO `related` VALUES (5, 6, 37, 2);
-INSERT INTO `related` VALUES (5, 6, 5, 2);
-INSERT INTO `related` VALUES (5, 6, 3, 2);
-INSERT INTO `related` VALUES (4, 6, 99, 2);
-INSERT INTO `related` VALUES (4, 6, 38, 2);
-INSERT INTO `related` VALUES (4, 6, 37, 2);
-INSERT INTO `related` VALUES (4, 6, 5, 2);
-INSERT INTO `related` VALUES (4, 6, 3, 2);
-INSERT INTO `related` VALUES (3, 6, 106, 3);
-INSERT INTO `related` VALUES (3, 6, 39, 3);
-INSERT INTO `related` VALUES (3, 6, 5, 3);
-INSERT INTO `related` VALUES (2, 6, 106, 5);
-INSERT INTO `related` VALUES (2, 6, 32, 5);
-INSERT INTO `related` VALUES (2, 6, 29, 5);
-INSERT INTO `related` VALUES (2, 6, 5, 5);
-INSERT INTO `related` VALUES (1, 6, 99, 8);
-INSERT INTO `related` VALUES (1, 6, 21, 8);
+INSERT INTO `related` VALUES (4, 3, 99, 2);
+INSERT INTO `related` VALUES (4, 3, 106, 2);
+INSERT INTO `related` VALUES (5, 3, 40, 2);
+INSERT INTO `related` VALUES (5, 3, 99, 2);
+INSERT INTO `related` VALUES (5, 3, 106, 2);
+INSERT INTO `related` VALUES (6, 3, 5, 1);
+INSERT INTO `related` VALUES (6, 3, 26, 1);
+INSERT INTO `related` VALUES (6, 3, 32, 1);
+INSERT INTO `related` VALUES (6, 3, 35, 1);
+INSERT INTO `related` VALUES (6, 3, 38, 1);
+INSERT INTO `related` VALUES (6, 3, 39, 1);
+INSERT INTO `related` VALUES (6, 3, 40, 1);
+INSERT INTO `related` VALUES (6, 3, 48, 1);
 INSERT INTO `related` VALUES (2, 19, 35, 5);
-INSERT INTO `related` VALUES (4, 19, 67, 2);
 INSERT INTO `related` VALUES (4, 19, 35, 2);
 INSERT INTO `related` VALUES (4, 19, 71, 2);
-INSERT INTO `related` VALUES (5, 19, 67, 2);
 INSERT INTO `related` VALUES (5, 19, 35, 2);
 INSERT INTO `related` VALUES (5, 19, 71, 2);
-INSERT INTO `related` VALUES (6, 19, 67, 1);
 INSERT INTO `related` VALUES (6, 19, 71, 1);
-INSERT INTO `related` VALUES (6, 71, 67, 1);
-INSERT INTO `related` VALUES (5, 97, 109, 2);
-INSERT INTO `related` VALUES (5, 97, 31, 2);
-INSERT INTO `related` VALUES (5, 97, 11, 2);
-INSERT INTO `related` VALUES (5, 97, 9, 2);
-INSERT INTO `related` VALUES (4, 97, 109, 2);
-INSERT INTO `related` VALUES (4, 97, 31, 2);
-INSERT INTO `related` VALUES (4, 97, 11, 2);
-INSERT INTO `related` VALUES (4, 97, 9, 2);
-INSERT INTO `related` VALUES (3, 97, 109, 3);
-INSERT INTO `related` VALUES (6, 71, 19, 1);
-INSERT INTO `related` VALUES (5, 71, 67, 2);
-INSERT INTO `related` VALUES (4, 71, 67, 2);
-INSERT INTO `related` VALUES (3, 71, 67, 3);
-INSERT INTO `related` VALUES (3, 71, 48, 3);
-INSERT INTO `related` VALUES (3, 71, 38, 3);
-INSERT INTO `related` VALUES (3, 71, 37, 3);
-INSERT INTO `related` VALUES (3, 71, 35, 3);
-INSERT INTO `related` VALUES (2, 71, 67, 5);
-INSERT INTO `related` VALUES (2, 71, 36, 5);
-INSERT INTO `related` VALUES (1, 71, 67, 8);
-INSERT INTO `related` VALUES (3, 97, 31, 3);
-INSERT INTO `related` VALUES (3, 97, 9, 3);
-INSERT INTO `related` VALUES (2, 97, 9, 5);
-INSERT INTO `related` VALUES (1, 97, 109, 8);
-INSERT INTO `related` VALUES (6, 5, 38, 1);
+INSERT INTO `related` VALUES (1, 17, 30, 8);
+INSERT INTO `related` VALUES (1, 17, 31, 8);
+INSERT INTO `related` VALUES (1, 17, 46, 8);
+INSERT INTO `related` VALUES (1, 17, 108, 8);
+INSERT INTO `related` VALUES (3, 17, 30, 3);
+INSERT INTO `related` VALUES (4, 17, 108, 2);
+INSERT INTO `related` VALUES (5, 17, 108, 2);
+INSERT INTO `related` VALUES (1, 21, 5, 8);
+INSERT INTO `related` VALUES (1, 21, 99, 8);
+INSERT INTO `related` VALUES (2, 21, 39, 5);
+INSERT INTO `related` VALUES (2, 21, 99, 5);
+INSERT INTO `related` VALUES (3, 21, 26, 3);
+INSERT INTO `related` VALUES (3, 21, 32, 3);
+INSERT INTO `related` VALUES (3, 21, 99, 3);
+INSERT INTO `related` VALUES (4, 21, 29, 2);
+INSERT INTO `related` VALUES (4, 21, 32, 2);
+INSERT INTO `related` VALUES (4, 21, 38, 2);
+INSERT INTO `related` VALUES (4, 21, 39, 2);
+INSERT INTO `related` VALUES (5, 21, 29, 2);
+INSERT INTO `related` VALUES (5, 21, 32, 2);
+INSERT INTO `related` VALUES (5, 21, 38, 2);
+INSERT INTO `related` VALUES (5, 21, 39, 2);
+INSERT INTO `related` VALUES (1, 99, 5, 8);
+INSERT INTO `related` VALUES (1, 99, 21, 8);
+INSERT INTO `related` VALUES (2, 99, 21, 5);
+INSERT INTO `related` VALUES (2, 99, 39, 5);
+INSERT INTO `related` VALUES (3, 99, 21, 3);
+INSERT INTO `related` VALUES (3, 99, 26, 3);
+INSERT INTO `related` VALUES (3, 99, 32, 3);
+INSERT INTO `related` VALUES (4, 99, 3, 2);
+INSERT INTO `related` VALUES (4, 99, 5, 2);
+INSERT INTO `related` VALUES (4, 99, 38, 2);
+INSERT INTO `related` VALUES (5, 99, 3, 2);
+INSERT INTO `related` VALUES (5, 99, 5, 2);
+INSERT INTO `related` VALUES (5, 99, 38, 2);
+INSERT INTO `related` VALUES (2, 32, 5, 5);
+INSERT INTO `related` VALUES (2, 32, 29, 5);
+INSERT INTO `related` VALUES (2, 32, 106, 5);
+INSERT INTO `related` VALUES (3, 32, 21, 3);
+INSERT INTO `related` VALUES (3, 32, 26, 3);
+INSERT INTO `related` VALUES (3, 32, 99, 3);
+INSERT INTO `related` VALUES (4, 32, 21, 2);
+INSERT INTO `related` VALUES (4, 32, 29, 2);
+INSERT INTO `related` VALUES (4, 32, 39, 2);
+INSERT INTO `related` VALUES (5, 32, 21, 2);
+INSERT INTO `related` VALUES (5, 32, 29, 2);
+INSERT INTO `related` VALUES (5, 32, 39, 2);
+INSERT INTO `related` VALUES (6, 32, 3, 1);
+INSERT INTO `related` VALUES (6, 32, 5, 1);
+INSERT INTO `related` VALUES (6, 32, 26, 1);
+INSERT INTO `related` VALUES (6, 32, 35, 1);
+INSERT INTO `related` VALUES (6, 32, 38, 1);
+INSERT INTO `related` VALUES (6, 32, 39, 1);
+INSERT INTO `related` VALUES (6, 32, 40, 1);
+INSERT INTO `related` VALUES (6, 32, 48, 1);
+INSERT INTO `related` VALUES (2, 38, 3, 5);
+INSERT INTO `related` VALUES (3, 38, 35, 3);
+INSERT INTO `related` VALUES (3, 38, 48, 3);
+INSERT INTO `related` VALUES (3, 38, 71, 3);
+INSERT INTO `related` VALUES (4, 38, 3, 2);
+INSERT INTO `related` VALUES (4, 38, 5, 2);
+INSERT INTO `related` VALUES (4, 38, 39, 2);
+INSERT INTO `related` VALUES (4, 38, 99, 2);
+INSERT INTO `related` VALUES (5, 38, 3, 2);
+INSERT INTO `related` VALUES (5, 38, 5, 2);
+INSERT INTO `related` VALUES (5, 38, 39, 2);
+INSERT INTO `related` VALUES (5, 38, 99, 2);
+INSERT INTO `related` VALUES (6, 38, 3, 1);
+INSERT INTO `related` VALUES (6, 38, 5, 1);
+INSERT INTO `related` VALUES (6, 38, 26, 1);
+INSERT INTO `related` VALUES (6, 38, 32, 1);
+INSERT INTO `related` VALUES (6, 38, 35, 1);
+INSERT INTO `related` VALUES (6, 38, 39, 1);
+INSERT INTO `related` VALUES (6, 38, 40, 1);
+INSERT INTO `related` VALUES (6, 38, 48, 1);
 INSERT INTO `related` VALUES (6, 109, 31, 1);
 INSERT INTO `related` VALUES (6, 109, 30, 1);
 INSERT INTO `related` VALUES (6, 109, 25, 1);
@@ -1897,308 +1837,8 @@ INSERT INTO `related` VALUES (4, 109, 9, 2);
 INSERT INTO `related` VALUES (3, 109, 97, 3);
 INSERT INTO `related` VALUES (3, 109, 31, 3);
 INSERT INTO `related` VALUES (3, 109, 9, 3);
-INSERT INTO `related` VALUES (3, 48, 71, 3);
-INSERT INTO `related` VALUES (3, 48, 38, 3);
-INSERT INTO `related` VALUES (3, 48, 35, 3);
-INSERT INTO `related` VALUES (1, 48, 40, 8);
-INSERT INTO `related` VALUES (1, 48, 26, 8);
-INSERT INTO `related` VALUES (5, 99, 38, 2);
-INSERT INTO `related` VALUES (5, 99, 5, 2);
-INSERT INTO `related` VALUES (5, 99, 3, 2);
-INSERT INTO `related` VALUES (4, 99, 38, 2);
-INSERT INTO `related` VALUES (4, 99, 5, 2);
-INSERT INTO `related` VALUES (4, 99, 3, 2);
-INSERT INTO `related` VALUES (3, 99, 32, 3);
-INSERT INTO `related` VALUES (3, 99, 26, 3);
-INSERT INTO `related` VALUES (3, 99, 21, 3);
-INSERT INTO `related` VALUES (2, 99, 39, 5);
-INSERT INTO `related` VALUES (2, 99, 21, 5);
-INSERT INTO `related` VALUES (1, 99, 21, 8);
-INSERT INTO `related` VALUES (1, 99, 5, 8);
-INSERT INTO `related` VALUES (5, 48, 36, 2);
-INSERT INTO `related` VALUES (4, 48, 36, 2);
-INSERT INTO `related` VALUES (6, 106, 36, 1);
-INSERT INTO `related` VALUES (6, 106, 29, 1);
-INSERT INTO `related` VALUES (5, 106, 40, 2);
-INSERT INTO `related` VALUES (5, 106, 26, 2);
-INSERT INTO `related` VALUES (4, 106, 40, 2);
-INSERT INTO `related` VALUES (4, 106, 26, 2);
-INSERT INTO `related` VALUES (3, 106, 39, 3);
-INSERT INTO `related` VALUES (3, 106, 5, 3);
-INSERT INTO `related` VALUES (2, 106, 32, 5);
-INSERT INTO `related` VALUES (2, 106, 29, 5);
-INSERT INTO `related` VALUES (2, 106, 5, 5);
-INSERT INTO `related` VALUES (2, 3, 38, 5);
-INSERT INTO `related` VALUES (2, 40, 26, 5);
-INSERT INTO `related` VALUES (1, 40, 48, 8);
-INSERT INTO `related` VALUES (1, 40, 26, 8);
-INSERT INTO `related` VALUES (6, 32, 48, 1);
-INSERT INTO `related` VALUES (6, 32, 40, 1);
-INSERT INTO `related` VALUES (6, 32, 39, 1);
-INSERT INTO `related` VALUES (6, 32, 38, 1);
-INSERT INTO `related` VALUES (6, 32, 35, 1);
-INSERT INTO `related` VALUES (6, 32, 26, 1);
-INSERT INTO `related` VALUES (6, 32, 5, 1);
-INSERT INTO `related` VALUES (6, 32, 3, 1);
-INSERT INTO `related` VALUES (5, 32, 39, 2);
-INSERT INTO `related` VALUES (5, 32, 29, 2);
-INSERT INTO `related` VALUES (5, 32, 21, 2);
-INSERT INTO `related` VALUES (4, 32, 39, 2);
-INSERT INTO `related` VALUES (4, 32, 29, 2);
-INSERT INTO `related` VALUES (4, 32, 21, 2);
-INSERT INTO `related` VALUES (3, 32, 99, 3);
-INSERT INTO `related` VALUES (3, 32, 26, 3);
-INSERT INTO `related` VALUES (3, 32, 21, 3);
-INSERT INTO `related` VALUES (2, 32, 106, 5);
-INSERT INTO `related` VALUES (2, 32, 29, 5);
-INSERT INTO `related` VALUES (2, 32, 5, 5);
-INSERT INTO `related` VALUES (6, 38, 48, 1);
-INSERT INTO `related` VALUES (6, 9, 109, 1);
-INSERT INTO `related` VALUES (6, 9, 31, 1);
-INSERT INTO `related` VALUES (6, 9, 30, 1);
-INSERT INTO `related` VALUES (6, 9, 25, 1);
-INSERT INTO `related` VALUES (6, 9, 11, 1);
-INSERT INTO `related` VALUES (5, 9, 97, 2);
-INSERT INTO `related` VALUES (5, 9, 31, 2);
-INSERT INTO `related` VALUES (5, 9, 30, 2);
-INSERT INTO `related` VALUES (5, 9, 11, 2);
-INSERT INTO `related` VALUES (4, 9, 109, 2);
-INSERT INTO `related` VALUES (4, 9, 97, 2);
-INSERT INTO `related` VALUES (4, 9, 31, 2);
-INSERT INTO `related` VALUES (4, 9, 30, 2);
-INSERT INTO `related` VALUES (4, 9, 11, 2);
-INSERT INTO `related` VALUES (3, 9, 109, 3);
-INSERT INTO `related` VALUES (3, 9, 97, 3);
-INSERT INTO `related` VALUES (3, 9, 31, 3);
-INSERT INTO `related` VALUES (2, 9, 97, 5);
-INSERT INTO `related` VALUES (1, 9, 11, 8);
-INSERT INTO `related` VALUES (6, 36, 106, 1);
-INSERT INTO `related` VALUES (6, 36, 29, 1);
-INSERT INTO `related` VALUES (5, 36, 48, 2);
-INSERT INTO `related` VALUES (5, 36, 35, 2);
-INSERT INTO `related` VALUES (5, 36, 19, 2);
-INSERT INTO `related` VALUES (4, 36, 48, 2);
-INSERT INTO `related` VALUES (4, 36, 35, 2);
-INSERT INTO `related` VALUES (4, 36, 19, 2);
-INSERT INTO `related` VALUES (2, 36, 71, 5);
-INSERT INTO `related` VALUES (2, 36, 67, 5);
 INSERT INTO `related` VALUES (2, 109, 46, 5);
-INSERT INTO `related` VALUES (1, 6, 5, 8);
-INSERT INTO `related` VALUES (3, 11, 108, 3);
-INSERT INTO `related` VALUES (6, 25, 31, 1);
-INSERT INTO `related` VALUES (6, 25, 30, 1);
-INSERT INTO `related` VALUES (6, 25, 11, 1);
-INSERT INTO `related` VALUES (6, 25, 9, 1);
-INSERT INTO `related` VALUES (5, 25, 109, 2);
-INSERT INTO `related` VALUES (5, 25, 46, 2);
-INSERT INTO `related` VALUES (4, 25, 46, 2);
-INSERT INTO `related` VALUES (3, 25, 108, 3);
-INSERT INTO `related` VALUES (3, 25, 11, 3);
-INSERT INTO `related` VALUES (3, 11, 25, 3);
-INSERT INTO `related` VALUES (1, 11, 9, 8);
-INSERT INTO `related` VALUES (4, 17, 108, 2);
-INSERT INTO `related` VALUES (3, 17, 30, 3);
-INSERT INTO `related` VALUES (1, 17, 108, 8);
-INSERT INTO `related` VALUES (1, 17, 46, 8);
-INSERT INTO `related` VALUES (1, 17, 31, 8);
-INSERT INTO `related` VALUES (1, 17, 30, 8);
-INSERT INTO `related` VALUES (1, 21, 5, 8);
-INSERT INTO `related` VALUES (1, 21, 99, 8);
-INSERT INTO `related` VALUES (2, 21, 39, 5);
-INSERT INTO `related` VALUES (2, 21, 99, 5);
-INSERT INTO `related` VALUES (3, 21, 26, 3);
-INSERT INTO `related` VALUES (3, 21, 32, 3);
-INSERT INTO `related` VALUES (3, 21, 99, 3);
-INSERT INTO `related` VALUES (4, 21, 29, 2);
-INSERT INTO `related` VALUES (4, 21, 32, 2);
-INSERT INTO `related` VALUES (4, 21, 37, 2);
-INSERT INTO `related` VALUES (4, 21, 38, 2);
-INSERT INTO `related` VALUES (4, 21, 39, 2);
-INSERT INTO `related` VALUES (5, 21, 29, 2);
-INSERT INTO `related` VALUES (5, 21, 37, 2);
-INSERT INTO `related` VALUES (5, 21, 38, 2);
-INSERT INTO `related` VALUES (5, 21, 39, 2);
-INSERT INTO `related` VALUES (1, 67, 71, 8);
-INSERT INTO `related` VALUES (2, 67, 36, 5);
-INSERT INTO `related` VALUES (2, 67, 71, 5);
-INSERT INTO `related` VALUES (3, 67, 35, 3);
-INSERT INTO `related` VALUES (3, 67, 37, 3);
-INSERT INTO `related` VALUES (3, 67, 38, 3);
-INSERT INTO `related` VALUES (3, 67, 48, 3);
-INSERT INTO `related` VALUES (3, 67, 71, 3);
-INSERT INTO `related` VALUES (4, 67, 71, 2);
-INSERT INTO `related` VALUES (5, 67, 71, 2);
-INSERT INTO `related` VALUES (6, 67, 19, 1);
-INSERT INTO `related` VALUES (6, 67, 71, 1);
-INSERT INTO `related` VALUES (2, 20, 102, 5);
-INSERT INTO `related` VALUES (6, 5, 35, 1);
-INSERT INTO `related` VALUES (6, 5, 32, 1);
-INSERT INTO `related` VALUES (6, 5, 26, 1);
-INSERT INTO `related` VALUES (6, 5, 3, 1);
-INSERT INTO `related` VALUES (5, 5, 99, 2);
-INSERT INTO `related` VALUES (5, 5, 38, 2);
-INSERT INTO `related` VALUES (5, 5, 3, 2);
-INSERT INTO `related` VALUES (4, 5, 99, 2);
-INSERT INTO `related` VALUES (4, 5, 38, 2);
-INSERT INTO `related` VALUES (4, 5, 3, 2);
-INSERT INTO `related` VALUES (3, 5, 106, 3);
-INSERT INTO `related` VALUES (3, 5, 39, 3);
-INSERT INTO `related` VALUES (2, 5, 106, 5);
-INSERT INTO `related` VALUES (2, 5, 32, 5);
-INSERT INTO `related` VALUES (2, 5, 29, 5);
-INSERT INTO `related` VALUES (1, 5, 99, 8);
-INSERT INTO `related` VALUES (1, 5, 21, 8);
-INSERT INTO `related` VALUES (6, 29, 106, 1);
-INSERT INTO `related` VALUES (6, 29, 36, 1);
-INSERT INTO `related` VALUES (5, 29, 39, 2);
-INSERT INTO `related` VALUES (5, 29, 38, 2);
-INSERT INTO `related` VALUES (5, 29, 21, 2);
-INSERT INTO `related` VALUES (5, 29, 5, 2);
-INSERT INTO `related` VALUES (4, 29, 39, 2);
-INSERT INTO `related` VALUES (4, 29, 38, 2);
-INSERT INTO `related` VALUES (4, 29, 21, 2);
-INSERT INTO `related` VALUES (4, 29, 5, 2);
-INSERT INTO `related` VALUES (2, 29, 106, 5);
-INSERT INTO `related` VALUES (2, 29, 32, 5);
-INSERT INTO `related` VALUES (2, 29, 5, 5);
-INSERT INTO `related` VALUES (1, 29, 39, 8);
 INSERT INTO `related` VALUES (1, 109, 97, 8);
-INSERT INTO `related` VALUES (6, 38, 40, 1);
-INSERT INTO `related` VALUES (6, 38, 39, 1);
-INSERT INTO `related` VALUES (6, 38, 35, 1);
-INSERT INTO `related` VALUES (6, 38, 32, 1);
-INSERT INTO `related` VALUES (6, 38, 26, 1);
-INSERT INTO `related` VALUES (6, 38, 5, 1);
-INSERT INTO `related` VALUES (6, 38, 3, 1);
-INSERT INTO `related` VALUES (5, 38, 99, 2);
-INSERT INTO `related` VALUES (5, 38, 39, 2);
-INSERT INTO `related` VALUES (5, 38, 5, 2);
-INSERT INTO `related` VALUES (5, 38, 3, 2);
-INSERT INTO `related` VALUES (4, 38, 99, 2);
-INSERT INTO `related` VALUES (4, 38, 39, 2);
-INSERT INTO `related` VALUES (4, 38, 5, 2);
-INSERT INTO `related` VALUES (4, 38, 3, 2);
-INSERT INTO `related` VALUES (3, 38, 71, 3);
-INSERT INTO `related` VALUES (3, 38, 48, 3);
-INSERT INTO `related` VALUES (3, 38, 35, 3);
-INSERT INTO `related` VALUES (2, 38, 3, 5);
-INSERT INTO `related` VALUES (6, 25, 109, 1);
-INSERT INTO `related` VALUES (6, 26, 48, 1);
-INSERT INTO `related` VALUES (6, 26, 40, 1);
-INSERT INTO `related` VALUES (6, 26, 39, 1);
-INSERT INTO `related` VALUES (6, 26, 38, 1);
-INSERT INTO `related` VALUES (6, 26, 35, 1);
-INSERT INTO `related` VALUES (6, 26, 32, 1);
-INSERT INTO `related` VALUES (6, 26, 5, 1);
-INSERT INTO `related` VALUES (6, 26, 3, 1);
-INSERT INTO `related` VALUES (5, 26, 106, 2);
-INSERT INTO `related` VALUES (5, 26, 48, 2);
-INSERT INTO `related` VALUES (5, 26, 40, 2);
-INSERT INTO `related` VALUES (5, 26, 36, 2);
-INSERT INTO `related` VALUES (4, 26, 106, 2);
-INSERT INTO `related` VALUES (4, 26, 48, 2);
-INSERT INTO `related` VALUES (4, 26, 40, 2);
-INSERT INTO `related` VALUES (4, 26, 36, 2);
-INSERT INTO `related` VALUES (3, 26, 99, 3);
-INSERT INTO `related` VALUES (3, 26, 32, 3);
-INSERT INTO `related` VALUES (3, 26, 21, 3);
-INSERT INTO `related` VALUES (2, 26, 40, 5);
-INSERT INTO `related` VALUES (1, 26, 48, 8);
-INSERT INTO `related` VALUES (1, 26, 40, 8);
-INSERT INTO `related` VALUES (1, 31, 17, 8);
-INSERT INTO `related` VALUES (1, 31, 30, 8);
-INSERT INTO `related` VALUES (1, 31, 46, 8);
-INSERT INTO `related` VALUES (1, 31, 108, 8);
-INSERT INTO `related` VALUES (2, 31, 108, 5);
-INSERT INTO `related` VALUES (3, 31, 9, 3);
-INSERT INTO `related` VALUES (3, 31, 97, 3);
-INSERT INTO `related` VALUES (3, 31, 109, 3);
-INSERT INTO `related` VALUES (4, 31, 9, 2);
-INSERT INTO `related` VALUES (4, 31, 11, 2);
-INSERT INTO `related` VALUES (4, 31, 30, 2);
-INSERT INTO `related` VALUES (4, 31, 97, 2);
-INSERT INTO `related` VALUES (5, 31, 9, 2);
-INSERT INTO `related` VALUES (5, 31, 11, 2);
-INSERT INTO `related` VALUES (5, 31, 30, 2);
-INSERT INTO `related` VALUES (5, 31, 97, 2);
-INSERT INTO `related` VALUES (6, 31, 9, 1);
-INSERT INTO `related` VALUES (6, 31, 11, 1);
-INSERT INTO `related` VALUES (6, 31, 25, 1);
-INSERT INTO `related` VALUES (6, 31, 30, 1);
-INSERT INTO `related` VALUES (6, 31, 109, 1);
-INSERT INTO `related` VALUES (5, 108, 17, 2);
-INSERT INTO `related` VALUES (6, 48, 3, 1);
-INSERT INTO `related` VALUES (6, 48, 5, 1);
-INSERT INTO `related` VALUES (6, 48, 26, 1);
-INSERT INTO `related` VALUES (6, 48, 32, 1);
-INSERT INTO `related` VALUES (6, 48, 35, 1);
-INSERT INTO `related` VALUES (6, 48, 38, 1);
-INSERT INTO `related` VALUES (6, 48, 39, 1);
-INSERT INTO `related` VALUES (6, 48, 40, 1);
-INSERT INTO `related` VALUES (1, 46, 17, 8);
-INSERT INTO `related` VALUES (1, 46, 30, 8);
-INSERT INTO `related` VALUES (1, 46, 31, 8);
-INSERT INTO `related` VALUES (1, 46, 108, 8);
-INSERT INTO `related` VALUES (2, 46, 109, 5);
-INSERT INTO `related` VALUES (4, 46, 25, 2);
-INSERT INTO `related` VALUES (4, 46, 97, 2);
-INSERT INTO `related` VALUES (4, 46, 109, 2);
-INSERT INTO `related` VALUES (5, 46, 25, 2);
-INSERT INTO `related` VALUES (5, 46, 97, 2);
-INSERT INTO `related` VALUES (5, 46, 109, 2);
-INSERT INTO `related` VALUES (1, 39, 29, 8);
-INSERT INTO `related` VALUES (2, 39, 21, 5);
-INSERT INTO `related` VALUES (2, 39, 99, 5);
-INSERT INTO `related` VALUES (3, 39, 5, 3);
-INSERT INTO `related` VALUES (3, 39, 106, 3);
-INSERT INTO `related` VALUES (4, 39, 5, 2);
-INSERT INTO `related` VALUES (4, 39, 21, 2);
-INSERT INTO `related` VALUES (4, 39, 29, 2);
-INSERT INTO `related` VALUES (4, 39, 38, 2);
-INSERT INTO `related` VALUES (4, 39, 99, 2);
-INSERT INTO `related` VALUES (5, 39, 5, 2);
-INSERT INTO `related` VALUES (5, 39, 21, 2);
-INSERT INTO `related` VALUES (5, 39, 29, 2);
-INSERT INTO `related` VALUES (5, 39, 38, 2);
-INSERT INTO `related` VALUES (5, 39, 99, 2);
-INSERT INTO `related` VALUES (6, 39, 3, 1);
-INSERT INTO `related` VALUES (6, 39, 5, 1);
-INSERT INTO `related` VALUES (6, 39, 26, 1);
-INSERT INTO `related` VALUES (6, 39, 32, 1);
-INSERT INTO `related` VALUES (6, 39, 35, 1);
-INSERT INTO `related` VALUES (6, 39, 38, 1);
-INSERT INTO `related` VALUES (6, 39, 40, 1);
-INSERT INTO `related` VALUES (6, 39, 48, 1);
-INSERT INTO `related` VALUES (4, 40, 26, 2);
-INSERT INTO `related` VALUES (4, 40, 48, 2);
-INSERT INTO `related` VALUES (4, 40, 106, 2);
-INSERT INTO `related` VALUES (5, 40, 26, 2);
-INSERT INTO `related` VALUES (5, 40, 48, 2);
-INSERT INTO `related` VALUES (5, 40, 106, 2);
-INSERT INTO `related` VALUES (6, 40, 3, 1);
-INSERT INTO `related` VALUES (6, 40, 5, 1);
-INSERT INTO `related` VALUES (6, 40, 26, 1);
-INSERT INTO `related` VALUES (6, 40, 32, 1);
-INSERT INTO `related` VALUES (6, 40, 35, 1);
-INSERT INTO `related` VALUES (6, 40, 38, 1);
-INSERT INTO `related` VALUES (6, 40, 39, 1);
-INSERT INTO `related` VALUES (6, 40, 48, 1);
-INSERT INTO `related` VALUES (6, 35, 48, 1);
-INSERT INTO `related` VALUES (6, 35, 40, 1);
-INSERT INTO `related` VALUES (6, 35, 39, 1);
-INSERT INTO `related` VALUES (6, 35, 38, 1);
-INSERT INTO `related` VALUES (6, 35, 32, 1);
-INSERT INTO `related` VALUES (6, 35, 26, 1);
-INSERT INTO `related` VALUES (6, 35, 5, 1);
-INSERT INTO `related` VALUES (6, 35, 3, 1);
-INSERT INTO `related` VALUES (5, 35, 71, 2);
-INSERT INTO `related` VALUES (5, 35, 19, 2);
-INSERT INTO `related` VALUES (4, 35, 71, 2);
-INSERT INTO `related` VALUES (4, 35, 19, 2);
-INSERT INTO `related` VALUES (3, 35, 71, 3);
-INSERT INTO `related` VALUES (3, 35, 48, 3);
-INSERT INTO `related` VALUES (3, 35, 38, 3);
-INSERT INTO `related` VALUES (2, 35, 19, 5);
 
 -- --------------------------------------------------------
 
@@ -2296,9 +1936,6 @@ CREATE TABLE `track` (
 -- 列出以下資料庫的數據： `track`
 -- 
 
-INSERT INTO `track` VALUES (8, 97, '2013-10-16 17:11:51');
-INSERT INTO `track` VALUES (1, 97, '2013-10-16 17:46:58');
-INSERT INTO `track` VALUES (8, 109, '2013-10-17 11:18:54');
 
 -- --------------------------------------------------------
 
@@ -2334,13 +1971,12 @@ CREATE TABLE `transaction` (
   `storenumber` varchar(20) NOT NULL COMMENT '店門市店號',
   `remark` varchar(20) NOT NULL COMMENT '備註',
   PRIMARY KEY  (`t_number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='交易' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='交易' AUTO_INCREMENT=1 ;
 
 -- 
 -- 列出以下資料庫的數據： `transaction`
 -- 
 
-INSERT INTO `transaction` VALUES (1, '選擇交易方式', NULL, NULL, '2013-11-07 16:53:46', 8, 109, NULL, NULL, NULL, NULL, '0', '', NULL, '輔仁大學門口', '全天 ( 08:00 ~ 22:00 )', '', '0000-00-00', '', '', '', '', '0000-00-00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2358,16 +1994,3 @@ CREATE TABLE `view` (
 -- 列出以下資料庫的數據： `view`
 -- 
 
-INSERT INTO `view` VALUES (2, 11, '2013-11-07 16:39:02');
-INSERT INTO `view` VALUES (2, 109, '2013-11-07 16:41:08');
-INSERT INTO `view` VALUES (2, 109, '2013-11-07 16:51:45');
-INSERT INTO `view` VALUES (8, 109, '2013-11-07 16:55:08');
-INSERT INTO `view` VALUES (2, 3, '2013-11-07 18:19:17');
-INSERT INTO `view` VALUES (10, 108, '2013-11-07 18:37:36');
-INSERT INTO `view` VALUES (1, 1, '2013-11-07 18:38:01');
-INSERT INTO `view` VALUES (2, 1, '2013-11-07 18:38:23');
-INSERT INTO `view` VALUES (3, 1, '2013-11-07 18:38:25');
-INSERT INTO `view` VALUES (4, 1, '2013-11-07 18:38:26');
-INSERT INTO `view` VALUES (5, 1, '2013-11-07 18:38:28');
-INSERT INTO `view` VALUES (9, 1, '2013-11-07 18:39:22');
-INSERT INTO `view` VALUES (10, 108, '2013-11-07 18:53:24');

@@ -344,7 +344,7 @@ include("myaccount.php");
                     <strong>
                     <div id="userPKI" style="position:absolute;float:left; left:215px; top:91px; color:#000;">尚未認證</div>
                     </strong>
-                    <input name="button" value="登入" type="button" onclick="MakeCredential()" class="sent">              
+                    <input name="button" value="驗證" type="button" onclick="MakeCredential()" class="sent">              
             <?PHP
 				}
 				
